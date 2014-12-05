@@ -1,14 +1,14 @@
-[1] Config.pm:387> INFO - This is Biber 1.6
-[1] Config.pm:390> INFO - Logfile is 'main.blg'
-[350] biber-darwin:218> INFO - === Thu Nov 20, 2014, 22:02:33
-[351] Biber.pm:325> INFO - Reading 'main.bcf'
-[506] Biber.pm:623> INFO - Found 2 citekeys in bib section 0
-[550] Biber.pm:2995> INFO - Processing section 0
-[641] Biber.pm:3129> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[643] bibtex.pm:898> INFO - Decoding LaTeX character macros into UTF-8
-[643] bibtex.pm:775> INFO - Found BibTeX data source 'bibliography.bib'
-[952] Biber.pm:2881> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
-[952] Biber.pm:2887> INFO - Sorting 'entry' list 'nyt' keys
-[952] Biber.pm:2891> INFO - No sort tailoring available for locale 'en_US.UTF-8'
-[1000] bbl.pm:472> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1014] bbl.pm:545> INFO - Output to main.bbl
+[0] Config.pm:318> INFO - This is Biber 1.8
+[0] Config.pm:321> INFO - Logfile is 'main.blg'
+[82] biber-darwin:275> INFO - === Thu Dec  4, 2014, 22:42:57
+[83] Biber.pm:333> INFO - Reading 'main.bcf'
+[156] Biber.pm:630> INFO - Found 2 citekeys in bib section 0
+[185] Biber.pm:3053> INFO - Processing section 0
+[211] Biber.pm:3190> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[213] bibtex.pm:937> INFO - Decoding LaTeX character macros into UTF-8
+[213] bibtex.pm:812> INFO - Found BibTeX data source 'bibliography.bib'
+[255] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[255] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[255] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[261] bbl.pm:482> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[262] bbl.pm:555> INFO - Output to main.bbl
