@@ -47,7 +47,8 @@
 
 \usepackage{xcolor} % Required for specifying colors by name
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
-
+\usepackage{amsmath} %Required for some mathmatical fomulas 
+\usepackage{enumitem} %lists
 % Font Settings
 \usepackage{avant} % Use the Avantgarde font for headings
 %\usepackage{times} % Use the Times font for headings
@@ -135,56 +136,57 @@ STAT 514 Lecture Notes\par % Book title
 
 \chapterimage{chapter_head_2.pdf} % Chapter heading image
 
-\chapter{Point Estimation - Chapter 7 Castella \& Berger}
+\chapter{Point Estimation - Chapter 7 Casella \& Berger}
 
 \section{Introduction}\index{Paragraphs of Text}
 
-In the simplest case, we have $n$ observations of data that we believe follow the same distribution.
-$$
-	X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)
-$$
-
-where $f_\theta(x)$ is a density function involving a parameter $\theta$. Our goal is to learn something about $\theta$, which could be real or vector valued.\\
-
-\begin{definition}[Estimator]
-	An \emph{estimator} of $\theta$ is any function $W(X_1, \dots, X_n)$ of the data. That is, an estimator is a \emph{statistic}.
-\end{definition}
-
-Note:
-\begin{enumerate}
-	\item $W(\bm{X})$ may not depend on $\theta$.
-	\item $W(\bm{X})$ should resemble or ``be close'' to $\theta$.
-	\item An estimator is \emph{random}.
-	\item $W(X_1, \dots, X_n)$ is the estimator, $W(x_1, \dots, x_n)$ is the fixed estimate.
-\end{enumerate}
-
-\begin{example}
-	Suppose we have $n$ observations from an exponential distribution,
+	In the simplest case, we have $n$ observations of data that we believe follow the same distribution.
 	$$
-		X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)=\frac{1}{\theta}\exp\left\{-\frac{x}{\theta}\right\}\mathbbm{1}\{x>0\}
+		X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)
 	$$
-	for some $\theta > 0$. The \textbf{likelihood function} is equivalent to the joint density function, expressed as a function of $\theta$ rather than the data:
-	$$
-		L(\theta) = \prod_{i=1}^n \frac{1}{\theta}\exp\left\{-\frac{x}{\theta}\right\} = \frac{1}{\theta^n}\exp\left\{-\frac{1}{\theta}\sum_{i=1}^n x_i\right\}
-	$$
-	This function represents the \emph{likelihood} of observing the data we observed assuming the parameter was a particular value of $\theta$. If we can maximize this function, we can determine the $\hat{\theta}$ for which the likelihood of observing $\bm{X}$ was the highest. This might tell us something about the true value of $\theta$.
 
-	\indent To maximize $L(\theta)$, we want to take the derivative, set it equal to 0, and solve for $\theta$. However, in many cases taking the derivative of the likelihood function will be very hard, if not impossible. We can use the fact that taking the logarithm does not change the location of extrema. The \textbf{log-likelihood function} in this case is
-	\begin{equation*}
-		\ell(\theta) = \log L(\theta) = -n \log \theta - \frac{1}{\theta} \sum_{i=1}^n x_i
-	\end{equation*}
-	Take the derivative with respect to the parameter and set equal to 0:
-	\begin{eqnarray*}
-		\ell'(\theta) &=& -\frac{n}{\theta} + \frac{1}{\theta^2} \sum_{i=1}^n x_i \enspace \stackrel{\textrm{set}}{=} \enspace 0\\
-		\hat{\theta} &=& \frac{1}{n} \sum_{i=1}^n x_i
-	\end{eqnarray*}
-	Here $\hat{\theta}$ is an estimator (the sample mean). Since it maximizes $L(\theta)$, we call it the \textbf{maximum likelihood estimator} (MLE).
-\end{example}
+	where $f_\theta(x)$ is a density function involving a parameter $\theta$. Our goal is to learn something about $\theta$, which could be real or vector valued.\\
+
+	\begin{definition}[Estimator]
+		An \emph{estimator} of $\theta$ is any function $W(X_1, \dots, X_n)$ of the data. That is, an estimator is a \emph{statistic}.
+	\end{definition}
+
+	Note:
+	\begin{enumerate}
+		\item $W(\bm{X})$ may not depend on $\theta$.
+		\item $W(\bm{X})$ should resemble or ``be close'' to $\theta$.
+		\item An estimator is \emph{random}.
+		\item $W(X_1, \dots, X_n)$ is the estimator, $W(x_1, \dots, x_n)$ is the fixed estimate.
+	\end{enumerate}
+
+	\begin{example}
+		Suppose we have $n$ observations from an exponential distribution,
+		$$
+			X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)=\frac{1}{\theta}\exp\left\{-\frac{x}{\theta}\right\}\mathbbm{1}\{x>0\}
+		$$
+		for some $\theta > 0$. The \textbf{likelihood function} is equivalent to the joint density function, expressed as a function of $\theta$ rather than the data:
+		$$
+			L(\theta) = \prod_{i=1}^n \frac{1}{\theta}\exp\left\{-\frac{x}{\theta}\right\} = \frac{1}{\theta^n}\exp\left\{-\frac{1}{\theta}\sum_{i=1}^n x_i\right\}
+		$$
+		This function represents the \emph{likelihood} of observing the data we observed assuming the parameter was a particular value of $\theta$. If we can maximize this function, we can determine the $\hat{\theta}$ for which the likelihood of observing $\bm{X}$ was the highest. This might tell us something about the true value of $\theta$.
+
+		\indent To maximize $L(\theta)$, we want to take the derivative, set it equal to 0, and solve for $\theta$. However, in many cases taking the derivative of the likelihood function will be very hard, if not impossible. We can use the fact that taking the logarithm does not change the location of extrema. The \textbf{log-likelihood function} in this case is
+		\begin{equation*}
+			\ell(\theta) = \log L(\theta) = -n \log \theta - \frac{1}{\theta} \sum_{i=1}^n x_i
+		\end{equation*}
+		Take the derivative with respect to the parameter and set equal to 0:
+		\begin{eqnarray*}
+			\ell'(\theta) &=& -\frac{n}{\theta} + \frac{1}{\theta^2} \sum_{i=1}^n x_i \enspace \stackrel{\textrm{set}}{=} \enspace 0\\
+			\hat{\theta} &=& \frac{1}{n} \sum_{i=1}^n x_i
+		\end{eqnarray*}
+		Here $\hat{\theta}$ is an estimator (the sample mean). Since it maximizes $L(\theta)$, we call it the \textbf{maximum likelihood estimator} (MLE).
+	\end{example}
+
 
 \begin{section}{Mean Squared Error}
 
 \begin{remark} 
-	Read Castella \& Berger Chapter 7.3 - Methods of Evaluating Estimation
+	Read Casella \& Berger Chapter 7.3 - Methods of Evaluating Estimation
 \end{remark} 
 
 
@@ -258,6 +260,104 @@ Proof:
 	\]
 	for all $\theta$. W* is also called a $\textit{uniform minimum variance unbiased estimator}$ (UMVUE) of $\tau(\theta)$.
 \end{definition}
+Main Result: Under some assumptions we can establish a lower bound on Var(W(X)). 
+
+\begin{theorem}[Cremer-Rao Inequality]
+	Also: Information Inequality. 
+	$$\text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$$
+	where, 
+	$\Psi(\theta)=E_\theta(W(\underline{X}))$\\
+	and, 
+	the Fisher/Expected information, $I(\theta)=E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)$.
+	
+\end{theorem}
+Proof: Follows from Cauchy-Schwarz Inequality
+
+$$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) $$
+
+Assumptions:
+\begin{enumerate}
+	\item I($\theta)=E_\theta \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2)\right) = Var((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2))$ is well defined and I($\theta)>0$.
+	\item $E \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=0$ Thus, I($\theta$) is just varience.
+	\item $E \left((W(\underline{X})\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=\Psi^\prime(\theta)$
+\end{enumerate}
+So, \\
+$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) \simeq \text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$
+\begin{exercise}
+	Let $\underline{X} \sim Poi(\theta)$, Y=$\sum x_i$, and Y $\sim Poi(n\theta)$. What is $I(\theta)$?
+
+	\begin{align*}
+		I(\theta) &= E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2) \right)\\
+				&=E\left((\frac{\delta}{\delta \theta}\log \prod \frac{\theta^x e^{-\theta}}{x!})^2) \right)\\
+				&= E\left((\frac{\delta}{\delta \theta}\log \frac{\theta^{\sum x_i} e^{-\theta n}}{\sum x_i!})^2 \right)\\
+				&= E\left(\frac{\delta}{\delta \theta}(-n\theta + \sum x_i \log \theta - \sum \log x_i!)^2  \right)\\
+				&= E\left((-n+\frac{\sum x_i}{\theta})^2 \right)\\
+				&= E\left( n^2 - 2(\frac{\sum x_i}{\theta})(n)+(\frac{\sum x_i}{\theta})^2 \right)\\
+				&= n^2 -\frac{2n * E(\sum x_i)}{\theta} + \frac{E((\sum x_i)^2)}{\theta^2}\\
+				\\
+				&=n^2 - \frac{2n*E(Y)}{\theta} + \frac{E(Y)^2}{\theta}\\
+				&=\frac{n}{\theta}
+	\end{align*}
+\end{exercise}
+
+Note: I($\theta$) is equal to information in the whole sample, but sometimes it's just one sample (based on context).
+
+If we assume (as in any exponential family):
+
+$$E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) = \frac{\delta^2}{\delta \theta^2}\int{\log f_{\theta}(\underline{x})}f_\theta(\underline{x})dx$$
+  
+then, the observed information is 
+$$I(\theta) = - E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) $$
+
+\begin{example}
+	Let $X_i \dots X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$
+Find the information based on $\sigma^2$.
+
+	Write 
+\begin{align*}
+	\ell(\mu,\sigma^2) &=\log\left(\prod (2\pi\sigma^2)^{\frac{1}{2}} \exp\left\{\frac{-(x-\mu)^2}{2\sigma^2}\right\}\right)\\
+	&= \frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2} \right)
+	\end{align*}
+
+If we try to use the expected information: 
+
+$I(\sigma^2) = E\left(\frac{\delta}{\delta \theta}\left(\frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2}\right)\right)^2 \right)$
+which is a mess. 
+
+However, using the observed information:
+
+\begin{align*}
+I(\sigma^2) &= \frac{-n}{2\sigma^4} + \frac{1}{\sigma^6} E\left(\sum(X_i-\mu)^2\right)\\
+	&= \frac{-n}{2\sigma^4}+\frac{n\sigma^2}{\sigma^6}\\
+	&= \frac{n}{2\sigma^4}
+\end{align*}
+
+\end{example}
+
+\begin{example}
+	Continued from previous example. 
+
+	Define $S^2 = \frac{1}{n-1}\sum (X_i - \bar{X})^2$
+
+	Note: $\frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1}$
+
+	Does $S^2$ acheive the C-R lower bound?
+
+	\begin{align*}
+	Var(S^2) &\ge \frac{\Psi^\prime(\theta)}{I(\theta)}\\
+		\frac{2\sigma^4}{n-1} &\ge \frac{1}{I(\theta)}\\
+		&\ge \frac{2\sigma^4}{n}
+	\end{align*}
+\end{example}
+\begin{remark}
+	Reread 7.3 and 6.2 in Casella and Berger
+\end{remark}
+What would give equality? When W($\underline{X}$) is a linear function of $\frac{\delta}{\delta \theta} \log f_\theta(\underline{X})$ which leads to... 
+\begin{corollary}[Attainment]
+	Let $X_1,\dots,X_n$ be iid f(x|$\theta$), where f(x|$\theta$) satisfies the conditions of the Cramer-Rao Theorem. Let $L(\theta|x) = \prod f(x_i|\theta)$ denote the likelihood function. If $W(X) = W(X_1,\dots,X_n)$ is any unbiased estimator of $\tau(\theta)$, then W(X) attains the Cramer-Rao Lower Bound iff
+	$$ a(\theta)\left(W(x) - \tau(\theta)\right) = \frac{\delta}{\delta \theta} \log L(\theta|x) $$
+	for some function a($\theta$).
+\end{corollary}
 \end{section}
 
 \begin{section}{Lost Function Optimality}
@@ -312,195 +412,160 @@ $$(E(AB))^2 \le E(A^2) * E(B^2)$$
 Or in terms of covariance:
 $$Cov^2(AB) \le Var(A)*Var(B)$$
 \end{theorem}
-Proof:
-
+Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
+	\begin{align*}
+		E(D^2) &= E(B^2 - 2(B)(\frac{E(AB)}{E(A^2)}A)+(\frac{E(AB)}{E(A^2)}A)^2)\\
+			&= E(B^2)-2\left( \frac{E(AB)^2}{E(A^2)} \right) + \frac{E(AB)}{E(A^2)}E(A^2)\\
+			&= E(B^2) - \frac{E(AB)^2}{E(A^2)} \ge 0
+	\end{align*}
 
 \end{section}
+
+\begin{section}{Practice Problems}
+
+	\begin{problem} (C\&B 7.2) Let $X_1, \dots, X_n$ be a random sample from a Gamma($\alpha, \beta$) population.
+
+		\begin{enumerate}[label=(\alph*)] 
+			\item Find the MLE of $\beta$, assuming $\alpha$ is known.
+			\item If $\alpha$ and $\beta$ are both unknown, there is no explicit formula for the MLEs of $\alpha$ and $\beta$, but the maximum can be found numberically. The result in part (a) can be used to reduce the problem to the maximization of a univariate function. Find the MLEs for $\alpha$and $\beta$ for the data in Exercise 7.10(c).
+		\end{enumerate}
+
+			Solution.
+
+			(a) Gamma distribution pdf: $\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$\\
+			\\
+			$L(\beta) = \frac{\beta^{n\alpha}}{\Gamma(\alpha)^n}[\prod x]^{\alpha-1}e^{-\beta \sum x}$\\
+
+			$\ell(\beta) = n\alpha\log\beta - n\log\Gamma(\alpha) +(\alpha-1)\log(\prod x_i) - \beta \sum x_i $\\
+
+			$\frac{\delta \ell}{\delta \beta} = \frac{n\alpha}{\beta} - \sum x_i$\\
+			\\
+			$\hat{\beta} = \frac{n\alpha}{\sum x_i}$
+
+			\begin{remark}
+				The density of Gamma can also be in the form with $\frac{1}{\beta}$ which would mean $\hat{\beta}$ would be $\frac{\sum x_i}{n\alpha} $.
+			\end{remark} 
+
+			(b) Meh. You do it. 
+
+	\end{problem}
+	
+	\begin{problem} (C\&B 7.6) Let $X_1, \dots, X_n$ be a random sample from the pdf
+	$$f(x|\theta) = \theta x^{-2}, 0<\theta\le x < \infty $$
+
+	\begin{enumerate}[label=(\alph*)]
+		\item What is a sufficient statistic for $\theta$?
+		\item Find the MLE of $\theta$.
+		\item Find the method of moments estimator of $\theta$?
+	\end{enumerate}
+		
+
+		Solution. 
+
+		(a) Use Factorization Theorem.\\ 
+		$L(\theta) = \theta^n \prod(x_i^2) \prod I\{\theta \le x < \infty\}$ where $\prod I\{\theta \le x < \infty = x_{(1)}$\\
+		Thus the sufficient statistic is the minimum x. \\
+		\\
+		(b) L($\theta$|x) = $\theta^n \prod(x_i^2) \prod I\{\theta \le x < \infty \}$. $\theta^n$ is increasing in $\theta$. The second term does not involve $\theta$. So to maximize $L(\theta|x)$, we want to make $\theta$ as large as possible. But because of the indicator function, $L(\theta|x) = 0 if \theta > x(1)$. Thus, $\hat{\theta} = x_{(1)}$.
+
+
+	\end{problem}
+
+\end{section}
+
 %------------------------------------------------
 
-\section{Citation}\index{Citation}
+% \section{Citation}\index{Citation}
 
-This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+% This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
 
-%------------------------------------------------
+% %------------------------------------------------
 
-\section{Lists}\index{Lists}
+% \section{Lists}\index{Lists}
 
-Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
+% Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
 
-\subsection{Numbered List}\index{Lists!Numbered List}
+% \subsection{Numbered List}\index{Lists!Numbered List}
 
-\begin{enumerate}
-\item The first item
-\item The second item
-\item The third item
-\end{enumerate}
+% \begin{enumerate}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{enumerate}
 
-\subsection{Bullet Points}\index{Lists!Bullet Points}
+% \subsection{Bullet Points}\index{Lists!Bullet Points}
 
-\begin{itemize}
-\item The first item
-\item The second item
-\item The third item
-\end{itemize}
+% \begin{itemize}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{itemize}
 
-\subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+% \subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
 
-\begin{description}
-\item[Name] Description
-\item[Word] Definition
-\item[Comment] Elaboration
-\end{description}
+% \begin{description}
+% \item[Name] Description
+% \item[Word] Definition
+% \item[Comment] Elaboration
+% \end{description}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 2
 %----------------------------------------------------------------------------------------
 
-\chapter{In-text Elements}
+\chapter{Principles of Data Reduction}
 
-\section{Theorems}\index{Theorems}
+\section{Sufficiency Principle}
 
-This is an example of theorems.
-
-\subsection{Several equations}\index{Theorems!Several Equations}
-This is a theorem consisting of several equations.
-
-\begin{theorem}[Name of the theorem]
-In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
-\begin{align}
-& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-\end{align}
-\end{theorem}
-
-\subsection{Single Line}\index{Theorems!Single Line}
-This is a theorem consisting of just one line.
-
-\begin{theorem}
-A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
-\end{theorem}
-
-%------------------------------------------------
-
-\section{Definitions}\index{Definitions}
-
-This is an example of a definition. A definition could be mathematical or it could define a concept.
-
-\begin{definition}[Definition name]
-Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
-\begin{align}
-& ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
-& ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
-& ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
-\end{align}
+\begin{definition}{sufficient}
+	T(X) is \textbf{sufficient} for $\theta$ if the distribution of X|T($\underline{X}$) does not depend on $\theta$.  
 \end{definition}
 
-%------------------------------------------------
-
-\section{Notations}\index{Notations}
-
-\begin{notation}
-Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
-\begin{enumerate}
-\item Bounded support $G$;
-\item Infinitely differentiable;
-\end{enumerate}
-a vector space is denoted by $\mathcal{D}(G)$. 
-\end{notation}
-
-%------------------------------------------------
-
-\section{Remarks}\index{Remarks}
-
-This is an example of a remark.
-
-\begin{remark}
-The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-\end{remark}
-
-%------------------------------------------------
-
-\section{Corollaries}\index{Corollaries}
-
-This is an example of a corollary.
-
-\begin{corollary}[Corollary name]
-The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-\end{corollary}
-
-%------------------------------------------------
-
-\section{Propositions}\index{Propositions}
-
-This is an example of propositions.
-
-\subsection{Several equations}\index{Propositions!Several Equations}
-
-\begin{proposition}[Proposition name]
-It has the properties:
-\begin{align}
-& \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-&  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-\end{align}
-\end{proposition}
-
-\subsection{Single Line}\index{Propositions!Single Line}
-
-\begin{proposition} 
-Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
-\end{proposition}
-
-%------------------------------------------------
-
-\section{Examples}\index{Examples}
-
-This is an example of examples.
-
-\subsection{Equation and Text}\index{Examples!Equation and Text}
+\begin{theorem}{Factorization Theorem}
+	If we have $\underline{X} \sim f_\theta(\underline{x}$ then T is sufficient iff we can write $f_\theta$ as
+	$$g(T(x),\theta)h(x)$$
+	for some g and h.
+\end{theorem}
 
 \begin{example}
-Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
-\begin{equation}
-f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
-& 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
-\end{equation}
-The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
+	$X_1, \dots, X_n \stackrel{iid}{\sim}$ Bern($\theta$)\\
+	pdf: $\theta^x(1-\theta)^{1-x}$
+
+	Joint pdf = $f_\theta(x) = \theta^{\sum x_i}(1-\theta)^{n-\sum x_i}$
+
+	So, T($\underline{x}$) = $\sum x_i$
 \end{example}
 
-\subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
+Q: What is the connection to Section 7.3?\\
+A: \begin{align*}
+Var_\theta(W(\underline{X})) &= Var\left[E(W(X)|T(X))\right] + E\left[Var(W(X)|T(X)) \right]\\
+&\ge Var\left[E(W(X)|T(X))\right]	
+\end{align*} 
+Note: $E\theta \left\{E_\theta[W(X)|T(X)] \right\} = E_\theta(W(X))$
 
-\begin{example}[Example name]
-\lipsum[2]
+$E_\theta[W(X)|T(X)]$ does not depend on $\theta$. So this is a legitimate estimator since T(X) is sufficient and its varience is smaller than any estimator with same mean. \\
+\\
+General Idea of Sufficiency: If T(X) is sufficient for $\theta$, then all information in X about $\theta$ is captured in T(X). \\
+\\
+More technically, conditioning T(X), the remaining randomness does not depend on $\theta$.
+
+\begin{remark}
+	Know Thm 6.2.6 - Factorization Theorem
+\end{remark}
+
+\begin{definition}{minimal sufficient}
+	 T(X) is $\textbf{minimal sufficient}$ if 
+	 \begin{itemize}
+	 	\item T(X) is sufficient
+	 	\item is a function of any sufficient statistic
+	 \end{itemize}
+	 Note: "T(X) is a function S(X)" means that S(x) = S(y) implies T(x) = T(y).
+\end{definition}
+
+\begin{example}
+	 $X_1, \dots, X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$. Find possible T($\mu,\sigma^2$).\\
+	 $f(\underline{x})= \prod (2\pi\sigma^2)^{\frac{1}{2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}}$
 \end{example}
-
-%------------------------------------------------
-
-\section{Exercises}\index{Exercises}
-
-This is an example of an exercise.
-
-\begin{exercise}
-This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
-\end{exercise}
-
-%------------------------------------------------
-
-\section{Problems}\index{Problems}
-
-\begin{problem}
-What is the average airspeed velocity of an unladen swallow?
-\end{problem}
-
-%------------------------------------------------
-
-\section{Vocabulary}\index{Vocabulary}
-
-Define a word to improve a students' vocabulary.
-
-\begin{vocabulary}[Word]
-Definition of word.
-\end{vocabulary}
-
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
 %----------------------------------------------------------------------------------------
