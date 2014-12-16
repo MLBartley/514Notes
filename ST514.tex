@@ -423,6 +423,9 @@ Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
 
 \begin{section}{Practice Problems}
 
+Chapter 7 Exercises (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.13, 7.14, 7.19, 7.20, 7.21, 7.22, 7.23, 7.25, 7.30, 7.37, 7.38, 7.44, 7.47, 7.48, 7.49, 7.52\\
+\\
+
 	\begin{problem} (C\&B 7.2) Let $X_1, \dots, X_n$ be a random sample from a Gamma($\alpha, \beta$) population.
 
 		\begin{enumerate}[label=(\alph*)] 
@@ -446,7 +449,11 @@ Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
 				The density of Gamma can also be in the form with $\frac{1}{\beta}$ which would mean $\hat{\beta}$ would be $\frac{\sum x_i}{n\alpha} $.
 			\end{remark} 
 
-			(b) Meh. You do it. 
+			(b) The new likelihood with $\hat{\beta}$ plugged in is:
+			$$ L(\beta) = \frac{(\frac{n\alpha}{\sum x_i})^{n\alpha}}{\Gamma(\alpha)^n}[\prod x]^{\alpha-1}e^{-(\frac{n\alpha}{\sum x_i}) \sum x}$$ 
+
+			To solve...use a computer.\\
+			\\
 
 	\end{problem}
 	
@@ -456,7 +463,8 @@ Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
 	\begin{enumerate}[label=(\alph*)]
 		\item What is a sufficient statistic for $\theta$?
 		\item Find the MLE of $\theta$.
-		\item Find the method of moments estimator of $\theta$?
+		\item Find the method of moments estimator of $\theta$?\\
+		\\
 	\end{enumerate}
 		
 
@@ -466,11 +474,30 @@ Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
 		$L(\theta) = \theta^n \prod(x_i^2) \prod I\{\theta \le x < \infty\}$ where $\prod I\{\theta \le x < \infty = x_{(1)}$\\
 		Thus the sufficient statistic is the minimum x. \\
 		\\
-		(b) L($\theta$|x) = $\theta^n \prod(x_i^2) \prod I\{\theta \le x < \infty \}$. $\theta^n$ is increasing in $\theta$. The second term does not involve $\theta$. So to maximize $L(\theta|x)$, we want to make $\theta$ as large as possible. But because of the indicator function, $L(\theta|x) = 0 if \theta > x(1)$. Thus, $\hat{\theta} = x_{(1)}$.
-
+		(b) L($\theta$|x) = $\theta^n \prod(x_i^2) \prod I\{\theta \le x < \infty \}$. $\theta^n$ is increasing in $\theta$. The second term does not involve $\theta$. So to maximize $L(\theta|x)$, we want to make $\theta$ as large as possible. But because of the indicator function, $L(\theta|x) = 0 if \theta > x(1)$. Thus, $\hat{\theta} = x_{(1)}$.\\
+		\\
+		(c) $E(X) = \int^\infty_\theta \theta x^{-1} dx = \theta \log x|^\infty_\theta = \infty$. Thus the method of moments estimator of $\theta$ does not exist.\\
+		\\
 
 	\end{problem}
 
+	\begin{problem} Let $X_1, \dots, X_n$ be iid with one of two pdfs. If $\theta$ = 0, then
+	$$ f(x|\theta) = \begin{cases} 1,\text{ if } 0<x<1 \\ 0, \text{ otherwise} \end{cases}$$
+	$$ f(x|\theta) = \begin{cases} \frac{1}{2\sqrt{x}},\text{ if } 0<x<1 \\ 0, \text{ otherwise} \end{cases}$$
+	Find the MLE of $\theta$.\\
+	\\
+
+	Solution.\\
+	\\
+	$$ L(0|x) = \begin{cases} 1,\text{ if } 0<x_i<1 \\ 0, \text{ otherwise} \end{cases}$$
+	while if $\theta=1$, then
+	$$ L(1|x) = \begin{cases} \prod \frac{1}{2\sqrt{x}},\text{ if } 0<x_i<1 \\ 0, \text{ otherwise} \end{cases}$$
+
+	Thus, 
+
+	$$\hat{\theta}_{MLE} = \begin{cases} 1,\text{ if } \prod \frac{1}{2\sqrt{x}}\ \\ 0, \text{ otherwise} \end{cases} $$
+		
+	\end{problem}
 \end{section}
 
 %------------------------------------------------
@@ -564,40 +591,394 @@ More technically, conditioning T(X), the remaining randomness does not depend on
 
 \begin{example}
 	 $X_1, \dots, X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$. Find possible T($\mu,\sigma^2$).\\
-	 $f(\underline{x})= \prod (2\pi\sigma^2)^{\frac{1}{2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}}$
+	 \begin{align*}
+	 f(\underline{x}) &= \prod (2\pi\sigma^2)^{\frac{1}{2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}}\\
+	 &= (2\pi\sigma^2)^{\frac{-n}{2}}\exp\left\{\frac{-\sum x_i^2 + 2\mu \sum x_i - n\mu^2}{2\sigma^2}\right\}
+	 \end{align*}
+Therefore our pair of sufficient statistics are $\sum x_i^2$ and $\sum x_i$. But are the minimal?
 \end{example}
+
+\begin{theorem}{6.2.13} $T(\underline{x}) = T(\underline{x})$ iff $\frac{f_\theta (\underline{x})}{f_\theta(\underline{y})}$ does not depend on $\theta$, implying T($\underline{x}$) is minimal sufficient statistic. 
+\end{theorem}
+
+\section{Exponential Families}
+
+	\begin{definition}{Exponential Family} An \textbf{exponential family} of densities is the set of densities given by 
+	$$f_{\underline{\theta}}(\underline{x})= h(\underline{x})c(\underline{\theta})\exp\left\{\sum w_i(\underline{\theta})t_i(\underline{x})\right\} $$
+	As $\theta$ takes values in some set $\Theta$, this equation may be rewritten as
+	$$f_{\underline{\eta}}(\underline{x})= \exp\left\{\textcolor{red}{\underline{\eta}}^T\textcolor{green}{\underline{T}(\underline{x})}-\textcolor{blue}{A(\underline{\eta})}\right\}\textcolor{magenta}{h(\underline{x})} I_B(\underline{x}) $$
+	The latter equation is called the \textbf{canonical/natural parameterization}.
+	\end{definition}
+
+	\begin{example}
+		Deriving the canonical parameterization for a Normal distribution.
+		\begin{align*}
+			f_{(\mu,\sigma^2)} &= k \frac{1}{\sqrt{2\sigma^2}}\exp\left\{\frac{-1}{2\sigma^2}(x-\mu)^2 \right\}\\
+			&= k \exp\left\{\textcolor{red}{\frac{1}{2\sigma^2}} \textcolor{green}{(-x^2)} + \textcolor{red}{\frac{\mu}{\sigma^2}} \textcolor{green}{(x)} - \textcolor{blue}{\frac{\mu^2}{2\sigma^2}+\frac{1}{2}\log((2\sigma^2))} \right\}\\
+			&= k \exp\left\{\textcolor{red}{\eta_1} \textcolor{green}{(-x^2)} + \textcolor{red}{\eta_2} \textcolor{green}{(x)} - \textcolor{blue}{\frac{\eta_2^2}{4\eta_1} - \frac{1}{2}\log\eta_1 } \right\}
+		\end{align*}
+
+		$\eta_1 = \frac{1}{2\sigma^2} \Leftrightarrow \sigma^2 = \frac{1}{2\eta_1}$\\
+		$\eta_2 = \frac{\mu}{2\sigma^2} \Leftrightarrow \mu = \frac{\eta_2}{2\eta_1}$\\
+		$A(\underline{\eta})= \frac{\eta_2^2}{4\eta_1} - \frac{1}{2}\log\eta_1 $
+
+	\end{example}
+
+	Cool fact: The partial derivatives of A($\eta$) gives the expectations of T. The second partials give the covarience of T.
+
+	Observe $T(x)=(-x^2,x)$
+
+		\begin{align*}
+			E(-x^2) &= \frac{\delta}{\delta\eta_1}A(\underline\eta)\\
+				&= \frac{-\eta_2^2}{4\eta_1^2}-\frac{1}{2\eta_1}\\
+				&= \frac{-\mu^2 * 4\sigma^4}{4 \sigma^4} - \frac{2\sigma^2}{2} \\
+				&=-\mu^2-\sigma^2
+		\end{align*}
+
+		\begin{align*}
+			E(x) &= \frac{\delta}{\delta\eta_2}A(\underline{\eta})\\
+				&= \frac{\eta_2}{2\eta_1}\\
+				&= \mu
+		\end{align*}
+
+		\begin{align*}
+			Var(x^2) &= \frac{\delta^2}{\delta^2 \eta_1}\\
+				&= \frac{\eta_2^2}{2\eta^3_1}+\frac{1}{2\eta_2}\\
+				&= 4\mu^2\sigma^2+2\sigma^4
+		\end{align*}
+
+		\subsection{Distribution Families}
+\begin{description}
+	
+		\item[Poisson] 
+		
+		\begin{align*}
+		f_\lambda &= e^{-\lambda}\frac{\lambda^x }{x!} I\{x \in \mathbb{N} \} \\
+			&= \exp \left\{\textcolor{red}{(\log\lambda)} \textcolor{green}{x}-\textcolor{blue}{\lambda} \right\}\\
+		\eta &= \log\lambda\\
+		T(\underline{x}) &= x\\
+		A(\eta) &= \lambda = e^{\log\lambda}=e^\eta\\	
+		\end{align*}
+
+
+		\item[Beta] 
+		\begin{align*}
+		f_{\alpha,\beta}(x) &= \frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)+\Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1} I\left\{0<1x<1 \right\}\\
+			&=  \exp \left\{\log \Gamma(\alpha+\beta)-\log\Gamma(\alpha)-\log\Gamma(\beta)+(\alpha-1)\log x+(\beta-1)\log(1-x) I\{0<x<1\} \right\}\\
+			\eta_1 &= \alpha-1\\
+			\eta_2 &= \beta-1\\
+			T_1(x) &= \log(x)\\
+			T_2(x) &= \log(1-x)-x\beta+\alpha\log(\beta)-\log(\Gamma(\alpha))
+		\end{align*}
+
+		\item[Gamma] 
+		\begin{align*}
+			f_{\alpha,\beta}(x) &= \frac{\beta^\alpha x^{\alpha-1}}{\Gamma(\alpha)}\exp\left\{-x\beta \right\} I\{x>0\}\\
+			&= \exp \left\{(\alpha-1)\log(x)-\beta(x) + (\eta_1+1)\log(-\eta_2)+\log(\Gamma(\eta_1+1))\right\}\\
+			\eta_1 &= \alpha-1\\
+			\eta_2 &= \beta\\
+			T_1(x) &= \log(x)\\
+			T_2(x) &= x\\
+			A(\eta) &= (\eta_1+1)\log(-\eta_2)+\log(\Gamma(\eta_1+1))\\
+		\end{align*} 
+		
+		\item[Binomial]
+		\begin{align*}
+			f_p(x) &= \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x}I\{0\dots,n\} \\
+				&= \begin{pmatrix}  n \\  x  \end{pmatrix} \exp\left\{x(\log\frac{p}{1-p})-(-n\log(1-p)) \right\}\\
+			\eta&=\log\frac{p}{1-p}\\
+			T(x)&= x\\
+			A(\eta)&= -n\log(1-p)
+		\end{align*}
+
+\end{description}
+
+Why is E(T(x)) = $\frac{\delta}{\delta\eta}A(\eta)$?\\
+Notice: $e^{A(\eta)}$ must be the integral of $\exp\left\{\textcolor{red}{\underline{\eta}}^T\textcolor{green}{\underline{T}(\underline{x})}-\textcolor{blue}{A(\underline{\eta})}\right\}\textcolor{magenta}{h(\underline{x})}$.\\
+Differentiating on both sides and using the fact that for an expoonential family we may switch integral and derivative, we obtain:
+\begin{align}
+	\frac{\delta}{\delta\eta}A(\eta)e^{A(\eta)}&= e^{A(\eta)}\int\exp\left\{\eta^TT(x) \right\}h(x)[T(x)]e^{-A(\eta)}\\
+	&= E(T(x))\\
+\end{align}
+
+Recall, $f_\eta (x)$ must always integrate to 1!
+
+\begin{remark}
+	Read Casella \& Berger Chapter 7.2
+\end{remark}
+
+\section{Complete Statistic}
+Recall, minimal statistics contain no redundant or unnessicary information. What might redundant information look like? From T(x) we may construct $g_1$ and $g_2$ such that $E_\theta(g_1(T))=E_\theta(g_2(T))$ for all $\theta$ which we want to avoid.
+
+\begin{definition}{complete statistic} (T) is obtained only if g=0 gives $E_\theta(g(T))=o$ for all $\theta$. 
+	
+\end{definition}
+
+\begin{theorem}Complete and sufficient inplies minimal statistics.
+	
+\end{theorem}
+
+\begin{theorem} If $f_\theta(\underline{x}) \exp\left\{\eta^T T(x)=A(\eta)\right\} h(x)$ is a cononical exponential family of full rank then T is a complete and sufficient statistic.
+	
+\end{theorem}
+
+\begin{definition}{Full Rank} \textbf{Full rank} means
+	\begin{itemize}
+		\item Parameter space H contains an open set
+		\item T does not satisfy any linear constraint (i.e. the T are linearly independent).
+	\end{itemize}
+\end{definition}
+
+\begin{definition}{Open Set} Let k be dimention of $\eta$. To say that H contains an \textbf{open set} means there exists $\begin{cases} \epsilon >0 \\ \eta_0 \in H \end{cases}$ such that $B(\eta_0;\epsilon)\subset H$
+	
+\end{definition}
+
+\begin{theorem}{Basu's Theorem} Any complete and sufficient statistic (minimum sufficient) is independent of any ancillary statistic (that is, any statistic whose distribution does not depend on $\theta$). 
+	
+\end{theorem}
+
+\subsection{Sufficiency and Unbiasness}
+
+Suppose $E_\theta(W(X)) = \theta$ for all $\theta$, thus W(X) is unbiased. Then Var[$E(W(X)|T)]\le Var(W(X))$. But what if T is not sufficient? Wel...then you won't get an estimator.
+
+\begin{example} Suppose that $X \sim Unif(0,\theta)$. Find the UMVUE of $\sin\theta$.\\
+\\
+Solution. \\
+pdf: $f(x)=\frac{1}{b-a} = \frac{1}{\theta}$\\
+E(X)= $\frac{\theta}{2}$\\
+Thus 2X is unbiased for $\theta$. But is $\sin(2X)$  unbiased for $\sin(\theta)$?\\
+NO!\\
+
+What about cos(2X)?
+\begin{align*}
+E(\cos(2X))&= \int^\theta_1 \cos(2X)\frac{1}{\theta}dx\\
+	&= \frac{1}{\theta}\left(\frac{\sin(2X)}{2} \right)|^\theta_0\\
+	&=\frac{\sin(2\theta)}{2\theta}
+\end{align*}
+No! Blarg. Let's bust out some calculus.
+
+\begin{align*}
+	\int^\theta_0 \textbf{estimator(x)} dx &= \theta \sin(\theta)\\
+		\textbf{estimator} &= \sin\theta+\theta\cos(\theta)\\
+			&= x\sin(x)+x\cos(x)
+\end{align*}
+ 	
+ \end{example} 
+
+ \begin{theorem}{Rae-Blackwell [7.3.17]} Let W(X) be an extimator with $E_\theta(W(x))=\tau(\theta)$. If T(X) is a sufficient statistic, then an alternative, unbiased estimator of $\tau(\theta)$ whose varience is uniformly not worse than that of W(X) is
+ 	$$\phi(X)=E_\theta(W(X)|T(X))$$.
+ \end{theorem}
+
+ Proof: Based on conditional arguments. 
+ $$E(W)=E(E(W(X)|T(X)))$$ Var(W)=Var(Cond Exp)+ E(Cond Var)
+
+ \begin{theorem}{7.3.19}
+ 	If W(X) is UMVUE for $\tau(\theta)$ then it is the unquie UMVUE, aka the best unbiased estimator for all theta. 
+ \end{theorem}
+
+ \begin{theorem}{7.3.20}
+ 	If $E_\theta(W(X))=\tau(\theta)$, then W(X) is UMVUE for $\tau(\theta)$ iff W(X) is uncorrelated with any S(X) such that $E_\theta(S(X))=0$. 
+ \end{theorem}
+
+ \begin{theorem}{7.2.23}
+ 	If T(X) is a complete and sufficient statistic, then $\phi(T)$ is the unique UMVUE of its expectation (see Rao-Blackwell).
+ \end{theorem}
+
+ \begin{definition}{Jenson's Inequality}
+ If h(x) is a convex function then 
+ $$h(E(x))\le E(h(x)) $$
+for any random variable x.  	
+ \end{definition}
+
+ \section{Methods of Finding Estimators}
+
+ \subsection{Method of Moments}
+\begin{remark}
+	Read about Satterthwait approximation
+\end{remark}
+
+\subsection{Maximum Likelihood Estimation}
+
+MLE makes data the most likely under the model specified. The quality of MLE depends on the quality of the model. \\
+\\
+Invariance Principle: if $\hat{\theta}$ is MLE for $\theta$, then $\tau(\hat{\theta})$ is MLE for $\tau(\theta)$. \\
+
+Roughly speaking, MLEs enjoy a nice property called \textbf{asymptotic efficiency}. They acheive the smallest possible varience in large sample. Similar to Lower Bound of Cramer-Rao as n -> infinity. 
+
+\begin{definition}{Score Function}
+	Suppose that throughout $X_1,\dots,X_n \sim f_\theta(x)$ the \textbf{score function} is $\sum \frac{\delta}{\delta \theta} \log f_\theta(x_i)$. 
+\end{definition}
+
+Take a first-order Taylor expansion of $\ell(\theta)$ around true value ($\theta$). 
+\begin{align*}
+\ell^\prime(\hat{\theta})&\simeq \ell^\prime(\theta_0) + (\hat{\theta}-\theta_0)\ell^{\prime\prime}(\theta_0)\\
+\hat{\theta}-\theta_0&\simeq [\ell^{\prime\prime}(\theta_0)^-1][\ell^\prime(\hat{\theta})-\ell^\prime(\theta_0)]\\
+	&=[\frac{-1}{n}\ell^{\prime\prime}(\theta_0)^{-1}][\frac{1}{n}\ell^\prime(\theta_0)]\\
+\frac{(\hat{\theta}-\theta_0)}{\sqrt{n}}&\simeq \frac{\frac{-1}{\sqrt{n}}\ell^\prime(\theta_0)}{\frac{-1}{n}\ell^{\prime\prime}(\theta_0)}\\
+\frac{1}{n}\ell^\prime(\theta_0)&= \frac{1}{n}\sum \frac{\delta}{\delta\theta}\log f_\theta(x)\\
+\frac{-1}{n}\ell^{\prime\prime}(\theta_0)&= \frac{1}{n}\sum \frac{\delta^2}{\delta\theta^2}\log f_\theta(x)|_{\theta=\theta_0}\\
+\end{align*}
+
+Thus, $\sqrt{n}(\hat{\theta}-\theta_0)\sim N(0,[I(\theta_0)]^{-1})$
+
+\section{Major/Minorization Mini/Maximization}
+
+Ever EM Algorhythm is special case of a MiMax.
+
+EM = Expectation Maximization
+
+\begin{remark}
+	Read 7.2.4 in Casella \& Berger
+\end{remark}
+
+\subsection{How EM Algorhythms Work}
+\begin{itemize}
+	\item Choose a starting parameter, $\theta$. 
+	\item [E-Step] Construct the (minimizing) function.
+	\item Maximize this function of $\theta$. The maximizer will be next value of $theta_0$. Call it $\theta_1$. 
+	\item Return to (b) as long as we haven't converged.   
+\end{itemize}
+
+Given $\mu_0$ we find after one EM iteration that
+\begin{align*}
+\mu_1 &=\frac{\sum Y_i}{n}+\mu_0(1-\frac{\mu}{n})\\
+&= \mu_0(1-\frac{\mu}{n})+\frac{\sum Y_i}{\mu}(\frac{\mu}{n})\\
+\end{align*}
+
+Thus, $\mu_1$ always takes us $\frac{\mu}{n}$ of the way to the final answer at each iteration. This type of convergence is called \textbf{linear convergence}, which is a characteristic of EM algorhythems. The linear rate of convergence is governed by "amount of missingness" and is considered slow compared to other similar methods (e.g. Newton-Raphson is optimization method that enjoys quadradic convergence). However, EM algorhithem tend to trade more iterations for simpler iterations. 
+
+Suppose we wish to maximize a fuction that is a product of sums or integrals. Taking the log gives a sum of logs of sums/integrals:
+$$\sum^A\log\sum^B s_{ab}(\theta)$$ 
+To simplify, ignore the sumation over A and take $f(\theta) = \log \sum s_{ab}(\theta)$. Fix a $\theta_0$. Define
+$$W_{ob} \equiv \frac{S_b(\theta_0)}{\sum^c_{c_a} S(\theta_0)} $$ 
+
+Goal: Maximize f($\theta)=\log \sum S_b(\theta)$ with fixed $\theta_0$.
+
+Claim: Define $Q_0(\theta) \equiv \sum^B W_{ob} * \log S_b(\theta)$. \\
+Then $f(\theta) -f(\theta_0) \ge Q_0(\theta) - Q_0(\theta_0)$. \\
+\\
+\\
+
+To verify this claim, notice that Jenson's inequality says 
+$$E(\log(\bullet)) \ge \log E(\bullet) $$
+
+\begin{align*}
+	Q_0(\theta)-Q_b(\theta_0)&= \sum^B W_{ob} \log(\frac{S_b(\theta)}{S_b(\theta_0)})\\
+		&\le \log \sum^B W_{ob} \frac{S_b(\theta)}{S_b(\theta_0)}\\
+		&\le \log \sum^B \frac{S_b(\theta_0)}{\sum S_c(\theta_0)} \frac{S_b(\theta)}{S_b(\theta_0)}\\
+	f(\theta) - f(\theta_0) &= \log \frac{S_b(\theta)}{S_c(\theta_0)}	
+\end{align*}
+
+
+\begin{example}
+	$X\sim f_\theta(x)=\lambda f_{\xi_1}(x)+(1-\lambda)f_{\xi_2}(x),  \theta=(\lambda, \xi) $
+Intuition: To generate X acoording to mixture density flip coin with Heads probability of $\lambda$. If H, generate $X\sim f_{\xi_1}(x)$. If T, generage $X\sim f_{\xi_2} $. 
+
+Write down the observed data likelihood, $\ell(\lambda, p_1, p_2)$. For a sample size, n, form a mixture of Binom(m, $p_1$) and Binom(m, $p_2$). 
+
+$$\sum \log \left(\lambda \left(\begin{matrix} m \\ \xi \end{matrix}\right) p_1^{\xi_1}(1-p_1)^{m-\xi_1}+(1-\lambda)\left(\begin{matrix} m \\ \xi_2 \end{matrix}\right) p_2^{\xi_2}(1-p_2)^{m-\xi_2}\right) $$  
+Now impliment EM algorithm.
+\end{example}
+
+Suppose that "complete data" consists of $x_{obs} \& x_{miss}$. 
+
+Using previous notation, 
+\begin{align*}
+	S_b(\theta) &= P_\theta\left(X_{obs}=x_{obs}, X_{miss}=b \right)\\
+	&\Rightarrow \sum^B S_b(\theta) = P_\theta\left(X_{obs}=x{obs} \right) \\
+	\\
+	W_{ob}&= \frac{P_{\theta_0}\left(X_{obs}=x_{obs}, X_{miss}=b \right)}{P_\theta\left(X_{obs}=x_{obs}\right)}\\ 
+		&= P_{\theta_0}\left(X_{miss}=b|X_{obs}=x_{obs}\right)\\
+		\\
+	Q_0(\theta)&= E_{\theta_0}[\log P_\theta\left(X_{obs}=x_{obs}, X_{miss}=b\right)|X_{obs}=x_{obs}]	
+\end{align*}
+
+\section{Bayes Estimators}
+
+\begin{theorem}{Bayes' Theorem}
+$$\pi(\theta|x) = \frac{f(x|\theta)\pi(\theta)}{m(x)} $$
+LHS: posterior density of the parameters given data. This is what we want to know. The RHS inclues
+\begin{itemize}
+	\item likelihood
+	\item prior density
+	\item marginal density of x
+\end{itemize}
+	
+\end{theorem}
+
+\begin{proposition}{Dave's Bayes Way}
+ posterior $\propto$ prior*likelihood
+\end{proposition}
+
+\begin{definition}{Conjugate Family}
+If the prior is chosen from a family of distributions in such a way that the posterior is also a member, then we call this family of priors a \textbf{conjugate family}.
+\end{definition}
+
+\begin{definition}{Bayes Risk}
+	Recall we previously define risk as a function of a parameter and estimator - E(Loss). Now that $\theta$ can be random, we may define \textbf{Bayes risk} as the average risk.
+	$$\int R(\theta,\delta)\pi(\theta) d\theta = E(R(\theta,\delta)) = E(L(\theta,\delta(\underline{X}))) $$
+\end{definition}
+
+\begin{definition}{Bayes Estimator}
+	For a give loss function, we define the \textbf{Bayes estimator} as the minimizer of the Rayes Risk. 
+\end{definition}
+Note: if $\delta^*$ minimizes $E(L(\theta,\delta(\underline{X}))|\underline{X}=x)$ for (almost) all x then $\delta^*$ is the Bayes Estimator. 
+
+We can conclude that under square error loss, the posterior mean is the Bayes Estimator. 
+
+Wrap up: How to choose prior? Even choosing family of distribution is hard. Considering restraints and conjugacy can help.
+\begin{itemize}
+	\item Use data to estimate prio parameters
+	\item Assign priors on our priors "hyper priors". Priorception.
+	\item Use a Jeffery's prior: reparameterize
+\end{itemize}
+
+\subsection{Model Based Clustering}
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
 %----------------------------------------------------------------------------------------
 
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-\chapter{Presenting Information}
+\chapter{Hypothesis Testing}
 
-\section{Table}\index{Table}
+\begin{definition}{hypothesis testing}
+	We see that a hypothesis testing procedure is a rule that partitions the sampe space into we will accept (fail to reject) $H_0$ as true or not.
+\end{definition}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\caption{Table caption}
-\end{table}
+Let's consider a simple null hypothesis, i.e. a hypothesis of the form:
+$$H_0: \theta=\theta_0 $$
+We will consider three different ways to determine whether $\theta_{true} = \theta_0$
 
-%------------------------------------------------
+\begin{enumerate}
+	\item \textbf{Wald Test} $\hat{theta} - \theta_0$ - consider if this is large relative to the distribution. $\hat{\theta}$ should have if $H_0$ true. Recall, $\sqrt{n}(\hat{\theta}-\theta_0)\sim N(0,I^{-1}(\theta_0)$.
+	\item \textbf{Likelihood Ratio Test} Consider $\ell(\hat{\theta}) - \ell(\theta_0)$ and determine whether this is large relative to $\chi^2$ distribution that it will approximately have under $H_0$. 
+	\item \textbf{Rao Score Test} Consider $\nabla\ell(\theta_0)$ and determine if it is too far from 0 relative to it's true approximate distribution if $H_0$ true.  
+\end{enumerate}
+% \section{Table}\index{Table}
 
-\section{Figure}\index{Figure}
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% \midrule
+% Treatment 1 & 0.0003262 & 0.562 \\
+% Treatment 2 & 0.0015681 & 0.910 \\
+% Treatment 3 & 0.0009271 & 0.296 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Table caption}
+% \end{table}
 
-\begin{figure}[h]
-\centering\includegraphics[scale=0.5]{placeholder}
-\caption{Figure caption}
-\end{figure}
+% %------------------------------------------------
+
+% \section{Figure}\index{Figure}
+
+% \begin{figure}[h]
+% \centering\includegraphics[scale=0.5]{placeholder}
+% \caption{Figure caption}
+% \end{figure}
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY

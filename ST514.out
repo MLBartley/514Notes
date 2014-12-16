@@ -6,10 +6,19 @@
 \BOOKMARK [1][-]{section.1.5}{Practice Problems}{chapter.1}% 6
 \BOOKMARK [0][-]{chapter.2}{Principles of Data Reduction}{}% 7
 \BOOKMARK [1][-]{section.2.1}{Sufficiency Principle}{chapter.2}% 8
-\BOOKMARK [0][-]{chapter.3}{Presenting Information}{}% 9
-\BOOKMARK [1][-]{section.3.1}{Table}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Figure}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter*.2}{Bibliography}{}% 12
-\BOOKMARK [1][-]{section*.3}{Books}{chapter*.2}% 13
-\BOOKMARK [1][-]{section*.4}{Articles}{chapter*.2}% 14
-\BOOKMARK [0][-]{section*.5}{Index}{}% 15
+\BOOKMARK [1][-]{section.2.2}{Exponential Families}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.1}{Distribution Families}{section.2.2}% 10
+\BOOKMARK [1][-]{section.2.3}{Complete Statistic}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.3.1}{Sufficiency and Unbiasness}{section.2.3}% 12
+\BOOKMARK [1][-]{section.2.4}{Methods of Finding Estimators}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.4.1}{Method of Moments}{section.2.4}% 14
+\BOOKMARK [2][-]{subsection.2.4.2}{Maximum Likelihood Estimation}{section.2.4}% 15
+\BOOKMARK [1][-]{section.2.5}{Major/Minorization Mini/Maximization}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.5.1}{How EM Algorhythms Work}{section.2.5}% 17
+\BOOKMARK [1][-]{section.2.6}{Bayes Estimators}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.6.1}{Model Based Clustering}{section.2.6}% 19
+\BOOKMARK [0][-]{chapter.3}{Hypothesis Testing}{}% 20
+\BOOKMARK [0][-]{chapter*.2}{Bibliography}{}% 21
+\BOOKMARK [1][-]{section*.3}{Books}{chapter*.2}% 22
+\BOOKMARK [1][-]{section*.4}{Articles}{chapter*.2}% 23
+\BOOKMARK [0][-]{section*.5}{Index}{}% 24

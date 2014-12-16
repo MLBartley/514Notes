@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber ST514"] 1418053013 "ST514.bcf" "ST514.bbl" "ST514" 1418532506
-  "ST514.bcf" 1418532506 92622 b632077a2d5c5a5f2e17e1939f5a2478 ""
+["biber ST514"] 1418053013 "ST514.bcf" "ST514.bbl" "ST514" 1418747175
+  "ST514.bcf" 1418747174 92622 b632077a2d5c5a5f2e17e1939f5a2478 ""
   (generated)
-  "ST514.bbl"
   "ST514.blg"
-["makeindex ST514.idx"] 1418528857 "ST514.idx" "ST514.ind" "ST514" 1418532506
-  "ST514.idx" 1418532506 112 32c818413732c2ed1969ef3b3187aed2 ""
+  "ST514.bbl"
+["makeindex ST514.idx"] 1418747144 "ST514.idx" "ST514.ind" "ST514" 1418747175
+  "ST514.idx" 1418747174 45 d32fb4f59a8d2ffd1def17a8ef321892 ""
   (generated)
   "ST514.ind"
   "ST514.ilg"
-["pdflatex"] 1418532504 "ST514.tex" "ST514.pdf" "ST514" 1418532506
+["pdflatex"] 1418747172 "ST514.tex" "ST514.pdf" "ST514" 1418747175
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf" 1367878877 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def" 1395780385 49536 e1475dd245ff2196764ba5b91ac63714 ""
@@ -183,17 +183,16 @@
   "Pictures/background.pdf" 1416780937 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1416780937 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1416780937 156812 0342733a9ef42f670bc50ccfbd949b75 ""
-  "Pictures/placeholder.jpg" 1416780937 20279 2c3b3984e263aa5f7146ef59d3f89f8c ""
-  "ST514.aux" 1418532506 6504 59af8266659c564fb3b6319f5a79f97f ""
-  "ST514.bbl" 1418053015 466 9b63bd41c34afae085b93d05707d5cc3 "biber ST514"
-  "ST514.ind" 1418528857 169 dc6b74d6557fc839770991cb11c16792 "makeindex ST514.idx"
-  "ST514.out" 1418532506 895 350f37fc6c768c168e588c5e71c0023b ""
-  "ST514.tex" 1418532504 24131 30d8b9e026eb295021be937d8a3e4c0b ""
-  "ST514.toc" 1418532506 1823 70dac4a3f4e6e4a17c380db992cd1899 ""
+  "ST514.aux" 1418747174 9415 e6f38af5a99076b35a39e3360661078e ""
+  "ST514.bbl" 1418590941 466 9b63bd41c34afae085b93d05707d5cc3 "biber ST514"
+  "ST514.ind" 1418747145 76 9db0ba6483f8bf4c4d0b69d896339218 "makeindex ST514.idx"
+  "ST514.out" 1418747174 1602 faf0ed2f71dcb0a48ab85c49d641230c ""
+  "ST514.tex" 1418747172 41752 fd11ba68b1a797d9a12f961ca5cc3051 ""
+  "ST514.toc" 1418747174 2980 dcdd14017c6b716243da16288d6032fb ""
   "structure.tex" 1416780937 14466 6c8bd199f6d560b167a3dbd8bb433e5a ""
   (generated)
+  "ST514.out"
   "ST514.toc"
   "ST514.pdf"
-  "ST514.out"
-  "ST514.aux"
   "ST514.log"
+  "ST514.aux"

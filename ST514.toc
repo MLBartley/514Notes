@@ -18,17 +18,35 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Sufficiency Principle}{13}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Presenting Information}{15}{chapter.3}
+\contentsline {section}{\numberline {2.2}Exponential Families}{14}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Table}{15}{section.3.1}
+\contentsline {subsection}{\numberline {2.2.1}Distribution Families}{15}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Figure}{15}{section.3.2}
+\contentsline {section}{\numberline {2.3}Complete Statistic}{16}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{17}{chapter*.2}
+\contentsline {subsection}{\numberline {2.3.1}Sufficiency and Unbiasness}{17}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Books}{17}{section*.3}
+\contentsline {section}{\numberline {2.4}Methods of Finding Estimators}{18}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Articles}{17}{section*.4}
+\contentsline {subsection}{\numberline {2.4.1}Method of Moments}{18}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{19}{section*.5}
+\contentsline {subsection}{\numberline {2.4.2}Maximum Likelihood Estimation}{18}{subsection.2.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.5}Major/Minorization Mini/Maximization}{19}{section.2.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5.1}How EM Algorhythms Work}{19}{subsection.2.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Bayes Estimators}{20}{section.2.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.6.1}Model Based Clustering}{21}{subsection.2.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Hypothesis Testing}{23}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{25}{chapter*.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Books}{25}{section*.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Articles}{25}{section*.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{27}{section*.5}
 \contentsfinish 
