@@ -1,0 +1,9 @@
+[0] Config.pm:318> INFO - This is Biber 1.8
+[0] Config.pm:321> INFO - Logfile is '513Notes.blg'
+[90] biber-darwin:275> INFO - === Sun Aug 30, 2015, 12:18:50
+[90] Biber.pm:333> INFO - Reading '513Notes.bcf'
+[157] Biber.pm:630> INFO - Found 0 citekeys in bib section 0
+[158] Utils.pm:169> WARN - The file '513Notes.bcf' does not contain any citations!
+[191] bbl.pm:482> INFO - Writing '513Notes.bbl' with encoding 'UTF-8'
+[191] bbl.pm:555> INFO - Output to 513Notes.bbl
+[191] Biber.pm:105> INFO - WARNINGS: 1

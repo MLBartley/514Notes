@@ -317,9 +317,30 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \begin{theorem}
 	For $\underline{x}, \underline{y} \in \mathbb{R}^k, \alpha \in \mathbb{R}$
 	\begin{enumerate}[label = \alph*)]
-		\item | 
+		\item $|\underline{x}| \ge 0, |\underline{x}| = 0 \text{ iff } \underline{x} = \underline{0}$\\
+		$|\alpha \underline{x}| = |\underline{\alpha}||\underline{x}|$ 
+		\item \textbf{Cauchy-Schwarz Inequality} $|\underline{x}\cdot\underline{y}| \le |\underline{x}||\underline{y}|$
+		\item \textbf{Triangle Inequality} $|\underline{x}+\underline{y}| \le |\underline{x}| + |\underline{y}|$
 	\end{enumerate}
 \end{theorem}
+
+\section{Elements of Set Theory}\index{Elements of Set Theory}
+
+\begin{definition}
+	Let A, B be sets and suppose that to each $x \in A$ there corresponds an elements of B denoted by $f(x)$. Then $f$ is a \textbf{function} (or in more general space, mapping) from A (in)to B. 
+
+	A is called the \textbf{domain} of $f$. $f(x)$ is the \textbf{value} of $f$ at $x$, $R(f) = \{f(x): x \in A\}$ is the \textbf{range} of $f$.
+\end{definition}
+
+\begin{definition}[Image]
+	If $f$ is a function from A to B ($A \rightarrow B$) and $E \subseteq A$ we write $f(E) = \{f(x): x \in E\}$ and call it the \textbf{image} of E under $f$.
+	If $f(A) = B$, then we say $f$ maps A \textbf{onto} B.
+\end{definition}
+
+\begin{definition}[Inverse Image]
+	Let $f: A \rightarrow B$ and $E \subseteq B$. We write $f^{-1}(E) = \{x ]in A : f(x) \in E\}$ and call it the \textbf{inverse image} of E \textbf{under} $f$.
+	NB: If $E =\{y\}, y \in B$ we also write $f^{-1}(y)$ (versus $f^{-1}(\{y\})$). If $\forall y \in B$ $f^{-1}(y)$ consists of at most one element, then $f$ is one to one mapping of A \textbf{into} B.
+\end{definition}
 %------------------------------------------------
 
 % \section{Citation}\index{Citation}
