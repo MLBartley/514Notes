@@ -1,0 +1,572 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.0 (9/2/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Theory of Statistics I\\[15pt] % Book title
+{\Large Take Two}\\[20pt] % Subtitle
+{\huge Meridith L Bartley}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2013 Meridith L Bartley\\ % Copyright notice
+
+\noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{book-website.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+\noindent \textit{First printing, August 2015} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Real Analysis Review}
+
+\section{The Real Number System}\index{The Real Number System}
+\subsection{Rationals}\index{Rationals}
+
+
+Start with integers as given. 
+
+\begin{definition}[Rational Numbers]
+Rationals are numbers of the form $\frac{m}{n}$, for m,n integers, $n \neq 0$ such that:
+\begin{align*}
+& \text{PR 1: The sum, difference, product, and ratio (division by 0 excluded) of any two rationals is a rational.}\\
+& \text{PR 2: } p+q = q+p, pq=qp \text{ (Commutative Property)}\\
+& \text{PR 3: } (p+q)+r = p+(q+r), (pq)r = p(qr), \text{ (Associative Property)} \\
+& \text{PR 4: } (p+q)r = pr + qr \text{ (Distributive Property)} \\
+& \text{PR 5: } \forall \text{ two rationals p and q we have either p=q, p<q, or q<p (Ordering Property)} \\
+& \text{PR 6: If $p<q$ and $q<r$, then $p<r$ (Transitivity of <)}\\
+& \text{PR 7: If $p>0$ and $q>0$, then $p+q>0$ and $pq >0$} \\
+& \text{PR 8: If $p<q$, then $p+r<q+r$  $\forall$ r} \\
+\end{align*}
+\end{definition}
+
+The rational number system is inadequate. 
+
+\begin{example}
+	There is no rational number p that satisfies $p^2 = 2$
+\end{example}
+
+	\begin{proof}
+		Suppose such a p existed, and so $p=\frac{m}{n}$. Note that m,n can be chosen so not both are even. Then we have,
+		$$m^2 = 2n^2 $$
+		Thus, $m^2$ is even, and hence m is even. (The square of an odd number is odd). Hence, $m^2$ is divided by 4. So, $2n^2$ is divisible by 4, or $n^2$ is even which implies that n is even - $\textbf{contradiction}$.
+	\end{proof}
+
+This example can be used to show that we can have a set of rational numbers bounded from above but has no supremum. 
+
+\begin{example}
+	Let A be the set of $<0$ rationals p, such that $p^2 <2$. Let B be the set of $>0$ rationals p, such that $p^2 >2$. Then A contains no largest number and B contains no smallest number.
+\end{example}
+
+\begin{proof}
+	If $p \in A$, choose a rational h such that, $0<h<1$ and $h<\frac{2-p^2}{2p+1}$ and set $q=p+h$. Then q is rational and 
+	\begin{align*}
+		q^2 &= p^2 + (2p+h)h\\
+		&< p^2 + (2p+1)h\\
+		&< p^2 + (2-p^2)\\
+		&= 2
+	\end{align*}
+	If $p \in B$, set
+	
+	\begin{align*}
+			 q= p- \frac{p^2 - 2}{2p} = \frac{p}{2} + \frac{1}{p}
+	\end{align*}
+	and
+	\begin{align*}
+		q^2 &= p^2 - (p^2 - 2) + (\frac{p^2 - 2}{2p})^2\\
+		&> p^2 - (p^2 -2)\\
+		&= 2
+	\end{align*}
+\end{proof}
+
+\begin{remark}
+	An axiomatic treatment of the real number system uses PR1 - PR8 as axioms together with the "completeness axiom". The non-axiomatics treatment is due to Dedekind.
+\end{remark}
+
+
+\subsection{Sets and Subsets}\index{Sets and Subsets}
+
+If A is any set, $\mathbf{x \in A}$ means that x is a member of A, and $\mathbf{x \notin A}$ means x is not a member of A. A set B is a \textbf{subset} of A if for every $x \in B$ we have $x \in A$, and we write $A \subseteq B$. B is a \textbf{proper subset} of A, $B \subset A$, if there $\exists$ $x \in A$ with $x \notin B$. The \textbf{empty set} is denoted by $\emptyset$, and $\emptyset \in A$, $\forall$ other set A.
+
+\begin{align*}
+	A \cup B &= B \cup A \text{ - union with commutative property}\\
+	\\
+	A \cap B &= B \cap A \text{ - intersection with commutative property}\\
+	\\
+	(A \cup B)\cup C &= A\cup(B \cup C)\\
+	(A \cap B)\cap C &= A\cap(B \cap C) \text{ - associative property}\\
+	\\
+	 (A \cup B)\cap C &= (A\cap C)\cup(B \cap C) \text{ - distributive property}\\
+	 (\cup A_i)^c &= \cap A_i^c\\
+	 (\cap A_i)^c &= \cup A_i^c\\
+\end{align*}
+
+\begin{definition}[Dedekind Cuts]
+	A set $\alpha$ of rational numbers is said to be a \textbf{cut} if
+	\begin{enumerate}
+		\item $\alpha$ is a proper, but non-empty, subset of the rational numbers.
+		\item If $p \in \alpha$ (p is rational), and $q<p$ (q is rational) then $q \in \alpha$
+		\item It contains no largest rational.
+	\end{enumerate}
+	A cut of the form $\alpha$ = $\{$p: p is rational and $p<r\}$ where r is rational are called \textbf{rational cuts} and are denoted by $r^*$.
+\end{definition}
+
+The development of the real number system proceeds as follows:\\
+First, the set of cuts is equipped with an order relation, and the operation of addition and multiplication an it will show that the resulting arethmatic satisfies PR 1 - PR 8.  
+
+If $\alpha$, $\beta$ are cuts then, 
+\begin{align*}
+	\alpha &< \beta \text{ if $\alpha \subset \beta$ and} \\
+	\alpha &\le \beta \text{ if $\alpha \subseteq \beta$}\\
+	\alpha + \beta &= \{r: r= p + q \text{ for some } p \in \alpha, q \in \beta\}\\
+	(\alpha + 0^* &= \alpha)
+\end{align*}
+
+If $\alpha + \beta = 0^*$, write $\beta = -\alpha$. (It can be shown that $\forall \alpha$ there is one and only one $\beta$ such that $\alpha + \beta = 0^*$.) 
+$$|\alpha| = \begin{cases}
+  \alpha, & \text{if } \alpha \ge 0^*, \\
+  -\alpha, & \text{if } \alpha < 0^* .
+\end{cases} $$
+
+For $\alpha \ge 0^*$ and $\beta \ge 0^*$, 
+$$\alpha\beta = \{\text{p:p rational such that either $p<0$ or $p=pq$, for $q \in \alpha$, $r \in \beta$ with $q \ge 0$ and $r \ge 0$.}\}$$ 
+
+For general $\alpha$, $\beta$,
+$$\alpha\beta = \begin{cases}
+  -(|\alpha||\beta|), & \text{if } \alpha < 0^*, \text{and } \beta \ge 0^*\\
+  	& \text{or if } \alpha \ge 0^* \text{and } \beta < 0^*\\
+  |\alpha||\beta|, & \text{if } \alpha < 0^*, \text{and } \beta < 0^*\\
+\end{cases} $$
+
+If $\alpha \neq 0^*$, then $\forall \beta$ there is one and only one $\gamma$ such that $\alpha\gamma = \beta$, and this $\gamma$ is denoted by $\frac{\beta}{\alpha}$. (In technical terms, we made the set of cuts an \textbf{ordered field}.)
+
+Second, it is shown that replacing the set of rational numbers by the corresponding cuts preserves sums, products and order, ie,
+
+\begin{enumerate}
+	\item $p^* + q^* =(p + q)^*$ 
+	\item $p^*q^* = (pq)^*$
+	\item $p^* < q^*$ iff $p<q$
+\end{enumerate}
+In technical terms, the ordered field of rational numbers is \textbf{isomorphic} to that of rational events.
+
+\begin{theorem}[Dedekind]
+	Let A, B be $\subset \mathbb{R}$ such that,
+	\begin{enumerate}[label = (\alph*)]
+		\item $A \cap B = \emptyset$
+		\item $A \cup B = \mathbb{R}$
+		\item neither $A$ nor $B$ is empty
+		\item if $\alpha \in A$, $\beta \in B$, then $\alpha < \beta$
+	\end{enumerate}
+	Then there $\exists$ $\gamma \in \mathbb{R}$ such that $\alpha \le \gamma$, $\forall \alpha \in A$ and $\gamma \le \beta$, $\forall \beta \in B$. 
+\end{theorem}
+
+\begin{proof}
+	First, suppose there are 2 $\gamma$, say $\gamma_1 < \gamma_2$. Take $\gamma_3$ such that $\gamma_1 < \gamma_3 < \gamma_2$.
+	$$\gamma_3 < \gamma_2 \text{ implies that } \gamma_3 \in A$$
+	$$\gamma_1 < \gamma_3 \text{ implies that } \gamma_3 \in B$$
+However, these implications contradict the disjointness (part (a)). 
+Define $\gamma - \{\text{p: p rational such that p }\in \alpha \text{ for some }\alpha \in A\}$. The proof proceeds by showing that $\gamma$ is a cut, and hense a real number that satisfies $\alpha \le \gamma$ for $\alpha \in A$ and $\gamma \le \beta$ $\forall$ $\beta \in B$.
+\end{proof}
+
+\begin{corollary}
+	If A, B are as in the theorem, then either A contains a largest number or B contains a smallest number. 
+\end{corollary}
+
+\begin{corollary}	
+	Let $E \neq \emptyset$ be a subset of $\mathbb{R}$. Then, if E is bounded above a supremum (least upper bound) exists.
+\end{corollary}	
+
+\begin{proof}
+	Define \\
+	$A = \{\alpha: \alpha < x \text{ for some }x \in E\}$\\
+	$B = A^c$\\
+	Clearly, all members of B are upper bounds of E. It is sufficient to prove that B contains a smallest nubmer, or, by Corollary 1, that A does not contain a largest number (and thus prove by contradiction). Indeed if $\alpha \in A$ $\exists$ an $x \in E$ such that $\alpha < x$. But, by Property 1 (???) there $\exists$ an $\alpha^\prime$ such that $\alpha < \alpha^\prime < x$ where $\alpha^\prime \in A $ (i.e. we can always find a larger $\alpha$ so, since there is no largest $\alpha$, there MUST be a smallest $\beta$).  
+\end{proof}
+
+\begin{theorem}
+	Any real number admits a decimal expansion.
+\end{theorem}
+
+\begin{proof}
+	Let $x > 0$, $x \in \mathbb{R}$. Let $n_0 = [x]$ (n largest integer < x). Let $n_1$ be the largest integer such that $n_0 + \frac{n_1}{10} < x$. Having defined $n_0 \dots n_{k-1}$, define $n_k$ as the largest integer such that $n_0 + \frac{n_1}{10} + \frac{n_2}{10^2} + \dots + \frac{n_k}{1-^k} \le x$. Let E bet he set of resluting numbers for $k=1,2,\dots$. Then $x$ is the supremum of E and $n_0, n_1, \dots$ is its \textbf{decimal expansion}. Conversely, and set of integers $n_0, n_1, \dots$ defines a set of numbers, E, bounded above by $n_0 + 1$.	
+\end{proof}
+
+\begin{definition}[Extended Real Number System]
+	$$\bar{\mathbb{R}} = \mathbb{R} \cup \{-\infty, \infty\}$$
+\end{definition}
+
+\subsection{Euclidean Space}\index{Euclidean Space}
+
+\begin{definition}[Vector Space]
+	For any $k \in \mathbb{Z}^+$. Let $\mathbb{R}^K$ be the set of ordered k-tuples. 
+	\begin{align*}
+	\underline{x} &= (x_1, \dots, x_k) \text{ with }x_i \in \mathbb{R}\\
+	\underline{y} &= (y_1, \dots, y_k) \alpha \in \mathbb{R}\\
+	\underline{x} + \underline{y} = (x_1 + y_1, \dots, x_k + y_k)\\
+	\alpha\underline{x}= (\alpha x_1, \dots, \alpha x_k)\\
+	\end{align*}
+	Which makes $\mathbb{R}^k$ a \textbf{vector space} over the \textbf{real field}.
+\end{definition}
+
+\begin{definition}[Inner/Scalar/Dot Product]
+$$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$	
+\end{definition}
+
+\begin{definition}[Norm/Length]
+	$$|\underline{x}| = (\underline{x}\underline{x})^{\frac{1}{2}} = \sqrt{\sum\limits_{i=1}^k x_i^2} $$
+\end{definition}
+
+\begin{definition}[Euclidean K-space]
+	The vector space $\mathbb{R}^k$ with the inner product and norm is called \textbf{Euclidean k-space}.
+\end{definition}
+
+\begin{theorem}
+	For $\underline{x}, \underline{y} \in \mathbb{R}^k, \alpha \in \mathbb{R}$
+	\begin{enumerate}[label = \alph*)]
+		\item | 
+	\end{enumerate}
+\end{theorem}
+%------------------------------------------------
+
+% \section{Citation}\index{Citation}
+
+% This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+
+% %------------------------------------------------
+
+% \section{Lists}\index{Lists}
+
+% Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
+
+% \subsection{Numbered List}\index{Lists!Numbered List}
+
+% \begin{enumerate}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{enumerate}
+
+% \subsection{Bullet Points}\index{Lists!Bullet Points}
+
+% \begin{itemize}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{itemize}
+
+% \subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+
+% \begin{description}
+% \item[Name] Description
+% \item[Word] Definition
+% \item[Comment] Elaboration
+% \end{description}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 2
+% %----------------------------------------------------------------------------------------
+
+% \chapter{In-text Elements}
+
+% \section{Theorems}\index{Theorems}
+
+% This is an example of theorems.
+
+% \subsection{Several equations}\index{Theorems!Several Equations}
+% This is a theorem consisting of several equations.
+
+% \begin{theorem}[Name of the theorem]
+% In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+% \begin{align}
+% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+% \end{align}
+% \end{theorem}
+
+% \subsection{Single Line}\index{Theorems!Single Line}
+% This is a theorem consisting of just one line.
+
+% \begin{theorem}
+% A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+% \end{theorem}
+
+% %------------------------------------------------
+
+% \section{Definitions}\index{Definitions}
+
+% This is an example of a definition. A definition could be mathematical or it could define a concept.
+
+% \begin{definition}[Definition name]
+% Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+% \begin{align}
+% & ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+% & ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+% & ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+% \end{align}
+% \end{definition}
+
+% %------------------------------------------------
+
+% \section{Notations}\index{Notations}
+
+% \begin{notation}
+% Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+% \begin{enumerate}
+% \item Bounded support $G$;
+% \item Infinitely differentiable;
+% \end{enumerate}
+% a vector space is denoted by $\mathcal{D}(G)$. 
+% \end{notation}
+
+% %------------------------------------------------
+
+% \section{Remarks}\index{Remarks}
+
+% This is an example of a remark.
+
+% \begin{remark}
+% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+% \end{remark}
+
+% %------------------------------------------------
+
+% \section{Corollaries}\index{Corollaries}
+
+% This is an example of a corollary.
+
+% \begin{corollary}[Corollary name]
+% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+% \end{corollary}
+
+% %------------------------------------------------
+
+% \section{Propositions}\index{Propositions}
+
+% This is an example of propositions.
+
+% \subsection{Several equations}\index{Propositions!Several Equations}
+
+% \begin{proposition}[Proposition name]
+% It has the properties:
+% \begin{align}
+% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+% \end{align}
+% \end{proposition}
+
+% \subsection{Single Line}\index{Propositions!Single Line}
+
+% \begin{proposition} 
+% Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+% \end{proposition}
+
+% %------------------------------------------------
+
+% \section{Examples}\index{Examples}
+
+% This is an example of examples.
+
+% \subsection{Equation and Text}\index{Examples!Equation and Text}
+
+% \begin{example}
+% Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+% \begin{equation}
+% f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+% & 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+% \end{equation}
+% The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
+% \end{example}
+
+% \subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
+
+% \begin{example}[Example name]
+% \lipsum[2]
+% \end{example}
+
+% %------------------------------------------------
+
+% \section{Exercises}\index{Exercises}
+
+% This is an example of an exercise.
+
+% \begin{exercise}
+% This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+% \end{exercise}
+
+% %------------------------------------------------
+
+% \section{Problems}\index{Problems}
+
+% \begin{problem}
+% What is the average airspeed velocity of an unladen swallow?
+% \end{problem}
+
+% %------------------------------------------------
+
+% \section{Vocabulary}\index{Vocabulary}
+
+% Define a word to improve a students' vocabulary.
+
+% \begin{vocabulary}[Word]
+% Definition of word.
+% \end{vocabulary}
+
+% %----------------------------------------------------------------------------------------
+% %	PART
+% %----------------------------------------------------------------------------------------
+
+% \part{Part Two}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 3
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Presenting Information}
+
+% \section{Table}\index{Table}
+
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% \midrule
+% Treatment 1 & 0.0003262 & 0.562 \\
+% Treatment 2 & 0.0015681 & 0.910 \\
+% Treatment 3 & 0.0009271 & 0.296 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Table caption}
+% \end{table}
+
+% %------------------------------------------------
+
+% \section{Figure}\index{Figure}
+
+% \begin{figure}[h]
+% \centering\includegraphics[scale=0.5]{placeholder}
+% \caption{Figure caption}
+% \end{figure}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+\section*{Books}
+\addcontentsline{toc}{section}{Books}
+\printbibliography[heading=bibempty,type=book]
+\section*{Articles}
+\addcontentsline{toc}{section}{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
