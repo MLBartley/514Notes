@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  30 AUG 2015 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  31 AUG 2015 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1840,56 +1840,98 @@ Package mdframed Info: mdframed works in twoside mode on input line 340.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 340.
- [11] [12
+Package mdframed Info: mdframed works in twoside mode on input line 345.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 345.
+Package mdframed Info: mdframed works in twoside mode on input line 360.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 360.
+ [11]
+Package mdframed Info: mdframed works in twoside mode on input line 369.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 369.
+Package mdframed Info: Not enough space on this page on input line 378.
+Package mdframed Info: mdframed works in twoside mode on input line 407.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 407.
+Package mdframed Info: mdframed works in twoside mode on input line 428.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 428.
+Package mdframed Info: mdframed works in twoside mode on input line 436.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 436.
+Package mdframed Info: Not enough space on this page on input line 438.
+ [12]
+Package mdframed Info: Not enough space on this page on input line 438.
+Package mdframed Info: mdframed works in twoside mode on input line 463.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 463.
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 490.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 490.
+[13] [14
 
 ]
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
  <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 572.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 727.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
 
 
-Package biblatex Warning: Type 'book' not found on input line 576.
+Package biblatex Warning: Type 'book' not found on input line 731.
 
 
-LaTeX Warning: Empty bibliography on input line 576.
+LaTeX Warning: Empty bibliography on input line 731.
 
 
-Package biblatex Warning: Type 'article' not found on input line 579.
+Package biblatex Warning: Type 'article' not found on input line 734.
 
 
-LaTeX Warning: Empty bibliography on input line 579.
+LaTeX Warning: Empty bibliography on input line 734.
 
-[13] [14
+[15] [16
 
 ] (./513Notes.ind
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
  <use Pictures/chapter_head_2.pdf>
 Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
- [15
+ [17
 
 
 ])
 \tf@ptc=\write7
 \openout7 = `513Notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 593.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 593.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 748.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 748.
 
 (./513Notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 593.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 593.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 748.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 748.
 Package logreq Info: Writing requests to '513Notes.run.xml'.
 \openout1 = `513Notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31282 strings out of 493117
- 578792 string characters out of 6135433
- 1100105 words of memory out of 5000000
- 34038 multiletter control sequences out of 15000+600000
- 128353 words of font info for 229 fonts, out of 8000000 for 9000
+ 31320 strings out of 493117
+ 579224 string characters out of 6135433
+ 1100289 words of memory out of 5000000
+ 34047 multiletter control sequences out of 15000+600000
+ 128613 words of font info for 233 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,57p,10521b,2521s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
@@ -1908,10 +1950,10 @@ ts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/ur
 w/times/utmb8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/ut
 mr8a.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
 
-Output written on 513Notes.pdf (15 pages, 379823 bytes).
+Output written on 513Notes.pdf (17 pages, 389970 bytes).
 PDF statistics:
- 269 PDF objects out of 1000 (max. 8388607)
- 210 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
  62044 words of extra memory for PDF output out of 74296 (max. 10000000)
 
