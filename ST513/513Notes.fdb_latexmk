@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 513Notes"] 1440951529 "513Notes.bcf" "513Notes.bbl" "513Notes" 1441064985
-  "513Notes.bcf" 1441064985 92622 b632077a2d5c5a5f2e17e1939f5a2478 ""
+["biber 513Notes"] 1440951529 "513Notes.bcf" "513Notes.bbl" "513Notes" 1441562022
+  "513Notes.bcf" 1441562021 92622 b632077a2d5c5a5f2e17e1939f5a2478 ""
   (generated)
   "513Notes.bbl"
   "513Notes.blg"
-["makeindex 513Notes.idx"] 1440957327 "513Notes.idx" "513Notes.ind" "513Notes" 1441064985
-  "513Notes.idx" 1441064985 221 2fc9ac6002b8b40139186416b2a91437 ""
+["makeindex 513Notes.idx"] 1441228873 "513Notes.idx" "513Notes.ind" "513Notes" 1441562022
+  "513Notes.idx" 1441562021 262 2010ce5316d468d84d53cc3e7e609a93 ""
   (generated)
   "513Notes.ind"
   "513Notes.ilg"
-["pdflatex"] 1441064983 "513Notes.tex" "513Notes.pdf" "513Notes" 1441064985
+["pdflatex"] 1441562019 "513Notes.tex" "513Notes.pdf" "513Notes" 1441562022
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf" 1367878877 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def" 1395780385 49536 e1475dd245ff2196764ba5b91ac63714 ""
@@ -177,19 +177,19 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty" 1399675188 10002 f32f4490d0c87a7854adf544bd459155 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "513Notes.aux" 1441064985 6920 f67a8bcefc3da321b287516a2ac4834c ""
+  "513Notes.aux" 1441562021 8382 f79161223439ce8072cba68b4aa70acc ""
   "513Notes.bbl" 1440951530 466 9b63bd41c34afae085b93d05707d5cc3 "biber 513Notes"
-  "513Notes.ind" 1440957328 288 c1bee1854fe4267f981879ffb11d32a3 "makeindex 513Notes.idx"
-  "513Notes.ptc" 1441064985 1400 1d640f23436a4c912eea2f1249be2c43 ""
-  "513Notes.tex" 1441064983 29317 9a540dc8f61a06dfef9cc415258f92c9 ""
-  "513Notes.toc" 1441064985 1374 331edd40583538f84bc160a2c0a632af ""
+  "513Notes.ind" 1441228874 342 bbef20701e1bfce2561c37daf1064db9 "makeindex 513Notes.idx"
+  "513Notes.ptc" 1441562021 1635 8d4490dd09a9f817163be42c4d9113ab ""
+  "513Notes.tex" 1441562016 36744 8f597635622b4bdbd8cbad2638c972b3 ""
+  "513Notes.toc" 1441562021 1609 e9a7bb1d7e4c8bab2bf3d9ddc36665c1 ""
   "Pictures/background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
+  "513Notes.ptc"
+  "513Notes.aux"
+  "513Notes.log"
   "513Notes.toc"
   "513Notes.pdf"
-  "513Notes.ptc"
-  "513Notes.log"
-  "513Notes.aux"

@@ -344,7 +344,7 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 
 \begin{theorem}  
 	\begin{enumerate}[label = \alph*)]
-		\item $f^{-1}(A\cup B) = F^{-1}(A)\cup f^{-1}(B)$
+		\item $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$
 		\item $f(A\cup B) = f(A) \cup f(B)$
 		\item $f^{-1}(A\cap B) = f^{-1}(A) \cap f^{-1}(B)$
 	\end{enumerate}
@@ -496,6 +496,160 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \begin{proof}
 	Statement is true for any n=1 since $A^1 = A$. Assume true for n=k. To show $A^{k+1}$ is countable, write an element ($a_1, a_2, \dots, a_k, a_{k+1}) = (\underline{a}, a_{k+1}), \underline{a} \in A^k$. Thus, $A^{k+1} = \bigcup\limits_{\underline{a}\in A^k} \{\underline{a}, a_{k+1}); a_k \in A\} $ (see previous Theorem).
 \end{proof}
+
+\subsection{Metric Spaces}\index{Metric Spaces} % (fold)
+
+\begin{definition}
+	A set X is a \textbf{metric space} is $\forall x, x \in X$ there is a \textbf{real} number, $d(x_1, x_2)$  called the \textbf{distance} between $x_1$ and $x_2$ such that,
+
+	\begin{enumerate}[label = \alph*)]
+		\item $d(x_1, x_2) > 0$ if $x_1 \neq x_2$ and $d(x_1, x_1) = 0$
+		\item $d(x_1, x_2) = d(x_2, x_1)$
+		\item $d(x_1, x_2) \le d(x_1, x_3) + d(x_2, x_3), \forall x_3$
+	\end{enumerate}
+
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}[label = \alph*)]
+		\item Euclidean spaces $\mathbb{R}^k$ are metric spaces with $d(x_1, x_2) = |x_1 - x_2|$
+		\item Any subset of a metric space is a metric space with same distance.
+		\item The set $\mathbb{R}^k$ can also be metrized with\\
+			$d_1(x_1, x_2) = \sum\limits_{i=1}^k |x_{1i}-x_{2i} |$\\
+			or with\\
+			$d_2(x_1, x_2) = (\sum\limits_{i=1}^k |x_{1i}-x_{2i} |^p)^{\frac{1}{p}}$
+		\item The set $C_{[a,b]}$ of all continuous functions on $[a,b]$ with\\
+			$d_1(f,g) = \max\limits_{a \le t \le b} |f(t) - g(t)| $\\
+			or with \\
+			$d_2(f,g)= (\int\limits_a^b [f(t)-g(t)]^2)^{\frac{1}{2}} $
+		\item The set $l_p$ of all infinite sequences $x= (x_1 x_2, \dots)$ satisfying $\sum\limits_{i=1}^\infty|x_i|^p < \infty$ for $p \ge 1$ with\\
+		$d(x_1, x_2) = \sum\limits_{i=1}^\infty |x_{1i}-x_{2i} |^p)^{\frac{1}{p}}$
+
+	\end{enumerate}
+\end{example}
+
+\begin{definition}
+	Let X be a metric space. All sets and points mentioned are sets and elements of X.
+
+	\begin{enumerate}[label = \alph*)]
+		\item An \textbf{open ball} of radius r and center x is
+			$$B(x,r) = \{y \in X: d(x,y) <r\} $$
+			The \textbf{closed ball} is
+			$$B[x,r] = \{y \in X: d(x,y) \le r\}  $$
+			Open ball with center x are also called \textbf{neighborhoods} of x and $B(x,y)$ is denoted by $N_r(x)$.
+		\item A point x is a \textbf{limit point} of a set E if $\forall r >0$ $E \cap N_r(x) $ 	contains a point $\neq$ x. If x is not a limit point it is called an \textbf{isolated 	  point}.
+		\item A point x is an \textbf{interior point} of E if there $\exists$ r such that $N_r(x)\le E$.
+		\item E is \textbf{open} if every point of E is an interior point.
+		\item E is \textbf{closed} if every point of E belongs in E.
+		\item E is \textbf{dense} in X if every point of X is a limit point of E, or a point of E, or both. (e.g. rationals with in real numbers)
+		\item E is \textbf{bounded} if for some $r>0$, and $x \in X$, $E \subseteq N_r(x)$.
+	\end{enumerate}
+
+\end{definition}
+
+\begin{theorem}
+	Every neighborhood is an open set.
+\end{theorem}
+
+\begin{theorem}
+	If X is limit point of E, then every neighborhood of X contains infinitely many points of E. 
+\end{theorem}
+
+\begin{example}
+	X = $\mathbb{R}$, then (a,b) is open, [a,b] is close, (a,b] and [a,b) are neither open nor closed.
+\end{example}
+
+\begin{example}
+	$X = \mathbb{R}^2$ (see sketch in notes.)
+\end{example}
+
+\begin{theorem}
+	Suppose $Y \subset X$ (a metric space) and take $E \subseteq Y$, then E is open relative to Y if and ony if $E=Y\cap G$ for some open set G of X.
+\end{theorem}
+
+\begin{theorem}
+	E is open if and only if its compliment is closed.
+\end{theorem}
+
+\begin{corollary}
+	\begin{enumerate}[label = \alph*)]
+		\item Both X and $\emptyset$ are closed.
+		\item The union of finite numbers of closed sets is closed.
+		\item Arbitrary intersections of closed sets is closed.
+	\end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+	For any metric space X, we have
+
+	\begin{enumerate}[label = \alph*)]
+		\item X and $\emptyset$ are open.
+		\item The intersection of a finite nuber of open sets is open. (Note: must be finite. $E_n = (-\frac{1}{n}, \frac{1}{n})$, then $\bigcap\limits^\infty E_n = \{0\}$)
+		\item The union of every collection of open sets is open. 
+	\end{enumerate}
+\end{theorem}
+% subsection metric_spaces (end)
+
+\subsection{Compact Sets} % (fold)
+
+\begin{definition}
+	A Subset K of a metric space X is \textbf{compact} if every open  cover of k contains a finite subcover.
+	This for all collections $G_\alpha, \alpha \in A$ of open sets such that $\bigcup\limits_A G_\alpha > K$ there exists a finite collection $G_{\alpha_i}, i = 1,2,\dots,$ such that $k < \cup G_\alpha$
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}[label = \alph*)]	
+		\item X = $\mathbb{R}$, E = (0,1)\\
+		Let $G_\alpha = (\frac{1}{\alpha},1), \alpha = 1, 2, \dots$\\
+		Clearly , $\bigcup\limits^\infty_{\alpha = 1} G_\alpha \subset (0,1)$, but also,\\
+		$K \not\subset \bigcup\limits^\infty_{\alpha = 1} G_\alpha$.
+		\item $X = \mathbb{R}, E=[0,\infty)$, let $G_\alpha(-1, \alpha), \alpha \ge 1$. Then $E \subset \bigcup\limits^\infty G_\alpha$, but $E \not\subset \bigcup\limits^\infty_{\alpha = 1}, \forall n$.
+	\end{enumerate}	
+\end{example}
+
+\begin{theorem}
+	Suppose $k < Y < X$, (X is a metric space). Then k is a compact space with respect to Y if and only if k is a compact space of X.
+\end{theorem}
+
+\begin{proof}
+	"\underline{$\Leftarrow$}" Suppose k is compact relative to X and let $V_\alpha, \alpha \in A$ be open sets relative to Y, such that $k \subset \bigcup\limits_{\alpha \in A}$. By Theorem 1.2.12 (13 in notes), $V_\alpha = Y\cap G_\alpha$, some $G_\alpha$ open relative to X. (Note: $k \subset \cup G_\alpha$.) Thus, there exists a finite subcover, $k \subset \bigcup\limits^n_{i=1} G_{\alpha_i}$. But then, 
+		\begin{align*}
+			k \subset Y \cap (\bigcup\limits^n_{i=1} G_{\alpha_i}) &= \bigcup\limits^n_{i=1}(Y \cap G_{\alpha_i})\\
+			&= \bigcup\limits^n_{i=1} V_{\alpha_i}
+		\end{align*}
+	"\underline{$\Rightarrow$}" Suppose k is compact relative to Y, and let $G_\alpha, \alpha \in A$ be open relative to X, so $k \subset \bigcup\limits_{\alpha \in A}$. But then,
+		\begin{align*}
+		 	k \subset Y \cap (\bigcup\limits^n_{i=1} G_{\alpha_i}) &= \bigcup\limits^n_{i=1}(Y \cap G_{\alpha})\\
+			&= \bigcup\limits^n_{i=1} V_{\alpha}, V_\alpha \text{ open with respect to Y.}\\
+			\text{Thus, } k \subset \bigcup\limits^n_{i=1} V_{\alpha_i}) &= Y \cap (\bigcup\limits^n_{i=1} G_{\alpha})\\
+		 \end{align*}
+		 So, $k \subset \bigcup\limits^n_{i=1} G_{\alpha}$ 
+\end{proof}
+
+\begin{theorem}
+	If k is a compact subset of a metric space, X, then k is closed and bounded.
+\end{theorem}
+
+\begin{proof}
+	We'll show k is closed by showing $k^c$ is open. Let $p \in k^c$. For each $q \in k$ we will consider $N_{r_q}(q)$ where $r_q = \frac{1}{2} d(p,q)$. Since k is cmpact, there exists $(q_1, q_2, \dots, q_n) \in k$ such that $k \subset \bigcup\limits^n_{i=1} N_{r_{q_i}}(q_i)$. Let $G = \bigcap\limits^n_{i=1} N_{r_{q_i}}(p)$. (Note: $(\bigcup\limits^n N_{r_{q_i}}(q_i))\cap G = \emptyset$.)
+\end{proof}
+
+\begin{theorem}
+	Closed (with repsect to X) subsets of compact sets are compact.
+\end{theorem}
+
+\begin{proof}
+	Let $F \subseteq k \subseteq X$, where X is a metric space, k is compact, and F is closed with respect to X. Let $G_\alpha, \alpha \in A$, be open such that $F \subset \bigcup\limits_{\alpha \in A} G_\alpha$ (F is "covered" by $\cup G_\alpha$). F close implies $F^c$ is open. Then the collection $\{F^c, G_\alpha\}$ covers k. Let $k \subset F^c \cup G_\alpha$ which implies $F \subset \cup G_\alpha$. 
+\end{proof}
+
+\begin{theorem}
+	If E is an infinite subset of a compact set k, then E has a limit point in k.
+\end{theorem}
+
+\begin{example}
+	Let X be the space of rational numbers, with $d(p,d) = |p-d|$. Show that $E=\{p\in X; 2<p^2<3\}$ is closed, bounded, but not compact.
+\end{example}
+% subsubsection compact sets(end)
 %------------------------------------------------
 
 % \section{Citation}\index{Citation}
