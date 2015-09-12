@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 513Notes"] 1440951529 "513Notes.bcf" "513Notes.bbl" "513Notes" 1441562022
+["biber 513Notes"] 1440951529 "513Notes.bcf" "513Notes.bbl" "513Notes" 1441565188
   "513Notes.bcf" 1441562021 92622 b632077a2d5c5a5f2e17e1939f5a2478 ""
   (generated)
   "513Notes.bbl"
   "513Notes.blg"
-["makeindex 513Notes.idx"] 1441228873 "513Notes.idx" "513Notes.ind" "513Notes" 1441562022
+["makeindex 513Notes.idx"] 1441228873 "513Notes.idx" "513Notes.ind" "513Notes" 1441565188
   "513Notes.idx" 1441562021 262 2010ce5316d468d84d53cc3e7e609a93 ""
   (generated)
-  "513Notes.ind"
   "513Notes.ilg"
-["pdflatex"] 1441562019 "513Notes.tex" "513Notes.pdf" "513Notes" 1441562022
+  "513Notes.ind"
+["pdflatex"] 1441562019 "513Notes.tex" "513Notes.pdf" "513Notes" 1441565188
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf" 1367878877 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def" 1395780385 49536 e1475dd245ff2196764ba5b91ac63714 ""
@@ -188,8 +188,8 @@
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
-  "513Notes.ptc"
-  "513Notes.aux"
   "513Notes.log"
-  "513Notes.toc"
+  "513Notes.ptc"
   "513Notes.pdf"
+  "513Notes.aux"
+  "513Notes.toc"
