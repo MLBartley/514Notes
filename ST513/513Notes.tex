@@ -197,7 +197,7 @@ If A is any set, $\mathbf{x \in A}$ means that x is a member of A, and $\mathbf{
 
 \begin{definition}[Dedekind Cuts]
 	A set $\alpha$ of rational numbers is said to be a \textbf{cut} if
-	\begin{enumerate}
+	\begin{enumerate}[label = \alph*)]
 		\item $\alpha$ is a proper, but non-empty, subset of the rational numbers.
 		\item If $p \in \alpha$ (p is rational), and $q<p$ (q is rational) then $q \in \alpha$
 		\item It contains no largest rational.
@@ -593,9 +593,13 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \subsection{Compact Sets} % (fold)
 
 \begin{definition}
-	A Subset K of a metric space X is \textbf{compact} if every open  cover of k contains a finite subcover.
-	This for all collections $G_\alpha, \alpha \in A$ of open sets such that $\bigcup\limits_A G_\alpha > K$ there exists a finite collection $G_{\alpha_i}, i = 1,2,\dots,$ such that $k < \cup G_\alpha$
+	A subset K of a metric space X is \textbf{compact} if every open cover of k contains a finite subcover.
+	That is for all collections $G_\alpha, \alpha \in A$ of open sets such that $\bigcup\limits_A G_\alpha \supset K$ there exists a finite collection $G_{\alpha_i}, i = 1,2,\dots, n$ such that $K \subset \bigcup G_\alpha$
 \end{definition}
+
+\begin{remark}
+	To visualize an open cover that is not compact, think of K = [0,1] and $G_\alpha = (-1, 1- \frac{1}{\alpha})$. $\bigcup\limits_1^\infty G_\alpha$ will cover K, but $\bigcup\limits_1^{999} G_\alpha$ will not. 
+\end{remark}
 
 \begin{example}
 	\begin{enumerate}[label = \alph*)]	
@@ -608,7 +612,7 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \end{example}
 
 \begin{theorem}
-	Suppose $k < Y < X$, (X is a metric space). Then k is a compact space with respect to Y if and only if k is a compact space of X.
+	Suppose $K < Y < X$, (X is a metric space). Then K is a compact space with respect to Y if and only if k is a compact space of X.
 \end{theorem}
 
 \begin{proof}
@@ -631,11 +635,11 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \end{theorem}
 
 \begin{proof}
-	We'll show k is closed by showing $k^c$ is open. Let $p \in k^c$. For each $q \in k$ we will consider $N_{r_q}(q)$ where $r_q = \frac{1}{2} d(p,q)$. Since k is cmpact, there exists $(q_1, q_2, \dots, q_n) \in k$ such that $k \subset \bigcup\limits^n_{i=1} N_{r_{q_i}}(q_i)$. Let $G = \bigcap\limits^n_{i=1} N_{r_{q_i}}(p)$. (Note: $(\bigcup\limits^n N_{r_{q_i}}(q_i))\cap G = \emptyset$.)
+	We'll show k is closed by showing $k^c$ is open. Let $p \in k^c$. For each $q \in k$ we will consider $N_{r_q}(q)$ where $r_q = \frac{1}{2} d(p,q)$. Since k is compact, there exists $(q_1, q_2, \dots, q_n) \in k$ such that $k \subset \bigcup\limits^n_{i=1} N_{r_{q_i}}(q_i)$. Let $G = \bigcap\limits^n_{i=1} N_{r_{q_i}}(p)$. (Note: $(\bigcup\limits^n N_{r_{q_i}}(q_i))\cap G = \emptyset$.)
 \end{proof}
 
 \begin{theorem}
-	Closed (with repsect to X) subsets of compact sets are compact.
+	Closed (with respect to X) subsets of compact sets are compact.
 \end{theorem}
 
 \begin{proof}
@@ -643,237 +647,409 @@ $$ \underline{x} \cdot \underline{y} = \sum\limits_{i=1}^k x_i y_i$$
 \end{proof}
 
 \begin{theorem}
-	If E is an infinite subset of a compact set k, then E has a limit point in k.
+	If E is an infinite subset of a compact set k, then E has a limit point in k. ("Countable compactness.")
 \end{theorem}
+
+\begin{proof}
+	If no point in K is a limit point of E, then each $q \in K$ will have a neighborhood, $N(q)$, which contains at most point point of E (which is q if $q \in E$). Thus, no finite subcollection of $\{N(q), q \in K \}$ for which no finite collection covers k. Contradiciton. 
+\end{proof}
 
 \begin{example}
 	Let X be the space of rational numbers, with $d(p,d) = |p-d|$. Show that $E=\{p\in X; 2<p^2<3\}$ is closed, bounded, but not compact.
 \end{example}
+
+\begin{theorem}
+	If $K_\alpha \subseteq X$, X a metric space, $\alpha \in A$, are compact such that the intersection of every finite collection is empty, then entire $\bigcap K_\alpha \neq \emptyset$ 
+\end{theorem}
+
+\begin{proof}
+	Let $K_1$ be a member of $\{k_{\alpha}, \alpha \in A \}$ such that no point of K belongs to all $K_\alpha$. Then $G_\alpha = K_\alpha^c$ are open and cover $K_1$. Thus, $\exists$ $\alpha_1, \alpha_2, \dots, \alpha_n$ such that $K_1 \subseteq \bigcup\limits_{i=i}^n G_{\alpha_i}$. This implies that $K_1 \bigcap (\bigcup^n G_{\alpha_i})^c$ or $K_1 \bigcap K_{\alpha_1} \bigcap \dots \bigcap K_{\alpha_n} = \emptyset.$ Contradiction. 
+\end{proof}
+
+\begin{example}
+	X = space of rational numbers, $d(p,q) = |p-q|$, $E= \{p \in X: \sqrt{2} < p < \sqrt{3}\}$. Then E is closed, bounded but not compact. 
+	\begin{proof}
+	 	$E = X \bigcap [\sqrt{2}, \sqrt{3}]$, and since $X \subseteq \mathbb{R}$ and $[\sqrt{2}, \sqrt{3}$ is closed in $\mathbb{R}$, E is closed (and bounded but not compact).
+	 \end{proof} 
+\end{example}
+
+In Euclidean spaces, if a set is closed and bounded, then it \textbf{is} compact. The main step of showing this is ...
+
+\begin{theorem}
+ 	Ever k-cell in $\mathbb{R}^k$ is compact, where k-cells are of the form:
+ 	$$I = \{x \in \mathbb{R}, a_i \le x_i \le b_i, i=1,\dots,k \} $$
+ 	To prove, we must first state the following lemma and corollary. 
+ \end{theorem} 
+
+\newtheorem{lemma}{Lemma}
+
+ \begin{lemma}
+ 	If $I_n$ is a sequence of k-cells such that $I_n \subseteq I_{n+1}$, then $\bigcap\limits_1^\infty I_n \neq \emptyset$.
+ \end{lemma}
+
+ \begin{corollary}
+ 	As stated above, if $E \subseteq \mathbb{R}^k$ is closed and bounded then it is compact. 
+ \end{corollary}
+
+\begin{theorem}
+	If $K \subset \mathbb{R}^k$ is countably compact, then it is compact.
+\end{theorem}
+
+\begin{theorem}[Bolzano-Weierstrauss]
+	Every bounded infinite subset of $\mathbb{R}^k$ has a limit point in $\mathbb{R}^k$.
+\end{theorem}
+
+\begin{proof}
+	Begin bounded, it is a subset of a k-cell, I. Since k-cells are compact, each infinite subset of I has a limit point by Theorem 1.2.16. 
+\end{proof}
 % subsubsection compact sets(end)
-%------------------------------------------------
 
-% \section{Citation}\index{Citation}
-
-% This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
-
-% %------------------------------------------------
-
-% \section{Lists}\index{Lists}
-
-% Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
-
-% \subsection{Numbered List}\index{Lists!Numbered List}
-
-% \begin{enumerate}
-% \item The first item
-% \item The second item
-% \item The third item
-% \end{enumerate}
-
-% \subsection{Bullet Points}\index{Lists!Bullet Points}
-
-% \begin{itemize}
-% \item The first item
-% \item The second item
-% \item The third item
-% \end{itemize}
-
-% \subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
-
-% \begin{description}
-% \item[Name] Description
-% \item[Word] Definition
-% \item[Comment] Elaboration
-% \end{description}
-
-% %----------------------------------------------------------------------------------------
-% %	CHAPTER 2
-% %----------------------------------------------------------------------------------------
-
-% \chapter{In-text Elements}
-
-% \section{Theorems}\index{Theorems}
-
-% This is an example of theorems.
-
-% \subsection{Several equations}\index{Theorems!Several Equations}
-% This is a theorem consisting of several equations.
-
-% \begin{theorem}[Name of the theorem]
-% In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
-% \begin{align}
-% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-% \end{align}
-% \end{theorem}
-
-% \subsection{Single Line}\index{Theorems!Single Line}
-% This is a theorem consisting of just one line.
-
-% \begin{theorem}
-% A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
-% \end{theorem}
-
-% %------------------------------------------------
-
-% \section{Definitions}\index{Definitions}
-
-% This is an example of a definition. A definition could be mathematical or it could define a concept.
-
-% \begin{definition}[Definition name]
-% Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
-% \begin{align}
-% & ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
-% & ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
-% & ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
-% \end{align}
-% \end{definition}
-
-% %------------------------------------------------
-
-% \section{Notations}\index{Notations}
-
-% \begin{notation}
-% Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
-% \begin{enumerate}
-% \item Bounded support $G$;
-% \item Infinitely differentiable;
-% \end{enumerate}
-% a vector space is denoted by $\mathcal{D}(G)$. 
-% \end{notation}
-
-% %------------------------------------------------
-
-% \section{Remarks}\index{Remarks}
-
-% This is an example of a remark.
-
-% \begin{remark}
-% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-% \end{remark}
-
-% %------------------------------------------------
-
-% \section{Corollaries}\index{Corollaries}
-
-% This is an example of a corollary.
-
-% \begin{corollary}[Corollary name]
-% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-% \end{corollary}
-
-% %------------------------------------------------
-
-% \section{Propositions}\index{Propositions}
-
-% This is an example of propositions.
-
-% \subsection{Several equations}\index{Propositions!Several Equations}
-
-% \begin{proposition}[Proposition name]
-% It has the properties:
-% \begin{align}
-% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-% \end{align}
-% \end{proposition}
-
-% \subsection{Single Line}\index{Propositions!Single Line}
-
-% \begin{proposition} 
-% Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
-% \end{proposition}
-
-% %------------------------------------------------
-
-% \section{Examples}\index{Examples}
-
-% This is an example of examples.
-
-% \subsection{Equation and Text}\index{Examples!Equation and Text}
-
-% \begin{example}
-% Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
-% \begin{equation}
-% f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
-% & 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
-% \end{equation}
-% The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
-% \end{example}
-
-% \subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
-
-% \begin{example}[Example name]
-% \lipsum[2]
-% \end{example}
-
-% %------------------------------------------------
-
-% \section{Exercises}\index{Exercises}
-
-% This is an example of an exercise.
-
-% \begin{exercise}
-% This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
-% \end{exercise}
-
-% %------------------------------------------------
-
-% \section{Problems}\index{Problems}
-
-% \begin{problem}
-% What is the average airspeed velocity of an unladen swallow?
-% \end{problem}
-
-% %------------------------------------------------
-
-% \section{Vocabulary}\index{Vocabulary}
-
-% Define a word to improve a students' vocabulary.
-
-% \begin{vocabulary}[Word]
-% Definition of word.
-% \end{vocabulary}
-
-% %----------------------------------------------------------------------------------------
-% %	PART
-% %----------------------------------------------------------------------------------------
-
-% \part{Part Two}
-
-% %----------------------------------------------------------------------------------------
-% %	CHAPTER 3
-% %----------------------------------------------------------------------------------------
-
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-% \chapter{Presenting Information}
-
-% \section{Table}\index{Table}
-
-% \begin{table}[h]
-% \centering
-% \begin{tabular}{l l l}
-% \toprule
-% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-% \midrule
-% Treatment 1 & 0.0003262 & 0.562 \\
-% Treatment 2 & 0.0015681 & 0.910 \\
-% Treatment 3 & 0.0009271 & 0.296 \\
-% \bottomrule
-% \end{tabular}
-% \caption{Table caption}
-% \end{table}
-
-% %------------------------------------------------
-
-% \section{Figure}\index{Figure}
-
-% \begin{figure}[h]
-% \centering\includegraphics[scale=0.5]{placeholder}
-% \caption{Figure caption}
-% \end{figure}
-
+\section{Sequences and Sets}\index{Sequences and Sets}
+
+\begin{remark}
+	Reading: definition of convergent sequences in metric space, and result of limit of convergence unique/bounded in Rudin text.
+\end{remark}
+
+\begin{definition}[Converge]
+A sequence $\{p_n\}$ in a metric space X is said to \textbf{converge} if there is a point $p \in X$ with the following property: For every $\epsilon > 0$ there is an integer $N$ such that $n\ge N$ implies that $d(p_n, p) < \epsilon$. 
+In this case we also say that $\{p_n\}$ converges to $p$, or that $p$ is the limit of $\{p_n\}$ and we write $p_n \rightarrow p$. If $\{p_n\}$ does not converge, it is said to \textbf{diverge}.
+\end{definition}
+
+\begin{theorem}
+	The limit of a convergent sequence is uniquely defined.
+\end{theorem}
+
+\begin{theorem}
+	A convergent sequence $\{x_n\}$ is bounded.
+\end{theorem}
+
+
+\begin{theorem}
+	Let $\{x_n\}$ be a sequence in a metric space X. Then
+	\begin{enumerate}[label = \alph*)]
+		\item $\{x_n\} \rightarrow p$ if and only if every neighborhood  of p contains all but finite many elements of $\{x_n\}$
+		\item If p is a limit point of a set $E \subseteq X$, there $\exists$ a sequences $\{x_n\}$ of points in E such that $x_n \rightarrow p$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}[label = \alph*)]
+		\item Let V be a neighborhood of p. Then for some $\epsilon > 0$, $d(q,p) < \epsilon$ implies $q \in V$. But corresponding to this $\epsilon$ there exists N such that $n \ge N $ implies $d(x_n, p) < \epsilon$ or $x_n \in V$.
+		\item For each n, there exists $x_n \in E$ such that $d(x_n, p) < \frac{1}{n}$. This defines a sequence $\{x_n\}$ such that $x_n \rightarrow p$.
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}[Subsequence]
+	Given a sequence $\{x_n\}$, $n \ge 1$, and a sequence $\{n_k\}$ of positive integers, such that $n_1 < n_2, dots$, the sequence $\{x_{n_k}\}$, $k \ge 1$, is called a \textbf{subsequence} of $\{x_n\}$. If the subsequnce converges its limit is called a \textbf{subsequential limit} of $\{x_n\}$.
+\end{definition}
+
+\begin{theorem}
+	$X_n \rightarrow X $ if and only if $X_{n_k} \rightarrow X$ for all subsequences.
+\end{theorem}
+
+\begin{proof}
+	Left as a potential exercies.
+\end{proof}
+
+\begin{theorem}
+	Let $X = \mathbb{R}^k$. Then
+	\begin{enumerate}[label = \alph*)]
+		\item $\underline{x_n} \rightarrow \underline{x}$ if and only if $x_{n_i} \rightarrow x_i$ $\forall i=1, \dots, k$.
+		\item If $\{\underline{x_n}\}$ is bounded then it contains a convergent subsequences. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}[label = \alph*)]
+		\item Left as an exersize. 
+		\item Suppose that $\{\underline{x_n}\}$ is an infinite set. Then the Bolzano-Weierstauss Theorem implies that there is a limit point of $\{\underline{x_n}\}$ in $\mathbb{R}^k$. By theorem 3.b (in notes), we are done.
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+	The subsequential limits of a sequence $\{p_n\}$ in a vector space X form a closed set.
+\end{theorem}
+
+\begin{proof}
+	Let E be the set of subsequential limits of $\{p_n\}$ and let q be a limit point of E. We need to show that $q \in E$. Let $q_k \in E, k \ge 1$ be a subsequence converging to q. We can choose $q_k$ such that $0 \le d(q_k, q) \le \frac{1}{2k} = \frac{\epsilon_k}{2}$. Since $q_k \in E$ there is a $p_{n_k} \in \{p_{n_k}, n \ge 1\}$ such that $d(p_{n_k}, q_k) < d(q_k, q) < \frac{\epsilon_k}{2}$.
+	Thus, $p_{n_k} \neq 1$ and $0 < d(p_{n_k}, q) < d(p_{n_k}, q_k) + d(q_k, q)$
+\end{proof}
+
+\begin{definition}
+	\begin{enumerate}[label = \alph*)]
+		\item A sequence $\{p_n\}$ in a metric space, X, is said to be a \textbf{Cauchy sequence} if for all $\epsilon > 0 $ there exists N such that $n \ge N$ and $m \ge N$ we have that $d(p_n, p_m) < \epsilon$.
+		\item A sequence $\{x_n\}, x_n \in \mathbb{R}$ such that $\forall m>0$ there exists N > 0 such that $n \ge N$ implies that $x_n \ge M$ then $x_n \rightarrow \infty$. Similarly, for $x_n \rightarrow -\infty$. 
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	For a subset of a metrix space, $E \in X$, the \textbf{diameter of E} is 
+	$$diam(E) = \sup \{d(p,q), p \in E, q \in E \} $$.
+\end{definition}
+
+\begin{lemma}
+	\begin{enumerate}[label = \alph*)]
+		\item Let $\bar{E} = E \bigcup \{limit points of E\}$ be the \textbf{closure} of E. Then $diam(E) = diam(\bar{E})$. So, the limit points do not increase the diameter.
+		\item The closure, $\bar{E}$ is a closed set.
+	\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+	\begin{enumerate}[label = \alph*)]
+		\item For a sequence $\{p_n\}$ in a matrix space X, set  $E_N = \{p_N, p_{N+1}, \dots \}$. Then $\{p_n\}$ is a Cauchy sequence if and only if the $diam(E_N) \rightarrow 0$.
+		\item Every convergent sequence in a metric space is a Cauchy sequence.
+		\item Every Cauchy sequence in $\mathbb{R}^k$ converges.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}[label = \alph*)]
+		\item Left as exercies
+		\item If $p_n \rightarrow p, \forall \epsilon > 0$ there exists N such that $n \ge N$ implies $d(p_n, p) <\frac{\epsilon}{2}$. Hense if $n\ge N$, and $m \ge N$, $d(p_n, p_m) \le d(p_n, p) + d(p, p_m) < \epsilon$.
+		\item Suppose $\{x_n\}$ is a Cauchy sequence in $\mathbb{R}^k$, let $E_N = \{x_N, x_{N+1}, \dots \}$ and $\bar{E_N}$ be its closure. By the lemma (part a)) and part a of this theorem, we have $diam(\bar{E_N} \rightarrow 0$. This implies that $\bar{E_N}$ are bounded sets. By lemma (part b)), $\bar{E_N}$ is closed. Thus $\bar{E_N}$ are compact sets.
+		Thus, by Theorem 2.17b (by notes numbering), $\bigcap\limits^\infty_{N=1} \bar{E_N} \neq \emptyset$ (i.e. must be single point which is the limit).
+	\end{enumerate}
+
+\end{proof}
+
+\begin{definition}[Complete]
+	A metric space, X, for which every Cauchy sequence converges is called \textbf{complete}.
+\end{definition}
+
+\begin{example}
+	X = sorted rationals.\\
+	X is complete.
+\end{example}
+
+\begin{definition}
+	$\{s_n\}, s_n \in \mathbb{R},$ is said to be
+	\begin{enumerate}[label = \alph*)]
+		\item \textbf{increasing} if $s_n \le s_{n+1}, \forall n$ $(\nearrow)$
+		\item \textbf{decreasing} if $s_n \ge s_{n+1}, \forall n$ $(\searrow)$
+		\item \textbf{monotonic} if either $\nearrow$ or $\searrow$
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	If $\{s_n\}$ is monotonic, it converges if and only if it is bounded.
+\end{theorem}
+
+\begin{proof}
+	Read in Rudin text.
+\end{proof}
+
+\begin{lemma}
+	If $E \subseteq \mathbb{R}$ is closed and bounded then, $\sup \{E\} \in E$. 
+\end{lemma}
+
+\begin{definition}[Upper/Lower limits]	
+	Let $\{x_n\}, x_n \in \mathbb{R}$ be a sequence and $E \subseteq \mathbb{R}, \mathbb{R} \bigcup \{-\infty, \infty\}$ be the set of all the subsequential limits. Then, 
+	$$\sup \{E\} = \lim\sup x_n $$
+	$$\inf \{E\} = \lim\inf x_n $$
+\end{definition}
+
+\begin{theorem}
+	With $\{x_n\}$ and E as in Definition 1.3.7, we have
+	\begin{enumerate}[label = \alph*)]
+		\item $\lim\sup x_n \in E$
+		\item If $x > \lim\sup x_n$, there exists N such that $\forall n>N$ implies $x_n < x.$
+	\end{enumerate}
+	Moreover, $\lim\sup x_n$ i sthe only number that satisfies a) and b).
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate} [label = \alph*)]
+		\item If $\bar{X} \in \mathbb{R}$ then E is bounded above and hense, by Theorem 1.3.6, is closed. By the previous lemma, $\bar{X} \in E.$
+		\item Suppose $x>\bar{s}$ such that $x_n > x$ for infiniately man n. These values of n define a subsequence. This subsequence is either bounded or unbounded. In either case, there is $y \in E$ such that $y \ge x > \bar{x}$, which contradicts the definition of $\bar{x}$.
+		To show uniqueness, let p and q satisfy a) and b), and suppose p<q. Let x be such that p<x<q. Since p satisfies b), $x_n < x \forall n \ge N$. But then q cannot satisfy a).
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+	\begin{enumerate}[label = \alph*)]
+		\item Set $a_n = \sup\{x_k, k \ge n\}$. Then $\lim a_n = \lim\sup x_k$.
+		\item Set $b_n = \inf\{x_k, k\ge n\}$. Then, $\lim b_n = \lim\inf x_n$.
+	\end{enumerate}
+	Is it clear that $\bar{x} \le a_n \forall n$? Then also, $\bar{x} \le \lim a_n$. If you show $\lim a_n \in E$, then also show $\lim a_n \le \bar{x}$.
+\end{theorem}
+
+\begin{theorem}[Frequently Occuring Sequences]
+	\begin{enumerate}[label = \alph*)]
+		\item If $p > 0, n^{-p} \rightarrow 0$
+		\item If $p > 0, \sqrt[\leftroot{-3}\uproot{3}p]{n} \rightarrow 1$
+		\item If $p>0, \sqrt[\leftroot{-3}\uproot{3}n]{n} \rightarrow 1$
+		\item If $p >0, \frac{n*a}{(1+p)^n} \rightarrow 0, \forall a \in \mathbb{R} $
+		\item If $|x| < 1, x^n \rightarrow 0$
+	\end{enumerate}
+\end{theorem}
+
+\subsection{Series}\index{Series}
+
+Given a sequence $\{a_n\}$ define $\{s_n\}$ where $s_n = \sum\limits^n_{i=1} a_i$. This sequence $\{s_n\}$ is called the sequence of partial sums, or \textbf{series}. We denote a series also as $\sum\limits^\infty_{n=1} a_n$. We write $\sum\limits^\infty a_n = s$ if $s_n \rightarrow s$. If $\{s_n\}$ diverges we say $\sum\limits^\infty_{n-1} a_n$ diverges.
+
+\begin{theorem}[Cauchy Criterium]
+	$\sum\limits^\infty a_n$ converges if and only if for all $\epsilon > 0$ exists N such that $|\sum\limits^m_{i=n} a_i| \le \epsilon$ holds for all $m,n \ge N$.  
+\end{theorem}
+
+\begin{theorem}[Comparison Test]
+	\begin{enumerate}[label = \alph*)]
+		\item If $|a_n| \le c_n$, and if $\sum\limits^\infty c_n$ converges, so does $\sum\limits^\infty a_n$.
+		\item If $0 \le d_n \le a_n$ and $\sum\limits^\infty d_n$ diverges, so does $\sum\limits^\infty a_n$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}[label = \alph*)]
+		\item $|\sum\limits^\infty a_i| \le \sum\limits^\infty |a_i| \le \sum\limits^\infty c_i < \epsilon$, $\forall n$ such that $n \ge N$ so $\sum\limits^\infty a_n$ converges.
+		\item By contradiction, if $\sum\limits^\infty a_n$ converges then by (a) so would $\sum\limits^\infty d_n$.
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Geometric Series]
+	If $0 \le x < 1$, $\sum\limits^\infty_{n=0} x^n = \frac{1}{1-x}$, which diverges if $x \ge 1$, and converges otherwise.
+\end{theorem}
+
+\begin{proof}
+	If $x \neq 1$, then $\frac{1-x^{n+1}}{1-x} = \sum\limits^n_{i=0} x^i = s_n$. The result follows.
+\end{proof}
+
+\begin{lemma}
+	Suppose $\{a_n\}$ is such that $a_n \searrow, a_n \ge 0$. Then $\sum\limits^n_1 a_n$ converges if and only if $\sum\limits^\infty_{k=0} 2^k a_{2^k}$ (i.e. elements of $\{a_n\}\text{ indexed by }2^k$: $\{a_1 + 2 a_2 + 4 a_4 + 8 a_8 + \dots\}$). 
+\end{lemma}
+
+\begin{proof}
+	Read in Rudin (listed as Theorem).
+\end{proof}
+
+\begin{theorem}
+	$\sum\limits^\infty_{n=1} \frac{1}{n^p}$ converges if $p \ge 1$ and diverges if $p \le 1$.
+\end{theorem}
+
+\begin{proof}
+	If $p \le 0$, then $\frac{1}{n^p} \not\rightarrow 0$.
+
+	Recall, if sequence does not converge to zero, series cannot converge. But sequences converging to zero does not indicate that series must converge.
+
+	If $p \ge 0$, $a_n = n^{-p} = \sum\limits^\infty_{k=0} [2^{1-p}]^k$, which is a geometric (power) series. But $2^{1-p} < 1$ if and only if $1-p <0$.
+\end{proof}
+
+\begin{remark}
+	The function $\zeta(p) = \sum\limits^\infty_{n=1} n^{-p}$, for $p >1$ is called the Reimann Zeta Function. 
+\end{remark}
+
+\begin{theorem}
+	$\sum\limits^\infty_{n=2} \frac{1}{n(\log n)^p}$ converges if $p > 1$ and diverges if $p \le 1$. Also, 
+	$\sum\limits^\infty_{n=3} \frac{1}{n(\log n)(\log\log n)^2}$ converges, but 
+	$\sum\limits^\infty_{n=2} \frac{1}{n(\log n)(\log\log n)}$ diverges.
+\end{theorem}
+
+\begin{theorem}
+	Let $f: [1, \infty) \rightarrow (0,\infty)$ be decreasing and $f(x) \rightarrow 0$. For $n\ge 1$ define $s_n = \sum\limits^n_{k=1} f(k),$ $t_n = \int\limits^n_1 f(x) dx$ and set $d_n = s_n - t_n$. Then
+	\begin{enumerate}[label = \roman*)]
+		\item $d_n$ is decreasing dequence of nonegative numbers [$\{d_n\} \searrow, 0 \le d_{n+1} < d_n < \dots < d_1 = f(1)$] which implies $d_n$ converges (decreasing and bounded below). Does not imply that $s_n, t_n$ converges, but it's a necessary condition.
+		\item $0 \le d_1 - \lim d_* \le f(1), \forall x:***$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Note: 
+	\begin{align*}
+	t_{t+1} &= \sum\limits^n_{k=1} \int\limits^{k+1}_k f(x) dx\\
+	&\le \sum\limits^\infty_{k=1} \int\limits^{k+1}_k f(k) dx\\
+	&= \sum\limits^n_{k=1} f(k)\\
+	&= s_n	
+	\end{align*}
+	\begin{enumerate}[label = \alph*)]
+		\item \begin{align*}
+			d_n - d_{n+1} &= (t_{n+1} - t_n) - (s_{n+1} - s_n)\\
+			&= \int\limits^{n+1}_n f(x) dx = f(n+1)\\
+			&\ge \int\limits^{n+1}_n f(n+1) dx - f(n+1)\\
+			&= 0
+		\end{align*}
+		Also, $f(n+1) = s_{n+1} - s_n < s_{n+1} - t_{n+1} = d_{n+1}$ which shows $d_n \ge 0$.
+		\item He might write up later?
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}[Integral Test]
+	$\sum\limits^\infty_1 f(n)$ converges if and only if $\{t_n\}$ converges. 
+
+\end{corollary}
+
+\begin{example}
+For $f(x) = \frac{1}{x}$, 
+$$s_n = \sum\limits^k_{k=1} \frac{1}{k},$$
+$$t_n = \int\limits^n_1 \frac{1}{x} dx = \log(n) \rightarrow \infty$$	
+Thus, $\{s_n\}$ diverges because $\{t_n\} \rightarrow \infty$. But, $d_n = \sum\limits^k_{k=1} \frac{1}{k} - \log(n)$ converges.  	
+\end{example}
+
+The limit of of $\{d_n\}$ is known as \textbf{Eulers Constant, $\gamma$}. Theorem 1.3.17 (ii) gives the speed of convergence. 
+$$ 0 \le d_n - \gamma \le \frac{1}{n} $$
+
+\begin{lemma}
+	$\sum\limits^\infty_0 \frac{1}{n!}$ converges.
+\end{lemma}
+
+\begin{definition}[e]
+	$e = \sum\limits^\infty_{n=0} \frac{1}{n!}$.
+\end{definition}
+
+\begin{theorem}
+	$e = \lim\limits_{n\to\infty} (1+\frac{1}{n})^n$
+\end{theorem}
+
+\begin{theorem}
+	$e$ is irrational.
+\end{theorem}
+
+\begin{theorem}[Abel's Partial Summation Formulas]
+	For say, $\{a_n\}$ and $\{b_n\}$,
+	
+	 $$\sum\limits^n a_k b_k = \sum\limits^n A_k(b_k - b_{k+1}) + A_n b_{n+1} $$
+
+	 Where $A_n = a_1 + a_2 + \dots + a_n.$ Thus $\sum\limits^\infty a_n b_n$ converges if both $\sum\limits^n A_k(b_k - b_{k+1})$ and $A_n b_{n+1}$ converge.
+\end{theorem}
+
+\begin{proof}
+	Write $A_n = 0$, then, 
+	\begin{align*}
+		\sum\limits^n a_k b_k &= \sum\limits^n (A_k - A_{k-1}) b_k\\
+		&= \sum\limits^n A_k b_k - \sum\limits^n_{k=1} A_k b_k + A_n b_{n+1}\\
+		&= \sum\limits^n A_k (b_k - b_{k+1}) + A_n b_{n+1}
+	\end{align*}
+\end{proof}
+
+\begin{theorem}[Dirichlet's Test]
+	Let $\sum\limits^\infty_1 a_n$ have partial sums, $A_n = a_1, \dots, a_n$ which are bounded and $\{b_n\}$ be such that $b_n \searrow 0$. Then $\sum\limits^\infty a_n b_n$ converges.
+\end{theorem}
+
+\begin{proof}
+	\begin{align*}
+		|\sum\limits^{m+n}_m A_k (b_k - b_{k+1})| &\le \sum\limits^{m+n}_m |A_k| (b_k - b_{k+1})\\
+		&\le \sum\limits^{m+n}_m M (b_k - b_{k+1})\\
+		& = M (b_k - b_{k+1}) \underset{n \to \infty}{\rightarrow} 0
+	\end{align*}
+\end{proof}
+
+\begin{definition}[Cesarian Summability]
+	\begin{enumerate}[label = \alph*)]
+		\item If $\{s_n\}$ converges, and $t_n = \frac{s_1 + \dots + s_n}{n}$ then $\{t_n\}$ also converges. (Note: the opposite does not hold; i.e. $s_n = (-1)^n$)
+		\item Let $\{s_n\}$ be the sequence of partial sums of $\sum\limits^\infty a_n$ and let $\{t_n\}$ be as above. If $\{t_n\}$ converges, we say that $\sum\limits^\infty a_n$ is a \textbf{Cesaro Summable}.
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}[label = \alph*)]
+		\item $\sum\limits^\infty_1 (-1)^{n+1}$ does not converge, but $t_n \rightarrow \frac{1}{2}$.
+		\item $\sum\limits^\infty_1 (-1)^{n+1} n$ does not converge, but $\lim\sup t_n = \frac{1}{2} and \lim]inf t_n = 0$. Thus, we do not have a Cesaro Summable.
+	\end{enumerate}
+\end{example}
+
+\section{Continuity}\index{Continuity}
+
+\begin{definition}
+	Let X and Y be geometric spaces and $f: E \rightarrow Y$ for $E \subseteq X$. Let p be a limit point of E (not necessarily a member of E). We write
+\end{definition}
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------

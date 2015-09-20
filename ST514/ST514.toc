@@ -30,15 +30,15 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.4.1}Method of Moments}{18}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Maximum Likelihood Estimation}{18}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Maximum Likelihood Estimation}{19}{subsection.2.4.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Major/Minorization Mini/Maximization}{19}{section.2.5}
+\contentsline {section}{\numberline {2.5}Major/Minorization Mini/Maximization}{20}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}How EM Algorhythms Work}{19}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}How EM Algorhythms Work}{20}{subsection.2.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Bayes Estimators}{20}{section.2.6}
+\contentsline {section}{\numberline {2.6}Bayes Estimators}{21}{section.2.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Model Based Clustering}{21}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.1}Model Based Clustering}{22}{subsection.2.6.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Hypothesis Testing}{23}{chapter.3}
 \defcounter {refsection}{0}\relax 

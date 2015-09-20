@@ -792,14 +792,54 @@ for any random variable x.
 
  \section{Methods of Finding Estimators}
 
+ \textbf{Setup:} $x_1, \dots, x_n \overset{iid}{\sim} f_\theta, \theta \in \Theta$  \\
+ \textbf{Goal:} Estimate $\theta$, or some function $\tau(\theta)$\\
+
+ \begin{definition}[Point Estimator]
+ 	A point estimator $T(x_1, \dots, x_n)$ is a function of the random sample. T should not depend on $\theta$. 
+ \end{definition}
+
+ \begin{remark}
+ 	Estimator is defined above, while an estimate is a fixed value. ($T(x_1 = x_1, \dots, x_n = x_n$)
+ \end{remark}
+
  \subsection{Method of Moments}
+
+This method is one of the oldest, simplest estimators developed by Karl Pearson.\\ 
+\\
+\textbf{Construct:} $\begin{cases}
+               \frac{1}{n} \sum X_i = E_\theta(x) = \int_\theta x f_\theta(x) dx\\
+               \frac{1}{n} \sum X_i^2 = E_\theta(x^2) = \int_\theta x^2 f_\theta(x) dx\\
+               \vdots
+            \end{cases}$
+
+So, $\hat{\theta}_MM$ depends only on ($\frac{1}{n} \sum X_i = E_\theta(x), \dots, \frac{1}{n} \sum X_i = E_\theta(x^k)$).
+
+\begin{example}
+	$x_1, \dots, x_n \overset{iid}{\sim} N(\mu, \sigma^2)$\\
+	$\mu, \sigma^2$ unknown: $\Theta = \mathbb{R} x \mathbb{R}^+$\\
+	\begin{align*}
+	\frac{1}{n} \sum X_i = \mu &\implies \hat{\mu_{MM}} = \frac{1}{n} \sum X_i \triangleq \bar{X}\\
+	\frac{1}{n} \sum X_i^2 = \sigma^2 + \mu^2 &\implies \hat{\sigma_MM^2} = \frac{1}{n} \sum (X_i - \bar{X})^2
+	\end{align*}
+\end{example}
+
+\begin{example}
+	$x_1, \dots, x_n \overset{iid}{\sim} \text{Bin}(k,p)$ where $k, p$ are unknown: $\Theta: \mathbb{N} \text{ x } [0,1]$.\\
+
+	\begin{align*}
+	\frac{1}{n} \sum X_i &= kp \triangleq \bar{X}\\
+	\frac{1}{n} \sum X_i^2 &= kp(1-p) + k^2p^2 = \bar{X}(1-p) + \bar{X}^2
+	\end{align*}
+\end{example}
+
 \begin{remark}
 	Read about Satterthwait approximation
 \end{remark}
 
 \subsection{Maximum Likelihood Estimation}
 
-MLE makes data the most likely under the model specified. The quality of MLE depends on the quality of the model. \\
+MLE makes data the most likely under the model specified. The quality of MLE depends on the quality of the model. Unlike Method of Moments, MLE does not lie outside of $\Theta$. \\
 \\
 Invariance Principle: if $\hat{\theta}$ is MLE for $\theta$, then $\tau(\hat{\theta})$ is MLE for $\tau(\theta)$. \\
 
@@ -820,6 +860,30 @@ Take a first-order Taylor expansion of $\ell(\theta)$ around true value ($\theta
 \end{align*}
 
 Thus, $\sqrt{n}(\hat{\theta}-\theta_0)\sim N(0,[I(\theta_0)]^{-1})$
+
+\textbf{Finding the Maxima:} $\theta \in \mathbb{R}^k$\\
+Suppose L is differentialbe, then the only possible candidtes for $\hat{\theta_{MLE}}$ are the stationary points of L which satisfy $\frac{\delta L}{\delta \theta_i} = 0, i=1, \dots, k$, which is a necessary condition for optimality.
+
+Suppose L is twice differentiable 
+
+\begin{center}
+H $\triangleq \begin{bmatrix}
+    \frac{\delta^2 L}{\delta \theta_1^2} & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_2} & \dots & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_k} \\
+    \vdots & \vdots & \ddots & \vdots \\
+        \frac{\delta^2 L}{\delta \theta_k \theta_1} & \dots & \dots & \frac{\delta^2 L}{\delta \theta_k^2}
+
+\end{bmatrix}$	
+\end{center}
+
+If $H|_{\theta = \hat{\theta_{ML}}}$ is negative definite, then $\hat{theta_{ML}}$ is the MLE. 
+
+\begin{definition}[Negative Definite]
+	A matrix, $A_{nxn}$ is called \textbf{negative definite} if for any $(a_1, a_2, dots, a_n) \in \mathbb{R}^m$, $\sum\limits^n_{i,j = 1} a_i a_j A_{ij} < 0$. Equivalent characterization is the eigenvalues of A are negative.
+\end{definition}
+
+\begin{remark}
+	More reading: C&B sections 3.4, 7.2.3.
+\end{remark}
 
 \section{Major/Minorization Mini/Maximization}
 
