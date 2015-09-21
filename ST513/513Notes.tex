@@ -1049,7 +1049,46 @@ $$ 0 \le d_n - \gamma \le \frac{1}{n} $$
 
 \begin{definition}
 	Let X and Y be geometric spaces and $f: E \rightarrow Y$ for $E \subseteq X$. Let p be a limit point of E (not necessarily a member of E). We write
+
+	$$f(x) \underset{x \to p}{\rightarrow} q$$
+
+	if $\forall \epsilon > 0$, there exists $\delta = \delta(\epsilon, p)$ such that $d_y(f(x), q) < \epsilon$ if $d_x(x, p) < \delta$.
 \end{definition}
+
+\begin{theorem}
+	For X, Y, E, f, and p as in Definition 1.4.1, 
+	$$f(x) \underset{x \to p}{\rightarrow} q \text{ iff } f(x_n) \underset{n \to \infty}{\rightarrow} q$$
+
+	for all sequences $\{x_n\}$ such that $x_n \neq p$ and $x_n \underset{n \to \infty}{\rightarrow} p$
+\end{theorem}
+
+\begin{definition}
+	X, Y, E, and f as in Definition 1.4.1. Let $p \in E$. Then, 
+	\begin{enumerate}[label = \alph*)]
+		\item If p is also a limit point of E, we say that f is \textbf{continuous at p} if $f(x_n) \underset{x \to p}{\rightarrow} f(p)$
+		\item If p is an isolated point of E, then f is \textbf{continuous at p}.
+		\item Alternatively to a) and b), if $\forall \epsilon > 0$, there exists $\delta \equiv \delta(\epsilon, p) > 0$ such that
+		$$d_x(x,p) < \delta \implies d_y(f(x), f(y)) < \epsilon$$
+		\item If f is continuous at every point of E it is called \textbf{continuous on E}.
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	For X, Y, Z matric spaces, and $E \subseteq X$, 
+	$$f: E \rightarrow Y$$
+	$$g: f(E) \rightarrow Z$$
+	we define, 
+	$h: E \rightarrow Z$ by $h(x) = g(f(x))$.
+	Then if f is continuous at p, and g is continuous at f(p) then h is continuous at p.
+\end{theorem}
+
+\begin{theorem}
+	$f: X \rightarrow Y$ is continuous if and only if $f^{-1}(V)$ is open in $X \forall V$ open in $Y$.
+\end{theorem}
+
+\begin{proof}
+	blah
+\end{proof}
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
