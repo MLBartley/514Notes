@@ -1,5 +1,28 @@
 \begin{theindex}
 
-  \item Paragraphs of Text, \hyperpage{5}
+  \item Baye's Estimation, \hyperpage{8}
+  \item Best Unbiased Estimator, \hyperpage{9}
+
+  \indexspace
+
+  \item Evaluating Estimation, \hyperpage{8}
+
+  \indexspace
+
+  \item Finding Estimators, \hyperpage{6}
+
+  \indexspace
+
+  \item Introduction, \hyperpage{5}
+
+  \indexspace
+
+  \item Loss Function Optimality, \hyperpage{14}
+
+  \indexspace
+
+  \item Maximum Likelihood Estimation, \hyperpage{7}
+  \item Mean Squared Error, \hyperpage{8}
+  \item Method of Moments, \hyperpage{6}
 
 \end{theindex}

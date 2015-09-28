@@ -61,6 +61,7 @@
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage[utf8]{inputenc} % Required for including letters with accents
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{multicol}
 
 % Bibliography
 \usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
@@ -138,7 +139,7 @@ STAT 514 Lecture Notes\par % Book title
 
 \chapter{Point Estimation - Chapter 7 Casella \& Berger}
 
-\section{Introduction}\index{Paragraphs of Text}
+\section{Introduction}\index{Introduction}
 
 	In the simplest case, we have $n$ observations of data that we believe follow the same distribution.
 	$$
@@ -182,246 +183,508 @@ STAT 514 Lecture Notes\par % Book title
 		Here $\hat{\theta}$ is an estimator (the sample mean). Since it maximizes $L(\theta)$, we call it the \textbf{maximum likelihood estimator} (MLE).
 	\end{example}
 
+\section{Methods of Finding Estimators}\index{Finding Estimators}
 
-\begin{section}{Mean Squared Error}
+ \textbf{Setup:} $x_1, \dots, x_n \overset{iid}{\sim} f_\theta, \theta \in \Theta$  \\
+ \textbf{Goal:} Estimate $\theta$, or some function $\tau(\theta)$\\
 
-\begin{remark} 
-	Read Casella \& Berger Chapter 7.3 - Methods of Evaluating Estimation
-\end{remark} 
+ \begin{definition}[Point Estimator]
+ 	A point estimator $T(x_1, \dots, x_n)$ is a function of the random sample. T should not depend on $\theta$. 
+ \end{definition}
 
+ \begin{remark}
+ 	Estimator is defined above, while an estimate is a fixed value. ($T(x_1 = x_1, \dots, x_n = x_n$)
+ \end{remark}
 
-\begin{definition}[Mean Squared Error]
+ \subsection{Method of Moments}\index{Method of Moments}
 
-If $W(\bm{X})$ is an estimator of $\theta$, then the \textbf{mean squared error} (MSE) is defined as
-\[
-	E_\theta\left[(W(\bm{X}) - \theta)^2\right].
-\]
-
-\end{definition}
-
-\begin{definition}[Unbiased estimator]
-
-If $W(\bm{X})$ is an estimator of $\theta$, we say that $W(\bm{X})$ is \textbf{unbiased} if
-\[
-	E_\theta[W(\bm{X})] = \theta \quad \forall \theta.
-\]
-Furthermore, the \textbf{bias} of $W(\bm{X})$ is
-\[
-	E_\theta[W(\bm{X})] - \theta.
-\]
-
-\end{definition}
-
-\begin{example}
-	For $\theta$ > 0, let
-	$$
-		X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)=\theta x^{-2} \mathbbm{1}\{x>\theta\}
-	$$
-Find the MLE of $\theta$.
-$$
-	L(\theta)=\theta^n \prod_{i=1}^n x_i^{-2} \prod_{i=1}^n \mathbbm{1}\{x>\theta\}$$
+	This method is one of the oldest, simplest estimators developed by Karl Pearson.\\ 
 	\\
-	$$\hat{\theta}=\text{minimum of }x_i
-$$
-\end{example}
+	\textbf{Construct:} $\begin{cases}
+	               \frac{1}{n} \sum X_i = E_\theta(x) = \int_\theta x f_\theta(x) dx\\
+	               \frac{1}{n} \sum X_i^2 = E_\theta(x^2) = \int_\theta x^2 f_\theta(x) dx\\
+	               \vdots
+	            \end{cases}$
 
-\begin{theorem}
-$\textrm{MSE}(W) = \textrm{bias}^2 + \textrm{Var}(W)$
-\end{theorem}
+	So, $\hat{\theta}_MM$ depends only on ($\frac{1}{n} \sum X_i = E_\theta(x), \dots, \frac{1}{n} \sum X_i = E_\theta(x^k)$).
 
-Proof:
-\begin{eqnarray*}
-	E[(W(\bm{X})-\theta)^2] &=& E[(W-E[W]+E[W]-\theta)^2]\\
-							&=& E[(W-E[W])^2]+E[(E[W]-\theta)^2]+2E[(W-E[W])(E[W]-\theta)]\\
-							&=& \textrm{Var}(W) + \textrm{bias}^2(W) + 0
-\end{eqnarray*}
+	\begin{example}
+		$x_1, \dots, x_n \overset{iid}{\sim} N(\mu, \sigma^2)$\\
+		$\mu, \sigma^2$ unknown: $\Theta = \mathbb{R} x \mathbb{R}^+$\\
+		\begin{align*}
+		\frac{1}{n} \sum X_i = \mu &\implies \hat{\mu_{MM}} = \frac{1}{n} \sum X_i \triangleq \bar{X}\\
+		\frac{1}{n} \sum X_i^2 = \sigma^2 + \mu^2 &\implies \hat{\sigma_MM^2} = \frac{1}{n} \sum (X_i - \bar{X})^2
+		\end{align*}
+	\end{example}
 
-\end{section}
+	\begin{example}
+		$x_1, \dots, x_n \overset{iid}{\sim} \text{Bin}(k,p)$ where $k, p$ are unknown: $\Theta: \mathbb{N} \text{ x } [0,1]$.\\
 
-\begin{section}{Best Unbias Estimator}
-	What does best mean? Answer: Minimum variance. \\
-\\
-	Recall: Given an esitmator $W(\underline{X})$ for $\theta$,
+		\begin{align*}
+		\frac{1}{n} \sum X_i &= kp \triangleq \bar{X}\\
+		\frac{1}{n} \sum X_i^2 &= kp(1-p) + k^2p^2 = \bar{X}(1-p) + \bar{X}^2
+		\end{align*}
+	\end{example}
+
+	\begin{remark}
+		Read about Satterthwait approximation
+	\end{remark}
+
+\subsection{Maximum Likelihood Estimation}\index{Maximum Likelihood Estimation}
+
+	MLE makes data the most likely under the model specified. The quality of MLE depends on the quality of the model. Unlike Method of Moments, MLE does not lie outside of $\Theta$. \\
+	\\
+	Invariance Principle: if $\hat{\theta}$ is MLE for $\theta$, then $\tau(\hat{\theta})$ is MLE for $\tau(\theta)$. \\
+
+	Roughly speaking, MLEs enjoy a nice property called \textbf{asymptotic efficiency}. They acheive the smallest possible varience in large sample. Similar to Lower Bound of Cramer-Rao as n -> infinity. 
+
+	\begin{definition}[Score Function]
+		Suppose that throughout $X_1,\dots,X_n \sim f_\theta(x)$ the \textbf{score function} is $\sum \frac{\delta}{\delta \theta} \log f_\theta(x_i)$. 
+	\end{definition}
+
+	Take a first-order Taylor expansion of $\ell(\theta)$ around true value ($\theta$). 
+	\begin{align*}
+	\ell^\prime(\hat{\theta})&\simeq \ell^\prime(\theta_0) + (\hat{\theta}-\theta_0)\ell^{\prime\prime}(\theta_0)\\
+	\hat{\theta}-\theta_0&\simeq [\ell^{\prime\prime}(\theta_0)^-1][\ell^\prime(\hat{\theta})-\ell^\prime(\theta_0)]\\
+		&=[\frac{-1}{n}\ell^{\prime\prime}(\theta_0)^{-1}][\frac{1}{n}\ell^\prime(\theta_0)]\\
+	\frac{(\hat{\theta}-\theta_0)}{\sqrt{n}}&\simeq \frac{\frac{-1}{\sqrt{n}}\ell^\prime(\theta_0)}{\frac{-1}{n}\ell^{\prime\prime}(\theta_0)}\\
+	\frac{1}{n}\ell^\prime(\theta_0)&= \frac{1}{n}\sum \frac{\delta}{\delta\theta}\log f_\theta(x)\\
+	\frac{-1}{n}\ell^{\prime\prime}(\theta_0)&= \frac{1}{n}\sum \frac{\delta^2}{\delta\theta^2}\log f_\theta(x)|_{\theta=\theta_0}\\
+	\end{align*}
+
+	Thus, $\sqrt{n}(\hat{\theta}-\theta_0)\sim N(0,[I(\theta_0)]^{-1})$\\
+
+	\textbf{Finding the Maxima:} $\theta \in \mathbb{R}^k$\\
+	Suppose L is differentialbe, then the only possible candidtes for $\hat{\theta_{MLE}}$ are the stationary points of L which satisfy $\frac{\delta L}{\delta \theta_i} = 0, i=1, \dots, k$, which is a necessary condition for optimality.
+
+	Suppose L is twice differentiable,
+
+	\begin{center}
+	H $\triangleq \begin{bmatrix}
+	    \frac{\delta^2 L}{\delta \theta_1^2} & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_2} & \dots & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_k} \\
+	    \vdots & \vdots & \ddots & \vdots \\
+	        \frac{\delta^2 L}{\delta \theta_k \theta_1} & \dots & \dots & \frac{\delta^2 L}{\delta \theta_k^2}
+
+	\end{bmatrix}$	
+	\end{center}
+
+	If $H|_{\theta = \hat{\theta_{ML}}}$ is negative definite, then $\hat{theta_{ML}}$ is the MLE. 
+
+	\begin{definition}[Negative Definite]
+		A matrix, $A_{nxn}$ is called \textbf{negative definite} if for any $(a_1, a_2, dots, a_n) \in \mathbb{R}^m$, $\sum\limits^n_{i,j = 1} a_i a_j A_{ij} < 0$. Equivalent characterization is the eigenvalues of A are negative.
+	\end{definition}
+
+	\begin{remark}
+	More reading: C\&B sections 3.4, 7.2.3.
+	\end{remark}
+
+	\begin{remark}
+		MLE and MM should match on: Bernoulli, Binomial, Normal, and Poisson distrabutions. 
+	\end{remark}
+%end subsection - MLE
+
+\subsection{Bayes' Estimation}\index{Baye's Estimation}
+
+	\begin{theorem}[Bayes' Theorem]
+	$$\pi(\theta|x) = \frac{f(x|\theta)\pi(\theta)}{m(x)} $$
+	LHS: posterior density of the parameters given data. This is what we want to know. The RHS includes
+	\begin{enumerate}[label = \roman*)]
+		\item likelihood
+		\item prior density
+		\item marginal density of x
+	\end{enumerate}
+		
+	\end{theorem}
+
+	\begin{proposition}[Dave's Bayes Way]
+	 posterior $\propto$ prior*likelihood
+	\end{proposition}
+
+	\begin{remark}
+		Bayesian estimators regularize MLE.
+	\end{remark}
+
+	\begin{definition}[Conjugate Family]
+	If the prior is chosen from a family of distributions in such a way that the posterior is also a member, then we call this family of priors a \textbf{conjugate family}.
+	\end{definition}
+
+
+		\begin{table}[h]
+		\centering
+		\begin{tabular}{l l}
+		\toprule
+		\textbf{Likelihood} & \textbf{Conjugate Prior}\\
+		\midrule
+		Binom(p) & Beta($\alpha, \beta$) \\
+		Poisson($\lambda$) & Gamma($\alpha, \beta$) \\
+		Exp($\lambda$) & Gamma($\alpha, \beta$) \\
+		Normal($\mu, \sigma^2$) & Gamma($\alpha, \beta$) \\
+		\bottomrule
+		\end{tabular}
+		\end{table}
+
+%end subsection - Baye's Estimator
+%end section - methods of finding estimators
+
+\section{Evaluating Estimation}\index{Evaluating Estimation}
+
+\subsection{Mean Squared Error}\index{Mean Squared Error}
+
+	\begin{remark} 
+		Read Casella \& Berger Chapter 7.3 - Methods of Evaluating Estimation
+	\end{remark} 
+
+
+	\begin{definition}[Mean Squared Error]
+
+	If $W(\bm{X})$ is an estimator of $\theta$, then the \textbf{mean squared error} (MSE) is defined as
 	\[
-		MSE(\theta)= E(W(\underline{X})-\theta)^2)
+		E_\theta\left[(W(\bm{X}) - \theta)^2\right].
 	\]
-\begin{definition}[Best Unbiased Estimator]
-	An estimator W* is a \textbf{best unbiased estimator}* of $\tau(\theta)$ if it satisties
-	\[
-		E_\theta (W*) = \tau(\theta)
-	\] 
-	for all $\theta$ and, for any other estimator W with 
-	\[
-		E_\theta (W) = \tau(\theta)
-	\]
-	we have 
-	\[
-		\text{Var}_\theta (W*) \le \text{Var}_\theta (W)
-	\]
-	for all $\theta$. W* is also called a $\textit{uniform minimum variance unbiased estimator}$ (UMVUE) of $\tau(\theta)$.
-\end{definition}
-Main Result: Under some assumptions we can establish a lower bound on Var(W(X)). 
 
-\begin{theorem}[Cremer-Rao Inequality]
-	Also: Information Inequality. 
-	$$\text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$$
-	where, 
-	$\Psi(\theta)=E_\theta(W(\underline{X}))$\\
-	and, 
-	the Fisher/Expected information, $I(\theta)=E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)$.
+	\end{definition}
+
+	\begin{definition}[Unbiased estimator]
+
+	If $W(\bm{X})$ is an estimator of $\theta$, we say that $W(\bm{X})$ is \textbf{unbiased} if
+	\[
+		E_\theta[W(\bm{X})] = \theta \quad \forall \theta.
+	\]
+	Furthermore, the \textbf{bias} of $W(\bm{X})$ is
+	\[
+		E_\theta[W(\bm{X})] - \theta.
+	\]
+
+	\end{definition}
+
+	\begin{example}
+		For $\theta$ > 0, let
+		$$
+			X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta(x)=\theta x^{-2} \mathbbm{1}\{x>\theta\}
+		$$
+	Find the MLE of $\theta$.
+	$$
+		L(\theta)=\theta^n \prod_{i=1}^n x_i^{-2} \prod_{i=1}^n \mathbbm{1}\{x>\theta\}$$
+		\\
+		$$\hat{\theta}=\text{minimum of }x_i
+	$$
+	\end{example}
+
+	\begin{theorem}
+	$\textrm{MSE}(W) = \textrm{Bias}^2 + \textrm{Var}(W)$
+	\end{theorem}
+
+	\begin{proof}
+	\begin{eqnarray*}
+		E[(W(\bm{X})-\theta)^2] &=& E[(W-E[W]+E[W]-\theta)^2]\\
+								&=& E[(W-E[W])^2]+E[(E[W]-\theta)^2]+2E[(W-E[W])(E[W]-\theta)]\\
+								&=& \textrm{Var}(W) + \textrm{Bias}^2(W) + 0
+	\end{eqnarray*}	
+	\end{proof}
 	
-\end{theorem}
-Proof: Follows from Cauchy-Schwarz Inequality
+	\begin{example}
+		$X_1, \dots, X_n \stackrel{iid}{\sim} N(\mu, \sigma^2)$ where $\sigma^2$ is known.
+		$\hat{\mu}_{ML} = \bar{X}$; and $\hat{\mu} = X_1$
 
-$$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) $$
+		\begin{multicols}{2}
+		  \begin{align*}
+		    \text{MSE}(\hat{\mu}_{ML}) &= [E(\hat{\mu}_{ML} - \mu)]^2 + \text{Var}(\bar{X})\\
+		    	&= E(\bar{X}) - \mu + \frac{\sigma^2}{n}\\
+		    	&= \frac{\sigma^2}{n}
+		  \end{align*}\break
+		  \begin{align*}
+		    \text{MSE}(\hat{\mu}) &= [E(\hat{\mu} - \mu)]^2 + \text{Var}(X_1)\\
+		    	&= E(X_1) - \mu + \sigma^2\\
+		    	&= \sigma^2
+		  \end{align*}
+		\end{multicols}
 
-Assumptions:
-\begin{enumerate}
-	\item I($\theta)=E_\theta \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2)\right) = Var((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2))$ is well defined and I($\theta)>0$.
-	\item $E \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=0$ Thus, I($\theta$) is just varience.
-	\item $E \left((W(\underline{X})\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=\Psi^\prime(\theta)$
-\end{enumerate}
-So, \\
-$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) \simeq \text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$
-\begin{exercise}
-	Let $\underline{X} \sim Poi(\theta)$, Y=$\sum x_i$, and Y $\sim Poi(n\theta)$. What is $I(\theta)$?
+		So, for n > 1, $\text{MSE}(\hat{\mu}_{ML})$ is better than $\text{MSE}(\hat{\mu})$.
+	\end{example}
+
+\subsection{Best Unbiased Estimator}\index{Best Unbiased Estimator}
+		What does "best" mean? Answer: Minimum variance. \\
+	
+	While we can NOT find estimators that have smallest MSE for and $\theta$, we CAN find estimators within the class of unbiased estimators that achieve smallest MSE for all $\theta \in \Theta$.\\
+
+	\begin{definition}[Best Unbiased Estimator]
+		An estimator W* is a \textbf{best unbiased estimator}* of $\tau(\theta)$ if it satisties
+		\[
+			E_\theta (W*) = \tau(\theta)
+		\] 
+		for all $\theta$ and, for any other estimator W with 
+		\[
+			E_\theta (W) = \tau(\theta)
+		\]
+		we have 
+		\[
+			\text{Var}_\theta (W*) \le \text{Var}_\theta (W)
+		\]
+		for all $\theta$. W* is also called a $\textbf{uniform minimum variance unbiased estimator}$ (UMVUE) of $\tau(\theta)$.
+	\end{definition}
+
+	Main Result: Under some assumptions we can establish a lower bound on Var(W(X)). The question of how small this variance could be is answered by Cramer-Rao Inequality.\\
+
+	But first, we need the following:
+
+	\begin{theorem}[Cauchy-Scwarz Inequality]
+		$$||<x,y>||^2 \le ||<x,x>|| * ||<y,y>||$$
+	In terms of E(X) if A \& B have $\mu$ = 0:
+	$$(E(AB))^2 \le E(A^2) * E(B^2)$$
+
+	Or in terms of covariance:
+	$$Cov^2(AB) \le Var(A)*Var(B)$$
+	\end{theorem}
+	
+	\begin{proof}
+	Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
+		\begin{align*}
+			E(D^2) &= E(B^2 - 2(B)(\frac{E(AB)}{E(A^2)}A)+(\frac{E(AB)}{E(A^2)}A)^2)\\
+				&= E(B^2)-2\left( \frac{E(AB)^2}{E(A^2)} \right) + \frac{E(AB)}{E(A^2)}E(A^2)\\
+				&= E(B^2) - \frac{E(AB)^2}{E(A^2)} \ge 0
+		\end{align*}	
+	\end{proof}
+
+	\begin{theorem}[Cramer-Rao Inequality]
+		Also: Information Inequality. 
+		$$\text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$$
+		where, 
+		$\Psi(\theta)=E_\theta(W(\underline{X}))$\\
+		and, 
+		the Fisher/Expected information, $I(\theta)=E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)$.
+
+		
+	\end{theorem}
+
+	\begin{proof}
+		Follows from Cauchy-Schwarz Inequality 
+
+		$$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) $$
+
+	\end{proof}
+
+	\begin{definition}[Regular]
+		A family, $\mathcal{F} = \{f_\theta:\theta \in \Theta\}$ is called \textbf{regular} if:
+		\begin{enumerate}[label = (\Roman*)]
+			\item The set $A = \{x: f_\theta (x) > 0\}$ does not depend on $\theta$.  Forall $x\in A, \theta \in \Theta, \frac{\delta}{\delta\theta} \log(f_\theta(x))$ exists and is finite.
+			\item For any estimator W such that $E_\theta|W| < \infty$ for all $\theta \in \Theta$, the operations of integration and differentiation by $\theta$ can be interchanged when the r.h.s is finite.
+		\end{enumerate}
+	\end{definition}
+
+	\textbf{Assumptions:}
+	\begin{enumerate}
+		\item I($\theta)=\text{E}_\theta \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2\right) = \text{Var}\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2)\right)$ is well defined and I($\theta)>0$.
+		\item $E \left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=0$. Thus, I($\theta$) is just varience.
+		\item $E \left((W(\underline{X})\frac{\delta}{\delta \theta}\log f_\theta(\underline{X}))^2 \right)=\Psi^\prime(\theta)$
+	\end{enumerate}
+
+	So, \\
+	$Cov(W(\underline{x}), \frac{\delta}{\delta\theta}\log f_\theta(\underline{X})))^2 \le \text{Var}(W(\underline{X}))*\text{Var}(\frac{\delta}{\delta\theta}\log f_\theta(\underline{X})) \simeq \text{Var}(W(\underline{X})) \ge \frac{(\Psi^\prime(\theta))^2}{I(\theta)}$
+
+	\begin{remark}
+		\begin{enumerate}[label = (\roman*)]
+			\item Suppose W(x) is an unbiased estimator of $\theta$. Then $(\Psi^\prime(\theta))^2 = 1$ and the bound has nothing to do with the estimator anymore, but only deals with $f_\theta$.
+			\item Suppose $X_1, \dots, X_n \stackrel{iid}{\sim} f_\theta$, then $I(\theta) = nI(\theta)$ where the latter information is related to only a single variable, X.
+			\item This result also holds for discrete distributions (as long as the summation and differentiation are interchangeable).
+			\item The CR bound might be stictly smaller than the varience of any estimator.
+			\item Under additional assumptions on $f_\theta$, 
+			$$I(\theta) = -E\left[\frac{\delta^2}{\delta \theta^2} \log(f_\theta(x))\right] $$ 
+		\end{enumerate}
+	\end{remark}
+
+	\begin{exercise}
+		Let $\underline{X} \sim Poi(\theta)$, Y=$\sum x_i$, and Y $\sim Poi(n\theta)$. What is $I(\theta)$?
+
+		\begin{align*}
+			I(\theta) &= E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2) \right)\\
+					&=E\left((\frac{\delta}{\delta \theta}\log \prod \frac{\theta^x e^{-\theta}}{x!})^2) \right)\\
+					&= E\left((\frac{\delta}{\delta \theta}\log \frac{\theta^{\sum x_i} e^{-\theta n}}{\sum x_i!})^2 \right)\\
+					&= E\left(\frac{\delta}{\delta \theta}(-n\theta + \sum x_i \log \theta - \sum \log x_i!)^2  \right)\\
+					&= E\left((-n+\frac{\sum x_i}{\theta})^2 \right)\\
+					&= E\left( n^2 - 2(\frac{\sum x_i}{\theta})(n)+(\frac{\sum x_i}{\theta})^2 \right)\\
+					&= n^2 -\frac{2n * E(\sum x_i)}{\theta} + \frac{E((\sum x_i)^2)}{\theta^2}\\
+					\\
+					&=n^2 - \frac{2n*E(Y)}{\theta} + \frac{E(Y)^2}{\theta}\\
+					&=\frac{n}{\theta}
+		\end{align*}
+	\end{exercise}
+
+	Note: I($\theta$) is equal to information in the whole sample, but sometimes it's just one sample (based on context).
+
+	If we assume (as in any exponential family):
+
+	$$E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) = \frac{\delta^2}{\delta \theta^2}\int{\log f_{\theta}(\underline{x})}f_\theta(\underline{x})dx$$
+	  
+	then, the observed information is 
+	$$I(\theta) = - E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) $$
+
+	\begin{example}
+		Let $X_i \dots X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$
+	Find the information based on $\sigma^2$.
+
+		Write 
+	\begin{align*}
+		\ell(\mu,\sigma^2) &=\log\left(\prod (2\pi\sigma^2)^{\frac{1}{2}} \exp\left\{\frac{-(x-\mu)^2}{2\sigma^2}\right\}\right)\\
+		&= \frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2} \right)
+		\end{align*}
+
+	If we try to use the expected information: 
+
+	$I(\sigma^2) = E\left(\frac{\delta}{\delta \theta}\left(\frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2}\right)\right)^2 \right)$
+	which is a mess. 
+
+	However, using the observed information:
 
 	\begin{align*}
-		I(\theta) &= E\left((\frac{\delta}{\delta \theta}\log f_\theta(\underline{X})^2) \right)\\
-				&=E\left((\frac{\delta}{\delta \theta}\log \prod \frac{\theta^x e^{-\theta}}{x!})^2) \right)\\
-				&= E\left((\frac{\delta}{\delta \theta}\log \frac{\theta^{\sum x_i} e^{-\theta n}}{\sum x_i!})^2 \right)\\
-				&= E\left(\frac{\delta}{\delta \theta}(-n\theta + \sum x_i \log \theta - \sum \log x_i!)^2  \right)\\
-				&= E\left((-n+\frac{\sum x_i}{\theta})^2 \right)\\
-				&= E\left( n^2 - 2(\frac{\sum x_i}{\theta})(n)+(\frac{\sum x_i}{\theta})^2 \right)\\
-				&= n^2 -\frac{2n * E(\sum x_i)}{\theta} + \frac{E((\sum x_i)^2)}{\theta^2}\\
-				\\
-				&=n^2 - \frac{2n*E(Y)}{\theta} + \frac{E(Y)^2}{\theta}\\
-				&=\frac{n}{\theta}
-	\end{align*}
-\end{exercise}
-
-Note: I($\theta$) is equal to information in the whole sample, but sometimes it's just one sample (based on context).
-
-If we assume (as in any exponential family):
-
-$$E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) = \frac{\delta^2}{\delta \theta^2}\int{\log f_{\theta}(\underline{x})}f_\theta(\underline{x})dx$$
-  
-then, the observed information is 
-$$I(\theta) = - E_\theta \left(\frac{\delta^2}{\delta \theta^2}\log f_\theta(\underline{x})\right) $$
-
-\begin{example}
-	Let $X_i \dots X_n \stackrel{iid}{\sim} N(\mu,\sigma^2)$
-Find the information based on $\sigma^2$.
-
-	Write 
-\begin{align*}
-	\ell(\mu,\sigma^2) &=\log\left(\prod (2\pi\sigma^2)^{\frac{1}{2}} \exp\left\{\frac{-(x-\mu)^2}{2\sigma^2}\right\}\right)\\
-	&= \frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2} \right)
+	I(\sigma^2) &= \frac{-n}{2\sigma^4} + \frac{1}{\sigma^6} E\left(\sum(X_i-\mu)^2\right)\\
+		&= \frac{-n}{2\sigma^4}+\frac{n\sigma^2}{\sigma^6}\\
+		&= \frac{n}{2\sigma^4}
 	\end{align*}
 
-If we try to use the expected information: 
+	\end{example}
 
-$I(\sigma^2) = E\left(\frac{\delta}{\delta \theta}\left(\frac{-n}{2} \log(2\pi\sigma^2) +\sum \left(\frac{-(x_i-\mu)^2}{2\sigma^2}\right)\right)^2 \right)$
-which is a mess. 
+	\begin{example}
+		Continued from previous example. 
 
-However, using the observed information:
+		Define $S^2 = \frac{1}{n-1}\sum (X_i - \bar{X})^2$
 
-\begin{align*}
-I(\sigma^2) &= \frac{-n}{2\sigma^4} + \frac{1}{\sigma^6} E\left(\sum(X_i-\mu)^2\right)\\
-	&= \frac{-n}{2\sigma^4}+\frac{n\sigma^2}{\sigma^6}\\
-	&= \frac{n}{2\sigma^4}
-\end{align*}
+		Note: $\frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1}$
 
-\end{example}
+		Does $S^2$ acheive the C-R lower bound?
 
-\begin{example}
-	Continued from previous example. 
+		\begin{align*}
+		Var(S^2) &\ge \frac{\Psi^\prime(\theta)}{I(\theta)}\\
+			\frac{2\sigma^4}{n-1} &\ge \frac{1}{I(\theta)}\\
+			&\ge \frac{2\sigma^4}{n}
+		\end{align*}
+	\end{example}
 
-	Define $S^2 = \frac{1}{n-1}\sum (X_i - \bar{X})^2$
+	\begin{remark}
+		Reread 7.3 and 6.2 in Casella and Berger
+	\end{remark}
 
-	Note: $\frac{n-1}{\sigma^2}S^2 \sim \chi^2_{n-1}$
+	What would give equality? When W($\underline{X}$) is a linear function of $\frac{\delta}{\delta \theta} \log f_\theta(\underline{X})$ which leads to... 
 
-	Does $S^2$ acheive the C-R lower bound?
+	\begin{corollary}[Attainment]
+		Let $X_1,\dots,X_n$ be iid f(x|$\theta$), where f(x|$\theta$) satisfies the conditions of the Cramer-Rao Theorem. Let $L(\theta|x) = \prod f(x_i|\theta)$ denote the likelihood function. If $W(X) = W(X_1,\dots,X_n)$ is any unbiased estimator of $\tau(\theta)$, then W(X) attains the Cramer-Rao Lower Bound iff
+		$$ a(\theta)\left(W(x) - \tau(\theta)\right) = \frac{\delta}{\delta \theta} \log L(\theta|x) $$
+		for some function a($\theta$).
+	\end{corollary}
 
-	\begin{align*}
-	Var(S^2) &\ge \frac{\Psi^\prime(\theta)}{I(\theta)}\\
-		\frac{2\sigma^4}{n-1} &\ge \frac{1}{I(\theta)}\\
-		&\ge \frac{2\sigma^4}{n}
-	\end{align*}
-\end{example}
-\begin{remark}
-	Reread 7.3 and 6.2 in Casella and Berger
-\end{remark}
-What would give equality? When W($\underline{X}$) is a linear function of $\frac{\delta}{\delta \theta} \log f_\theta(\underline{X})$ which leads to... 
-\begin{corollary}[Attainment]
-	Let $X_1,\dots,X_n$ be iid f(x|$\theta$), where f(x|$\theta$) satisfies the conditions of the Cramer-Rao Theorem. Let $L(\theta|x) = \prod f(x_i|\theta)$ denote the likelihood function. If $W(X) = W(X_1,\dots,X_n)$ is any unbiased estimator of $\tau(\theta)$, then W(X) attains the Cramer-Rao Lower Bound iff
-	$$ a(\theta)\left(W(x) - \tau(\theta)\right) = \frac{\delta}{\delta \theta} \log L(\theta|x) $$
-	for some function a($\theta$).
-\end{corollary}
-\end{section}
+	\begin{definition}[Efficient]
+		Any estimator that achievies the Cramer-Rao bound is called an \textbf{efficient estimator}.
+	\end{definition}
 
-\begin{section}{Lost Function Optimality}
+	\begin{example}
+		$X_1, \dots, X_n \stackrel{iid}{\sim}	N(\mu, \sigma^s)$ where both are unknown. Let $\hat{\mu}_{ML} = \bar{X}$ and $\bar{\sigma^2}_{ML} =\frac{1}{n} \sum(x_i - \bar{X})^2$. Are these estimators efficient?
+		
+			\begin{align*}
+				Var(\mu_{ML}) &\ge \frac{1}{I(\mu)}\\
+			 	&= \frac{\sigma^2}{n}\\
+			 	I(\mu) &= nI_1(\mu)\\
+			 		&= nE\left[\left(\frac{\delta}{\delta \mu}\log f_\theta(x_i)\right)^2\right]\\
+			 		&= nE\left[\left(\frac{\delta}{\delta \mu} \frac{-1}{2}\log\left(2\pi\sigma^2\right) - \frac{(x_1 - \mu)^2}{2\sigma^2}\right)^2\right]\\
+			 		&= n E\left[\left(\frac{(x_1 - \mu)}{\sigma^2}\right)^2\right]\\
+			 		&= \frac{n}{\sigma^4} E(x_1^2 -2x_1\mu + \mu^2)\\
+			 		&= \frac{n}{\sigma^4}(\sigma^2 + \mu^2 - 2\mu^2 + \mu^2)\\
+			 		&= \frac{n}{\sigma^2}
+				\end{align*}		
+			In this case, $\text{Var}(\mu_{ML}) = \frac{1}{I(\mu)}$, thus the sample mean is an efficient estimator.\\
+
+			For $\sigma^2$, 
+
+			\begin{align*}
+			\text{Var}(\hat{\sigma^2}_{ML}) &= \text{Var}(\frac{1}{n} \sum(x_i - \bar{X})^2)\\
+				&= \frac{2(n-1)\sigma^2}{n^2}\\
+				I_1(\theta = \sigma^2) &= E \left[ \left( \frac{\delta}{\delta \theta} \frac{-1}{2}\log \left(2\pi\theta\right) - \frac{(x_1 - \mu)^2}{2\theta}\right)^2\right]\\
+				&= E\left[\left(\frac{-1}{2\theta} + \frac{(x_1 - \mu)^2}{2\theta^2}\right)^2\right]\\
+				&= \text{Var}\left[\frac{-1}{2\theta} + \frac{(x_1 - \mu)^2}{2\theta^2}\right]\\
+				&= \text{Var}\left[\frac{(x_1 - \mu)^2}{2\theta^2}\right]\\
+				&= \frac{1}{4\theta^4} \text{Var}\left[(x_1 - \mu)^2\right]\\
+				&= \frac{1}{4\theta^4} \left[E(x_1 - \mu)^4 - \theta^2\right]\\ 
+				&= \frac{3\theta^2 - \theta^2}{4 \theta^4}\\
+				&= \frac{1}{2\sigma^4}\\
+				\left[\Psi^\prime(\theta)\right]^2 &= \left[E \left( \frac{1}{n}\sum(x_i - \bar{x})  \right) \right]^2\\
+					&= \frac{(n-1)\theta}{n}	
+			\end{align*}
+			So this estimator does not achieve the lower bound and thus is not efficient.
+
+	\end{example}
+
+	\textbf{Issues with CR Bound:} \begin{enumerate}[label = (\roman*)]
+		\item The C-R bound need not be attained by our favorite estimators.
+		\item Our assumptions do not always hold, and hense can not be used to apply the theorem. Especially when the range depends on a parameter. 
+	\end{enumerate}
+
+	For an alternative approach to finding the UMVUE, see the Rao-Blackwell and Lehmann-Sheffe Theorems. 
+
+\subsection{Loss Function Optimality}\index{Loss Function Optimality}
 	
 	\begin{definition}[Loss] L($\theta$, W($\underline{x}$)) assigns a nonnegative real value called the \textbf{loss} to our decision to estimate $\theta$ by W($\underline{X}$). General context: Decision Theory. 
 	\end{definition}
 
-Typically L($\theta$,$\theta$) = 0 because nothing is lost if your decision is exactly correct. 
+	Typically L($\theta$,$\theta$) = 0 because nothing is lost if your decision is exactly correct. 
 
-\begin{example}
-	\begin{eqnarray*}
-		L(\theta, W(\underline{X})) &=& (\theta-W(X)^2) \text{\indent square error loss}\\
-\\
-		&=& | \theta -W(X)| \text{   \indent absolute error loss}\\
-\\
-		&=& \frac{W(X)}{\theta}-1-\log \frac{W(X)}{\theta} \text{  \indent Stein's loss}
-	\end{eqnarray*}
-\end{example}
+	\begin{example}
+		\begin{eqnarray*}
+			L(\theta, W(\underline{X})) &=& (\theta-W(X)^2) \text{\indent square error loss}\\
+	\\
+			&=& | \theta -W(X)| \text{   \indent absolute error loss}\\
+	\\
+			&=& \frac{W(X)}{\theta}-1-\log \frac{W(X)}{\theta} \text{  \indent Stein's loss}
+		\end{eqnarray*}
+	\end{example}
 
-\begin{definition}[Risk] \textbf{Risk} of estimating $\theta$ by W($\underline{X}$) is
-	\[
-	R(\theta,W)=E\left(\theta, W(\underline{X} \right) )
-	\]
+	\begin{definition}[Risk] \textbf{Risk} of estimating $\theta$ by W($\underline{X}$) is
+		\[
+		R(\theta,W)=E\left(\theta, W(\underline{X} \right) )
+		\]
+		
+	\end{definition}
+
+	\begin{definition}{Bayes Risk}
+		Recall we previously define risk as a function of a parameter and estimator - E(Loss). Now that $\theta$ can be random, we may define \textbf{Bayes risk} as the average risk.
+		$$\int R(\theta,\delta)\pi(\theta) d\theta = E(R(\theta,\delta)) = E(L(\theta,\delta(\underline{X}))) $$
+	\end{definition}
+
+	\begin{definition}{Bayes Estimator}
+		For a give loss function, we define the \textbf{Bayes estimator} as the minimizer of the Rayes Risk. 
+	\end{definition}
+	Note: if $\delta^*$ minimizes $E(L(\theta,\delta(\underline{X}))|\underline{X}=x)$ for (almost) all x then $\delta^*$ is the Bayes Estimator. 
+
+	We can conclude that under square error loss, the posterior mean is the Bayes Estimator. 
+
+	Wrap up: How to choose prior? Even choosing family of distribution is hard. Considering restraints and conjugacy can help.
+	\begin{itemize}
+		\item Use data to estimate prio parameters
+		\item Assign priors on our priors "hyper priors". Priorception.
+		\item Use a Jeffery's prior: reparameterize
+	\end{itemize}
+
+	\begin{exercise}
+	If $X_1, \dots, X_n$ are iid with mean $\mu$ and varience $\sigma^2$ what is
+	$$
+	E \left(\sum_{i=1}^n (X_i-\bar{X})^2 \right)?
+	$$
+
+	Note:
+	\begin{enumerate}
+			\item $\sum{i=i}^n \left (X_i - \bar{X})^2 \right) = \sum (X_i^2) - n\bar{X}$
+			\item Var(X) = $E(X^2)-E(X)^2$
+			\item Var$(\frac{X_i}{n})=\frac{\sigma^2}{n^2}$
+			\item Var$(\bar{X})=\frac{\sigma^2}{n}$
+		\end{enumerate}	
+
+	Thus,
+	$$E (\sum X_i^2) = (\sigma^2 + \mu^2)n$$
+	$$-n E(\bar{X}^2)= -n(\mu^2+\frac{\sigma^2}{n}) $$
+	We may conclude, $\frac{1}{n-1}\sum(X_i-\bar{X})^2$ is an unbiased estimator of $\sigma^2$ called $S^2$. 
+	\end{exercise}
+
 	
-\end{definition}
 
-\begin{exercise}
-If $X_1, \dots, X_n$ are iid with mean $\mu$ and varience $\sigma^2$ what is
-$$
-E \left(\sum_{i=1}^n (X_i-\bar{X})^2 \right)?
-$$
 
-Note:
-\begin{enumerate}
-		\item $\sum{i=i}^n \left (X_i - \bar{X})^2 \right) = \sum (X_i^2) - n\bar{X}$
-		\item Var(X) = $E(X^2)-E(X)^2$
-		\item Var$(\frac{X_i}{n})=\frac{\sigma^2}{n^2}$
-		\item Var$(\bar{X})=\frac{\sigma^2}{n}$
-	\end{enumerate}	
-
-Thus,
-$$E (\sum X_i^2) = (\sigma^2 + \mu^2)n$$
-$$-n E(\bar{X}^2)= -n(\mu^2+\frac{\sigma^2}{n}) $$
-We may conclude, $\frac{1}{n-1}\sum(X_i-\bar{X})^2$ is an unbiased estimator of $\sigma^2$ called $S^2$. 
-\end{exercise}
-
-\begin{theorem}[Cauchy-Scwarz Inequality]
-	$$||<x,y>||^2 \le ||<x,x>|| * ||<y,y>||$$
-In terms of E(X) if A \& B have $\mu$ = 0:
-$$(E(AB))^2 \le E(A^2) * E(B^2)$$
-
-Or in terms of covariance:
-$$Cov^2(AB) \le Var(A)*Var(B)$$
-\end{theorem}
-Proof: Let $D = B - \frac{E(AB)}{E(A^2)}A$, given $D^2 \ge 0$.
-	\begin{align*}
-		E(D^2) &= E(B^2 - 2(B)(\frac{E(AB)}{E(A^2)}A)+(\frac{E(AB)}{E(A^2)}A)^2)\\
-			&= E(B^2)-2\left( \frac{E(AB)^2}{E(A^2)} \right) + \frac{E(AB)}{E(A^2)}E(A^2)\\
-			&= E(B^2) - \frac{E(AB)^2}{E(A^2)} \ge 0
-	\end{align*}
-
-\end{section}
-
-\begin{section}{Practice Problems}
+\section{Practice Problems}
 
 Chapter 7 Exercises (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.13, 7.14, 7.19, 7.20, 7.21, 7.22, 7.23, 7.25, 7.30, 7.37, 7.38, 7.44, 7.47, 7.48, 7.49, 7.52\\
 \\
@@ -498,7 +761,7 @@ Chapter 7 Exercises (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.13, 7.14, 7.1
 	$$\hat{\theta}_{MLE} = \begin{cases} 1,\text{ if } \prod \frac{1}{2\sqrt{x}}\ \\ 0, \text{ otherwise} \end{cases} $$
 		
 	\end{problem}
-\end{section}
+
 
 %------------------------------------------------
 
@@ -544,12 +807,12 @@ Chapter 7 Exercises (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.13, 7.14, 7.1
 
 \section{Sufficiency Principle}
 
-\begin{definition}{sufficient}
-	T(X) is \textbf{sufficient} for $\theta$ if the distribution of X|T($\underline{X}$) does not depend on $\theta$.  
+\begin{definition}[Sufficient]
+	T(X) is \textbf{sufficient} for $\theta$ if the distribution of X|T($\underline{X}$) does not depend on $\theta$. Note that sufficient statistics are not unique.
 \end{definition}
 
-\begin{theorem}{Factorization Theorem}
-	If we have $\underline{X} \sim f_\theta(\underline{x}$ then T is sufficient iff we can write $f_\theta$ as
+\begin{theorem}[Factorization Theorem]
+	If we have $\underline{X} \sim f_\theta(\underline{x})$ then T is sufficient if and only iff we can write $f_\theta$ as
 	$$g(T(x),\theta)h(x)$$
 	for some g and h.
 \end{theorem}
@@ -563,12 +826,13 @@ Chapter 7 Exercises (pp. 355 to 367): 7.2, 7.6, 7.7, 7.10, 7.12, 7.13, 7.14, 7.1
 	So, T($\underline{x}$) = $\sum x_i$
 \end{example}
 
+
 Q: What is the connection to Section 7.3?\\
 A: \begin{align*}
 Var_\theta(W(\underline{X})) &= Var\left[E(W(X)|T(X))\right] + E\left[Var(W(X)|T(X)) \right]\\
 &\ge Var\left[E(W(X)|T(X))\right]	
 \end{align*} 
-Note: $E\theta \left\{E_\theta[W(X)|T(X)] \right\} = E_\theta(W(X))$
+Note: $E_\theta \left\{E_\theta[W(X)|T(X)] \right\} = E_\theta(W(X))$
 
 $E_\theta[W(X)|T(X)]$ does not depend on $\theta$. So this is a legitimate estimator since T(X) is sufficient and its varience is smaller than any estimator with same mean. \\
 \\
@@ -580,12 +844,8 @@ More technically, conditioning T(X), the remaining randomness does not depend on
 	Know Thm 6.2.6 - Factorization Theorem
 \end{remark}
 
-\begin{definition}{minimal sufficient}
-	 T(X) is $\textbf{minimal sufficient}$ if 
-	 \begin{itemize}
-	 	\item T(X) is sufficient
-	 	\item is a function of any sufficient statistic
-	 \end{itemize}
+\begin{definition}[Minimal Sufficient]
+	 T(X) is \textbf{minimal sufficient} if for any other sufficient statistics, $T^\prime(X)$, $T(X)$ is a function of $T^\prime(X)$.
 	 Note: "T(X) is a function S(X)" means that S(x) = S(y) implies T(x) = T(y).
 \end{definition}
 
@@ -598,17 +858,25 @@ More technically, conditioning T(X), the remaining randomness does not depend on
 Therefore our pair of sufficient statistics are $\sum x_i^2$ and $\sum x_i$. But are the minimal?
 \end{example}
 
-\begin{theorem}{6.2.13} $T(\underline{x}) = T(\underline{x})$ iff $\frac{f_\theta (\underline{x})}{f_\theta(\underline{y})}$ does not depend on $\theta$, implying T($\underline{x}$) is minimal sufficient statistic. 
+\begin{theorem} $T(\underline{x}) = T(\underline{y})$ if and only if $\frac{f_\theta (\underline{x})}{f_\theta(\underline{y})}$ does not depend on $\theta$, implying T($\underline{x}$) is minimal sufficient statistic. 
 \end{theorem}
+
+\begin{remark}
+	Minimal sufficient statistics are not unique (any 1-1 transformation of a minimal sufficient statistics is also minimal sufficient). A sufficient statistic may have components that do not contain any information about $\theta$. Such components are called \textbf{ancillary statistics}.
+\end{remark}
 
 \section{Exponential Families}
 
 	\begin{definition}{Exponential Family} An \textbf{exponential family} of densities is the set of densities given by 
-	$$f_{\underline{\theta}}(\underline{x})= h(\underline{x})c(\underline{\theta})\exp\left\{\sum w_i(\underline{\theta})t_i(\underline{x})\right\} $$
+	$$f_{\underline{\theta}}(\underline{x})= h(\underline{x})c(\underline{\theta})\exp\left\{\sum w_i(\underline{\theta})T_i(\underline{x})\right\} $$
 	As $\theta$ takes values in some set $\Theta$, this equation may be rewritten as
 	$$f_{\underline{\eta}}(\underline{x})= \exp\left\{\textcolor{red}{\underline{\eta}}^T\textcolor{green}{\underline{T}(\underline{x})}-\textcolor{blue}{A(\underline{\eta})}\right\}\textcolor{magenta}{h(\underline{x})} I_B(\underline{x}) $$
 	The latter equation is called the \textbf{canonical/natural parameterization}.
 	\end{definition}
+
+	\begin{remark}
+		The $T_i$/$T(x)$ terms are sufficient statistics.
+	\end{remark}
 
 	\begin{example}
 		Deriving the canonical parameterization for a Normal distribution.
@@ -710,7 +978,7 @@ Recall, $f_\eta (x)$ must always integrate to 1!
 \section{Complete Statistic}
 Recall, minimal statistics contain no redundant or unnessicary information. What might redundant information look like? From T(x) we may construct $g_1$ and $g_2$ such that $E_\theta(g_1(T))=E_\theta(g_2(T))$ for all $\theta$ which we want to avoid.
 
-\begin{definition}{complete statistic} (T) is obtained only if g=0 gives $E_\theta(g(T))=o$ for all $\theta$. 
+\begin{definition}[Complete Statistic] (T) is obtained only if $g=0$ gives $E_\theta(g(T))=0$ for all $\theta$. 
 	
 \end{definition}
 
@@ -729,11 +997,11 @@ Recall, minimal statistics contain no redundant or unnessicary information. What
 	\end{itemize}
 \end{definition}
 
-\begin{definition}{Open Set} Let k be dimention of $\eta$. To say that H contains an \textbf{open set} means there exists $\begin{cases} \epsilon >0 \\ \eta_0 \in H \end{cases}$ such that $B(\eta_0;\epsilon)\subset H$
+\begin{definition}[Open Set] Let k be dimention of $\eta$. To say that H contains an \textbf{open set} means there exists $\begin{cases} \epsilon >0 \\ \eta_0 \in H \end{cases}$ such that $B(\eta_0;\epsilon)\subset H$
 	
 \end{definition}
 
-\begin{theorem}{Basu's Theorem} Any complete and sufficient statistic (minimum sufficient) is independent of any ancillary statistic (that is, any statistic whose distribution does not depend on $\theta$). 
+\begin{theorem}[Basu's Theorem] Any complete and sufficient statistic (minimum sufficient) is independent of any ancillary statistic (that is, any statistic whose distribution does not depend on $\theta$). 
 	
 \end{theorem}
 
@@ -765,15 +1033,17 @@ No! Blarg. Let's bust out some calculus.
  	
  \end{example} 
 
- \begin{theorem}{Rae-Blackwell [7.3.17]} Let W(X) be an extimator with $E_\theta(W(x))=\tau(\theta)$. If T(X) is a sufficient statistic, then an alternative, unbiased estimator of $\tau(\theta)$ whose varience is uniformly not worse than that of W(X) is
+ \begin{theorem}[Rao-Blackwell] Let W(X) be an extimator with $E_\theta(W(x))=\tau(\theta)$. If T(X) is a sufficient statistic, then an alternative, unbiased estimator of $\tau(\theta)$ whose varience is uniformly not worse than that of W(X) is
  	$$\phi(X)=E_\theta(W(X)|T(X))$$.
  \end{theorem}
 
- Proof: Based on conditional arguments. 
+ \begin{proof}
+  	Based on conditional arguments. 
  $$E(W)=E(E(W(X)|T(X)))$$ Var(W)=Var(Cond Exp)+ E(Cond Var)
+  \end{proof} 
 
- \begin{theorem}{7.3.19}
- 	If W(X) is UMVUE for $\tau(\theta)$ then it is the unquie UMVUE, aka the best unbiased estimator for all theta. 
+ \begin{theorem}
+ 	If W(X) is UMVUE for $\tau(\theta)$ then it is the unquie UMVUE, aka the best unbiased estimator for all $\theta$. 
  \end{theorem}
 
  \begin{theorem}{7.3.20}
@@ -790,100 +1060,6 @@ No! Blarg. Let's bust out some calculus.
 for any random variable x.  	
  \end{definition}
 
- \section{Methods of Finding Estimators}
-
- \textbf{Setup:} $x_1, \dots, x_n \overset{iid}{\sim} f_\theta, \theta \in \Theta$  \\
- \textbf{Goal:} Estimate $\theta$, or some function $\tau(\theta)$\\
-
- \begin{definition}[Point Estimator]
- 	A point estimator $T(x_1, \dots, x_n)$ is a function of the random sample. T should not depend on $\theta$. 
- \end{definition}
-
- \begin{remark}
- 	Estimator is defined above, while an estimate is a fixed value. ($T(x_1 = x_1, \dots, x_n = x_n$)
- \end{remark}
-
- \subsection{Method of Moments}
-
-This method is one of the oldest, simplest estimators developed by Karl Pearson.\\ 
-\\
-\textbf{Construct:} $\begin{cases}
-               \frac{1}{n} \sum X_i = E_\theta(x) = \int_\theta x f_\theta(x) dx\\
-               \frac{1}{n} \sum X_i^2 = E_\theta(x^2) = \int_\theta x^2 f_\theta(x) dx\\
-               \vdots
-            \end{cases}$
-
-So, $\hat{\theta}_MM$ depends only on ($\frac{1}{n} \sum X_i = E_\theta(x), \dots, \frac{1}{n} \sum X_i = E_\theta(x^k)$).
-
-\begin{example}
-	$x_1, \dots, x_n \overset{iid}{\sim} N(\mu, \sigma^2)$\\
-	$\mu, \sigma^2$ unknown: $\Theta = \mathbb{R} x \mathbb{R}^+$\\
-	\begin{align*}
-	\frac{1}{n} \sum X_i = \mu &\implies \hat{\mu_{MM}} = \frac{1}{n} \sum X_i \triangleq \bar{X}\\
-	\frac{1}{n} \sum X_i^2 = \sigma^2 + \mu^2 &\implies \hat{\sigma_MM^2} = \frac{1}{n} \sum (X_i - \bar{X})^2
-	\end{align*}
-\end{example}
-
-\begin{example}
-	$x_1, \dots, x_n \overset{iid}{\sim} \text{Bin}(k,p)$ where $k, p$ are unknown: $\Theta: \mathbb{N} \text{ x } [0,1]$.\\
-
-	\begin{align*}
-	\frac{1}{n} \sum X_i &= kp \triangleq \bar{X}\\
-	\frac{1}{n} \sum X_i^2 &= kp(1-p) + k^2p^2 = \bar{X}(1-p) + \bar{X}^2
-	\end{align*}
-\end{example}
-
-\begin{remark}
-	Read about Satterthwait approximation
-\end{remark}
-
-\subsection{Maximum Likelihood Estimation}
-
-MLE makes data the most likely under the model specified. The quality of MLE depends on the quality of the model. Unlike Method of Moments, MLE does not lie outside of $\Theta$. \\
-\\
-Invariance Principle: if $\hat{\theta}$ is MLE for $\theta$, then $\tau(\hat{\theta})$ is MLE for $\tau(\theta)$. \\
-
-Roughly speaking, MLEs enjoy a nice property called \textbf{asymptotic efficiency}. They acheive the smallest possible varience in large sample. Similar to Lower Bound of Cramer-Rao as n -> infinity. 
-
-\begin{definition}{Score Function}
-	Suppose that throughout $X_1,\dots,X_n \sim f_\theta(x)$ the \textbf{score function} is $\sum \frac{\delta}{\delta \theta} \log f_\theta(x_i)$. 
-\end{definition}
-
-Take a first-order Taylor expansion of $\ell(\theta)$ around true value ($\theta$). 
-\begin{align*}
-\ell^\prime(\hat{\theta})&\simeq \ell^\prime(\theta_0) + (\hat{\theta}-\theta_0)\ell^{\prime\prime}(\theta_0)\\
-\hat{\theta}-\theta_0&\simeq [\ell^{\prime\prime}(\theta_0)^-1][\ell^\prime(\hat{\theta})-\ell^\prime(\theta_0)]\\
-	&=[\frac{-1}{n}\ell^{\prime\prime}(\theta_0)^{-1}][\frac{1}{n}\ell^\prime(\theta_0)]\\
-\frac{(\hat{\theta}-\theta_0)}{\sqrt{n}}&\simeq \frac{\frac{-1}{\sqrt{n}}\ell^\prime(\theta_0)}{\frac{-1}{n}\ell^{\prime\prime}(\theta_0)}\\
-\frac{1}{n}\ell^\prime(\theta_0)&= \frac{1}{n}\sum \frac{\delta}{\delta\theta}\log f_\theta(x)\\
-\frac{-1}{n}\ell^{\prime\prime}(\theta_0)&= \frac{1}{n}\sum \frac{\delta^2}{\delta\theta^2}\log f_\theta(x)|_{\theta=\theta_0}\\
-\end{align*}
-
-Thus, $\sqrt{n}(\hat{\theta}-\theta_0)\sim N(0,[I(\theta_0)]^{-1})$
-
-\textbf{Finding the Maxima:} $\theta \in \mathbb{R}^k$\\
-Suppose L is differentialbe, then the only possible candidtes for $\hat{\theta_{MLE}}$ are the stationary points of L which satisfy $\frac{\delta L}{\delta \theta_i} = 0, i=1, \dots, k$, which is a necessary condition for optimality.
-
-Suppose L is twice differentiable 
-
-\begin{center}
-H $\triangleq \begin{bmatrix}
-    \frac{\delta^2 L}{\delta \theta_1^2} & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_2} & \dots & \frac{\delta^2 L}{\delta \theta_1 \delta \theta_k} \\
-    \vdots & \vdots & \ddots & \vdots \\
-        \frac{\delta^2 L}{\delta \theta_k \theta_1} & \dots & \dots & \frac{\delta^2 L}{\delta \theta_k^2}
-
-\end{bmatrix}$	
-\end{center}
-
-If $H|_{\theta = \hat{\theta_{ML}}}$ is negative definite, then $\hat{theta_{ML}}$ is the MLE. 
-
-\begin{definition}[Negative Definite]
-	A matrix, $A_{nxn}$ is called \textbf{negative definite} if for any $(a_1, a_2, dots, a_n) \in \mathbb{R}^m$, $\sum\limits^n_{i,j = 1} a_i a_j A_{ij} < 0$. Equivalent characterization is the eigenvalues of A are negative.
-\end{definition}
-
-\begin{remark}
-	More reading: C&B sections 3.4, 7.2.3.
-\end{remark}
 
 \section{Major/Minorization Mini/Maximization}
 
@@ -895,11 +1071,25 @@ EM = Expectation Maximization
 	Read 7.2.4 in Casella \& Berger
 \end{remark}
 
+\begin{example}
+	$X_1, \dots, X_n \stackrel{iid}{\sim} \text{Bern}(p), 0<p<1$
+	\begin{align*}
+		\hat{p}_{mm} &= \frac{1}{n} \sum \limits^n_{i=1} x_i\\
+			&= p^{\sum x_i} (1-p)^{n - \sum x_i}
+		L(p) &= \prod\limits^n_{i=1} p^{x_i} (1-p)^{1-x_i}\\
+		l(p) &= \sum x_i \log(p) + (n + \sum x_i) \log(1-p)\\
+		\frac{d l(p)}{dp} &= \frac{\sum x_i}{p} + \frac{n - \sum x_i}{(1-p)}\\
+			&\implies \hat{p}_{ML} = \frac{1}{n}\sum x_i\\
+		\frac{d^2 l(p)}{dp^2} &= \frac{- \sum x_i}{p^2} - \frac{n - \sum x_i}{(1-p)^2} < 0
+	\end{align*}
+	and therefore $\hat{p}_{ML}$ maximizes L(p).
+\end{example}
+
 \subsection{How EM Algorhythms Work}
 \begin{itemize}
 	\item Choose a starting parameter, $\theta$. 
 	\item [E-Step] Construct the (minimizing) function.
-	\item Maximize this function of $\theta$. The maximizer will be next value of $theta_0$. Call it $\theta_1$. 
+	\item Maximize this function of $\theta$. The maximizer will be next value of $\theta_0$. Call it $\theta_1$. 
 	\item Return to (b) as long as we haven't converged.   
 \end{itemize}
 
@@ -957,47 +1147,7 @@ Using previous notation,
 	Q_0(\theta)&= E_{\theta_0}[\log P_\theta\left(X_{obs}=x_{obs}, X_{miss}=b\right)|X_{obs}=x_{obs}]	
 \end{align*}
 
-\section{Bayes Estimators}
 
-\begin{theorem}{Bayes' Theorem}
-$$\pi(\theta|x) = \frac{f(x|\theta)\pi(\theta)}{m(x)} $$
-LHS: posterior density of the parameters given data. This is what we want to know. The RHS inclues
-\begin{itemize}
-	\item likelihood
-	\item prior density
-	\item marginal density of x
-\end{itemize}
-	
-\end{theorem}
-
-\begin{proposition}{Dave's Bayes Way}
- posterior $\propto$ prior*likelihood
-\end{proposition}
-
-\begin{definition}{Conjugate Family}
-If the prior is chosen from a family of distributions in such a way that the posterior is also a member, then we call this family of priors a \textbf{conjugate family}.
-\end{definition}
-
-\begin{definition}{Bayes Risk}
-	Recall we previously define risk as a function of a parameter and estimator - E(Loss). Now that $\theta$ can be random, we may define \textbf{Bayes risk} as the average risk.
-	$$\int R(\theta,\delta)\pi(\theta) d\theta = E(R(\theta,\delta)) = E(L(\theta,\delta(\underline{X}))) $$
-\end{definition}
-
-\begin{definition}{Bayes Estimator}
-	For a give loss function, we define the \textbf{Bayes estimator} as the minimizer of the Rayes Risk. 
-\end{definition}
-Note: if $\delta^*$ minimizes $E(L(\theta,\delta(\underline{X}))|\underline{X}=x)$ for (almost) all x then $\delta^*$ is the Bayes Estimator. 
-
-We can conclude that under square error loss, the posterior mean is the Bayes Estimator. 
-
-Wrap up: How to choose prior? Even choosing family of distribution is hard. Considering restraints and conjugacy can help.
-\begin{itemize}
-	\item Use data to estimate prio parameters
-	\item Assign priors on our priors "hyper priors". Priorception.
-	\item Use a Jeffery's prior: reparameterize
-\end{itemize}
-
-\subsection{Model Based Clustering}
 %----------------------------------------------------------------------------------------
 %	CHAPTER 3
 %----------------------------------------------------------------------------------------

@@ -7,51 +7,51 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1.1}Introduction}{5}{section.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Mean Squared Error}{6}{section.1.2}
+\contentsline {section}{\numberline {1.2}Methods of Finding Estimators}{6}{section.1.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Best Unbias Estimator}{7}{section.1.3}
+\contentsline {subsection}{\numberline {1.2.1}Method of Moments}{6}{subsection.1.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.4}Lost Function Optimality}{9}{section.1.4}
+\contentsline {subsection}{\numberline {1.2.2}Maximum Likelihood Estimation}{7}{subsection.1.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.5}Practice Problems}{10}{section.1.5}
+\contentsline {subsection}{\numberline {1.2.3}Bayes' Estimation}{8}{subsection.1.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Principles of Data Reduction}{13}{chapter.2}
+\contentsline {section}{\numberline {1.3}Evaluating Estimation}{8}{section.1.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3.1}Mean Squared Error}{8}{subsection.1.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3.2}Best Unbiased Estimator}{9}{subsection.1.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.3.3}Loss Function Optimality}{14}{subsection.1.3.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Practice Problems}{15}{section.1.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Principles of Data Reduction}{19}{chapter.2}
 \ttl@stoptoc {default@1}
 \ttl@starttoc {default@2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Sufficiency Principle}{13}{section.2.1}
+\contentsline {section}{\numberline {2.1}Sufficiency Principle}{19}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Exponential Families}{14}{section.2.2}
+\contentsline {section}{\numberline {2.2}Exponential Families}{20}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Distribution Families}{15}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.1}Distribution Families}{21}{subsection.2.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Complete Statistic}{16}{section.2.3}
+\contentsline {section}{\numberline {2.3}Complete Statistic}{22}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.1}Sufficiency and Unbiasness}{17}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.1}Sufficiency and Unbiasness}{23}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Methods of Finding Estimators}{18}{section.2.4}
+\contentsline {section}{\numberline {2.4}Major/Minorization Mini/Maximization}{24}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.1}Method of Moments}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}How EM Algorhythms Work}{25}{subsection.2.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.2}Maximum Likelihood Estimation}{19}{subsection.2.4.2}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.5}Major/Minorization Mini/Maximization}{20}{section.2.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.1}How EM Algorhythms Work}{20}{subsection.2.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.6}Bayes Estimators}{21}{section.2.6}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.1}Model Based Clustering}{22}{subsection.2.6.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Hypothesis Testing}{23}{chapter.3}
+\contentsline {chapter}{\numberline {3}Hypothesis Testing}{27}{chapter.3}
 \ttl@stoptoc {default@2}
 \ttl@starttoc {default@3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{25}{chapter*.2}
+\contentsline {chapter}{\leavevmode {\color {ocre}Bibliography}}{29}{chapter*.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Books}{25}{section*.3}
+\contentsline {section}{Books}{29}{section*.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Articles}{25}{section*.4}
+\contentsline {section}{Articles}{29}{section*.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{27}{section*.5}
+\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{31}{section*.5}
 \contentsfinish 
