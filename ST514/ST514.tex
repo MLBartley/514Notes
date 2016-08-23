@@ -423,7 +423,19 @@ STAT 514 Lecture Notes\par % Book title
 		for all $\theta$. W* is also called a $\textbf{uniform minimum variance unbiased estimator}$ (UMVUE) of $\tau(\theta)$.
 	\end{definition}
 
-	Main Result: Under some assumptions we can establish a lower bound on Var(W(X)). The question of how small this variance could be is answered by Cramer-Rao Inequality.\\
+	\textbf{Main Result:} Under some assumptions we can establish a lower bound on Var(W(X)). The question of how small this variance could be is answered by Cramer-Rao Inequality.
+
+	\begin{remark}
+		Spoilers: We will show that there are two main route for finding the UMVUE. 
+		\begin{enumerate}
+			\item Check if estimator attains the Cramer-Rao Lower Bound. 
+			\item Find a complete and sufficient statistic then a function of it that is unbiased. 
+			\begin{enumerate}
+				\item Check to see if density if part of the exponential family. T is complete and sufficient.
+				\item Use factorization theorem to find a sufficient statistic then the definition of completeness and Lehmann-Sheffe to get UMVUE
+			\end{enumerate}
+		\end{enumerate}
+	\end{remark}
 
 	But first, we need the following:
 
@@ -616,7 +628,8 @@ STAT 514 Lecture Notes\par % Book title
 		\item Our assumptions do not always hold, and hense can not be used to apply the theorem. Especially when the range depends on a parameter. 
 	\end{enumerate}
 
-	For an alternative approach to finding the UMVUE, see the Rao-Blackwell and Lehmann-Sheffe Theorems. 
+	For an alternative approach to finding the UMVUE, see the Rao-Blackwell and Lehmann
+	-Sheffe Theorems. 
 
 \subsection{Loss Function Optimality}\index{Loss Function Optimality}
 	
@@ -635,25 +648,36 @@ STAT 514 Lecture Notes\par % Book title
 		\end{eqnarray*}
 	\end{example}
 
-	\begin{definition}[Risk] \textbf{Risk} of estimating $\theta$ by W($\underline{X}$) is
+	\begin{definition}[Risk] Average loss for a given estimator. \textbf{Risk} of estimating $\theta$ by W($\underline{X}$) is
 		\[
 		R(\theta,W)=E\left(\theta, W(\underline{X} \right) )
 		\]
 		
 	\end{definition}
 
-	\begin{definition}{Bayes Risk}
+	\textbf{Goal:} We want to construct $\delta$ such that risk is minimized for every $\theta \in \Theta$.
+
+	Two Ways:
+	\begin{enumerate}
+		\item Restrict the space of estimators.
+		\item Allow all possible estimators but use a weaker notation of optimality
+			\begin{enumerate}
+			 	\item Bayesian approach
+			 	\item MiniMax approach 
+			 \end{enumerate} 
+	\end{enumerate}
+
+	\begin{definition}[Bayes Risk]
 		Recall we previously define risk as a function of a parameter and estimator - E(Loss). Now that $\theta$ can be random, we may define \textbf{Bayes risk} as the average risk.
-		$$\int R(\theta,\delta)\pi(\theta) d\theta = E(R(\theta,\delta)) = E(L(\theta,\delta(\underline{X}))) $$
+		$$r_\pi(\delta) = \int R(\theta,\delta)\pi(\theta) d\theta = E(R(\theta,\delta)) = E(L(\theta,\delta(\underline{X}))) $$
 	\end{definition}
 
-	\begin{definition}{Bayes Estimator}
+	\begin{definition}[Bayes Estimator]
 		For a give loss function, we define the \textbf{Bayes estimator} as the minimizer of the Rayes Risk. 
 	\end{definition}
 	Note: if $\delta^*$ minimizes $E(L(\theta,\delta(\underline{X}))|\underline{X}=x)$ for (almost) all x then $\delta^*$ is the Bayes Estimator. 
 
-	We can conclude that under square error loss, the posterior mean is the Bayes Estimator. 
-
+	We can conclude that under square error loss, the posterior mean is the Bayes Estimator.\\
 	Wrap up: How to choose prior? Even choosing family of distribution is hard. Considering restraints and conjugacy can help.
 	\begin{itemize}
 		\item Use data to estimate prio parameters
@@ -681,8 +705,141 @@ STAT 514 Lecture Notes\par % Book title
 	We may conclude, $\frac{1}{n-1}\sum(X_i-\bar{X})^2$ is an unbiased estimator of $\sigma^2$ called $S^2$. 
 	\end{exercise}
 
-	
+\begin{definition}[Minimax Risk]
+	The minimum risk of an estimater $\delta$:
+			$$\inf_{all \delta} \sup_{\theta \in \Theta} R(\delta, \theta) $$
+	The Minimax risk is the minimum of the max risks. We say $\delta^*$ is minimax if
+	$$\sup_{\theta \in \Theta} R(\delta^*, \theta) = \inf_{all \delta} \sup_{\theta \in \Theta} R(\delta, \theta)$$
+	\end{definition}	
 
+\begin{theorem}
+	The Bayes risk, $r_\pi(\delta)$, satistifes 
+	$$r_\pi(\delta) = \int R_\pi(\delta|\underline{x})m(\underline{x})d\underline{x}$$
+	where $m(\underline{x}) = \int f_\theta(\underline{x}) \pi(\theta)d\theta$ and $R_\pi(\delta|\underline{x}) = \int l(\delta, \theta) \pi(\theta|\underline{x})d\theta$ is called the posterior risk. If $\delta^*(\underline{x})$ minimizes the risk, then it is a Bayes estimator 
+\end{theorem}
+
+\begin{proof}
+\begin{align*}
+	r_\pi(\delta) &= \int_\Theta R(\theta,\delta) \pi(\theta)d\theta\\
+	&= \int_\Theta \int_{x^n} l(\theta,\delta) f_\theta(\underline{x})d\underline{x } \pi(\theta)d\theta\\
+	\pi(\theta|\underline{x}) &= \frac{f_\theta (\underline{x})\pi(\theta)}{\int f_\theta (\underline{x}) \pi(\theta)d\theta}\\
+	&= \frac{f_\theta(\underline{x})\pi(\theta)}{m(x)}
+\end{align*}
+	
+\end{proof}
+
+\begin{theorem}
+	Suppose:
+	\begin{enumerate}[label = \alph*)]
+		\item $L(\theta, \delta) = (\theta - \delta)^2$. Then the Bayes estimator is the posterior mean.
+		\item $L(\theta, \delta) = |\theta - \delta|$. Then the Bayes estimator is the posterior median.
+		\item $L(\theta, \delta) = \begin{cases}
+			0, & |\theta-\delta| \le \epsilon\\
+			1, & |\theta-\delta| \> \epsilon\\
+		\end{cases}$, then the Bayes estimator is the midpoint of an interval of length 2$\epsilon$ where $T(\theta|\underline{x})$ is maximized. 
+		\item $L(\theta, \delta) = \begin{cases}
+			0, & \theta=\delta|\\
+			1, & \theta \neq \delta\\
+		\end{cases}$, then the Bayes estimator is the maximum aposterior.
+	\end{enumerate}
+\end{theorem}
+
+\subsection{Methods of Generating Reasonable Estimators}\index{Methods of Generating Reasonable Estimators}
+
+Epmirical Bayes - parameters of the prior are estimated from data.
+
+Hierarchichal Bayes - we impose a hierarch of priors on the parameters of $\theta$.
+
+\textbf{Choice of Prior:} We want the prior impose \textbf{non-informative prior} where each value of the parameter is equiprobably. However, these priors could be \textbf{improper}, i.e. they don't integrate to 1 (in fact, not integrable at all). 
+
+\begin{definition}[Jeffreys Prior]
+	$\pi(\theta) \propto \sqrt{I(\theta)}$ If $\int \sqrt{I(\theta)} d\theta < \infty$ then $\pi$ is a proper prior on $\theta$. Else, we treat it as an improper prior, which is often the case for Jeffreys priors.
+	\begin{remark}
+		\begin{enumerate}
+			\item Jeffreys priors works well for single parameter models ,but has some issues while dealing with multiple parameters.
+			\item In general, Jeffreys prior is not a conjugate prior, but can be obtained as a limit of a conjugate prior family.
+		\end{enumerate}
+	\end{remark}
+\end{definition}
+
+\begin{definition}[Least Favorable Prior]
+	A prior, $\pi$, is \textbf{least favorable} if
+	$$r_\pi(\delta^*) \ge r_\pi(\delta^*)$$ for all priors, $\pi^\prime$
+\end{definition}
+
+\begin{theorem}
+	Suppose $\pi$ is a prior on $\Theta$ such that
+	\begin{align*}
+		r_\pi(\delta^*) &= \int R(\theta, \delta^*) \pi(\theta) d\theta\\
+		&= \sup_\theta R(\theta, \delta^*) (*)
+	\end{align*}
+	Then, 
+	\begin{enumerate}[label = \alph*)]
+		\item $\delta^*$ is minimax
+		\item $\pi$ is the lease favorable prior.
+		\item If $\delta^*$ is unique Bayes Estimator, then it is also unique minimax estimator.	
+	\end{enumerate}
+\end{theorem}
+
+\textbf{Question:} When is (*) satisfied?
+\begin{enumerate}
+	\item $R(\theta, \delta^*)$ is constant with respect to $\theta$ (i.e. does not depend on $\theta$).
+	\item $\Omega = {R(\theta, \delta^*) = \sup_{\theta^prime} R(\theta^\prime, \delta^*)}$. If $\pi(\Omega) = 1$ then (*) is satisfied.
+\end{enumerate}
+
+\begin{example}
+	$X_1, \dots, X_n \stackrel{iid}{\sim} N(\mu, \sigma^2)$ where $\sigma^2$ is known. Is $\bar{X}$ minimax under squared error loss?
+
+	 Let $\pi (\mu) \sim N(\tau, b^2)$
+
+	$\delta^*$ is the Bayes estimator given by the posterior mean. 
+
+	$\delta^*(\underline{x}) = \frac{\frac{n \bar{x}}{\sigma^2} + \frac{\tau}{b^2}}{\frac{n}{\sigma^2} + \frac{1}{b^2}}$
+
+	As $b \rightarrow \infty$, $\delta^*(\underline{x} \rightarrow \bar{X}$. ($\pi$ is an improper prior for $\mu$ implies it's the Jeffreys prior for $\mu$).
+
+	\begin{align*}
+		R(\mu, \delta^*) &= E[L(\mu, \delta^*)]\\
+		&= E[(\mu - \delta^*)^2]\\
+		&= E[(\alpha \bar{x} + (1-\alpha)\tau - \mu)^2]\\
+		&=E[\alpha^2(\bar{x}-\mu)^2 + (1-\alpha)^2(\tau - \mu)^2 + 2\alpha(\bar{x}-\mu)(1-\alpha)(\tau - \mu)]\\
+		&= \alpha^2*E(\bar{x} - \mu)^2 + (1-\alpha)^2(\tau - \mu)^2\\
+		&= \alpha^2 \text{Var}(\bar{x}) + (1-\alpha)^2(\tau - \mu)^2\\
+		&= \frac{\alpha^2 \sigma^2}{n} + (1-\alpha)^2(\tau-\mu)^2\\
+		r_\pi(\delta^*) &= \int R(\mu, \delta^*) \pi(\mu)d\mu (\text{Note: Risk from line above.})\\
+		&= \int [\frac{\alpha^2\sigma^2}{n} + (1-\alpha)^2(\tau - \mu)^2]\pi(\mu)d\mu\\
+		&= \frac{\alpha^2 \sigma^2}{n} + (1 - \alpha)^2 b^2\\
+		\text{Substituting for $\alpha$, we get	}\\
+		r_\pi(\delta^*) = \frac{1}{\frac{n}{\sigma^2}+\frac{1}{b^2}}\\
+		&= \int R(\mu, \delta) \pi(\mu)d\mu\\
+		&\le \sup_\mu R(\mu, \delta)\\
+		\text{In other words},\\
+		\sup_\mu R(\mu, \delta) \ge \frac{1}{\frac{n}{\sigma^2}+\frac{1}{b^2}}\\
+		&\ge \sup_b \left(\frac{1}{\frac{n}{\sigma^2}+\frac{1}{b^2}}\right)\\
+		&= \frac{\sigma^2}{n}, \forall \delta\\
+		&\implies \inf_\delta \sup\mu R(\mu, \delta) = \frac{\sigma^2}{n} = R(\mu, \bar{x}) = \sup_\mu R(\mu, \bar{x})
+	\end{align*}
+	Therefore, $\bar{x}$ is minimax.
+\end{example}
+
+\begin{definition}[Admissibility]
+An estimator $\delta$ is said to be inadmissable if there exists $\delta^\prime$ that dominates it, i.e. R($\theta, \delta) \ge R(\theta, \delta^\prime)$ for all $\theta$ and $R(\theta, \delta) > R(\theta, \delta^\prime)$ for some $\theta$. If no such $\delta^\prime$ exists, then $\delta$ is \textbf{admissible}. 
+\begin{enumerate}[label = \alph*)]	
+ 		\item UMVUE need not be admissible as biased estimators can yield smaller MSE.
+ 		\item But the situation is different when dealing with minimax estimators.
+ 		\item If $\delta$ is a minimax estimator and it is dominated by $\delta^\prime$, then $\delta^\prime$ is also minimax and therefore we prefer $\delta^\prime$.
+ 		\item So it is important to ascertain whether a given minimax estimator is admissable or not.
+ 	\end{enumerate}	 	
+\end{definition}
+
+\begin{theorem}
+	Any unique Bayes estimator is \textbf{admissible}. 
+	$$\inf_\delta r_\pi(\delta)$$
+\end{theorem}
+
+\textbf{Proposition:} If an estimator is unique minimax, then it is admissible. 
+
+\textbf{Proposition:} If $\delta$ has a constant risk and is admissible then it is minimax.
 
 \section{Practice Problems}
 
@@ -1050,20 +1207,60 @@ No! Blarg. Let's bust out some calculus.
  	If $E_\theta(W(X))=\tau(\theta)$, then W(X) is UMVUE for $\tau(\theta)$ iff W(X) is uncorrelated with any S(X) such that $E_\theta(S(X))=0$. 
  \end{theorem}
 
- \begin{theorem}{7.2.23}
+ \begin{theorem}[Lehmann-Scheffe Theorem]
  	If T(X) is a complete and sufficient statistic, then $\phi(T)$ is the unique UMVUE of its expectation (see Rao-Blackwell).
  \end{theorem}
 
- \begin{definition}{Jenson's Inequality}
+\begin{definition}
+	A funciton $\phi: \mathbb{R}^d \rightarrow \mathbb{R}$ is convex if domain ($\phi$) is a convex set and if for all $x, y \in dom(\phi)$ and $0 \le \alpha \le 1, \phi(dx + (1-\alpha)u) \le \alpha \phi(x)+(1-\alpha)\phi(y).$ If strict equality holds for all $x\neq y$, then $\phi$ is strictly convex.
+\end{definition}
+
+\textbf{Characterization of Convexity:}
+\begin{enumerate}
+	\item First-order conditions: suppose $\phi$ is differentiable (i.e. the gradient $\nabla\phi$ exists at each point in dom($\phi$) which is open). Then $\phi$ is convex iff dom($\phi$) is convex and $\phi(y)\ge \phi(x) + \nabla\phi^T(x)(y-x), \forall x, y.$
+	\item Second-order conditions: suppose $f$ is twice differentiable. That is, the Hessian $\nabla^2\phi$ exists at each point in dom($\phi$), which is open. Then $\phi$ is convex iff dom($\phi$) is convex and $\nabla^2\phi$ is positive semidefinite.
+\end{enumerate}
+
+ \begin{definition}[Jenson's Inequality]
  If h(x) is a convex function then 
  $$h(E(x))\le E(h(x)) $$
 for any random variable x.  	
  \end{definition}
 
+\begin{theorem}
+	If $\phi$ is convex, then $\phi(E(X)) \le E(\phi(X))$ and the strict inequality holds if $\phi$ is strictly convex.
+\end{theorem}
+
+\begin{corollary}
+	Let X be a idscrete random variable with $P(X=x_i) = \alpha_i, i - 1,...l$. Apply the above theorem. 
+\end{corollary}
+
+\textbf{Uniqueness of $\delta^*$:} 
+$$\delta^* \in \arg\inf_\delta r_\pi(\delta)$$
+We are done if $r_\pi(\delta)$ is strictly convex for $0<\alpha<1$, consider 
+\begin{align*}
+	r_\pi(\alpha \delta + (1-\alpha)\delta_2) &= \int R(\theta, \alpha \delta_1 + (1-\alpha)\delta_2) \pi(\theta) d \theta\\
+	&= \int E\left[L(\theta, \alpha \delta(1 + (1-\alpha)\delta_2)))\right]\pi(\theta) d \theta\\
+	&< E\left[\alpha L(\theta, \delta) + (1-\alpha)L(\theta, \delta_2)\right]\pi(\theta) d \theta\\
+	 &= \int(\alpha E(L(\theta, \delta_1)+(1-\alpha)E(L(\theta, \delta_2)))))\\
+	 &= \alpha r_\pi(\delta_1) + (1-\alpha)r_pi(\delta_2)
+\end{align*}	
+Thus, $r_\pi$is strictly convex, which implies that $d^*$ is the unique minimizer. 
+
+\textbf{Generalized Version of Rao-Blackwell Theorem}
+Let w be an estimator of $g(\theta)$ and T be a sufficient statistic. Let $L(\theta,\delta)$ be a strictly convex function in its second argument.
+
+Suppose $E(W)<\infty$ and $R(\theta, W) = E(L(\theta,W))<\infty$. Define $\eta(T) = E(W|T)$. Then $R(\theta, \eta(T)) < R(\theta, W)$ unless $\eta(T)=W$ with probability 1.
+
+\begin{theorem}
+	Suppose T is complete and sufficient. Then for every $g(\theta)$ that can be estimated by an unbiased estimator, there is one and only one unbiased estimator that is a function of T. In addition, this estimator uniformly minimizers the risk for any loss function $L(\theta, \delta)$ that is stictly convex in $\delta$. In particular, this estimator is UMVUE.
+\end{theorem}
+
+We say $\hat{\theta}$ is \textbf{efficient} if it achieves equality in the information bound. We say $\hat\theta_{ML}$ is \textbf{asymptotically efficient} if as $n\rightarrow \infty$, Var($\hat\theta_{ML}) \rightarrow $ the CR bound. 
 
 \section{Major/Minorization Mini/Maximization}
 
-Ever EM Algorhythm is special case of a MiMax.
+Every EM Algorhythm is special case of a MiMax.
 
 EM = Expectation Maximization
 
@@ -1071,12 +1268,53 @@ EM = Expectation Maximization
 	Read 7.2.4 in Casella \& Berger
 \end{remark}
 
+\subsection{Bharath's Notes}
+
+\textbf{Minoroization - Maximization}
+
+\begin{enumerate}
+	\item Constructing a minorization function. 
+	\begin{align*}
+		f(x) &\ge g(x,y), \forall x,y \in \Omega\\
+		f(x) &= g(x,x), \forall x \in \Omega
+	\end{align*}
+	\item $X^{(t+1)} \in \text{argmax}_{x \in \Omega \subset \mathbb{R}^d } g(x,x^{(t)})$
+	\item Return to step 1.
+	\end{enumerate}
+
+\textbf{Claim:} $f(x^{t+1}) \ge f(x^{(t)})$
+
+\begin{proof}
+	\begin{align*}
+		f(x^{t+1}) &\ge g(x^{(t+1)}, x^{(t)})\\
+		&\ge g(x^{(t)}, x^{(t)})\\
+		= f(x^{(t)})
+	\end{align*}
+\end{proof}
+
+\textbf{EM Algorithm:}
+Goal: Maximize $L(\theta) = f_\theta(x_1, \dots, x_n)$ over $\theta \in \Theta \subset \mathbb{R}^d$.
+
+\begin{definition}
+	The Kullbach-Liebler divergence between two densities p and q is defined as 
+	\begin{align*}
+		KL(p||q) &= E_{x \sim q}(\log \frac{q(x)}{p(x)})\\
+		&= \begin{cases}
+			\int q(x)\log\frac{q(x)}{p(x)} dx, & if q<<p
+		\end{cases}
+	\end{align*}
+	
+\end{definition}
+
+\subsection{Dave's Notes}
+
 \begin{example}
 	$X_1, \dots, X_n \stackrel{iid}{\sim} \text{Bern}(p), 0<p<1$
 	\begin{align*}
 		\hat{p}_{mm} &= \frac{1}{n} \sum \limits^n_{i=1} x_i\\
 			&= p^{\sum x_i} (1-p)^{n - \sum x_i}
-		L(p) &= \prod\limits^n_{i=1} p^{x_i} (1-p)^{1-x_i}\\
+		L(p)\\  
+		&= \prod\limits^n_{i=1} p^{x_i} (1-p)^{1-x_i}\\
 		l(p) &= \sum x_i \log(p) + (n + \sum x_i) \log(1-p)\\
 		\frac{d l(p)}{dp} &= \frac{\sum x_i}{p} + \frac{n - \sum x_i}{(1-p)}\\
 			&\implies \hat{p}_{ML} = \frac{1}{n}\sum x_i\\
@@ -1086,12 +1324,12 @@ EM = Expectation Maximization
 \end{example}
 
 \subsection{How EM Algorhythms Work}
-\begin{itemize}
+\begin{enumerate}[label = \alph*)]
 	\item Choose a starting parameter, $\theta$. 
 	\item [E-Step] Construct the (minimizing) function.
 	\item Maximize this function of $\theta$. The maximizer will be next value of $\theta_0$. Call it $\theta_1$. 
 	\item Return to (b) as long as we haven't converged.   
-\end{itemize}
+\end{enumerate}
 
 Given $\mu_0$ we find after one EM iteration that
 \begin{align*}
