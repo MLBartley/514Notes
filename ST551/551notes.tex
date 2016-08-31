@@ -1,0 +1,1327 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.0 (9/2/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage{mathrsfs}
+\usepackage{amsbsy}
+\usepackage{multicol}
+\usepackage{graphicx}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Linear Models\\[15pt] % Book title
+{\Large STAT 551}\\[20pt] % Subtitle
+{\huge Course Notes by Meridith Bartley}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+
+\noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{book-website.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+\noindent \textit{First printing, March 2013} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Linear Regression}
+
+
+\begin{itemize}
+	\item projection
+	\item orthongonal decomposition
+	\item Gaussian Linear Regression
+	\item prediction (generally of $\hat{y}$)
+	\item different types of errors
+	\item  influence 
+	\item lack of fit
+	\item $R^2$
+	\item Multicollinearity
+
+\end{itemize}
+
+\section{Projection in Euclidean Space}\index{Projection}
+
+\textbf{Monday August 22}
+
+\begin{definition}[Euclidian Space]
+	One way to think of the Euclidean plane is as a set of points satisfying certain relationships, expressible in terms of distance and angle. \textbf{Euclidean space} is an abstraction detached from actual physical locations, specific reference frames, measurement instruments, and so on.\\
+\\
+	Let Euclidian Space be denoted by $\mathbb{R}^P$. \\ 
+
+	$\mathbb{R}X \dots X\mathbb{R} = \{(x_1, \dots, x_p): x_1 \in \mathbb{R} \dots, x_p \in \mathbb{R}^P\} $
+\end{definition}
+
+
+\begin{definition}[Inner Product]
+In linear algebra, an inner product space is a vector space with an additional structure called an inner product. This additional structure associates each pair of vectors in the space with a scalar quantity known as the inner product of the vectors. \textbf{Inner products} allow the rigorous introduction of intuitive geometrical notions such as the length of a vector or the angle between two vectors. They also provide the means of defining orthogonality between vectors (zero inner product).\\
+\\
+	Let $a \in \mathbb{R}^P,  b \in \mathbb{R}^P$\\
+$$ a^Tb = \displaystyle\sum^{P}_{i = 1} a_i b_i$$\\
+$$a^Tb =<a,b>$$
+\end{definition}
+
+ \begin{definition}[Hilbert Space]
+ The mathematical concept of a Hilbert space generalizes the notion of Euclidean space. It extends the methods of vector algebra and calculus from the two-dimensional Euclidean plane and three-dimensional space to spaces with any finite or infinite number of dimensions. A Hilbert space is an abstract vector space possessing the structure of an inner product that allows length and angle to be measured. Furthermore, Hilbert spaces are complete: there are enough limits in the space to allow the techniques of calculus to be used.
+
+ \textit{Hilbert Inner Product Space }$\{\mathbb{R}^P, <a, b>\} $ 
+
+ 	
+ \end{definition}
+
+
+\textbf{General Inner Product}
+
+Let $\Sigma \in \mathbb{R}^{PxP} $ set of all $PxP$ matrices. Assume $\Sigma$  is a positive definite matrix. 
+
+$$x^T \Sigma x <0 $$
+$$\forall x \in \mathbb{R}^P$$
+$$ x \neq 0$$
+
+Then $a^T \Sigma b$ also satisfies the conditions for inner product. 
+
+$$a^T \Sigma b = <a,b>_\Sigma$$
+
+$$a^Tb = a^TIb = <a,b>_I$$
+
+$\{ \mathbb{R}^P, <,>_\Sigma \}$ is a more general inner product space. \\
+\\ 
+
+\textbf{Linear Transformation}
+
+A matrix, $A, \in \mathbb{R}^{PxP}$ can be viewed as linear transformation
+
+$T_A: \mathbb{R}^P \rightarrow \mathbb{R}^P, x \mapsto Ax$
+
+\begin{remark}
+	Bing Li will denote $T_A$ as $A$. \\
+	$\rightarrow$ means maps to for a domain.\\
+	$\mapsto$ means maps to for a value.\\
+	$\Rightarrow$ means implies. \\
+	
+\end{remark}
+
+
+
+If $A: \mathbb{R}^P \rightarrow \mathbb{R}^P$, 
+
+	$$ker(A) = \{x \in \mathbb{R}^P, Ax = 0 \}$$
+	$$ran(A) = \{ Ax: x \in \mathbb{R}^P \}$$
+
+\begin{definition}[Kernel]
+ In linear algebra, the kernel, or sometimes the null space, is the set of all elements v of V for which L(v) = 0, where 0 denotes the zero vector in W.
+
+ In coordinate plane, think of a function that crosses the x-axis. The kernel would be all points on x where $y=0$.
+	
+\end{definition}
+
+\begin{definition}[Range]
+
+In coordinate plane, how much of the y axis is reached with the function? Now extend this idea to more dimensions. 
+	
+\end{definition}
+
+A linear transformation is \textbf{idempotent} if 
+
+	$$A = A^2$$
+	$$Ax = A(A(x)) $$
+	$$\forall x \in \mathbb{R}^P$$
+
+
+If A were a number it could only be 1 or 0. \\
+ % get from photo
+ % get arrow defintions
+\\
+\textbf{Wednesday August 24}
+
+Let $T \in \mathbb{R}^{PxP}$ then there exists a unique operator $R \in \mathbb{R}^{PxP}$ such that $\forall x, y \in \mathbb{R}^P$,\\
+ $$<x, Ty> = <Rx, y> $$ (general inner product, $a^T\Sigma b$). Aside: What this states is that if you give me any operator in the first you can find one in the second.\\ 
+\\
+$R$ is called the \textbf{adjoint operator} of T. Written as $T^*$, that is, 
+ $$<x, Ty> = <T^*x, y>$$
+\\
+\textbf{Derived Facts}
+
+\begin{multicols}{2}
+
+ \begin{align*}
+	<x, Ty> &= <T^*, y>\\
+	&= <y, T^*x>\\
+	&= <(T^*)^*y, x>\\
+	&= <x, (T^*)^*y>\\
+\end{align*}
+
+\columnbreak
+
+
+		(by the definition)\\
+    (inner products the order doesn't matter)\\
+    (Use the definition again)\\
+    (swap order)
+	
+  	
+\end{multicols}
+
+So, $T = (T^*)^*$. \\
+\\
+It is easy to see in our case 
+
+
+
+ \begin{align*}
+	<x, Ty>_\Sigma &= x^T\Sigma Ty \\
+	&= x^T \Sigma T \Sigma^{-1} \Sigma y\\
+	&= (\Sigma^{-1} T^T \Sigma x)^T \Sigma y\\
+	&= <\Sigma^{-1} T^T \Sigma x, y>_\Sigma\\
+\end{align*}
+
+So, $T^* = \Sigma^{-1} T^T \Sigma$ when $\Sigma = I_P$ (identity) 
+and $T^* = T^T$. \\
+\\
+\textbf{Derived Facts}
+
+An operator is \textbf{self adjoint} if its adjoint is itself. (i.e. if $T = T^*$ or $<x, Ty> = <Tx, y>$). In the case of $<,>_\Sigma$, 
+
+$$T = \Sigma^{-1} T^T \Sigma$$
+ if 
+$$ \Sigma = I_P\text{, }T = T^T$$ 
+
+\begin{remark}
+	Self adjoint implies symmetric. It's a more general case, hence the use of $\Sigma$ vs $I$. Useful to remember in following two Theorems
+\end{remark}
+
+\begin{theorem}
+	If $A \in \mathbb{R}^{PxP}$ is symmetric, then there exists \textbf{eigenvalue-eigenvector pairs}.\\
+	 $(\lambda_1, v_1), \dots (\lambda_P, v_P)$ such that $v_1 \bot \dots \bot v_P$. Orthoginal basis (ONB) such that $$A = \displaystyle \sum^P_{i=1} \lambda_i v_i v_i^T \text{(spectral decomposition)}$$ 
+\end{theorem}
+ 
+ More generally, if A is a linear operator in $\mathscr{H}$ (finite dimential inner product such as \\ ($\mathbb{R}^P, <,>_\Sigma$)). its eigen pair (linear operator now) ($\lambda, v$) is defined by 
+
+$$\begin{cases}
+ Av = \lambda v\\
+ <v,v> = 1
+ \end{cases}$$
+
+\begin{definition}[Orthogonal Basis]
+In the following, $(\mathbb{R}^P, <,>_\Sigma) = \mathscr{H}$ (H for Hilbert)
+
+ONB is defined by:	
+
+	\begin{enumerate}
+		\item $v_i \perp v_j, <v_i, v_j> = 0$ 
+		\item $||v_i || = 1$
+		\item $span\{v_1, \dots, v_P \} = \mathscr{H}$
+	\end{enumerate}
+\end{definition}
+
+
+
+\begin{theorem}
+	Suppose $A: \mathscr{H} \rightarrow \mathscr{H}$ is a self adjoint linear operator. Then $A$ has eigen pairs:
+
+	$(\lambda_1, v_1, \dots, (\lambda_P, v_P)$ where $\{v_1, \dots, v_P \}$ is ONB of $\mathbb{R}$ such that
+
+	$$A = \displaystyle \sum^P_{i=1} \lambda_i v_i v_i^T \Sigma$$
+
+
+
+\end{theorem}
+
+\begin{proof}
+	($\lambda, v$) is eigen pair of $A$, which means
+	 	$$Av = \lambda v $$
+	 	$$<v,v> = 1$$
+	 	$$v^T\Sigma v = 1$$
+
+	  Let $u = \Sigma^{\frac{1}{2}} v$. 
+
+\begin{remark}
+		Aside: $\Sigma^\alpha = \Sigma \lambda_i^\alpha v_i v_i^T$
+
+\end{remark}
+
+
+	Let $v = \Sigma^{-\frac{1}{2}} u$.
+
+	\begin{align*}
+		A \Sigma^{-\frac{1}{2}} u &= \lambda \Sigma^{-\frac{1}{2}} u\\
+		\Sigma^{-\frac{1}{2}} u &= \lambda u\\
+	\end{align*}
+
+So, ($\lambda, v$) is  an eigen pair of $A$ in ($\mathbb{R}, <,>_\Sigma$) $\Leftrightarrow$ ($\lambda, u$) '$\dots$' of $\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}}$ in ($\mathbb{R}, <,>_I$).
+
+Note that, $A$ is self adjoint in ($\mathbb{R}, <,>_\Sigma$). So, $A = \Sigma^{-1} A^T \Sigma$
+
+\begin{align*}
+	\Sigma^{\frac{1}{2}} A \Sigma^{- \frac{1}{2}} &= \Sigma^{\frac{1}{2}} A^T \Sigma \Sigma^{-\frac{1}{2}}\\
+	&= \Sigma^{-\frac{1}{2}} A \Sigma^{\frac{1}{2}} \\
+	&= (\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}})^T
+\end{align*}
+
+Note: $\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}}$ is symmetric!! So by Theorem 1.1, $\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}} = \sum \lambda_i v_i v_i^T$ where ($\lambda_i, v_i$) eigenpairs of $\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}}$. 
+
+That means $(\lambda_i, \Sigma^{\frac{1}{2}} v_i)$ are eigen pairs of $A$. 
+
+So, $\Sigma^{\frac{1}{2}} A \Sigma^{-\frac{1}{2}} = \displaystyle \sum ^P_{i=1} \Sigma^{\frac{1}{2}} u_i u_i^T \Sigma^{\frac{1}{2}} \Rightarrow A = \displaystyle \sum ^P_{i=1} \lambda u_i u_i^T \Sigma$ 
+\end{proof}
+
+
+\begin{definition}[Projection]
+	If $P$ is an operator in $(\mathbb{R}^{P}, <,>)$ then $P$ is called a \textbf{projection} if it is both idempotent ($P = P^2$) and self adjoint ($P = P^*)$. 
+\end{definition}
+
+\textbf{Preposition 1.1} If $A$ is a linear operator then $ker(A) = ran(A^*)^\bot$
+
+\begin{proof}
+	Take $x \in ker(A) (\Rightarrow Ax = 0)$. 
+
+	$\forall y \in ran(A^*), x \perp y$
+
+	$\Rightarrow x \perp y \forall y = A^*z, z \in \mathbb{R}^P$
+
+	Hence, 
+	\begin{align*}
+		<x,y> &= <x, A^*z>\\
+			&= <Ax, z>\\
+			&= <0, z>\\
+			&= 0\\
+			\\
+			&\Rightarrow x \perp y\\
+			&\Rightarrow x \in ran(A^*)^\perp
+	\end{align*}
+Or vice versa.
+\end{proof}
+
+\textbf{Friday August 26}
+
+\begin{remark}
+	$\perp$ means orthogonal complement. 
+
+	$$\mathscr{S}^\perp = \{v \in \mathbb{R}^P, v \perp \mathscr{S} \} $$
+
+	$$ v \perp w \forall w \in \mathscr{S} $$
+
+	$$<v,w> = 0 \forall w \in \mathscr{S} $$
+
+	$$ = \{v \in \mathbb{R}^P, <v,w> = 0 \forall w \in \mathscr{S} \} $$
+\end{remark}
+
+Recall, 
+$ker(A) = ran(A^*)^\perp$
+
+So, if A is slef adjoint then this is true and $ran(A) $ is also $span(A)$ which is the subspace spanned all columns of A. 
+
+\begin{theorem}
+	If $P$ is a projection, then 
+
+	\begin{enumerate}
+		\item $Pv = v,\text{ } \forall v \in ran(P) $
+		\item $Pv = 0,\text{ } \forall v \perp ran(P)$ 
+		\item If $Q$ is another projections such that the $ran(Q) = ran(P)$ then $Q=P$. (The range determines the operator, because it is what decomposes the operator.)
+
+	\end{enumerate}
+
+	Asside: $P$ acts like one on some spaces, and zero on orthogonal space.
+
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Let $v \in ran(P)$. Since $P^2 = P$ (idempotent) then\\ 
+			$\begin{aligned}
+					P^2 v &= Pv\\
+					&\Rightarrow P^2 v - PV = 0\\
+					&\Rightarrow P(Pv-v) = 0 \\
+					&\Rightarrow Pv - v \in ker(P)\\
+					&\Rightarrow Pv - v \perp ran(P)\\
+					&\Rightarrow <Pv - v, Pv - v> = 0\\
+					&\Rightarrow ||Pv - v || = 0\\
+					&\Rightarrow Pv - v = 0\\
+					&\Rightarrow Pv = v\\	
+			\end{aligned}$
+	\item If\\ 
+		$\begin{aligned}
+				v &\perp ran(P)\\
+				\Rightarrow v &\in ker(P)\\
+				\Rightarrow Pv &= 0
+		\end{aligned}$
+
+	\item If $Q$ is another operator with $ran(Q) = ran(P) = \mathscr{S}$ then $\forall v \in \mathscr{S}$
+
+		$\begin{aligned}
+			Qv &= v = Pf (\forall v \perp \mathscr{S})\\
+			Qv &= 0 = Pv\\
+			Qv &= Pv \forall,\text{ } v \in \mathscr{S}\\
+			Q &= P
+		\end{aligned}$
+	
+	\end{enumerate}
+\end{proof}
+
+
+\begin{theorem}
+	Suppose $\mathscr{S}$ is a subspace of $\mathbb{R}^P$, R $v_1, \dots, v_m$ is a basis of $\mathscr{S}$. 
+
+	Let $v = (v_1, \dots, v+m) \in \mathbb{R}^{xM}$. 
+
+	Then, 
+
+	\begin{enumerate}
+		\item $A = v(v^T\Sigma v)^{-1}v^T \Sigma$ is a projection.
+		\item $ran(A) = \mathscr{S}$ 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item idempotent.\\
+		$\begin{aligned}
+			A^2 &= v(v^T\Sigma v)^{-1} v^t \Sigma v (v^T \Sigma v)^{-1} v^T \Sigma\\
+				&= v(v^T \Sigma v) ^{-1}v^T \Sigma\\
+				&= A
+		\end{aligned}$
+
+		\item Self adjoint.
+
+		Let $x, y \in \mathbb{R}^P$
+
+		$\begin{aligned}
+					<x,Ay> &= x^T \Sigma v(v^T \Sigma v)^{-1}v^ \Sigma y\\
+					&= (v(v^T \Sigma v)^{-1} v^T \Sigma x)^T \Sigma y\\
+					&= <Ax, y>
+				\end{aligned}$
+
+		\item $ran(A)= \mathscr{S}$?
+
+		Let $x \in \mathbb{R}^P$. 
+
+		$Ax = v(v^T \Sigma v)^{-1} v^T \Sigma x$
+		$\in span(v) = \mathscr{S}$ 
+
+		So let $x \in \mathscr{S}$, 
+
+		$$x \in ran(v)$$
+
+		$$x = vy $$ for some $y \in \mathbb{R}^P$
+
+		$$= v(v^T \Sigma v)^{-1} v^T \Sigma vy $$
+
+		$\in ran(A)$
+
+		So, $\mathscr{S} \subseteq ran(A)$ and then $\mathscr{S} = ran(A)$.
+	\end{enumerate}
+\end{proof}
+
+We write $A$ as $P_\mathscr{S} (\Sigma)$ (orthogonal projection on to $\mathscr{S}$ with respect to $\Sigma$ - product). \\ 
+
+In the following, let $I: \mathbb{R}^P \rightarrow \mathbb{R}^P$ be the identity mapping. ($x \mapsto x$)
+
+Let $\mathscr{S}$ be a subspace in $\mathbb{R}^P$. 
+
+Let $Q_\mathscr{S} (\Sigma) = I - P_\mathscr{S} (\Sigma)$\\
+
+\textbf{Proprosition 1.2} $Q_\mathscr{S} (\Sigma) = P_{\mathscr{S}^\perp} (\Sigma)$
+
+\begin{proof}
+	 Show $Q_\mathscr{S} (\Sigma)$ is projection. \\
+		
+	 	\begin{enumerate}
+	 		\item \textit{Idempotent}\\
+				$\begin{aligned}	
+							Q_\mathscr{S}^2 (\Sigma) &= Q_\mathscr{S} (\Sigma) Q_\mathscr{S} (\Sigma) \\
+							&= (I - P_\mathscr{S} (\Sigma))(I - P_\mathscr{S} (\Sigma))\\
+							&= I - P_\mathscr{S} (\Sigma) - P_\mathscr{S}(\Sigma) + P_\mathscr{S}P_\mathscr{S}\\
+							&= Q_\mathscr{S} (\Sigma)
+				\end{aligned}$
+
+			\item \textit{Self-adjoint}\\
+					$$x, y \in \mathbb{R}^P$$
+
+					$\begin{aligned}
+						<x, Q_\mathscr{S}(\Sigma) y> &= <x, (I - P_\mathscr{S} (\Sigma)) y>\\
+						&= <x,y> - <x, P_\mathscr{S} (\Sigma)) y>\\
+						&= <x,y> - <P_\mathscr{S} (\Sigma)) x,  y>\\
+						&= <(I - P_\mathscr{S} (\Sigma))x, y>\\
+						&= <Q_\mathscr{S}(\Sigma) x, y>				
+					\end{aligned}$
+
+			\item \textit{Range}
+
+				$ran(Q_\mathscr{S} (\Sigma)) = \mathscr{S}^\perp$. Take $x \perp \mathscr{S} = ran(P_\mathscr{S}(\Sigma))^\perp = ker(P_\mathscr{S}(\Sigma)).$\\
+
+				$\begin{aligned}
+						&\Rightarrow P_\mathscr{S}(\Sigma) = 0\\
+						&\Rightarrow Q_\mathscr{S}(\Sigma) x = x - P_\mathscr{S}(\Sigma) x  = x\\
+						X \in ran(Q_\mathscr{S}(\Sigma))\\
+						&\Rightarrow \mathscr{S}^\perp \subseteq ran(Q_\mathscr{S}(\Sigma))\\
+						\text{Take } x\in ran(Q_\mathscr{S}(\Sigma)), \text{ } \forall y \in \mathscr{S} = ran(P_\mathscr{S}(\Sigma))\\
+						y = P_\mathscr{S}(\Sigma)z \text{ for some } z \in \mathbb{R}^P\\
+						<x, y> = <x, P_\mathscr{S}(\Sigma) z> = <P_\mathscr{S}(\Sigma)x,  z> = 0\\
+						&\Rightarrow x \in \mathscr{S}^\perp\\
+						&\Rightarrow ran(Q_\mathscr{S}(\Sigma)) = \mathscr{S}^\perp
+				\end{aligned}$	
+	 	\end{enumerate}	
+
+
+\end{proof}
+
+
+\section{Cochran's Theorem}\index{Cochran's Theorem}
+
+This section will be about the distribution of the squared norm of a projection of a Gaussian random vector. 
+
+\textbf{Preposition 1.3} If $A$ is idempotent, then its eigenvalues are either 0 or 1. 
+
+\begin{proof}
+	$\lambda$ is eigenvalue of $A$. 
+
+	$$\Rightarrow Av = \lambda v (||v|| = 1)$$ 
+
+	$$ \lambda = Av = A^2v = \lambda Av = \lambda^2$$
+
+	So, $\lambda$ is 0 or 1.
+\end{proof}
+
+\textbf{Monday August 29}\\
+
+
+ \textbf{Lemma 1.1}
+ 	Suppose $V \sim N(0, \sigma^2 I_P)$. 
+
+ 	P is projection with $I_P$- inner product. 
+ 	Then $V^T PV \sim \sigma^2 \chi^2_S$ where df = rank(P).
+
+ 	\begin{proof}
+ 		P is symmetric, and it has spectral decomposisition, 
+
+ 		$$A R A^T $$
+ 		where the A's are orthogonal and R is diagonal with diagonal entries 0 or 1.\\
+
+ 		Then, 
+
+ 		$$A^T V \sim N_P (0, A^T (\sigma^2 I_P)A) = N_P (0, \sigma I_P) $$
+ 		
+ 		Let, 
+
+ 		$$Z = R A^T V$$
+
+ 		then,
+
+ 		$$Z \sim N_P (0, \sigma^2 R^2) = N_P (0, \sigma^2 R) $$
+
+ 		That means among the components of Z, some are distributied as N(0, 1) and the rest are zero and they are independant. So, 
+ 		$$Z^T Z \sim \chi^2_S = V^T P V $$
+  	\end{proof}
+
+  	\textbf{Corollary 1.1} Suppose $X \sim N(0, \Sigma)$. Consider the Hilbert space ($\mathbb{R}^P, <,>_{\Sigma^{-1}}$). 
+
+  	$$<a,b>_{\Sigma^{-1}} = a^T \Sigma^{-1} b$$
+
+  	Let $\mathscr{S}$ be a subspace of $\mathbb{R}^P$ and $P_\mathscr{S}(\sigma^{-1})$ be the projection onto $\mathscr{S}$ with respect to $<,>_\Sigma^{-1}$ (special case of Fisher information inner product)
+
+  	Then, 
+
+  	$$||P_\mathscr{S}(\Sigma^{-1})x||^2_{\Sigma^{-1}} \sim \chi^2_r $$
+
+  	where $r = dim(\mathscr{S})$.
+
+  	\begin{proof}
+  		Let V be a basis matrix of $\mathscr{S}$ (i.e. the col of V form basis in $\mathscr{S}$).
+
+  		$\begin{aligned}
+  			||P_\mathscr{S}(\Sigma^{-1})x||^2_{\Sigma^{-1}} &= <P_\mathscr{S} (\Sigma^{-1}) x, P_\mathscr{S} (\Sigma^{-1}) x>\\
+  				&= x^T P_\mathscr{S} (\Sigma^{-1}) \Sigma^{-1} P_\mathscr{S} (\Sigma^{-1}) x\\
+  				&= x^T (V(V^T \Sigma^{-1} v)^{-1} v^T \Sigma{-1})^T \Sigma^{-1} (V(V^T \Sigma^{-1} v)^{-1} v^T \Sigma{-1})^T x\\
+  				&= x^T \Sigma^{-1} V(V^T \Sigma^{-1} v)^{-1} v^T \Sigma{-1} V(V^T \Sigma^{-1} v)^{-1} v^T \Sigma{-1})^T x\\
+  				&= (\Sigma^{-\frac{1}{2}} x)^T[]
+  		\end{aligned}$
+
+  		But, 
+
+  		$$\Sigma^{-\frac{1}{2}} x \sim N(0, I_P) $$
+
+  		$$ \Sigma^{-\frac{1}{2}} V(V^T \Sigma^{-1} v)^{-1} v^T \Sigma^{-\frac{1}{2}})$$
+
+  		is a projection with repect to $I_P$-inner producted (idempotent, self adjoint, YES). 
+
+  		By Lemme 1.1, $ \sim \chi^2_r$.
+
+  		% GET PROOF DETAILS
+  		
+  	\end{proof}
+ 
+ It is then easy to derive Cocharan's Theorem. (see proof in Homework 1)
+
+\begin{theorem}
+	Let $X \sim N(0, \Sigma)$ and $\mathscr{H} = \{\mathbb{R}^P, <,>_{\Sigma^{-1}} \}$. Let $\mathscr{S}_1, dots, \mathscr{S}_k$ be linear subspaces of $\mathbb{R}^P$ such that $\mathscr{S}_i\perp\mathscr{S}_j$ in $<,>_{\Sigma^{-1}}$ 
+
+	Let $r_i = dim(\mathscr{S}_i$.
+
+	Let $w_i = || P_{\mathscr{S}_i} (\Sigma^{-1}) X||^2_{\Sigma{-1}}$
+
+	Then, 
+
+	\begin{enumerate}
+		\item $W_i \sim \chi^2_{r_i}$
+		\item $W_1 \indep, \dots, \indep W_k$ where $\indep$ indicates independence.
+	\end{enumerate}
+\end{theorem}
+
+
+\section{Gaussian Linear Regresson Model}\index{Gaussian Linear Regresson Model}
+
+$Y =
+\begin{pmatrix} y_1  \\  
+\vdots \\
+y_n
+ \end{pmatrix}$
+
+$X = \begin{pmatrix}
+	x_{11} & \dots & x_{1P} \\
+	\vdots & \ddots & \vdots\\
+	x_{n1} & \dots & x_{np}\\
+\end{pmatrix} \in \mathbb{R}^{n x p}$
+
+\vspace{5mm}
+
+Consider the linear model, 
+
+$$y = X\beta  + \epsilon$$
+
+$$\epsilon \sim N(0, \sigma^2 I_n) $$
+
+where X has full comlumn rank ($n \geq p$).
+
+Here X is treated as fixed
+
+\begin{itemize}
+	\item Maximum Likelihood Estimator
+		$$E(y) = X\beta \in \mathbb{R}^n $$
+		$$Var(y) = \sigma^2 I_n $$
+	$y \sim N_p(X\beta, \sigma^2 I_n$
+\end{itemize}
+
+Multivariate normal density
+
+$$y \sim N(\mu, \Sigma) $$
+
+$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} [det(\Sigma)]^{\frac{1}{2}}} \exp(-\frac{1}{2} (y - \mu)^T \Sigma^{- 1} (y - \mu) )$\\
+\\
+In our case, 
+
+$$\Sigma = \sigma I_n $$
+
+$$det(\Sigma) = det(\sigma^2 I_n) = \sigma^2 det( I_n) = \sigma^{2n} $$
+
+So, 
+
+$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} \sqrt{\sigma^{2n}}} \exp(-\frac{1}{2\sigma^2} ||y - \mu ||^2)$\\
+\\
+
+$\log(f_y(\eta)) = \frac{n}{2} \log(\sigma^2) -\frac{1}{2\sigma^2} ||y - \mu ||^2 = \ell(\beta, \sigma^2, y$\\
+\\
+
+$\frac{\partial}{\partial \beta} = \dots = -\frac{1}{2 \sigma^2} 2 X^T (y - X\beta) = 0 $
+
+$$\hat{\beta} = (X^T x)^{-1} X^T Y \in \mathbb{R}^P$$
+
+$\frac{\partial}{\partial \sigma^2} l(\beta, \sigma^2, y) = \dots = -\frac{n}{2\sigma^2} + \frac{1}{2 \sigma^4} ||y - X\beta ||^2 = 0 $
+
+$$\hat{\sigma^2} = \frac{1}{n} ||y-X\hat{\beta}||^2 $$
+
+In summary, the MLE for $(\beta, \sigma^2)$ in Gaussian Linear Model are
+
+$$\hat{\beta} = (X^T x)^{-1} X^T Y $$
+$$\hat{\sigma^2} = \frac{1}{n} ||y-X\hat{\beta}||^2 $$
+
+Note that 
+
+$$X\hat{\beta} = X(X^T X)^{-1} X^T y = \hat{y}$$
+
+So, $\hat{y} = P_{span(x)} (I_P) = P_X$ .
+
+Now, 
+
+$$\hat{\sigma^2} = \frac{1}{n} ||(I_n - P_X) y||^2 = \frac{1}{n} ||Q_X y ||^2 $$
+
+where $(I_n - P_X)$ is projection on to $span(X)^\perp$.
+
+It turns out that $(X^T y, y^T y)$ is complete, sufficient statistic for this Gaussian linear model. 
+
+
+\textbf{Wednesday August 31}
+
+Recall,
+
+\begin{align*}
+	\hat{\beta} &= (X^T x)^{-1} X^T Y\\
+	\hat{\sigma^2} &= \frac{1}{n} ||y-X\hat{\beta}||^2\\
+	Q_x &= I_n - P_x\\
+	P_X &+ X(X^TX)^{-1}X^T
+\end{align*}
+
+Several properties, 
+
+$E(\hat{\beta}) = B$ (unbiased)\\
+$Var(\hat{\beta}) = (X^TX)^{-1} X^T \sigma^2 I_n X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1} $\\
+$\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$\\
+
+Because $P_x$ has rank $p$ and $Q_x$ has rank $(n-p)$, then
+
+	$$||Q_x y ||^2 \sim \chi^2_{(n-p)} $$
+
+	Let's find an unbiased estimator for $\sigma^2$
+
+	\begin{align*}
+		E(\hat{\sigma^2}) &= E(\frac{1}{n}||Q_x y ||^2)\\
+			&= \frac{n-p}{n} \sigma^2\\
+			E(\frac{n}{n-p} \hat{\sigma^2}) &= \sigma^2\\
+	\end{align*}
+
+	Moreover, $\hat{\beta}$ has one-to-one transformation with 
+
+	$$(X^TX)^{-1} X^t y \leftrightarrow X (X^TX)^{-1} X^t y = P_{xy}$$
+
+	\begin{align*}
+		Cov(P_{Xy}, Q_{Xy}) &= P_X \sigma^2 I_n Q_X\\
+		&= \sigma^2 P_X Q_X\\
+		&= 0
+	\end{align*}
+
+	$$P_{Xy} \indep Q_{Xy} \text{(due to normality)} $$
+
+	$\hat{\beta} \leftrightarrow P_{Xy}$
+
+	$\hat{\sigma^2}$ is a funciton of $Q_{Xy}$, so $\hat{\beta} \indep \hat{\sigma^2}$\\
+
+	In your homework, $\hat{\beta}, \hat{sigma^2} \leftrightarrow$ complete sufficient.\\
+
+	$\hat{\beta}, \tilde{sigma^2}$ is UMVUE (Lehmann-Sheffe).
+
+
+
+\begin{theorem}[ Gaussian Regression Model] Under this model:\\
+
+	\begin{enumerate}
+		\item $\hat{\beta}, \tilde{\sigma^2}$ UMVUE for $\beta, \sigma^2$
+		\item $\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$
+		\item $(n-p)\tilde{\sigma^2} \sim \sigma^2 \chi^2_{(n-p)}$
+		\item $\hat{\beta} \indep \tilde{\sigma^2}$
+	\end{enumerate}
+
+\end{theorem}
+
+
+\section{Statistical Inference for $\beta$, $\sigma^2$}\index{Statistical Inference for $\beta$, $\sigma^2$}
+
+Suppose we want to test 
+
+$H_0: \beta_1 = \beta_{i0}$
+
+Let $M = (X^TX)^{-1}$.\\
+\\
+Then, 
+
+	$$\hat{\beta} \sim N(\beta_i0, \sigma^2 M_{ii}) $$
+
+where, $M_{ii} \leftarrow (i,i)^{th}$ entry of M\\
+\\
+
+Also,  $\frac{(n-p)\tilde{\sigma^2}}{\sigma^2} \sim \chi^2_{(n-p)}$
+
+$$\hat{\beta} \indep \tilde{\sigma^2} $$
+
+
+$$\frac{\frac{\hat{\beta_i}- \beta_{i0}}{\sqrt{\sigma^2 M_{ii}}} \sim N(0,1) }{\sqrt{\frac{(n-p) \tilde{\sigma^2 / \sigma^2}}{n-p}}} \sim t_{(n-p)}$$
+
+$$T = \frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma \sqrt{M_{ii}}}} \sim t_{(n-p)} = (*)$$
+
+Reject $H_0$ if 
+
+$$|\frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma \sqrt{M_{ii}}}} | > t_{\frac{\alpha}{2}(n-p)} $$
+
+% PHOTO
+
+Recall, 
+
+
+$X \sim N(\mu, 1)$
+$y \sim \chi^2_r$
+$X \indep y$
+
+$\frac{X}{\sqrt{\frac{y}{r}}} \sim t_n(\mu)$\\
+\\
+
+Power at $\beta_{i1}$
+
+$\hat{\beta_i} \sim N(\beta_{i1}, \sigma^2 M_{i1})$
+
+So, 
+
+$$ \frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma} \sqrt{M_{ii}}} \sim t_{(n-p)}(\frac{\beta_{i1} - \beta_{i0}}{\sigma \sqrt{M_{ii}}})$$
+
+(alternative distrabution of T)\\
+\\
+By this (*), 
+
+$$P(\frac{}{} \in (-t_{\frac{\alpha}{2}(n-p)}, t_{\frac{\alpha}{2}(n-p)})) $$
+
+
+
+Convert this to put $\beta_{i0}$ in between $(1-\alpha)100$ percent C.I. for $\beta_{i.}$. 
+
+$$(\hat{\beta_1} - t_{\frac{n}{2}(n-p)} \hat{\sigma} \sqrt{M_{ii}}, \hat{\beta_1} + t_{\frac{n}{2}(n-p)} \hat{\sigma} \sqrt{M_{ii}}) $$
+
+
+\section{Delete One Prediciton}\index{Delete One Prediciton}
+
+Very useful in variable selection, cross validation, diagnostics.\\
+\\ 
+Prediction: $\hat{y} = X \hat{\beta}$
+	$= P_x y$\\
+\\
+But this has a drawback as it favors overfitting. Projectioning onto larger spaces will always decrease the norm,  $||Q_Xy ||^2$. (This can decrease errors which would cause you to think it's better, even though it's not.)
+
+To prevent overfitting, try to be objective, withhold $y_i$ when predicting $y_i$ (inverse of a matrix, rank 1 perpendicular)
+
+\begin{theorem}
+	Suppose $A \in \mathbb{R}^{PxP}$ is a symmetric, nonsingular matrix. and $v \in \mathbb{R}^P$. 
+
+	Then, 
+
+	$$(A \pm vv^T)^{-1} = A^{-1} \pm \frac{A^{-1}vv^t A^{-1}}{1 \pm v^TA^{-1}v}$$
+\end{theorem}
+
+% PICTURE
+
+Use what is left to compute $\hat{\beta_{-i}}$.
+
+$$\hat{\beta_{-i}} = (X^T_{-1}X_{-i})^{-1}X^T_{-i} y_{-i}$$
+
+This can be expanded in simple sum, so that you don't have to do n regressions.
+
+\begin{align*}
+	()^T &+ ()^{-1}\\
+	&=A^{-1} + \frac{}{}\\
+	&=()^{-1} + \frac{}{}\\
+	&= \\
+	&= (P_x)_{ii}\\
+	&= P_i\\
+	&=
+	&=
+	&=
+	&=
+\end{align*}
+
+Delete-one regression. 
+
+$X\hat{\beta_{-i}} = \hat{y}i - \frac{P_i}{1 - P_i} (y_i - \hat{y_i})$
+% %------------------------------------------------
+
+% \section{Citation}\index{Citation}
+
+% This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+
+% %------------------------------------------------
+
+% \section{Lists}\index{Lists}
+
+% Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
+
+% \subsection{Numbered List}\index{Lists!Numbered List}
+
+% \begin{enumerate}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{enumerate}
+
+% \subsection{Bullet Points}\index{Lists!Bullet Points}
+
+% \begin{itemize}
+% \item The first item
+% \item The second item
+% \item The third item
+% \end{itemize}
+
+% \subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+
+% \begin{description}
+% \item[Name] Description
+% \item[Word] Definition
+% \item[Comment] Elaboration
+% \end{description}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter{ANOVA (1-way)}
+
+\section{Overview}\index{Overview}
+
+\begin{itemize}
+	\item General linear models
+	\item Scheffe's simulteaneous confidence
+	\item Singular decomposition
+	\item Non Gaussian error
+\end{itemize}
+
+% \section{Theorems}\index{Theorems}
+
+% This is an example of theorems.
+
+% \subsection{Several equations}\index{Theorems!Several Equations}
+% This is a theorem consisting of several equations.
+
+% \begin{theorem}[Name of the theorem]
+% In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
+% \begin{align}
+% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+% \end{align}
+% \end{theorem}
+
+% \subsection{Single Line}\index{Theorems!Single Line}
+% This is a theorem consisting of just one line.
+
+% \begin{theorem}
+% A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
+% \end{theorem}
+
+% %------------------------------------------------
+
+% \section{Definitions}\index{Definitions}
+
+% This is an example of a definition. A definition could be mathematical or it could define a concept.
+
+% \begin{definition}[Definition name]
+% Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
+% \begin{align}
+% & ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
+% & ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
+% & ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
+% \end{align}
+% \end{definition}
+
+% %------------------------------------------------
+
+% \section{Notations}\index{Notations}
+
+% \begin{notation}
+% Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
+% \begin{enumerate}
+% \item Bounded support $G$;
+% \item Infinitely differentiable;
+% \end{enumerate}
+% a vector space is denoted by $\mathcal{D}(G)$. 
+% \end{notation}
+
+% %------------------------------------------------
+
+% \section{Remarks}\index{Remarks}
+
+% This is an example of a remark.
+
+% \begin{remark}
+% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+% \end{remark}
+
+% %------------------------------------------------
+
+% \section{Corollaries}\index{Corollaries}
+
+% This is an example of a corollary.
+
+% \begin{corollary}[Corollary name]
+% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
+% \end{corollary}
+
+% %------------------------------------------------
+
+% \section{Propositions}\index{Propositions}
+
+% This is an example of propositions.
+
+% \subsection{Several equations}\index{Propositions!Several Equations}
+
+% \begin{proposition}[Proposition name]
+% It has the properties:
+% \begin{align}
+% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
+% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
+% \end{align}
+% \end{proposition}
+
+% \subsection{Single Line}\index{Propositions!Single Line}
+
+% \begin{proposition} 
+% Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
+% \end{proposition}
+
+% %------------------------------------------------
+
+% \section{Examples}\index{Examples}
+
+% This is an example of examples.
+
+% \subsection{Equation and Text}\index{Examples!Equation and Text}
+
+% \begin{example}
+% Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
+% \begin{equation}
+% f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
+% & 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
+% \end{equation}
+% The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
+% \end{example}
+
+% \subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
+
+% \begin{example}[Example name]
+% \lipsum[2]
+% \end{example}
+
+% %------------------------------------------------
+
+% \section{Exercises}\index{Exercises}
+
+% This is an example of an exercise.
+
+% \begin{exercise}
+% This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
+% \end{exercise}
+
+% %------------------------------------------------
+
+% \section{Problems}\index{Problems}
+
+% \begin{problem}
+% What is the average airspeed velocity of an unladen swallow?
+% \end{problem}
+
+% %------------------------------------------------
+
+% \section{Vocabulary}\index{Vocabulary}
+
+% Define a word to improve a students' vocabulary.
+
+% \begin{vocabulary}[Word]
+% Definition of word.
+% \end{vocabulary}
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Mutiway ANOVA}
+
+\section{Overview}\index{Overview}
+
+\begin{itemize}
+	\item Orthogonal design
+	\item Additive 2 way ANOVA
+	\item simultaneous intervals
+	\item nonadditive
+	\item decomposition of sum of squares
+	\item Latin square
+	\item nested design
+\end{itemize}
+
+% \section{Table}\index{Table}
+
+% \begin{table}[h]
+% \centering
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% \midrule
+% Treatment 1 & 0.0003262 & 0.562 \\
+% Treatment 2 & 0.0015681 & 0.910 \\
+% Treatment 3 & 0.0009271 & 0.296 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Table caption}
+% \end{table}
+
+% %------------------------------------------------
+
+% \section{Figure}\index{Figure}
+
+% \begin{figure}[h]
+% \centering\includegraphics[scale=0.5]{placeholder}
+% \caption{Figure caption}
+% \end{figure}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Nonorthogonal Design}
+
+\section{Overview}\index{Overview}
+
+\begin{itemize}
+	\item $\bar{X_{i\dot\dot}} - \bar{X_{\dot\dot i}}$
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 5
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Random Effects Model}
+
+\section{Overview}\index{Overview}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+ \part{Part Two}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Basic Concepts}
+
+\section{Overview}\index{Overview}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Estimation}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Inference}
+
+\section{Overview}\index{Overview}
+
+\begin{itemize}
+	\item deviance <-> sum of squares
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Residuals}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 5
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Cetegorical Prediction}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 6
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Some Important GLM}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 7
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Multivariate GLM}
+
+\section{Overview}\index{Overview}
+
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+ \part{Part Three}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Principle Componant Analysis}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Canonical Correlation Analysis}
+
+\section{Overview}\index{Overview}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 3
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Independent Componant Analysis}
+
+\section{Overview}\index{Overview}
+
+
+% %----------------------------------------------------------------------------------------
+% %	BIBLIOGRAPHY
+% %----------------------------------------------------------------------------------------
+
+% \chapter*{Bibliography}
+% \addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+% \section*{Books}
+% \addcontentsline{toc}{section}{Books}
+% \printbibliography[heading=bibempty,type=book]
+% \section*{Articles}
+% \addcontentsline{toc}{section}{Articles}
+% \printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+\printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
