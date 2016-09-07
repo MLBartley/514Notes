@@ -894,21 +894,321 @@ $$\hat{\beta_{-i}} = (X^T_{-1}X_{-i})^{-1}X^T_{-i} y_{-i}$$
 This can be expanded in simple sum, so that you don't have to do n regressions.
 
 \begin{align*}
-	()^T &+ ()^{-1}\\
-	&=A^{-1} + \frac{}{}\\
-	&=()^{-1} + \frac{}{}\\
-	&= \\
+	(X^T_{-i} X_{-i})^{-1} &= (X^TX-X_iX_i^T)^{-1}\\
+	&=A^{-1} + \frac{A^{-1}v v^T A^{-1}}{1 - v^t A^{-1} v}\\
+	&=(X^T X)^{-1} + \frac{(X^TX)^{-1}X_i X_i^T (X^TX)^{-1}}{1 - X^T_i M X_i}\\
+	X_i^T M X_i &= X_i^T (X^T X)^{-1}  \\
 	&= (P_x)_{ii}\\
 	&= P_i\\
-	&=
-	&=
-	&=
-	&=
+	\\
+	\hat{\beta}_i &= (X^TX - X_iX_i^T)^{-1} (X^T y - X_i y_i)\\
+	&= [M + \frac{M X_i X_i^T M}{1 - P_i}] (X^T y - X_i y_i)\\
+	&= M X^T y + \frac{M X_i X_i^T M X^T y}{1 - P_i} - M X_iy_i - \frac{M X_i X_i^T M X_i y_i}{1 - P_i}\\
+	&= \dots\\
+	&= \hat{\beta} - \frac{M X_i}{1 - P_i}(y_i - X_i^T \hat{\beta})
 \end{align*}
 
 Delete-one regression. 
 
-$X\hat{\beta_{-i}} = \hat{y}i - \frac{P_i}{1 - P_i} (y_i - \hat{y_i})$
+$X_i\hat{\beta_{-i}} = \hat{y}_i - \frac{P_i}{1 - P_i} (y_i - \hat{y_i})$
+
+\textbf{Friday September 2}\\
+\\
+
+Delete- one error
+
+$$y_i - \hat{y}_i^{(-i)}$$
+
+\begin{remark}
+	Recall, you want to leave out $y^{i}$ so you don't overfit. 
+\end{remark}
+
+
+The above is equivalent to 
+
+\begin{align*}
+	y_i - X_i^T \hat{\beta}_{-i}\\
+	y_i - \hat{y}_i - \frac{P_i}{1 - P_i} (y_i - \hat{y_i})\\
+	(y_i - \hat{y}_i) (1 - \frac{P_i}{1 - P_i}))\\
+	\frac{1}{1 - P_i} (y_i - \hat{y}_i)
+\end{align*}
+
+% GET INUITION ABOUT ABOVE
+
+Delete-one cross validation 
+
+$\displaystyle \sum^n_{i=1} (y_i - \hat{y}_i^{(-i)})^2$
+
+This method is not affected by over fitting. 
+
+The following is often used for "tuning" or variable selection (i.e. penalty, bandwidth, regularization, etc).
+$ \displaystyle \sum^n_{i=1} \frac{1}{(1 - P_i)^2}(y_i - \hat{y}_i)^2$
+
+Note: we will come back to variable selection later. 
+
+$\beta = \begin{pmatrix} \beta_1  \\  
+\vdots \\
+\beta_n
+ \end{pmatrix}$
+
+$ A \subseteq \{1, \dots, P \}$
+
+Cross validation of $A$ minimizes over $A \in 2^{\{1, \dots, P \}}$. Best cross validation set. 
+
+
+
+
+\section{Residuals}\index{Residuals}
+
+\begin{itemize}
+	\item Residual
+		$$\hat{e}_i = y_i - \hat{y}_i $$
+	\item Standardized Residual
+		$$\text{Var}(\hat{e}_i) = \text{Var}(y_i - \hat{y}_i) = \text{Var}((Q_X)_{ii}y_i)$$
+		$$= ((Q_X)_{ii}y_i) \sigma^2 $$
+		$$= (1 - P_i)\sigma^2 $$
+		$$ sd(\hat{e}_i) = \sqrt{1-P_i} \sigma $$
+		$$\hat{sd}(\hat{e}_i) = \sqrt{1-P_i} \tilde{\sigma} $$
+		$$ \tilde{\sigma} = \frac{\displaystyle \sum^n_{i=1} (y_i - \hat{y}_i^{(-i)})^2}{n-p}$$
+	\item Standardized residual
+		$$E^*_i = \frac{\hat{e}_i}{\tilde{\sigma} \sqrt{1 - P_i}} $$
+	\item Prediction Error Sum of Squares (PRESS) Residual
+		$$y_i - \tilde{y}_i^{(-i)} = \frac{1}{1-P_i} \hat{e}_i = \hat{e}_{iP} $$
+
+		$$ \hat{e}_{iP} \sim N(0, \frac{\sigma^2}{1 - P_i})$$
+	\item Standardized PRESS Error
+		$$\frac{\hat{e}_{iP}}{\tilde{\sigma}/ \sqrt{1-{_i}}} = \frac{\frac{1}{1-P_i}\hat{e}_i}{\tilde{\sigma}\\(\sqrt{1 - P_i})} = \frac{\hat{e}_i}{\tilde{\sigma}\\(\sqrt{1 - P_i})} = e^*_i$$
+\end{itemize}
+
+\section{Influence and Cook's Distance}\index{Influence, Cook's Distance}
+% PHOTO
+\begin{definition}[Influence] The difference between predictions with and without a data point.
+	$$\hat{y}_i - \hat{y}_i^{(-i)} $$
+
+\end{definition}
+
+$$\hat{y}_i - \hat{y}_i^{(-i)} $$
+
+$$X_i\hat{\beta} - X_i\hat{\beta}_{-i} $$
+
+	$$\propto || X_i\hat{\beta} - X_i\hat{\beta}_{-i} ||^2	$$
+	$$= (X(\hat{\beta} - \hat{\beta}_{-i}))^T (X(\hat{\beta} - \hat{\beta}_{-i})) $$
+	$$(\hat{\beta} \hat{\beta}_{-i})^T X^TX (\hat{\beta} \hat{\beta}_{-i}) $$
+
+
+Recall, 
+
+$\hat{\beta}_{-i} - \hat{\beta} = -\frac{MX_i (y_i - \hat{y}_i)}{1 - P_i} = - \frac{MX_i \hat{e}_i}{1 - P_i}$
+
+$|| X_i\hat{\beta} - X_i\hat{\beta}_{-i} ||^2 = \frac{}{} $
+
+$= $
+
+
+Cook's Distance (Technometrics, 1976?)
+
+$$||\frac {\hat{y} - \hat{y}^{(-i)} ||^2}{\mathscr{p} \tilde{\sigma}^2} = \frac{|i \hat{e}_i^2}{(1 - P_i)^2 \mathscr{p} \tilde{\sigma}^2} $$
+
+\begin{definition}[Cook's Distance] Cook's distance measures the influence of the $i^{th}$ deservation.
+\end{definition}
+
+\section{Orthogonal Decomposition}\index{Orthogonal Decomposition}
+
+Recall,
+$\mathbb{R}^n$ is Euclidean Space.\\
+
+$\mathscr{S}$ is a subspace ($\mathscr{S} \leq \mathbb{R}^n$)
+
+\begin{remark}
+	$\leq$ is subspace\\
+	$\subseteq$ is a subset
+\end{remark}
+
+For 
+
+$\mathscr{S}_1 \leq \mathscr{S}_1 \mathscr{S}_2 \leq \mathscr{S}$
+
+$$\mathscr{S}_1 + \mathscr{S}_2 = \{x + y: x \in \mathscr{S}_1, y \in \mathscr{S}_2 \} $$
+
+% PHOTO
+
+Suppose $\mathscr{S}_1, \mathscr{S}_2 \leq \mathscr{S}$, 
+
+$\mathscr{S}_1 + \mathscr{S}_2 = \mathscr{S}$, $\mathscr{S}_1 \perp \mathscr{S}_2$
+
+then, 
+
+	$$\{\mathscr{S}_1, \mathscr{S}_2 \} $$ is called an orthogonal decomposition of $\mathscr{S}$
+
+% PHOTO
+
+In this case, 
+
+	$$\mathscr{S}_1 \oplus \mathscr{S}_2 = \mathscr{S} $$
+
+More generally, 
+
+\begin{definition}[Orthogonal Decompositon (O.D.)]
+	Let $\mathscr{S}_1, \dots, \mathscr{S}_k$ be subspaces of $\mathscr{S}$ such that
+
+	\begin{enumerate}
+		\item $\mathscr{S}_1, \dots, \mathscr{S}_k = \{v_1 + \dots + v_k : v_1 \in \mathscr{S}_1, \dots, v_k \in \mathscr{S}_k\}$
+		\item $\mathscr{S}_i \perp \mathscr{S}_j \quad \forall i\neq j$
+	\end{enumerate}
+	
+	Then, $\{\mathscr{S}_1, \mathscr{S}_2, \dots, \mathscr{S}_k\}$ is an \textbf{orthogonal decomposition} of $\mathscr{S}$. We may write $\mathscr{S} = \mathscr{S}_1 \oplus \mathscr{S}_2 \oplus \dots \oplus \mathscr{S}_k$.
+\end{definition}
+
+\textbf{Proposition 1.5} If $\mathscr{S}_1, \dots, \mathscr{S}_k$ is an O.D. of $\mathscr{S}$, then any $v \in \mathscr{S}$ can be uniquely written as
+
+$$v_1 + \dots + v_k$$, where $v_1 \in \mathscr{S}_1, \dots v_k \in \mathscr{S}_k$. \\
+
+\textbf{Wednesday September 7}
+
+\begin{definition}[Direct Difference]
+	Let $\mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathbb{R}^n$. Then, \\
+
+	$$\mathscr{S}_2 \cap \mathscr{S}_1^\perp \equiv \mathscr{S}_2 \ominus \mathscr{S}_1 $$ 
+
+	is called \textbf{direct difference}. This is almost the same as orthogonal complement, except it is within $\mathscr{S}_2$. 
+
+\end{definition}
+
+\textbf{Proposition 1.6} If $\mathscr{S}_1 \leq \mathscr{S}_2$, then 
+
+$$\mathscr{S}_2 = \mathscr{S}_1 \oplus (\mathscr{S}_2 \ominus \mathscr{S}_1) $$
+
+\textbf{Proposition 1.7 - Orthogonal Decomposition and Projection} Consider a Hilbert Space, $\mathscr{H} = \{\mathbb{R}^n, <,>_A \}$, 
+
+\begin{enumerate}
+	\item If $\mathscr{S} \leq \mathscr{S}_1 \perp \mathscr{S}_2$ in $\mathscr{H}$, then 
+
+	$$P_{\mathscr{S}_1} (A) P_{\mathscr{S}_2} (A) = 0  $$
+
+	\item If $\mathscr{S} \leq \mathscr{H}, \dots, \mathscr{S}_k \leq \mathscr{H}$, and $\mathscr{S}_1 \perp \dots \perp \mathscr{S}_k$, then
+
+	$$P_{\mathscr{S}_1, \oplus \dots \oplus \mathscr{S}_k} (A) = P_{\mathscr{S}_1} (A) + \dots + P_{\mathscr{S}_k} (A) $$
+
+	\item If $\mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathbb{R}^n$, then
+
+	$$P_{\mathscr{S}_2 \ominus \mathscr{S}_1} (A) = P_{\mathscr{S}_2} (A) - P_{\mathscr{S}_1} (A)$$
+\end{enumerate}
+
+
+\begin{theorem}[Generalization of the earlier Cochran's Theorem]
+
+Suppose $X \sim N(0, \Sigma)$ where $\Sigma \in \mathbb{R}^{nxn}$ is positive definite. 
+
+Let $\mathscr{H} = \{ <,>_{\Sigma^{-1}}\}$. Suppose $\mathscr{S}_1, \dots \mathscr{S}_k, \mathscr{S} \leq \mathscr{H}$ such that $\mathscr{S} = \mathscr{S}_1 \oplus \dots \oplus \mathscr{S}_k$.\\
+
+Let 
+
+	$$w_i = ||P_{\mathscr{S}_i} (\Sigma^{-1}) X ||^2_{\Sigma^{-1}} $$
+	$$w = ||P_{\mathscr{S}} (\Sigma^{-1}) X ||^2_{\Sigma^{-1}} $$
+
+Then, 
+
+\begin{enumerate}
+	\item $ w = w_1 + \dots + w_k$
+	\item $ w_1 \indep \dots \indep w_k$
+	\item $w_i \sim \chi^2_{r_i}$\\
+		$w \sim \chi^2_{r}$\\
+		where $r_i$ is the $dim(\mathscr{S}_i)$, $r$ is the $dim(\mathscr{S})$, and $r = r_1 + \dots + r_k$.
+\end{enumerate}
+	
+\end{theorem}
+
+\begin{notation}
+	We use $\oplus$ for spaces. We can also use $\oplus$ function to stack up matrices. Let $A_1, \dots, A_k$ be matrices with arbitrary dimensions. 
+
+	$$A_1 \oplus \dots \oplus A_k = \begin{pmatrix}
+		A_1 & \dots & 0\\
+		    & \ddots & \\
+		0 & \dots & A_k
+	\end{pmatrix} $$
+\end{notation}
+
+\section{Lack of Fit Test}\index{Lack of Fit Test}
+
+Goodness of Fit
+
+% GET PHOTO
+
+At each $x_i$ you have multiple observations, say $y_{i1}, \dots, y_{im_i}$. In this case, you may test to see if a linear model,$y_i = x_i^T \beta + \epsilon_i$ , is the correct choice for fitting the data. In general, lack of fit refers to testing whether any (linear, generalized, etc) model is adequately describing the data. 
+
+Denote 
+
+$y_i = \begin{pmatrix}
+	y_{i1}\\
+	\vdots\\
+	y_{im_i}
+\end{pmatrix}$
+
+$1_{m_i} = \begin{pmatrix}
+	1 \\
+	\vdots\\
+	1
+\end{pmatrix}$
+
+$X = \begin{pmatrix}
+	X_{1}^T\\
+	\vdots\\
+	X_{m}^T
+\end{pmatrix}$
+
+Assume
+
+$$y_{ij} = X_i^T \beta + \epsilon_{ij} $$
+
+where $\epsilon \sim^{iid} N(0, \sigma^2)$. 
+
+The point is that you have $y_{i1} \dots y_{jm}$ for each $X_i$.\\
+
+In matrix form, 
+
+% GET PHOTO
+
+$$(1_{m_1} \oplus \dots \oplus 1_{m_n}) X\beta + \epsilon $$
+
+So, let $N$ denote a full sample size. 
+
+$$N = m_1 + \dots + m_n$$
+
+this is a special case of linear model, except the design matrix is structured $(1_{m_1} \oplus \dots \oplus 1_{m_n})X $ instead of X. So the formula for MLE (and so on) is the same. \\
+
+$$X \leftrightarrow (1_{m_1} \oplus \dots \oplus 1_{m_n})X$$
+
+So, 
+
+$$\hat{\beta} = ([(1_{m_1} \oplus \dots \oplus 1_{m_n})X])^T ([(1_{m_1} \oplus \dots \oplus 1_{m_n})X])^{-1} [(1_{m_1} \oplus \dots \oplus 1_{m_n})X]^T y$$
+
+\begin{align*}
+\hat{y} &= (1_{m_1} \oplus \dots \oplus 1_{m_n})X \hat{\beta} \\
+	&= (1_{m_1} \oplus \dots \oplus 1_{m_n})X ([(1_{m_1} \oplus \dots \oplus 1_{m_n})X])^T ([(1_{m_1} \oplus \dots \oplus 1_{m_n})X])^{-1} [(1_{m_1} \oplus \dots \oplus 1_{m_n})X]^T y\\
+	&=  (1_{m_1} \oplus \dots \oplus 1_{m_n})X [X^T \begin{pmatrix}
+		m_1 & \dots & 0\\
+		  & \ddots  & \\
+		  0 & \dots & m_n
+	\end{pmatrix} 	X]^{-1} X^T (1_{m_1} \oplus \dots \oplus 1_{m_n})	
+\end{align*}
+
+So, in linear model with replication we have our hypotheses for lack of fit test, 
+
+$$H_O: E(y_i) = 1_{m_i} X_i^T \beta$$
+$$H_1: E(y_i) = 1_{m_i} \mu_i $$
+
+% GET PHOTO 
+
+We are testing whether the arbitrary means, $\mu_1, \dots \mu_n$ sit on the same line. 
+
+
+
+
+
+
+
+
+
 % %------------------------------------------------
 
 % \section{Citation}\index{Citation}

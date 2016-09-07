@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  31 AUG 2016 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  7 SEP 2016 10:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1892,7 +1892,7 @@ LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10.95> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 7.
 
-Underfull \vbox (badness 5504) has occurred while \output is active []
+Underfull \vbox (badness 1097) has occurred while \output is active []
 
  [3
 
@@ -1921,7 +1921,7 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6]
 Chapter 1.
-<Pictures/chapter_head_2.pdf, id=191, 3581.38pt x 1790.69pt>
+<Pictures/chapter_head_2.pdf, id=211, 3581.38pt x 1790.69pt>
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
@@ -2217,123 +2217,193 @@ Package mdframed Info: mdframed works in twoside mode on input line 880.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 880.
-[19] [20
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 915--917
 
-]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 915--917
+
+ []
+
+[20]
+Package mdframed Info: mdframed works in twoside mode on input line 985.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 985.
+Missing character: There is no p in font rsfs10!
+Missing character: There is no p in font rsfs10!
+Package mdframed Info: mdframed works in twoside mode on input line 1012.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1012.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+
+ []
+
+[21]
+Package mdframed Info: mdframed works in twoside mode on input line 1051.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1051.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1068.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1068.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
+
+ []
+
+[22]
+Package mdframed Info: mdframed works in twoside mode on input line 1098.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1098.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1178
+
+ []
+
+
+Overfull \hbox (6.91803pt too wide) in paragraph at lines 1193--1193
+[] 
+ []
+
+[24]
 Chapter 2.
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 952.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 1252.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
- [21] [22
+ [25
+
+] [26
 
 ]
 Chapter 3.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1117.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1417.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [23] [24
+ [27] [28
 
 ]
 Chapter 4.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1162.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1462.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [25] [26
+ [29] [30
 
 ]
 Chapter 5.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1177.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1477.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [27] [28
+ [31] [32
 
-] (./551notes.ptc) [29] [30]
+] (./551notes.ptc) [33] [34]
 Chapter 6.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1195.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1495.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [31
+ [35
 
-] [32
+] [36
 
 ]
 Chapter 7.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1206.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1506.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [33] [34
+ [37] [38
 
 ]
 Chapter 8.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1216.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1516.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [35] [36
+ [39] [40
 
 ]
 Chapter 9.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1230.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1530.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [37] [38
+ [41] [42
 
 ]
 Chapter 10.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1240.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1540.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [39] [40
+ [43] [44
 
 ]
 Chapter 11.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1250.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1550.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [41] [42
+ [45] [46
 
 ]
 Chapter 12.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1260.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1560.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [43] [44
+ [47] [48
 
-] (./551notes.ptc) [45] [46]
+] (./551notes.ptc) [49] [50]
 Chapter 13.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1277.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1577.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [47
+ [51
 
-] [48
+] [52
 
 ]
 Chapter 14.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1287.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1587.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [49] [50
+ [53] [54
 
 ]
 Chapter 15.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1297.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1597.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [51] [52
+ [55] [56
 
 ] (./551notes.ind
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
@@ -2341,30 +2411,30 @@ File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
 Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [53
+ [57
 
 
 ])
 \tf@ptc=\write8
 \openout8 = `551notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1327.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1627.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1627.
  (./551notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1327.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1627.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1627.
 Package logreq Info: Writing requests to '551notes.run.xml'.
 \openout1 = `551notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34393 strings out of 493013
- 637601 string characters out of 6133343
- 1169407 words of memory out of 5000000
- 37105 multiletter control sequences out of 15000+600000
- 137742 words of font info for 265 fonts, out of 8000000 for 9000
+ 34435 strings out of 493013
+ 638041 string characters out of 6133343
+ 1169522 words of memory out of 5000000
+ 37115 multiletter control sequences out of 15000+600000
+ 138248 words of font info for 272 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,57p,10511b,2569s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,16n,57p,10511b,2569s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
@@ -2381,10 +2451,10 @@ fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 551notes.pdf (53 pages, 432915 bytes).
+Output written on 551notes.pdf (57 pages, 451352 bytes).
 PDF statistics:
- 698 PDF objects out of 1000 (max. 8388607)
- 542 compressed objects within 6 object streams
- 130 named destinations out of 1000 (max. 500000)
- 63820 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 771 PDF objects out of 1000 (max. 8388607)
+ 602 compressed objects within 7 object streams
+ 152 named destinations out of 1000 (max. 500000)
+ 63852 words of extra memory for PDF output out of 74296 (max. 10000000)
 

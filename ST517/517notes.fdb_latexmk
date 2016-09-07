@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 517notes"] 1472060296 "517notes.bcf" "517notes.bbl" "517notes" 1472499331
-  "517notes.bcf" 1472499331 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
+["biber 517notes"] 1472060296 "517notes.bcf" "517notes.bbl" "517notes" 1473193790
+  "517notes.bcf" 1473193790 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
   (generated)
-  "517notes.bbl"
   "517notes.blg"
-["makeindex 517notes.idx"] 1472240222 "517notes.idx" "517notes.ind" "517notes" 1472499331
-  "517notes.idx" 1472499331 114 b63ff9c501acf9f50b62fdd0209ed934 ""
+  "517notes.bbl"
+["makeindex 517notes.idx"] 1473193058 "517notes.idx" "517notes.ind" "517notes" 1473193790
+  "517notes.idx" 1473193790 114 b9fc6f6a9b9dfa2fbbe49586d7fe5e05 ""
   (generated)
   "517notes.ind"
   "517notes.ilg"
-["pdflatex"] 1472499329 "517notes.tex" "517notes.pdf" "517notes" 1472499331
+["pdflatex"] 1473193787 "517notes.tex" "517notes.pdf" "517notes" 1473193790
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -244,13 +244,13 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469731814 1891012 e88fe4460d26d5de00a50ed8ab1ef0ec ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469733445 3873629 a818ca6efebb3a3ff6b3d79775dd354e ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "517notes.aux" 1472499331 8030 a4da597cec1dadfd0fd3149d5aa00981 ""
+  "517notes.aux" 1473193790 8263 3ef114faf54923dbefbc495191a7ae22 ""
   "517notes.bbl" 1472060296 466 fbca89dc3e3cb765908de4b0f2010489 "biber 517notes"
-  "517notes.ind" 1472240222 158 06b6f593afd4eebda73807383000e04b "makeindex 517notes.idx"
-  "517notes.ptc" 1472499331 1493 2d11653da7faa011e432d0f476f01ead ""
-  "517notes.run.xml" 1472499331 2338 8984bceff0892be39d8ebcffef8281ea ""
-  "517notes.tex" 1472499329 32559 218d345c0640d9677f4185da339ce209 ""
-  "517notes.toc" 1472499331 1467 3737ff8781bcfcff3d92f2f84c20ddcb ""
+  "517notes.ind" 1473193058 158 ed8a7ac659e470a853059560befca43f "makeindex 517notes.idx"
+  "517notes.ptc" 1473193790 1595 84930284c9a2a36e30a8d1e210b2586c ""
+  "517notes.run.xml" 1473193790 2338 8984bceff0892be39d8ebcffef8281ea ""
+  "517notes.tex" 1473193787 43827 bb1e59c70724c0d1d5a5acf13e60da65 ""
+  "517notes.toc" 1473193790 1569 e9d27e89a86cc80e33e7b87d054a18f2 ""
   "Pictures/background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
@@ -259,11 +259,11 @@
   "Pictures/notes3.jpg" 1471892488 224004 f8fe38c771be9d016ebd4514498f161c ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
-  "517notes.log"
-  "517notes.pdf"
-  "517notes.aux"
-  "517notes.ptc"
-  "517notes.run.xml"
   "517notes.toc"
   "517notes.idx"
+  "517notes.aux"
+  "517notes.log"
   "517notes.bcf"
+  "517notes.pdf"
+  "517notes.ptc"
+  "517notes.run.xml"

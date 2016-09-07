@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  29 AUG 2016 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  6 SEP 2016 16:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1859,9 +1859,9 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <220> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 111.
  (./517notes.ptc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
 )
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <30> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 111.
@@ -1871,170 +1871,160 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 
 ] [6]
 Chapter 1.
-<Pictures/chapter_head_2.pdf, id=102, 3581.38pt x 1790.69pt>
+<Pictures/chapter_head_2.pdf, id=107, 3581.38pt x 1790.69pt>
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
 Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 119.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
-Package mdframed Info: mdframed works in twoside mode on input line 124.
+Package mdframed Info: mdframed works in twoside mode on input line 126.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 124.
+(mdframed)              on input line 126.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 124.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 126.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 124.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 126.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 124.
-Package mdframed Info: mdframed works in twoside mode on input line 128.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 126.
+Package mdframed Info: mdframed works in twoside mode on input line 130.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 128.
-Package mdframed Info: mdframed works in twoside mode on input line 132.
+(mdframed)              on input line 130.
+Package mdframed Info: mdframed works in twoside mode on input line 134.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 132.
+(mdframed)              on input line 134.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 132.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--161
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
 
  []
 
 [7
 
  <./Pictures/chapter_head_2.pdf>]
-Package mdframed Info: mdframed works in twoside mode on input line 173.
+Package mdframed Info: mdframed works in twoside mode on input line 175.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 173.
+(mdframed)              on input line 175.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <6> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 202.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 204.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <6> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 202.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 204.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 202.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 204.
 
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
-<Pictures/notes1.jpg, id=123, 1027.84pt x 1027.84pt>
+<Pictures/notes1.jpg, id=128, 1027.84pt x 1027.84pt>
 File: Pictures/notes1.jpg Graphic file (type jpg)
  <use Pictures/notes1.jpg>
-Package pdftex.def Info: Pictures/notes1.jpg used on input line 211.
+Package pdftex.def Info: Pictures/notes1.jpg used on input line 213.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
-<Pictures/notes2.jpg, id=124, 1027.84pt x 1027.84pt>
+<Pictures/notes2.jpg, id=129, 1027.84pt x 1027.84pt>
 File: Pictures/notes2.jpg Graphic file (type jpg)
  <use Pictures/notes2.jpg>
-Package pdftex.def Info: Pictures/notes2.jpg used on input line 221.
+Package pdftex.def Info: Pictures/notes2.jpg used on input line 223.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/notes3.jpg, id=125, 1027.84pt x 1027.84pt>
+<Pictures/notes3.jpg, id=130, 1027.84pt x 1027.84pt>
 File: Pictures/notes3.jpg Graphic file (type jpg)
  <use Pictures/notes3.jpg>
-Package pdftex.def Info: Pictures/notes3.jpg used on input line 228.
+Package pdftex.def Info: Pictures/notes3.jpg used on input line 230.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 243.
+Package mdframed Info: mdframed works in twoside mode on input line 245.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 243.
+(mdframed)              on input line 245.
 [8 <./Pictures/notes1.jpg>]
-Package mdframed Info: Not enough space on this page on input line 245.
+Package mdframed Info: Not enough space on this page on input line 247.
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--270
+Underfull \hbox (badness 10000) in paragraph at lines 269--272
 
  []
 
 [9 <./Pictures/notes2.jpg> <./Pictures/notes3.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 274--277
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
+Underfull \hbox (badness 10000) in paragraph at lines 293--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
+Underfull \hbox (badness 10000) in paragraph at lines 293--295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--319
+Underfull \hbox (badness 10000) in paragraph at lines 318--321
 
  []
 
 [10]
-Package mdframed Info: mdframed works in twoside mode on input line 353.
+Package mdframed Info: mdframed works in twoside mode on input line 355.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 353.
+(mdframed)              on input line 355.
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--396
+Underfull \hbox (badness 10000) in paragraph at lines 396--398
 
  []
 
 [11]
-Package mdframed Info: mdframed works in twoside mode on input line 453.
+Package mdframed Info: mdframed works in twoside mode on input line 455.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 453.
+(mdframed)              on input line 455.
  [12]
-Overfull \hbox (49.04704pt too wide) in paragraph at lines 490--491
-[]$\OML/ztmcm/m/it/10.95 P\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 A\OT1/ztm
-cm/m/n/10.95 ) = \OML/ztmcm/m/it/10.95 P\OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10
-.95 [[]\OML/ztmcm/m/it/10.95 A[]\OT1/ztmcm/m/n/10.95 ) = \OML/ztmcm/m/it/10.95 
-P\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 displaystyle \OMS/ztmcm/m/n/10.95 
-[[] \OML/ztmcm/m/it/10.95 B[]\OT1/ztmcm/m/n/10.95 ) = \OML/ztmcm/m/it/10.95 dis
-playstyle [] P\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 B[]\OT1/ztmcm/m/n/10.
-95 ) = [] \OML/ztmcm/m/it/10.95 displaystyle [] P\OT1/ztmcm/m/n/10.95 (\OML/ztm
-cm/m/it/10.95 B[]\OT1/ztmcm/m/n/10.95 ) =
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 536.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 524.
+(hyperref)                removing `\sigma' on input line 536.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 524.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 524.
-
-Package mdframed Info: mdframed works in twoside mode on input line 549.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 549.
-
-Underfull \hbox (badness 10000) in paragraph at lines 552--555
-
- []
+(hyperref)                removing `math shift' on input line 536.
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 577--578
+Package mdframed Info: mdframed works in twoside mode on input line 561.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 561.
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
@@ -2043,18 +2033,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 595--596
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 622--623
-
- []
-
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
 
  []
 
 
-Overfull \hbox (1.98473pt too wide) in paragraph at lines 628--629
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
+
+ []
+
+
+Overfull \hbox (1.98473pt too wide) in paragraph at lines 646--647
 []$\OML/ztmcm/m/it/10.95 P[]\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 A\OT1/z
 tmcm/m/n/10.95 ) = []\OMS/ztmcm/m/n/10.95 f[] \OML/ztmcm/m/it/10.95 P\OT1/ztmcm
 /m/n/10.95 (\OML/ztmcm/m/it/10.95 A[]\OT1/ztmcm/m/n/10.95 )\OML/ztmcm/m/it/10.9
@@ -2066,114 +2061,215 @@ cm/m/n/10.95 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 646--647
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 665--666
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 676--677
+Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 692--693
+Underfull \hbox (badness 10000) in paragraph at lines 683--684
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 700--701
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--707
+Underfull \hbox (badness 10000) in paragraph at lines 702--703
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--740
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--740
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
 
  []
 
-[16] [17] [18
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 756--758
+
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 779--782
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 816--818
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 816--818
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 827--828
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 851--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 851--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 851--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 851--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 851--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 877--879
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 877--879
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 894--896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 894--896
+
+ []
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1037.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1037.
+[21]
+Package mdframed Info: Not enough space on this page on input line 1040.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1050--1051
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1056
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1074
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1078
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1083--1084
+
+ []
+
+[22] [23] [24
 
 ]
 Chapter 2.
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 803.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 1155.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
- [19] [20
+ [25] [26
 
 ]
 Chapter 3.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 960.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1312.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [21] [22
+ [27] [28
 
 ]
 Chapter 4.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 996.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1348.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [23] [24
+ [29] [30
 
 ]
 Chapter 5.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1005.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1357.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [25] [26
+ [31] [32
 
 ]
 Chapter 6.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1014.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1366.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [27] [28
+ [33] [34
 
 ]
 Chapter 7.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1022.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1374.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [29] [30
+ [35] [36
 
 ] (./517notes.ind
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
@@ -2181,28 +2277,28 @@ File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
 Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [31
+ [37
 
 
 ])
 \tf@ptc=\write8
 \openout8 = `517notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1050.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1050.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1402.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1402.
  (./517notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1050.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1050.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1402.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1402.
 Package logreq Info: Writing requests to '517notes.run.xml'.
 \openout1 = `517notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34178 strings out of 493013
- 634928 string characters out of 6133343
+ 34209 strings out of 493013
+ 635163 string characters out of 6133343
  1162984 words of memory out of 5000000
- 36961 multiletter control sequences out of 15000+600000
- 137480 words of font info for 250 fonts, out of 8000000 for 9000
+ 36963 multiletter control sequences out of 15000+600000
+ 137740 words of font info for 254 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,13n,57p,10511b,2569s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
@@ -2220,10 +2316,10 @@ mf-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2016/texmf-dist
 1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 517notes.pdf (31 pages, 1050245 bytes).
+Output written on 517notes.pdf (37 pages, 1066685 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 298 compressed objects within 3 object streams
- 95 named destinations out of 1000 (max. 500000)
- 66179 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 346 compressed objects within 4 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 66187 words of extra memory for PDF output out of 74296 (max. 10000000)
 
