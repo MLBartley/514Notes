@@ -1044,7 +1044,10 @@ By definition,
 
 		$$ \lambda(\mathscr{P}) = \cap\{\mathscr{L}^\prime: \mathscr{L}^\prime \supseteq \mathscr{P}, \mathscr{L}^\prime \text{ is }\lambda\text{-set }\}$$
 
-	$\lambda(\mathscr{P})$ is a $\lambda$-system.
+	$\lambda(\mathscr{P})$ is a $\lambda$-system.\\
+
+	Goal: prove $\lambda(\mathscr{P})$ is a $\sigma$-field.
+	So we want to show that $\lambda(\mathscr{P})$ is a $\pi$-system.
 
 	\begin{enumerate}
 		\item $\Omega \in \lambda(\mathscr{P})$?\\
@@ -1066,7 +1069,7 @@ By definition,
 
 		\item $A_1, A_2, \dots \in \lambda(\mathscr{P})$ are disjoint then $A_1, A_2, \dots \in \mathscr{L}^\prime \quad \forall \mathscr{L}^\prime$. 
 
-		Then $\cup A_n \in \mathscr{L}^\prime (mathscr{L}^\prime \lambda\text{-system})$
+		Then $\cup A_n \in \mathscr{L}^\prime (\mathscr{L}^\prime \lambda\text{-system})$
 
 		So $\cup_n A_n \in \lambda(\mathscr{P})$. 
 
@@ -1109,8 +1112,156 @@ By definition,
 
 
 		\end{enumerate}
+
+	Claim: $\lambda(\mathscr{P})$ is $\pi$-sytem.
+
+	\begin{enumerate}
+		\item If $A \in \mathscr{P}$, then $\mathscr{P} \subseteq \mathscr{L}_A$
+
+	Suppose $A \in \mathscr{P}$.
+
+	Let $B \in \mathscr{P}$, then $AB \in \mathscr{P}$ ($\pi$-system), and $AB \in \lambda(\mathscr{P}) \Rightarrow B \in \mathscr{L}_A$
+
+		\item If $A \in \mathscr{P}$ then $\lambda(\mathscr{P}) \subset \mathscr{L}_A$.
+
+		\item If $A \in \lambda(\mathscr{P})$, then $\mathscr{P} \in \mathscr{L}_A$
+
+		Suppose, $A \in \lambda(\mathscr{P})$ and let $B \in \mathscr{P}$. 
+
+		By step 2,
+
+
+			$\begin{aligned}
+				A &\in \mathscr{L}_A\\
+					&\Rightarrow AB \in \lambda(\mathscr{P})\\
+					&\Rightarrow B \in \mathscr{L}_A	
+			\end{aligned}$
+
+		\item If $A \in \lambda(\mathscr{P})$, then $\lambda(\mathscr{P}) \subseteq \mathscr{L}_A$. This is because $\lambda(\mathscr{P})$ is the smallest $\lambda$-system, $\mathscr{L}_A$ is $\lambda$-system containing $\mathscr{P}$ (by step 3).\\
+
+		Now show that $\lambda(\mathscr{P})$ is $\pi$-system.\\
+
+		$A, B \in \lambda(\mathscr{P})$ because $A \in \lambda(\mathscr{P})$. We have that $\lambda(\mathscr{P}) \in \mathscr{L}_A$.\\
+
+		So 
+		$$B \in \mathscr{L}_A $$ 
+
+		$$BA \in \lambda(\mathscr{P})$$
+
+		Thus $\lambda(\mathscr{P})$ is $\pi$-system.
+	\end{enumerate}
 	\end{enumerate}
 \end{proof}
+
+\textbf{Wednesday September 7}
+
+\begin{theorem}
+	Suppose $P_1$ and $P_2$ are probability measures on $\sigma(\mathscr{P})$ where $\mathscr{P}$ is a $\pi$-system. If $P_1$ and $P_2$ agree on $\mathscr{P}$ (that is, $P_1(A) = P_2(A) \quad \forall A \in \mathscr{P}$) then they agree on $\sigma(\mathscr{P})$.
+\end{theorem}
+
+\begin{proof}
+	Let $$\mathscr{L} = \{A \in \sigma(\mathscr{P}): P_1(A) = P_2 (A) \}$$
+
+	Then $\mathscr{P} \subseteq \mathscr{L}$.\\
+
+	It suffices to show that $\mathscr{L}$ is a $\lambda$-system (because if so, then $\sigma(\mathscr{P}) \subseteq \mathscr{L}$ - in fact, $\sigma(\mathscr{P}) = \mathscr{L}$). \\
+
+	Show $\mathscr{L}$ is a $\lambda$-system.\\
+
+	\begin{enumerate}
+		\item $\Omega \in \mathscr{L}$?
+			$$P_1(\Omega) = P_2(\Omega) = 1, \quad \Omega \in \mathscr{P}$$
+
+		\item $A \in \mathscr{L}$
+
+		$$ P_1(A) = P_2(A) \Rightarrow P_1(A^C) = P_2(A^C), \quad A^C \in \mathscr{L}$$
+
+		\item $A \in \mathscr{L}$. $A_n$ disjoint. Want $\cup^\infty_{n=1} A_n \in \mathscr{L}$.
+
+		Since
+
+		$$A_n \in \mathscr{L} $$
+
+		$$P_1(A_n) = P_2(A_n) \quad \forall n$$
+
+		$$\displaystyle \sum^\infty_{n=1} P_1(A_n) = \displaystyle \sum^\infty_{n=1} P_2(A_n) $$
+
+		$$P_1 \displaystyle \cup^\infty_{n=1} (A_n) = P_2 \displaystyle \cup^\infty_{n=1} (A_n) $$
+
+		So, $\cup A_n \in \mathscr{L}$.
+
+
+	\end{enumerate}
+\end{proof}
+
+So our extention of (and uniqueness of the extention of) $P$ on $\mathscr{F}_0$ to $\sigma(\mathscr{F}_0)$ is complete. We have shown the existance of $Q$ on $\mathscr{M}$. \\
+
+Since $Q$ agrees with $P$ on $\mathscr{F}_0$ and $\mathscr{F}_0$ is a field, this implies that this is a $\pi$-system.
+
+If you have another extention, say $\tilde{Q}$, then $\tilde{Q} = P$ on $\mathscr{F}_0$. That is, $\tilde{Q} = Q$ on $\mathscr{M}$, where $\mathscr{M}$ is a $\sigma$-field, which is a $\pi$
+-system.\\
+
+So by Theorem 1.3.3, 
+
+$\tilde{Q} = Q$ on $\sigma(\mathscr{P})$. \\
+
+So, Theorem 1.3.1, is completely proved. \\
+
+
+Lemma 1 - Lemma 5 imply the extention.\\
+$\pi-\lambda$ Theorem and Theorem 1.3.3 implies uniqueness. \\
+This wraps up Theorem 1.3.1.\\
+
+
+
+\textbf{Lebesque measure on (0,1]}
+
+$$\Omega = (0,1]$$
+
+Recall, $\mathscr{B}_0$ is the finite disjoint unions of intervals in (0,1] and that $\mathscr{B}_0$ is a field. \\
+
+Let $\mathscr{B} = \sigma(\mathscr{B}_0)$.\\
+
+For each $A \in \mathscr{B}_0$, 
+
+$$A = \cup^n_{i=1} (a_i, b_i] $$
+
+Let $\lambda(A) = \displaystyle \sum^n_{i=1} (b_i - a_i)$.\\
+
+Question: Is $\lambda$ a probability measure on $\mathscr{B}_0$?
+
+\begin{theorem}[Theorem 2.2 in Billingsly]
+
+The set function $\lambda$ on $\mathscr{B}_0$ is a probability measure on $\mathscr{B}_0$.
+	
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $0 \leq \lambda(A) \leq 1$
+
+		\item $$\lambda(\Omega) = \lambda((0,1]) = 1-0 = 1$$
+		$$\lambda(\emptyset) = \lambda((0,0]) = 0$$
+
+
+		\item This one requires Theorem 1.3 in Billingsly (proof omitted - calculus, blah).
+
+		Theorem 1.3 - If I is an interval in (0,1] and $\{I_k: k=1, 2, \dots \}$ are disjoint intervas in (0,1] such that 
+
+		$$I = \cup^\infty_{k=1} I_k$$
+
+		then, 
+
+		$$|I| = \displaystyle \sum^\infty_{k=1} |I_k| $$
+
+		where |a| means length of interval a. 
+	\end{enumerate}
+\end{proof}
+
+
+
+
+
 
 % %------------------------------------------------
 

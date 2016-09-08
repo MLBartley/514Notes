@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  7 SEP 2016 10:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  8 SEP 2016 14:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -129,7 +129,14 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen115
 \Gin@req@width=\dimen116
 )
-(./structure.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2016/07/07 v1.2b Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup5
+\symboldletters=\mathgroup6
+\symboldsymbols=\mathgroup7
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 142.
+LaTeX Info: Redefining \bm on input line 208.
+) (./structure.tex
 (/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -516,13 +523,9 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
-\symbold=\mathgroup5
-\symitalic=\mathgroup6
+\symbold=\mathgroup8
+\symitalic=\mathgroup9
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
-LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
 LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
@@ -1208,8 +1211,8 @@ LaTeX Info: Redefining \] on input line 2740.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup7
-\symAMSb=\mathgroup8
+\symAMSa=\mathgroup10
+\symAMSb=\mathgroup11
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
@@ -1621,21 +1624,21 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./551notes.aux)
 \openout1 = `551notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 57.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1703,7 +1706,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EveryShipout initializing macros
-LaTeX Info: Redefining \microtypecontext on input line 55.
+LaTeX Info: Redefining \microtypecontext on input line 57.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1726,10 +1729,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '551notes.bbl' found.
 
 (./551notes.bbl)
-Package biblatex Info: Reference section=0 on input line 55.
-Package biblatex Info: Reference segment=0 on input line 55.
+Package biblatex Info: Reference section=0 on input line 57.
+Package biblatex Info: Reference segment=0 on input line 57.
 \AtBeginShipoutBox=\box88
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 57.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1739,40 +1742,40 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count392
 )
-LaTeX Info: Redefining \ref on input line 55.
-LaTeX Info: Redefining \pageref on input line 55.
-LaTeX Info: Redefining \nameref on input line 55.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
+LaTeX Info: Redefining \nameref on input line 57.
 
 <Pictures/background.pdf, id=7, 584.1825pt x 835.12pt>
 File: Pictures/background.pdf Graphic file (type pdf)
 
 <use Pictures/background.pdf>
-Package pdftex.def Info: Pictures/background.pdf used on input line 67.
+Package pdftex.def Info: Pictures/background.pdf used on input line 69.
 (pdftex.def)             Requested size: 597.50787pt x 854.24503pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
-LaTeX Font Info:    Try loading font information for T1+pag on input line 68.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 70.
+LaTeX Font Info:    Try loading font information for T1+pag on input line 70.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pag.fd
 File: t1pag.fd 2001/06/04 font definitions for T1/pag.
 )
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 68.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 70.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 68.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 70.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `pag' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 70.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <14.4> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 70.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 70.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 70.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 70
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 72.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 72
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
@@ -1782,40 +1785,44 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 72
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 72
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 70
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 72
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 70.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 70.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 70.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -1826,17 +1833,12 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Pictu
 res/background.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 84.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 86.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 84.
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
-
- []
-
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
 
 Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
@@ -1847,7 +1849,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 90.
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 92.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -1856,13 +1863,13 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 90.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 90.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 90.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
@@ -1870,7 +1877,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--91
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 102.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 104.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
  (./551notes.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
@@ -1903,9 +1910,9 @@ Underfull \vbox (badness 1097) has occurred while \output is active []
  [4]
 \c@ttl@toc@default=\count393
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <220> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 112.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <220> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 112.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 114.
  (./551notes.ptc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
@@ -1913,9 +1920,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
 )
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <30> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 112.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 112.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 114.
  [5
 
 
@@ -1925,485 +1932,490 @@ Chapter 1.
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 120.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 122.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 138.
-Package mdframed Info: mdframed works in twoside mode on input line 140.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 140.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 140.
-LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 140.
-LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 140.
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--144
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 141--144
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 149.
+Package mdframed Info: mdframed works in twoside mode on input line 142.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 149.
+(mdframed)              on input line 142.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 142.
+LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 142.
+LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 142.
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--153
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--153
+Underfull \hbox (badness 10000) in paragraph at lines 143--146
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 151.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 151.
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
 [7
 
  <./Pictures/chapter_head_2.pdf>]
-Package mdframed Info: mdframed works in twoside mode on input line 157.
+Package mdframed Info: mdframed works in twoside mode on input line 159.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 157.
+(mdframed)              on input line 159.
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--182
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--194
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 204.
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--196
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 206.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 204.
-Package mdframed Info: Not enough space on this page on input line 209.
+(mdframed)              on input line 206.
+Package mdframed Info: Not enough space on this page on input line 211.
 [8]
-Package mdframed Info: Not enough space on this page on input line 209.
-Package mdframed Info: mdframed works in twoside mode on input line 211.
+Package mdframed Info: Not enough space on this page on input line 211.
+Package mdframed Info: mdframed works in twoside mode on input line 213.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 211.
+(mdframed)              on input line 213.
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--229
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 226--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--234
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--261
+Underfull \hbox (badness 10000) in paragraph at lines 233--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--275
+Underfull \hbox (badness 10000) in paragraph at lines 260--263
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--277
 
  []
 
 [9]
-Package mdframed Info: mdframed works in twoside mode on input line 286.
+Package mdframed Info: mdframed works in twoside mode on input line 288.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 286.
-Package mdframed Info: mdframed works in twoside mode on input line 298.
+(mdframed)              on input line 288.
+Package mdframed Info: mdframed works in twoside mode on input line 300.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 298.
-Package mdframed Info: mdframed works in twoside mode on input line 312.
+(mdframed)              on input line 300.
+Package mdframed Info: mdframed works in twoside mode on input line 314.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 312.
+(mdframed)              on input line 314.
  [10]
-Package mdframed Info: mdframed works in twoside mode on input line 362.
+Package mdframed Info: mdframed works in twoside mode on input line 364.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 362.
+(mdframed)              on input line 364.
  [11]
-Package mdframed Info: mdframed works in twoside mode on input line 407.
+Package mdframed Info: mdframed works in twoside mode on input line 409.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 407.
-Package mdframed Info: mdframed works in twoside mode on input line 455.
+(mdframed)              on input line 409.
+Package mdframed Info: mdframed works in twoside mode on input line 457.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 455.
+(mdframed)              on input line 457.
  [12]
-Underfull \hbox (badness 10000) in paragraph at lines 508--509
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--515
+Underfull \hbox (badness 10000) in paragraph at lines 516--517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 530--531
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 578--579
+Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--592
+Underfull \hbox (badness 10000) in paragraph at lines 592--594
 
  []
 
 [14]
-Package mdframed Info: mdframed works in twoside mode on input line 648.
+Package mdframed Info: mdframed works in twoside mode on input line 611.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 648.
+(mdframed)              on input line 611.
+Package mdframed Info: Not enough space on this page on input line 623.
+Package mdframed Info: mdframed works in twoside mode on input line 652.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 652.
  [15]
-Underfull \hbox (badness 10000) in paragraph at lines 701--704
+Underfull \hbox (badness 10000) in paragraph at lines 705--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 711--713
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 711--713
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--716
+Underfull \hbox (badness 10000) in paragraph at lines 718--720
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 714--716
+Underfull \hbox (badness 10000) in paragraph at lines 718--720
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 758--761
+Underfull \hbox (badness 10000) in paragraph at lines 762--765
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 790--791
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 796.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 796.
-
-Underfull \hbox (badness 10000) in paragraph at lines 796--797
+Underfull \hbox (badness 10000) in paragraph at lines 794--795
 
  []
 
 [17]
-Package mdframed Info: Not enough space on this page on input line 805.
+Package mdframed Info: mdframed works in twoside mode on input line 800.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 800.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\beta' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 808.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 808.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 814--817
+Underfull \hbox (badness 10000) in paragraph at lines 800--801
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--822
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\beta' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\sigma' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 812.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 818--821
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 820--822
+Underfull \hbox (badness 10000) in paragraph at lines 824--826
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--847
+Underfull \hbox (badness 10000) in paragraph at lines 824--826
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 845--847
+Underfull \hbox (badness 10000) in paragraph at lines 849--851
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 856--859
+Underfull \hbox (badness 10000) in paragraph at lines 849--851
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--863
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 871--877
+Underfull \hbox (badness 10000) in paragraph at lines 875--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 871--877
+Underfull \hbox (badness 10000) in paragraph at lines 875--881
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 880.
+Package mdframed Info: mdframed works in twoside mode on input line 884.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 880.
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 915--917
+(mdframed)              on input line 884.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \hbox (badness 10000) in paragraph at lines 919--921
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--917
+Underfull \hbox (badness 10000) in paragraph at lines 919--921
 
  []
 
 [20]
-Package mdframed Info: mdframed works in twoside mode on input line 985.
+Package mdframed Info: mdframed works in twoside mode on input line 989.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 985.
+(mdframed)              on input line 989.
+ [21]
 Missing character: There is no p in font rsfs10!
 Missing character: There is no p in font rsfs10!
-Package mdframed Info: mdframed works in twoside mode on input line 1012.
+Package mdframed Info: mdframed works in twoside mode on input line 1016.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1012.
+(mdframed)              on input line 1016.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1023
 
  []
 
-[21]
-Package mdframed Info: mdframed works in twoside mode on input line 1051.
+Package mdframed Info: mdframed works in twoside mode on input line 1055.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1051.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1068.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1068.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
-
- []
-
+(mdframed)              on input line 1055.
 [22]
-Package mdframed Info: mdframed works in twoside mode on input line 1098.
+Underfull \hbox (badness 10000) in paragraph at lines 1068--1069
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1072.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1098.
+(mdframed)              on input line 1072.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+Underfull \hbox (badness 10000) in paragraph at lines 1073--1074
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1102.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1102.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1177--1178
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
 
  []
 
 
-Overfull \hbox (6.91803pt too wide) in paragraph at lines 1193--1193
+Overfull \hbox (6.91803pt too wide) in paragraph at lines 1197--1197
 [] 
  []
 
-[24]
+[24] [25] [26
+
+]
 Chapter 2.
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 1252.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 1256.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
- [25
-
-] [26
+ [27] [28
 
 ]
 Chapter 3.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1417.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1421.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [27] [28
+ [29] [30
 
 ]
 Chapter 4.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1462.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1466.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [29] [30
+ [31] [32
 
 ]
 Chapter 5.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1477.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1481.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [31] [32
+ [33] [34
 
-] (./551notes.ptc) [33] [34]
+] (./551notes.ptc) [35] [36]
 Chapter 6.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1495.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1499.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [35
+ [37
 
-] [36
+] [38
 
 ]
 Chapter 7.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1506.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1510.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [37] [38
+ [39] [40
 
 ]
 Chapter 8.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1516.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1520.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [39] [40
+ [41] [42
 
 ]
 Chapter 9.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1530.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1534.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [41] [42
+ [43] [44
 
 ]
 Chapter 10.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1540.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1544.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [43] [44
+ [45] [46
 
 ]
 Chapter 11.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1550.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1554.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [45] [46
+ [47] [48
 
 ]
 Chapter 12.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1560.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1564.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [47] [48
+ [49] [50
 
-] (./551notes.ptc) [49] [50]
+] (./551notes.ptc) [51] [52]
 Chapter 13.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1577.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1581.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [51
+ [53
 
-] [52
+] [54
 
 ]
 Chapter 14.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1587.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1591.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [53] [54
+ [55] [56
 
 ]
 Chapter 15.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1597.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1601.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [55] [56
+ [57] [58
 
 ] (./551notes.ind
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
@@ -2411,34 +2423,35 @@ File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
 Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [57
+ [59
 
 
 ])
 \tf@ptc=\write8
 \openout8 = `551notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1627.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1627.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1631.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1631.
  (./551notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1627.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1627.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1631.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1631.
 Package logreq Info: Writing requests to '551notes.run.xml'.
 \openout1 = `551notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34435 strings out of 493013
- 638041 string characters out of 6133343
- 1169522 words of memory out of 5000000
- 37115 multiletter control sequences out of 15000+600000
- 138248 words of font info for 272 fonts, out of 8000000 for 9000
+ 34678 strings out of 493013
+ 642014 string characters out of 6133343
+ 1170916 words of memory out of 5000000
+ 37329 multiletter control sequences out of 15000+600000
+ 147590 words of font info for 304 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,16n,57p,10511b,2569s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,16n,57p,10511b,2575s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
 exlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
 2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texl
@@ -2451,10 +2464,10 @@ fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 551notes.pdf (57 pages, 451352 bytes).
+Output written on 551notes.pdf (59 pages, 459948 bytes).
 PDF statistics:
- 771 PDF objects out of 1000 (max. 8388607)
- 602 compressed objects within 7 object streams
- 152 named destinations out of 1000 (max. 500000)
- 63852 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 784 PDF objects out of 1000 (max. 8388607)
+ 612 compressed objects within 7 object streams
+ 155 named destinations out of 1000 (max. 500000)
+ 68972 words of extra memory for PDF output out of 74296 (max. 10000000)
 
