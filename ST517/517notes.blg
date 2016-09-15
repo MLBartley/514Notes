@@ -1,9 +1,9 @@
-[0] Config.pm:343> INFO - This is Biber 2.5
-[0] Config.pm:346> INFO - Logfile is '517notes.blg'
-[40] biber-darwin:290> INFO - === Wed Aug 24, 2016, 13:38:16
-[57] Biber.pm:351> INFO - Reading '517notes.bcf'
-[147] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
-[165] Utils.pm:149> WARN - The file '517notes.bcf' does not contain any citations!
-[172] bbl.pm:526> INFO - Writing '517notes.bbl' with encoding 'UTF-8'
-[172] bbl.pm:619> INFO - Output to 517notes.bbl
-[172] Biber.pm:108> INFO - WARNINGS: 1
+[1] Config.pm:343> INFO - This is Biber 2.5
+[1] Config.pm:346> INFO - Logfile is '517notes.blg'
+[52] biber-darwin:290> INFO - === Fri Sep  9, 2016, 14:09:14
+[69] Biber.pm:351> INFO - Reading '517notes.bcf'
+[163] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[170] Utils.pm:149> WARN - The file '517notes.bcf' does not contain any citations!
+[176] bbl.pm:526> INFO - Writing '517notes.bbl' with encoding 'UTF-8'
+[176] bbl.pm:619> INFO - Output to 517notes.bbl
+[176] Biber.pm:108> INFO - WARNINGS: 1

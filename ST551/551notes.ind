@@ -1,10 +1,18 @@
 \begin{theindex}
 
+  \item $R^2$, \hyperpage{31}
+
+  \indexspace
+
   \item Cochran's Theorem, \hyperpage{14}
 
   \indexspace
 
-  \item Delete One Prediciton, \hyperpage{19}
+  \item Delete One Prediciton, \hyperpage{20}
+
+  \indexspace
+
+  \item Explicit Intercept, \hyperpage{28}
 
   \indexspace
 
@@ -12,20 +20,24 @@
 
   \indexspace
 
-  \item Influence, Cook's Distance, \hyperpage{21}
+  \item Influence, Cook's Distance, \hyperpage{22}
 
   \indexspace
 
-  \item Lack of Fit Test, \hyperpage{24}
+  \item Lack of Fit Test, \hyperpage{25}
 
   \indexspace
 
-  \item Orthogonal Decomposition, \hyperpage{22}
-  \item Overview, \hyperpage{27}, \hyperpage{29}, \hyperpage{31}, 
-		\hyperpage{33}, \hyperpage{37}, \hyperpage{39}, 
-		\hyperpage{41}, \hyperpage{43}, \hyperpage{45}, 
-		\hyperpage{47}, \hyperpage{49}, \hyperpage{53}, 
-		\hyperpage{55}, \hyperpage{57}
+  \item Multicollinearity, \hyperpage{31}
+
+  \indexspace
+
+  \item Orthogonal Decomposition, \hyperpage{23}
+  \item Overview, \hyperpage{35}, \hyperpage{37}, \hyperpage{39}, 
+		\hyperpage{41}, \hyperpage{45}, \hyperpage{47}, 
+		\hyperpage{49}, \hyperpage{51}, \hyperpage{53}, 
+		\hyperpage{55}, \hyperpage{57}, \hyperpage{61}, 
+		\hyperpage{63}, \hyperpage{65}
 
   \indexspace
 
@@ -33,10 +45,14 @@
 
   \indexspace
 
-  \item Residuals, \hyperpage{21}
+  \item Residuals, \hyperpage{22}
 
   \indexspace
 
   \item Statistical Inference for $\beta$, $\sigma^2$, \hyperpage{18}
+
+  \indexspace
+
+  \item Variable Selection, \hyperpage{32}
 
 \end{theindex}

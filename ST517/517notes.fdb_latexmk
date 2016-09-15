@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 517notes"] 1472060296 "517notes.bcf" "517notes.bbl" "517notes" 1473272042
-  "517notes.bcf" 1473272042 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
+["biber 517notes"] 1473444553 "517notes.bcf" "517notes.bbl" "517notes" 1473888996
+  "517notes.bcf" 1473888995 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
   (generated)
   "517notes.bbl"
   "517notes.blg"
-["makeindex 517notes.idx"] 1473193058 "517notes.idx" "517notes.ind" "517notes" 1473272042
-  "517notes.idx" 1473272042 114 b9fc6f6a9b9dfa2fbbe49586d7fe5e05 ""
+["makeindex 517notes.idx"] 1473882367 "517notes.idx" "517notes.ind" "517notes" 1473888996
+  "517notes.idx" 1473888995 186 93d1f05d3b47208c0e8d33576d68f41a ""
   (generated)
-  "517notes.ind"
   "517notes.ilg"
-["pdflatex"] 1473272040 "517notes.tex" "517notes.pdf" "517notes" 1473272042
+  "517notes.ind"
+["pdflatex"] 1473888993 "517notes.tex" "517notes.pdf" "517notes" 1473888996
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -244,13 +244,13 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469731814 1891012 e88fe4460d26d5de00a50ed8ab1ef0ec ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469733445 3873629 a818ca6efebb3a3ff6b3d79775dd354e ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "517notes.aux" 1473272042 8437 73b87c4cc7a9081656e4984eada7b3c6 ""
-  "517notes.bbl" 1472060296 466 fbca89dc3e3cb765908de4b0f2010489 "biber 517notes"
-  "517notes.ind" 1473193058 158 ed8a7ac659e470a853059560befca43f "makeindex 517notes.idx"
-  "517notes.ptc" 1473272042 1595 de5705fc15ea0680b7d7750ce8141bef ""
-  "517notes.run.xml" 1473272042 2338 8984bceff0892be39d8ebcffef8281ea ""
-  "517notes.tex" 1473272040 48438 0ed89b0d8dd55c0f920f47b9eaaeef82 ""
-  "517notes.toc" 1473272042 1569 3029d4cd81020321c3697aed47f78ecc ""
+  "517notes.aux" 1473888995 9473 46e60c294223ed2df882581ceb4af66e ""
+  "517notes.bbl" 1473444554 466 fbca89dc3e3cb765908de4b0f2010489 "biber 517notes"
+  "517notes.ind" 1473882367 227 b2fba06b2d80f9068bbe10b2a32abf21 "makeindex 517notes.idx"
+  "517notes.ptc" 1473888995 1734 fcba72210fb7fb3ff1dfe29f5d5d9e0b ""
+  "517notes.run.xml" 1473888995 2338 8984bceff0892be39d8ebcffef8281ea ""
+  "517notes.tex" 1473888993 64381 7283c8535e8c474208fdd71cdc00b6c0 ""
+  "517notes.toc" 1473888995 1708 82c05714f841d27b61944e90e796e443 ""
   "Pictures/background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
@@ -259,11 +259,11 @@
   "Pictures/notes3.jpg" 1471892488 224004 f8fe38c771be9d016ebd4514498f161c ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
-  "517notes.aux"
-  "517notes.log"
   "517notes.toc"
   "517notes.ptc"
+  "517notes.log"
+  "517notes.bcf"
   "517notes.idx"
   "517notes.run.xml"
-  "517notes.bcf"
+  "517notes.aux"
   "517notes.pdf"

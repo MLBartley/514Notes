@@ -47,6 +47,8 @@
 \usepackage{mathrsfs}
 \usepackage{amsbsy}
 
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+
 %----------------------------------------------------------------------------------------
 
 \input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
@@ -118,7 +120,17 @@
 
 \chapter{Probability Measure}
 
+
+% %------------------------------------------------
+
 \section{Overview}
+
+
+
+
+% %------------------------------------------------
+
+
 
 \section{Probability on a Field}\index{Probability on a Field}
 % Section Two in Billingsly
@@ -904,20 +916,20 @@ such that
 
 $$\displaystyle \sum^\infty_{n=1} P^*(E_n) \leq P^*(E) + \epsilon $$
 
-% \begin{align*}
-% 	P^*(EA) &\leq P^*((\cup^\infty_{n=1} E_n)A) \text{ (monotonocity)}\\
-% 		&= P^* (\cup^infty_{n=1} (E_n A))\\
-% 		&\leq \displaystyle \sum^infty_{n=1}P^* ( (E_n A)) \text{ (countibly subadd)}\\
-% 	P^*(E A^C) &\leq \displaystyle \sum^\infty_{n=1} P^*(E_n A^C)\\
-% 	P^*(EA) + P^*(E A^C) &\leq 	\displaystyle \sum^\infty_{n=1} P^*(E_n A) + P^*(E_n A^C)\\
-% 		&= \displaystyle \sum^\infty_{n=1} P^*(E_n)\\
-% 	\text{Recall, } A, E_n \in \mathscr{F}_0\\
-% 		&\leq P^*(E) + \epsilon\\
-% 	P^*(EA) + P^*(E A^C) & \leq P^*(E) + \epsilon \quad \forall \epsilon\\
-% 	\Rightarrow P^*(EA) + P^*(EA^C) &= P^*(E)\\
-% 	\Rightarrow A \in \mathscr{M}\\
-% 	\mathscr{F}_0 \in \mathsdcr{M}
-% \end{align*}
+$\begin{aligned}
+	P^*(EA) &\leq P^*((\cup^\infty_{n=1} E_n)A) \text{ (monotonocity)}\\
+		&= P^* (\cup^infty_{n=1} (E_n A))\\
+		&\leq \displaystyle \sum^infty_{n=1}P^* ( (E_n A)) \text{ (countibly subadd)}\\
+	P^*(E A^C) &\leq \displaystyle \sum^\infty_{n=1} P^*(E_n A^C)\\
+	P^*(EA) + P^*(E A^C) &\leq 	\displaystyle \sum^\infty_{n=1} P^*(E_n A) + P^*(E_n A^C)\\
+		&= \displaystyle \sum^\infty_{n=1} P^*(E_n)\\
+	\text{Recall, } A, E_n \in \mathscr{F}_0\\
+		&\leq P^*(E) + \epsilon\\
+	P^*(EA) + P^*(E A^C) & \leq P^*(E) + \epsilon \quad \forall \epsilon\\
+	\Rightarrow P^*(EA) + P^*(EA^C) &= P^*(E)\\
+	\Rightarrow A \in \mathscr{M}\\
+	\mathscr{F}_0 \in \mathscr{M}
+\end{aligned}$
  
 \end{proof}
 
@@ -947,23 +959,51 @@ $$ = P^*(A)$$
 
 \textbf{Friday September 2}
 
+\begin{remark}
+	\textbf{5 Lemma Recap}
+
+	\begin{tabular}{|p{0.9\linewidth}|}\hline % or any other width
+\rule{0pt}{5ex}% for more vertical space
+		
+	\textbf{Lemma 1.} $\mathscr{M}$ is a field.
+
+	\textbf{Lemma 2.} If $A_1, A_2, \dots$ is a sequence of disjoint $\mathscr{M}$-sets then for each $E \subseteq \Omega$, 
+	$$P^*(E\cap(\cup_k A_k)) = \displaystyle \sum_k P^*(E \cap A_k) $$
+
+	\textbf{Lemma 3.}
+	
+	\begin{enumerate}
+		\item $\mathscr{M}$ is a $\sigma$-field
+		\item $P^*$ restricted on $\mathscr{M}$ is countably additive. 
+	\end{enumerate}
+	
+	\textbf{Lemma 4.} $$\mathscr{F}_0 \subseteq \mathscr{M}$$
+	\textbf{Lemma 5.}$$P^*(A) = P(A) \quad \forall A \in \mathscr{F}_0$$
+	\text{ }\\
+	\\\hline
+\end{tabular}
+\end{remark}
+
 Recall, Extension Theorem. That is, If $\mathscr{F}$ is a field and $P$ is a probability measure, then there exists a measure, $Q$ such that 
 
 	$$Q(A) =  P(A) \quad \forall A \in \mathscr{F}_0$$
 
 \begin{proof}
-	By Lemma 5, 
+	By Lemma 5, \\
+\\
+	$P^*(\Omega) = P(\Omega) = 1$\\
+	$P^*(\emptyset) = P(\emptyset) = 0$\\
+	\\
 
-	$P^*(\Omega) = P(\Omega) = 1$
-	$P^*(\emptyset) = P(\emptyset) = 0$
-
-	Outline of what we need to show:
+	Outline of what we need to show:\\
 
 	\begin{itemize}
 		\item $ 0 \leq M(A) \leq 1$
 		\item $M(\emptyset) = 0, \quad M(\Omega)=1$
 		\item $M(\cup_n A_n) = \sum_n M(A_n)$
 	\end{itemize}
+
+	\vspace{5mm}
 
 	Since $\forall A \in \mathscr{M}$, 
 
@@ -973,38 +1013,43 @@ Recall, Extension Theorem. That is, If $\mathscr{F}$ is a field and $P$ is a pro
 
 	$$ 0 \leq P^*(\emptyset) \leq P^*(A) \leq P^*(\Omega) \leq 1$$
 
-	But, by Lemma 3, $P^*$ is contably additive on $\mathscr{M}$. So $P^*$ is probability measure on $\mathscr{M}$ (which is a $\sigma$-field, by Lemma 3).
+	But, by Lemma 3, $P^*$ is contably additive on $\mathscr{M}$. So $P^*$ is probability measure on $\mathscr{M}$ (which is a $\sigma$-field, by Lemma 3).\\
 
-	By Lemma 4, $\mathscr{F}_0 \subset \mathscr{M} \Rightarrow \sigma(\mathscr{F}_0 \subseteq \mathscr{M}$. So $P^*$ is also probabliity measure on $\sigma(\mathscr{F}_0).$
+	By Lemma 4, $\mathscr{F}_0 \subset \mathscr{M} \Rightarrow \sigma(\mathscr{F}_0 \subseteq \mathscr{M}$. So $P^*$ is also probabliity measure on $\sigma(\mathscr{F}_0).$\\
 
-	Finally, by Lemma 5, again $P^*(A) = P(A)$, $P^*$ is an extention of $P$ form $\mathscr{F}_0$  to $\sigma(\mathscr{F}_0)$. 
+	Finally, by Lemma 5, again $P^*(A) = P(A)$, $P^*$ is an extention of $P$ form $\mathscr{F}_0$  to $\sigma(\mathscr{F}_0)$. \\
 \end{proof}
 
-Uniqueness of of the extention, $\pi-\lambda$ Theorem.
+\textit{Uniqueness of of the extention, $\pi-\lambda$ Theorem}\\
 
-	Paving - $\{ \pi$-system and $\lambda$-system. (?)
+	Paving - $\{ \pi$-system and $\lambda$-system.$\}$ (?)\\
 
-	A clan of subsets $\mathscr{P}$ of $\Omega$ is a $\pi$ system, if $A, B \in \mathscr{P} \Rightarrow AB \in \mathscr{P}$. 
-
+\begin{definition}[$\pi$-System]
+	A class of subsets $\mathscr{P}$ of $\Omega$ is a $\pi$ system, if $$A, B \in \mathscr{P} \Rightarrow AB \in \mathscr{P}$$ 
+\end{definition}
+	
+\begin{definition}[$\lambda$-System]
 	A class $\mathscr{L}$ is a $\lambda$-system if 
-		\begin{enumerate}
+		\begin{enumerate}[label = $\lambda$(\roman*)]
 			\item $\Omega \in \mathscr{L}$ 
 			\item $A \in \mathscr{L} \Rightarrow A^C \in \mathscr{L}$
-			\item If $A_1, dots \in \mathscr{L} $ are disjoint then $\cup^\infty_{n=1} A_n \in \mathscr{L}$
+			\item If $A_1, \dots \in \mathscr{L} $ are disjoint then $\cup^\infty_{n=1} A_n \in \mathscr{L}$
 		\end{enumerate}
+\end{definition}
+	
 
-	So, the only difference is "disjoint". So, weaker than a $\sigma$-field (i.e. A $\sigma$-field is always a $\lambda$-system).
+	So, the only difference is "disjoint". Weaker than a $\sigma$-field (i.e. A $\sigma$-field is always a $\lambda$-system).
 
 Note that $(\lambda_2)$ can be replace by $(\lambda_{2\prime})$ wherein
 
 $$A, B \in \mathscr{F}, A \subseteq B, \Rightarrow B\setminus A \in \mathscr{L} $$
 
-That is $\lambda_1, \lambda_2, \lambda_3 \Leftrightarrow \lambda_1, \lambda_{2\prime}, \lambda_3$
+That is $\lambda_1, \lambda_2, \lambda_3 \Leftrightarrow \lambda_1, \lambda_{2\prime}, \lambda_3$\\
 
 \textbf{Lemma 6.} A class of sets that is both $\pi$-systema and $\lambda$-system is a $\sigma$-field. 
 
 \begin{proof}
-	Suppose $\mathscr{F}$ is both $\pi$-systema and $\lambda$-system.
+	Suppose $\mathscr{F}$ is both $\pi$-system and $\lambda$-system.
 
 By definition, 
 \begin{enumerate}
@@ -1022,7 +1067,7 @@ By definition,
 			\vdots
 		\end{align*}
 
-		Then $B_n$ are $mathscr{F}$-sets (by $\lambda_{2\prime} - A_2^C = \Omega A)2^C \in \mathscr{F}$, by $\pi$-system, $A_1A_2^C \in \mathscr{F}$ ).\\
+		Then $B_n$ are $\mathscr{F}$-sets (by $\lambda_{2\prime} - A_2^C = \Omega A)2^C \in \mathscr{F}$, by $\pi$-system, $A_1A_2^C \in \mathscr{F}$ ).\\
 
 		By $\lambda_3$, 
 
@@ -1255,8 +1300,451 @@ The set function $\lambda$ on $\mathscr{B}_0$ is a probability measure on $\math
 		$$|I| = \displaystyle \sum^\infty_{k=1} |I_k| $$
 
 		where |a| means length of interval a. 
+
+		Since $\cup^{m_k}_{j=1} I_{kj} \in \mathscr{B}_0$ and $\cup^{m}_{i=1} I_{i} = \cup^\infty_{k=1}\cup^{m_k}_{j=1} I_{kj}$.\\
+
+		Then 
+
+		$$\lambda(A) \lambda(\cup^{m}_{i=1} I_{i}) = \displaystyle \sum^m_{i=1} |I_i| $$
+
+		Since, $I_i \subset \cup^\infty_{k=1}\cup^{m_k}_{j=1} I_{kj}$, then 
+
+		$$I_i = I_i(\cup^\infty_{k=1}\cup^{m_k}_{j=1} I_{kj}) = \cup^\infty_{k=1}\cup^{m_k}_{j=1} I_i I_{kj} $$
+
+		By Theorem 1.3, 
+
+		$$|I| = \displaystyle \sum^\infty_{k=1} \sum^{m_k}_{j=1} |I_i I_{jk}| $$
+
+		$$\lambda(A) = \displaystyle \sum^m_{i=1} \sum^\infty_{k=1} \sum^{m_k}_{j=1} |I_i I_{jk}| = \displaystyle  \sum^\infty_{k=1} \sum^{m_k}_{j=1} \sum^m_{i=1}|I_i I_{jk}| $$
+
+		Because $I_{jk} \subseteq \cup^m_{i=1} I_i$, we have that
+
+		$$I_{kj} = \cup^m_{i=1} I_{kj} I_i $$
+
+		Again by Theorem 1.3, (note that $I_{kj} I_i$ are disjoint intervals)
+
+		$$|I_{kj} = \sum^m_{i=1}|I_i I_{jk}| $$
+
+		So, $\lambda(A) = \sum^\infty_{k=1} \sum^{m_k}_{j=1} | I_{kj} | = \sum^\infty_{k=1} \lambda(A_k)$
+
+
+	\end{enumerate}
+
+	% FINISH PROOF
+
+\end{proof}
+
+
+\textbf{Friday September 9}\\
+
+Finished above proof. \\
+
+So $\lambda$ is a probability on $\mathscr{B}_0$. By Theorem 3.1, there exists a unique measure $\tau$ on $\sigma(\mathscr{B}_0) = \mathscr{B}$ such that 
+
+		$$\tau(A) = \lambda(A) \quad \forall A \in \mathscr{B}_0 $$
+
+$\tau$ is called \textbf{Lebesgue Measure} on (0,1]. We may still write it as $\lambda$.
+
+
+
+% %------------------------------------------------
+
+
+
+\section{Probabilities Concerning Sequences of Events}\index{Probabilities Concerning Sequences of Events}
+
+\textit{Set Limit}\\
+
+Let $(\Omega, \mathscr{F})$ be a measureable space (i.e. $\Omega$ is nonempty set and $\mathscr{F}$ is $\sigma$-field). \\
+
+let $A_1, \dots \in \mathscr{F}$. We define 
+
+$$\cap^\infty_{n=1} \cup^\infty_{k=n} A_k = \limsup_{n\rightarrow \infty} A_n $$
+
+It is trivial to show that $\lim\sup_{n\rightarrow \infty} A_n \in \mathscr{F}$. 
+
+
+$$ \cup^\infty_{n=1} \cap^\infty_{k=n} A_k = \liminf_{n\rightarrow \infty} A_n $$
+
+We swapped intersection/union...what we are doing here?
+
+$\omega$ (means outcome) $\in \Omega$
+
+$$\omega \in \limsup_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \cap^\infty_{n=1} \cup^\infty_{k=n} A_k$$
+
+$$\Leftrightarrow \omega \in \cup^\infty_{k=1} A_k \quad \forall n=1, 2, \dots $$
+
+$$\Leftrightarrow \omega \in A_k \quad \text{ for some }k\geq n, \quad \forall n = 1, 2, \dots $$
+
+$\Leftrightarrow \omega$ is in infinitely many k. 
+
+Similarly, 
+
+$$\omega \in \liminf_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \cup^\infty_{n=1} \cap^\infty_{k=n} A_k $$
+
+$$ \Leftrightarrow \omega \in \cap^\infty_{k=1} A_k \quad \text{ for some } n=1, 2, \dots$$
+
+$$\Leftrightarrow \omega \in A_k \quad \forall k\geq n, \quad \text{ for some } n $$
+
+$$\Leftrightarrow \omega \in \text{ all but finitely many } A_k $$
+
+So this is a much stronger requirement. Intuitively, if $\omega$ is in all but finitely many $A_k$, then it must be in infinitely many $A_k$ (i.e. $\liminf_{n \rightarrow \infty} A_n \subseteq \limsup_{n\rightarrow \infty} A_n$).\\ 
+
+
+	For i > max(n,m), 
+
+	\begin{align*}
+		\cap_{k=m}^\infty A_k \subseteq A_i &\subseteq \cup_{k=n}^\infty A_k\\
+		\Rightarrow \cup^\infty_{m=1}\cap^\infty_{k=m} A_k &\subseteq \cup_{k=n}^\infty A_k\\
+		\Rightarrow \cup^\infty_{m=1}\cap^\infty_{k=m} A_k &\subseteq \cap^\infty_{n=1}\cup_{k=n} A_k\\
+		\Rightarrow \liminf_{n \rightarrow \infty} A_n &\subseteq \limsup_{n \rightarrow \infty} A_n
+	\end{align*}
+	 
+	 $$\cap^\infty_{k=n}A_k \uparrow \liminf_{n \rightarrow \infty} A_n $$
+	 $$\cup^\infty_{k=n}A_k \downarrow \limsup_{n \rightarrow \infty} A_n $$
+
+	 If $\liminf_{n \rightarrow \infty} A_n = \limsup_{n \rightarrow \infty} A_n$, then we say that the sequences $\{A_n\}$ has a limit, 
+
+	 $$\lim_{n \rightarrow \infty} A_n = \liminf_{n \rightarrow \infty} A_n = \limsup_{n \rightarrow \infty} A_n $$
+
+	 $$ \lim_{n \rightarrow \infty} A_n \in \mathscr{F}$$
+
+	 Sometimes we write, 
+
+	 $$ \limsup_{n \rightarrow \infty} A_n = [A_n \text{ i.o. }] $$
+
+	 \begin{theorem}
+	 	Suppose $(\Omega, \mathscr{F}, P)$ is a probability space and $A_n \in \mathscr{F} 	\quad n= 1, 2, \dots$.
+
+	 	\begin{enumerate}[label = (\roman*)]
+	 	 	\item $$\limsup_{n \rightarrow \infty} P( A_n) \leq P(\limsup_{n \rightarrow \infty} A_n) $$
+
+	 	 	$$ \liminf_{n \rightarrow \infty} P( A_n) \geq P(\liminf_{n \rightarrow \infty} A_n)$$
+
+	 	 	\item $A_n \rightarrow A (A = \lim_{n \rightarrow \infty} A_n)$, then we have continuity of probability of a set funciton: 
+
+	 	 	$$\lim_{n \rightarrow \infty} P(A_n) = P (\lim_{n \rightarrow \infty} A_n) $$
+	 	 \end{enumerate} 
+	 \end{theorem}
+
+
+\textbf{Monday September 12}
+
+\begin{proof}
+	\begin{enumerate}[label = (\roman*)]
+		\item Let $B_n = \cap^\infty_{k=n} A_k$. 
+
+			$$B_n \uparrow \liminf_{n } A_n $$
+
+			By Theorem 2.1,  
+
+			$$P(B_n) \uparrow P(\liminf_{n } A_n) $$
+			So, 
+
+			$$P(B_n) \leq P(\liminf_{n } A_n) \quad \forall n $$
+
+			$$\lim_{n \rightarrow \infty} P(B_n)  = P(\liminf_{n} A_n)$$
+
+			$$P(A_n) \geq P(B_n) \rightarrow P(\liminf_n A_n) $$
+
+			$$\liminf_n P(A_n) \geq P(\liminf_{n} A_n)$$
+
+			Similarly, 
+
+			Let $C_n = \cup^\infty_{k=n} A_k$. 
+
+			Then, 
+
+			$$ C_n \downarrow \cup^\infty_{k=n} A_k$$
+
+			$$P(A_n) \leq P(C_n) \rightarrow P(\limsup_{n } A_n) $$
+
+			$$ \limsup_{n }P( A_n) \leq  P(\limsup_{n } A_n)$$
+
+			\item If $A_n$ has a limit (i.e. $\limsup_n A_n = \limsup_n A_n = \lim A$) then,
+
+			$$\liminf_n P(A_n) \geq P(\liminf_n A_n) = P(\limsup_n A_n) \geq \limsup_n P(A_n) $$
+
+			So, $\liminf_n P(A_n) = \limsup_n P(A_n)$, thus
+
+			$$\lim_n P(A_n) = P(\lim_n A_n) $$
+
 	\end{enumerate}
 \end{proof}
+
+
+Independent Events\\
+
+$(\Omega, \mathscr{F}, P)$\\
+
+Let $A, B \in \mathscr{F}$. They are independent if and only iff: 
+
+$$P(AB) = P(A)P(B) $$
+$$A \indep B  $$
+
+$A_1, \dots A_n$ are independent if and only if for any $\{k_1, \dots, k_j \} \subseteq \{1, \dots, n\}$, 
+
+$$P(A_{k_1} \dots A_{k_j}) = P(A_{k_1}) \dots P(A_{k_i}) $$
+
+In this case we write: $A_1 \indep \dots \indep A_n$.\\
+
+
+Now let, $\mathscr{A}_1, \dots, \mathscr{A}_n$ be pavings in $\mathscr{F}$ (i.e. $\mathscr{A}_k \subseteq \mathscr{F}$). \\
+
+We say $\mathscr{A}_1, \dots, \mathscr{A}_n$ are independent if and only if for any $A_1 \in \mathscr{A}_1, \dots, A_n \in \mathscr{A}_n$ we have 
+
+$$A_1 \indep \dots \indep A_n $$. 
+
+In this case we write: $\mathscr{A}_1 \indep \dots \indep \mathscr{A}_n$.
+
+\begin{theorem}
+	Suppose for $(\Omega, \mathscr{F}, P)$ is a probability space if, 
+
+	$$\mathscr{A}_1 \subseteq \mathscr{F} \dots \mathscr{A}_n \subseteq \mathscr{F}$$
+
+	are $\pi$-systems. Then,
+
+	$$\mathscr{A}_1 \indep \dots \indep \mathscr{A}_n  \Rightarrow \sigma(\mathscr{A}_1) \indep \dots \indep \sigma(\mathscr{A}_n)$$
+\end{theorem}
+
+\begin{proof}
+	Let $\mathscr{B}_i = \mathscr{A}_i \cup \{\Omega\}$. 
+
+	It is easy to show (in homework)
+
+	\begin{enumerate}
+		\item $\mathscr{B}_i$ is still a $\pi$-system
+		\item $\mathscr{B}_i$ are still independent
+		$$\mathscr{B}_1 \indep \dots \indep \mathscr{B}_n $$
+	\end{enumerate}
+
+	For $B_2 \in \mathscr{B}_n, \dots, B_n \in \mathscr{B}_n$ define, 
+
+	$$\mathscr{L}(B_2, \dots, B_n) = \{B \in \mathscr{F}: B \indep B_2 \indep \dots \indep B_N \}$$
+
+
+	\begin{enumerate}
+		\item First we show $\mathscr{L}(B_2, \dots, B_n)$ is $\lambda$-system. 
+
+	$$\Omega \in \mathscr{L}(B_2, \dots, B_n) $$
+	$$\Omega \indep B_1 \indep \dots \indep B_n $$
+
+	This is true because $P(\Omega B_2 \dots B_n) = P(B_2 \dots B_n) = P(B_2)\dots P(B_n) = P(\Omega)P(B_2)\dots P(B_n)$
+		\item Now $A \in \mathscr{L}(B_2, \dots, B_n) \Rightarrow A^C \in \mathscr{L}(B_2, \dots, B_n)$
+
+		$\begin{aligned}
+				A \&in \mathscr{L}(B_2, \dots, B_n)\\
+				&\Rightarrow A \indep B_2 \indep \dots \indep B_n	\\
+				&\Rightarrow P(A B_2 \dots B_n) = P(A)P(B_2)\dots P(B_n)\\
+				&\Rightarrow P(A^C B_2 \dots B_n)\\
+				&\quad P(B_2 \dots B_n) \setminus A B_2 \dots B_n)\\
+				&\quad P(B_2 \dots B_n) - P(A B_2 \dots B_n)\\
+				&\quad P(B_2)\dots P(B_n) - P(A)P(B_2)\dots P(B_n)\\
+				&\quad (1-P(A))P(B_2) \dots P(B_n) \ P(A^C)P(B_2)\dots P(B_n)\\
+		\end{aligned}$
+
+		Then we run this through all subadditives of $A, B_2, \dots, B_n$. 
+
+		$A^C \indep B_2 \indep \dots \indep B_n$
+
+		\item If $C_1, C_2, \dots, \in \mathscr{L}(B_2, \dots, B_n)$ they are disjoint. Want to show 
+		$$\cup^infty_{m=1}C_m \in \mathscr{L}(B_2, \dots, B_n) $$
+
+		$\begin{aligned}
+			C_m \in \mathscr{L}(B_2, \dots, B_n)\\
+			&\Rightarrow C_m \indep \dots \indep B_n\\
+			&\Rightarrow P(C_m B_2 \dots B_n) = P(C_m)\dots P(B_n) \quad \forall m = 1, 2 \dots\\
+			\displaystyle \sum^\infty_{m=1} P(C_m B_2 \dots B_n) &= (\displaystyle \sum^\infty_{m=1} P(C_m) )P(B_2)\dots P(B_n)
+		\end{aligned}$
+
+		But $\{C_m, B_2, \dots, B_n, m = 1, 2 \dots \}$
+
+		% GET MORE OF PROOF
+
+		
+	\end{enumerate}
+ So $\cup_m C_m \in \mathscr{L}(B_2, \dots, B_n)$. 
+
+		And $\mathscr{L}(B_2, \dots, B_n)$. 
+
+		Also, $ B_1 \in \mathscr{L}(B_2, \dots, B_n) \quad \forall B_1 \in \mathscr{B}_1$ therefore by definition, 
+
+		$$\mathscr{B}_1 \subseteq \mathscr{L}(B_2, \dots, B_n) $$
+
+So, $ \sigma(\mathscr{B}_1) \subseteq \mathscr{L}(B_2, \dots, B_n)$ and we have our $\lambda-\pi$-theorem.
+
+This means that for all $B_1 \in \sigma(\mathscr{B}_1)$
+
+$$B_1 \indep B_2 \indep \dots \indep B_n $$
+
+Recall that $B_i $ are arbitrary members of,
+
+$$\sigma(\mathscr{B}_1) \indep B_2 \indep \dots \indep B_n \Leftrightarrow \mathscr{B}_2 \indep \sigma(\mathscr{B}_1) \indep \dots \indep \mathscr{B}_n$$
+
+Run the previous argument repeatedly. 
+
+So
+
+$$ \sigma(\mathscr{B}_1) \indep \sigma(\mathscr{B}_2) \indep \dots \indep \sigma(\mathscr{B}_n)$$ 
+
+\end{proof}
+
+
+\begin{example}
+	Let $\mathscr{I}$ be the collection of all intervals, then its $\pi$-system. When we want to check $X \indep Y$, we only need to check
+
+	$$P(X \in \text{interval}, Y \in \text{interval}) = P(X \in \text{interval})P(Y \in \text{interval}) $$
+\end{example}
+
+\textbf{Wednesday September 14}\\
+
+\textbf{Indepencence of Infinite Classes}\\
+
+Let $\{\mathscr{A}_\theta: \theta \in \Theta \}$ where $\theta$ is any infinite set (need not be countable) if and only if any (infinite) $\{A_\theta: \theta \in \Theta \}$ where $A_\theta \in \mathscr{A}_\theta$ are independent. \\
+
+We alraedy define independence of $\{A_\theta: \theta \in \Theta \}$; that is for an infinite collection of sets is independent if and only if any finite subcollection $\{ A_{\theta_1}, \dots A_{\theta_n} \}$ is independent.\\
+
+With this device, we may make claims such as
+
+$$\{X_t: t \in (0,1] \} $$ 
+
+are independent. Useful for stochastic process, functional data analysis.\\
+
+It follows trivially, $\{\mathscr{A}_\theta: \theta \in \Theta \}$ are independent if and only if any finite collection, say $\{\mathscr{A}_{\theta_1}, \dots, \mathscr{A}_{\theta_n} \}$ are independent. 
+
+\begin{corollary}[To Theorem 4.2]
+	If $(\Omega, \mathscr{F}, P), \mathscr{A}_\theta \subset \mathscr{F}$,  $\{\mathscr{A}_\theta: \theta \in \Theta \}$ is independent and each $\mathscr{A}_\theta$ is a $\pi$-system, then
+
+	$$\{ \sigma(\mathscr{A}_\theta): \theta \in \Theta \}$$
+
+	are independent. 
+\end{corollary}
+
+\begin{proof}
+	\begin{align*}
+		\{\mathscr{A}_\theta: \theta \in \Theta \} \indep &\Leftrightarrow \{\mathscr{A}_{\theta_1}, \dots, \mathscr{A}_{\theta_n} \} \indep \\
+		&\Leftrightarrow \{ \sigma(\mathscr{A}_{\theta_1}), \dots, \sigma(\mathscr{A}_{\theta_n}) \} \indep
+	\end{align*}
+
+\end{proof}
+
+\begin{corollary}
+	Suppose we have an array of sets, 
+
+	$\begin{matrix}
+			A_{11} & A_{12} & \dots & \dots\\
+			A_{21} & A_{22} & \dots & \dots\\ 
+			\vdots & \vdots & &\\
+  			\vdots & \vdots & &\\
+		\end{matrix} = \{A_{ij}: i,j = 1, \dots \} \subset \mathscr{F}$
+
+		and this array is independent. \\
+
+		And let $\mathscr{F}_i = \sigma(A_{i1}, A_{i2}, \dots)$.\\
+
+		Then $\mathscr{F}_1 \indep \mathscr{F}_2$
+\end{corollary}
+
+\begin{proof}
+	Let $\mathscr{A}_i$ be the class of all the finite intersections of 
+
+	$$A_{i1}, A_{i2}, \dots$$
+
+	then $\mathscr{A}_i$ is a $\pi$-system. \\
+
+	So, 
+
+	$$\sigma(\mathscr{A}_i) = \mathscr{F}_i $$
+
+	because $\{A_{i1}, A_{i2}, \dots \}$ are contained in $\mathscr{A}_i$ which implies $\mathscr{F}_i \subset \sigma(\mathscr{A}_i)$ and also $\mathscr{A}_i \subset \mathscr{F}_i \Rightarrow \sigma(\mathscr{A}_i \leq \mathscr{F}_i$.
+
+	By Corollary 1, it suffices to show that $\mathscr{A}_1, \mathscr{A}_2, \dots$ are independent. Further, it suffices to show that any finite subcollection is independent.\\
+
+	Let $\{i_1, \dots, i_n \} \subseteq \{1, 2, \dots \}$. We want to show that $\mathscr{A}_{i_1}\indep \dots \indep \mathscr{A}_{i_n}$. This would be implied by the following
+
+	$$\forall C_{i_1} \in \mathscr{A}_{i_1}, \dots, C_{i_n} \in \mathscr{A}_{i_n} $$
+
+	$$C_{i_1} \indep \dots \indep C_{i_n}$$
+
+	Because, and watch out with this notation here, for
+
+			$$C_{i_\alpha} \in \mathscr{A}_{i_\alpha} $$
+
+		there exists
+
+		$${A}_{i_\alpha j_1}, {A}_{i_\alpha j_2}, \dots, {A}_{i_\alpha j_{m_\alpha}} $$
+
+		such that
+
+		$$C_{i_\alpha} = {A}_{i_\alpha j_1}, {A}_{i_\alpha j_2}, \dots, {A}_{i_\alpha j_{m_\alpha}} $$
+
+		We have
+
+		$$ P(\cap^n_{\alpha = 1} C_{i_\alpha}) = P(\cap^n_{\alpha = 1} \cup^{m_\alpha}_{\beta = 1} A_{i_\alpha j_\beta})$$
+
+		because 
+
+		$$\{A_{i_\alpha j_\beta}: \alpha, = 1, 2, \dots, n , \beta = 1, 2, \dots m_\alpha\} \subseteq \{ A_{ij}: i, j = 1, 2, \dots\}$$
+
+		\begin{align*}
+			P(\cap^n_{\alpha = 1} \cup^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta}) &= \displaystyle \prod^n_{\alpha = 1} \prod^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta})\\
+			&= \displaystyle \prod^n_{\alpha = 1} P(C_{i_\alpha})
+		\end{align*}
+		% FINISH PROOF
+\end{proof}
+
+
+\textbf{Borel-Cantelli Lemmas (that are actually Theorems)}
+
+
+\begin{theorem}[BC1]	
+	For $(\Omega, \mathscr{F}, P)$ probability space, 
+
+	$$A_n \in \mathscr{F}, \quad n= 1, 2, \dots$$
+
+	If $\displaystyle \sum^\infty_{n=1} P(A_n) < + \infty$ then
+
+	$$P(\limsup_{n \rightarrow \infty} A_n) = 0 $$
+\end{theorem}	
+
+\begin{proof}
+	$\limsup_{n \rightarrow \infty} A_n = \cap^\infty_{n=1} \cup^\infty_{k=n} A_k \subset \cup^\infty_{k=n} P(A_k) \quad \forall n$
+
+	So, 
+
+	$$P(\limsup_{n \rightarrow \infty} A_n) \leq P( \cup^\infty_{k=n} P(A_k)) \leq \sum^\infty_{k=1} P(A_k)$$
+
+	% FINISH
+\end{proof}
+
+\begin{theorem}[BC2]
+	If $\{A_n\}$ are independent and $\displaystyle \sum^\infty_{n=1} P(A_n) = \infty$, then
+
+	$$P(\limsup_n A_n) = 1 $$
+\end{theorem}
+
+\begin{proof}
+	$P(\limsup_n A_n) = 1$
+
+	$$\Leftrightarrow P(cap^\infty_{n=1} \cup^\infty_{k=n} A_k) = 1 $$
+
+	$$\Leftrightarrow P(cup^\infty_{n=1} \cap^\infty_{k=n} A^C_k) = 0 \quad (*)$$
+
+	because, 
+
+	$$\Leftrightarrow P(cup^\infty_{n=1} \cap^\infty_{k=n} A^C_k) \leq \displaystyle \sum^\infty_{k=n} P(\cap^\infty_{k=n} A_k^C )  $$
+
+	$$\Leftarrow P(\cap^\infty_{k=n} A_k^C ) = 0 \quad \forall n = 1, 2, \dots $$
+
+	but we need to prove this to imply (*). 
+
+	Shit, calculus. 
+
+	$$1 - x \leq e^{-1} \quad \forall x \in \mathbb{R} $$
+
+
+\end{proof}
+
 
 
 
@@ -1266,6 +1754,8 @@ The set function $\lambda$ on $\mathscr{B}_0$ is a probability measure on $\math
 % %------------------------------------------------
 
 % \section{Citation}\index{Citation}
+
+
 
 % This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
 

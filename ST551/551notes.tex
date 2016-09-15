@@ -687,40 +687,42 @@ $$y = X\beta  + \epsilon$$
 
 $$\epsilon \sim N(0, \sigma^2 I_n) $$
 
-where X has full comlumn rank ($n \geq p$).
+where X has full column rank ($n \geq p$).\\
 
-Here X is treated as fixed
+Here X is treated as fixed. \\
 
-\begin{itemize}
-	\item Maximum Likelihood Estimator
-		$$E(y) = X\beta \in \mathbb{R}^n $$
-		$$Var(y) = \sigma^2 I_n $$
-	$y \sim N_p(X\beta, \sigma^2 I_n$
-\end{itemize}
+\textbf{Maximum Likelihood Estimator} 
+		$$\text{E}(y) = X\beta \in \mathbb{R}^n $$
+		$$\text{Var}(y) = \sigma^2 I_n $$
+	    $$y \sim \text{N}_p(X\beta, \sigma^2 I_n)$$
 
-Multivariate normal density
 
-$$y \sim N(\mu, \Sigma) $$
+\textbf{Multivariate Normal Density}
 
-$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} [det(\Sigma)]^{\frac{1}{2}}} \exp(-\frac{1}{2} (y - \mu)^T \Sigma^{- 1} (y - \mu) )$\\
+$$y \sim \text{N}(\mu, \Sigma) $$
+
+$$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} [det(\Sigma)]^{\frac{1}{2}}} e^{-\frac{1}{2} (y - \mu)^T \Sigma^{- 1} (y - \mu)}$$\\
 \\
 In our case, 
 
 $$\Sigma = \sigma I_n $$
 
-$$det(\Sigma) = det(\sigma^2 I_n) = \sigma^2 det( I_n) = \sigma^{2n} $$
+$$\text{det}(\Sigma) = \text{det}(\sigma^2 I_n) = \sigma^2 \text{det}( I_n) = \sigma^{2n} $$
 
 So, 
 
-$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} \sqrt{\sigma^{2n}}} \exp(-\frac{1}{2\sigma^2} ||y - \mu ||^2)$\\
-\\
+$$f_Y(y) = \frac{1}{(2\pi)^{\frac{n}{2}} \sqrt{\sigma^{2n}}} e^{-\frac{1}{2\sigma^2} ||y - \mu ||^2}$$
 
-$\log(f_y(\eta)) = \frac{n}{2} \log(\sigma^2) -\frac{1}{2\sigma^2} ||y - \mu ||^2 = \ell(\beta, \sigma^2, y$\\
+\vspace{5mm}
+
+To find the log likelihood and subsequently take the partial derivatives for MLE,  \\
+
+$\log(f_y(\eta)) = \frac{n}{2} \log(\sigma^2) -\frac{1}{2\sigma^2} ||y - \mu ||^2 = \ell(\beta, \sigma^2, y)$\\
 \\
 
 $\frac{\partial}{\partial \beta} = \dots = -\frac{1}{2 \sigma^2} 2 X^T (y - X\beta) = 0 $
 
-$$\hat{\beta} = (X^T x)^{-1} X^T Y \in \mathbb{R}^P$$
+$$\hat{\beta} = (X^T X)^{-1} X^T Y \in \mathbb{R}^P$$
 
 $\frac{\partial}{\partial \sigma^2} l(\beta, \sigma^2, y) = \dots = -\frac{n}{2\sigma^2} + \frac{1}{2 \sigma^4} ||y - X\beta ||^2 = 0 $
 
@@ -735,18 +737,25 @@ Note that
 
 $$X\hat{\beta} = X(X^T X)^{-1} X^T y = \hat{y}$$
 
-So, $\hat{y} = P_{span(x)} (I_P) = P_X$ .
+So, 
+$$\hat{y} = P_{\text{span}(x)} (I_P) = P_X y$$
 
 Now, 
 
-$$\hat{\sigma^2} = \frac{1}{n} ||(I_n - P_X) y||^2 = \frac{1}{n} ||Q_X y ||^2 $$
+\begin{align*}
+	\hat{\sigma^2} &= \frac{1}{n} ||y - \hat{y}||^2\\
+	&= \frac{1}{n} ||y - P_X y||^2\\
+	&= \frac{1}{n} ||(I_n - P_X) y||^2 \\
+	&= \frac{1}{n} ||Q_X y ||^2
+\end{align*}
 
-where $(I_n - P_X)$ is projection on to $span(X)^\perp$.
 
-It turns out that $(X^T y, y^T y)$ is complete, sufficient statistic for this Gaussian linear model. 
+where $Q_X = (I_n - P_X)$ is projection on to $\text{span}(X)^\perp$.\\
+
+It turns out that $(X^T y, y^T y)$ is complete, sufficient statistic for this Gaussian linear model (see homework). \\
 
 
-\textbf{Wednesday August 31}
+\textbf{Wednesday August 31}\\ 
 
 Recall,
 
@@ -759,25 +768,28 @@ Recall,
 
 Several properties, 
 
-$E(\hat{\beta}) = B$ (unbiased)\\
-$Var(\hat{\beta}) = (X^TX)^{-1} X^T \sigma^2 I_n X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1} $\\
-$\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$\\
+$$\text{E}(\hat{\beta}) = \beta \quad \text{(unbiased)}$$
+
+$$\text{Var}(\hat{\beta}) = (X^TX)^{-1} X^T (\sigma^2 I_n) X (X^TX)^{-1} = \sigma^2 (X^TX)^{-1} $$
+
+Thus, 
+$$\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1})$$
 
 Because $P_x$ has rank $p$ and $Q_x$ has rank $(n-p)$, then
 
 	$$||Q_x y ||^2 \sim \chi^2_{(n-p)} $$
 
-	Let's find an unbiased estimator for $\sigma^2$
+	Let's find an unbiased estimator for $\sigma^2$ (needed for UMVUE), 
 
 	\begin{align*}
 		E(\hat{\sigma^2}) &= E(\frac{1}{n}||Q_x y ||^2)\\
 			&= \frac{n-p}{n} \sigma^2\\
-			E(\frac{n}{n-p} \hat{\sigma^2}) &= \sigma^2\\
+			E\left(\frac{n}{n-p} \hat{\sigma^2}\right) &= \tilde{\sigma}^2\\
 	\end{align*}
 
 	Moreover, $\hat{\beta}$ has one-to-one transformation with 
 
-	$$(X^TX)^{-1} X^t y \leftrightarrow X (X^TX)^{-1} X^t y = P_{xy}$$
+	$$(X^TX)^{-1} X^T y \leftrightarrow X (X^TX)^{-1} X^T y = P_{Xy}$$
 
 	\begin{align*}
 		Cov(P_{Xy}, Q_{Xy}) &= P_X \sigma^2 I_n Q_X\\
@@ -785,7 +797,7 @@ Because $P_x$ has rank $p$ and $Q_x$ has rank $(n-p)$, then
 		&= 0
 	\end{align*}
 
-	$$P_{Xy} \indep Q_{Xy} \text{(due to normality)} $$
+	$$P_{Xy} \indep Q_{Xy} \quad \text{(due to normality)} $$
 
 	$\hat{\beta} \leftrightarrow P_{Xy}$
 
@@ -829,30 +841,29 @@ Also,  $\frac{(n-p)\tilde{\sigma^2}}{\sigma^2} \sim \chi^2_{(n-p)}$
 $$\hat{\beta} \indep \tilde{\sigma^2} $$
 
 
-$$\frac{\frac{\hat{\beta_i}- \beta_{i0}}{\sqrt{\sigma^2 M_{ii}}} \sim N(0,1) }{\sqrt{\frac{(n-p) \tilde{\sigma^2 / \sigma^2}}{n-p}}} \sim t_{(n-p)}$$
+$$\frac{\frac{\hat{\beta_i}- \beta_{i0}}{\sqrt{\sigma^2 M_{ii}}} \sim N(0,1) }{\sqrt{\frac{(n-p) \tilde{\sigma}^2 / \sigma^2\cap^\infty_{k=n} A_k^C )}{n-p}}} \sim t_{(n-p)}$$
 
-$$T = \frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma \sqrt{M_{ii}}}} \sim t_{(n-p)} = (*)$$
+$$T = \frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma} \sqrt{M_{ii}}} \sim t_{(n-p)} = (*)$$
 
 Reject $H_0$ if 
 
-$$|\frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma \sqrt{M_{ii}}}} | > t_{\frac{\alpha}{2}(n-p)} $$
+$$\left|\frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma} \sqrt{M_{ii}}} \right| > t_{\frac{\alpha}{2}(n-p)} $$
 
 % PHOTO
 
 Recall, 
 
 
-$X \sim N(\mu, 1)$
-$y \sim \chi^2_r$
-$X \indep y$
+$$X \sim N(\mu, 1)$$
+$$y \sim \chi^2_r$$
+$$X \indep y$$
 
-$\frac{X}{\sqrt{\frac{y}{r}}} \sim t_n(\mu)$\\
+$$\frac{X}{\sqrt{\frac{y}{r}}} \sim t_n(\mu)$$\\
 \\
 
-Power at $\beta_{i1}$
+\textbf{Power at $\beta_{i1}$}
 
-$\hat{\beta_i} \sim N(\beta_{i1}, \sigma^2 M_{i1})$
-
+$$\hat{\beta_i} \sim N(\beta_{i1}, \sigma^2 M_{i1})$$
 So, 
 
 $$ \frac{\hat{\beta_i} - \beta_{i0}}{\tilde{\sigma} \sqrt{M_{ii}}} \sim t_{(n-p)}(\frac{\beta_{i1} - \beta_{i0}}{\sigma \sqrt{M_{ii}}})$$
@@ -881,7 +892,7 @@ But this has a drawback as it favors overfitting. Projectioning onto larger spac
 
 To prevent overfitting, try to be objective, withhold $y_i$ when predicting $y_i$ (inverse of a matrix, rank 1 perpendicular)
 
-\begin{theorem}
+\begin{theorem}[Theorem 1.7]
 	Suppose $A \in \mathbb{R}^{PxP}$ is a symmetric, nonsingular matrix. and $v \in \mathbb{R}^P$. 
 
 	Then, 
@@ -889,7 +900,10 @@ To prevent overfitting, try to be objective, withhold $y_i$ when predicting $y_i
 	$$(A \pm vv^T)^{-1} = A^{-1} \pm \frac{A^{-1}vv^t A^{-1}}{1 \pm v^TA^{-1}v}$$
 \end{theorem}
 
-% PICTURE
+\begin{figure}[h]
+	\centering\includegraphics[scale=0.05]{wedAug31-1.jpg}
+	\caption{Theorem 1.7 Visualization}
+	\end{figure}
 
 Use what is left to compute $\hat{\beta_{-i}}$.
 
@@ -1203,10 +1217,504 @@ $$H_1: E(y_i) = 1_{m_i} \mu_i $$
 
 % GET PHOTO 
 
-We are testing whether the arbitrary means, $\mu_1, \dots \mu_n$ sit on the same line. 
+We are testing whether the arbitrary means, $\mu_1, \dots \mu_n$ sit on the same line. \\
+
+
+\textbf{Friday September 9}
+
+Under $H_1$, 
+
+$$ y = (1_{m_1} \oplus \dots \oplus 1_{m_n}) \begin{pmatrix}
+	\mu_1\\
+	\vdots\\
+	\mu_n
+\end{pmatrix}
++ \epsilon$$
+
+So the $\hat{y}$ under this model, 
+
+$$\hat{y}_{H_1} = P_{1_{m_1} \oplus \dots \oplus 1_{m_n}} y = (1_{m_1} \oplus \dots \oplus 1_{m_n}) \begin{pmatrix}
+	m_1 & & \\
+	 & \ddots & \\
+	  &  & m_n
+\end{pmatrix} (1_{m_1} \oplus \dots \oplus 1_{m_n})^T y$$
+
+but under $H_0$, 
+
+$$ \hat{y}_{H_0} = P_{(1_{m_1} \oplus \dots \oplus 1_{m_n})X} y$$
+
+$$\mathscr{S}_1 = \text{span}\{(1_{m_1} \oplus \dots \oplus 1_{m_n})X \} \quad \text{(p-dim)}$$
+
+$$\mathscr{S}_2 = \text{span}\{(1_{m_1} \oplus \dots \oplus 1_{m_n}) \} \quad \text{(n-dim)}$$
+
+$$\mathscr{S}_3 = \mathbb{R}^N \quad (N = m_1 + \dots + m_n)$$
+
+$$ \mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathscr{S}_3 $$
+
+\begin{remark}
+	Above used the fact that span(AB) $\subseteq$ span(A)
+\end{remark}
+
+\textbf{Lemma 1.1} If $ \mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathscr{S}_3$ then
+
+\begin{enumerate}
+	\item $\mathscr{S}_3 \ominus \mathscr{S}_2 \leq \mathscr{S}_3 \ominus \mathscr{S}_1$		  \item $(\mathscr{S}_3 \ominus \mathscr{S}_1) \ominus \mathscr{S}_2 =  \mathscr{S}_3 \mathscr{S}_2$
+	\item $(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \ominus \mathscr{S}_1)$
+ 
+\end{enumerate}
+
+Go back to lack of fit, 
+
+$$(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \oplus \mathscr{S}_1)$$
+
+$$P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y = P_{\mathscr{S}_3 \ominus \mathscr{S}_3}y + P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y \quad \text{(Orthogonal Decomposition)} $$
+
+$$||P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y||^2 = ||P_{\mathscr{S}_3 \ominus \mathscr{S}_3}y||^2 + ||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2 $$
+
+$$dim(\mathscr{S}_2 \ominus \mathscr{S}_1) = n-p$$
+
+$$dim(\mathscr{S}_3 \ominus \mathscr{S}_2) = N-n$$
+
+Now, 
+
+$$E(P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y) = P_{\mathscr{S}_3 \ominus \mathscr{S}_2}E(y) =P_{\mathscr{S}_3 \ominus \mathscr{S}_2} \mu  = 0 $$
+
+But, 
+
+$\mu = \begin{pmatrix}
+	\mu_1\\
+	\vdots\\
+	\mu_n
+\end{pmatrix} \in \mathscr{S}_2$
+
+and, 
+
+$(1_{m_1} \oplus \dots \oplus 1_{m_n})\underline{\mu}$
+
+$$Var(P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y) = P_{\mathscr{S}_3 \ominus \mathscr{S}_2}Var(y)P_{\mathscr{S}_3 \ominus \mathscr{S}_2} = \sigma^2 P^2_{\mathscr{S}_3 \ominus \mathscr{S}_2} = \sigma^2 P_{\mathscr{S}_3 \ominus \mathscr{S}_2} $$
+
+We know that $y \sim N(\mu, \sigma^2 I_n)$. So, 
+
+$$P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y \sim N(0, \sigma^2 P_{\mathscr{S}_3 \ominus \mathscr{S}_2} $$
+
+Similarly, 
+
+$$ E(P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y) = P_{\mathscr{S}_2 \ominus \mathscr{S}_1}E(y)$$
+
+which under $H_0$ is, 
+
+$$P_{\mathscr{S}_2 \ominus \mathscr{S}_1} (1_{m_1} \oplus \dots \oplus 1_{m_n})X\beta = 0 $$
+
+$$Var(P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y) = \sigma^2 P_{\mathscr{S}_2 \ominus \mathscr{S}_1} $$
+
+$$P_{\mathscr{S}_2 \ominus \mathscr{S}_1} y \sim N(0, \sigma^2 P_{\mathscr{S}_2 \ominus \mathscr{S}_1})$$
+
+By Chochran's Theorem: 
+
+	Under $H_O$, 
+
+	$$||P_{\mathscr{S}_3 \ominus \mathscr{S}_2} y||^2 \sim \chi^2_{(N-n)} $$
+	$$||P_{\mathscr{S}_2 \ominus \mathscr{S}_1} y||^2 \sim \chi^2_{(n-p)} $$
+
+	$$||P_{\mathscr{S}_3 \ominus \mathscr{S}_2} y||^2 \indep  ||P_{\mathscr{S}_2 \ominus \mathscr{S}_1} y||^2$$
+
+So our lack of fit test is: 
+
+	$$\frac{||P_{\mathscr{S}_2 \ominus \mathscr{S}_1} y||^2 / (n-p)}{||P_{\mathscr{S}_3 \ominus \mathscr{S}_2} y||^2 / (N - n)} \sim F _{n-p, N-n} $$
 
 
 
+ \section{Explicit Intercept}\index{Explicit Intercept}
+
+
+We now apply this $\mathscr{S}_1, dots $ argument to another problem: special linear model. 
+
+$$y_i = \alpha + \beta^TX_i + \epsilon_i 	\quad i = 1, \dots, n $$
+
+$y = \begin{pmatrix}
+	y_1\\
+	\vdots\\
+	y_n
+\end{pmatrix}$
+
+$X = \begin{pmatrix}
+	X_1\\
+	\vdots\\
+	X_n
+\end{pmatrix}$
+
+$\epsilon = \begin{pmatrix}
+	\epsilon_1\\
+	\vdots\\
+	\epsilon_n
+\end{pmatrix}$
+
+$$Y = 1_n \alpha + X\beta + \epsilon = (1_n X)\begin{pmatrix}
+	\alpha\\
+	\beta
+\end{pmatrix} + \epsilon = U\eta + \epsilon$$
+
+Let $P_{1_n} = 1_n(1_n^T 1_n)^{-1} 1_n^T = \frac{1_n1_n^T}{n}$.\\
+
+Note that for all $a = \begin{pmatrix}
+	a_1\\
+	\vdots\\
+	a_n
+\end{pmatrix} \in \mathbb{R}^n$, 
+
+	$$P_{1_n}a = \frac{1_n 1_n^T a}{n} = 1_n \bar{a}, \quad \bar{a}= \frac{1}{n}\displaystyle\sum^n_{i=1}a_i $$
+
+	which is a mean projection. (?)
+
+	$Q_{1_n} = I_n - P_{1_n} \quad \text{(projection on}1_n^\perp\text{)}$\\
+
+	$$ Q_{1_n} a = \begin{pmatrix}
+		a_1 - \bar{a}\\
+		\vdots \\
+		a_n - \bar{a}
+
+	\end{pmatrix}$$
+
+	Decompose X:
+
+	$$X = P_{1_n}X + Q_{1_n}X $$
+
+	$$U \eta = 1_n \alpha + X\beta = 1_n \alpha + P_{1_n}X\beta + Q_{1_n}X\beta = 1_n (\alpha + \frac{1_n^T X\beta}{n}) + Q_{1_n}X\beta = (1_n Q_{1_n}X)\begin{pmatrix}
+		\alpha^\star\\
+		\beta
+	\end{pmatrix} = (1_n Q_{1_n}X)\eta^\star = U^\star\eta^\star $$
+
+	So we do least squres of
+
+	$$(y - U^\star\eta^\star)^T(y - U^\star\eta^\star)$$
+
+	and minimize this over all $\eta^\star \in \mathbb{R}^{Px1}$
+
+
+	$$\hat{\eta}^\star = (U^{\star T} U^\star)U^{\star T} y $$
+
+	$$U^{\star T} U^\star = \begin{pmatrix}
+		1_n^T\\
+		(Q_{1_n}X)^T
+	\end{pmatrix} (1_n Q_{1_n}X) = \begin{pmatrix}
+		1_n^t1_n & Q_{1_n}X1_n\\
+		1_n^TQ_{1_n}X & Q_{1_n}X Q_{1_n}X\\
+	\end{pmatrix}  = \begin{pmatrix}
+		n & 0 \\
+		0 & X^TQ_{1_n}X
+	\end{pmatrix}$$
+
+	$$\hat{\eta}^\star = \begin{pmatrix}
+		n^{-1} & 0 \\
+		0 & (X^T Q_{1_n}X)^{-1}
+	\end{pmatrix} \begin{pmatrix}
+		1_n \\
+		(Q_{1_n}X)^T
+	\end{pmatrix} y$$
+
+	\textbf{Monday September 12}
+
+	So 
+
+	$$\hat{\alpha}^\star = n^{-1}1_n^T y $$
+
+	$$\hat{\beta} = (X^TQX)^{-1} X^TQ y $$
+
+	$$\hat{\alpha} = n^{-1} 1^T_n y - n^{-1}X \hat{\beta}^\star $$
+
+	For statistical inference, we want to make a decomposition of $\mathbb{R}^n$.
+
+	Let, $\mathscr{S}_1 = \text{span}(1_n), \mathscr{S}_2 = \text{span}(1_n, X), \mathscr{S}_3 = \mathbb{R}^n$. \\
+
+	Then,
+
+	$$(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \ominus \mathscr{S}_1) $$
+
+	Then, 
+
+	$$||P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y||^2 = ||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 + ||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2 $$
+
+	Or, 
+
+	$$SSTotal = SSError + SSRegression $$ 
+
+	We may compute these terms, 
+
+	\begin{align*}
+		P_{\mathscr{S}_3 \ominus \mathscr{S}_1} =  P_{\mathscr{S}_3} - P_{\mathscr{S}_1}\\
+			&= I_n - \frac{1_n1_n}{1_n^T1_n}\\
+			&= Q_1n\\
+		\mathscr{S}_2 \ominus \mathscr{S}_1	&= \text{span}(Q_{1_n}X)\\
+		P_{\mathscr{S}_2 \ominus \mathscr{S}_1} &= QX(X^TQX)^{-1}QX^T\\
+		P_{\mathscr{S}_3 \ominus \mathscr{S}_2}&= Q - QX(X^TQX)^{-1}X^TQ
+	\end{align*}
+
+By Cochran's Theorem, (these are orthogonalized projections, etc), 
+
+$$ ||P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y||^2 \sim \chi^2{(n-1)} $$
+$$ ||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2 \sim \chi^2_{(p-1)} $$
+$$ ||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 \sim \chi^2_{(n - p - 1)} $$
+
+\begin{remark}
+	$$dim(\mathscr{S}_3) = n$$
+	$dim(\mathscr{S}_2) = p+1$
+	$dim(\mathscr{S}_3) = 1$
+\end{remark}
+
+We also know that these are all independent of each other. So we can test regression effect with the following hypothesis:
+
+$$H_0: \beta - 0 $$
+
+
+$$\frac{||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2 / (p-1)}{||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 / (n-p - 1)} = \frac{y^T QX(X^TQX)^{-1}QX^T y /(p-1)}{y^T (Q - QX(X^TQX)^{-1}X^TQ) y / (n-p - 1)} \sim F_{p-1, n - p - 1} $$
+
+Distributions\\
+
+$$\hat{\beta} (X^TQX)^{-1}X^TQy$$
+
+$E(\hat{\beta}) = (X^TQX)^{-1}X^TQ(1_{n\alpha} + X\beta = (X^TQX)^{-1}X^TQX \beta = \beta$
+
+$\text{Var}(\hat{\beta}) =  (X^TQX)^{-1}X^TQ (\sigma^2 I_n) QX (X^TQX)^{-1} = \sigma^s(X^TQX)^{-1} $
+
+$\hat{\alpha} = \hat{\alpha}^\star - X^T \hat{\beta}$
+
+Because $\hat{\beta}$ is a function of $Qy$ and $\hat{\alpha}^\star$ is a function of $P_{1_n}y$ (and these are orthogonal to each other and thus by normality also independent). \\
+
+$\text{Var}(\hat{\alpha} = \text{Var}(\hat{\alpha}^\star) + \text{Var}( \bar{X}^T \hat{\beta}) = \text{Var}(\bar{y}) + \text{Var}( \bar{X}^T \hat{\beta}) = \frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X} $
+
+$$\hat{\alpha} ~ N( \alpha, \frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X}) $$
+
+\begin{align*}
+	Cov(\hat{\alpha}, \hat{\beta}) &= Cov(\hat{\alpha}^\star - \bar{X}^T\hat{\beta}, \hat{\beta})\\
+		&=-\bar{X}^T Var(\hat{\beta})\\
+		&= =\bar{X}^T \sigma^2 (X^TQX)^{-1}
+\end{align*}
+
+$$ \begin{pmatrix}
+	\hat{alpha}\\
+	\hat{\beta}
+\end{pmatrix} \sim N[\begin{pmatrix}
+	\alpha\\
+	\beta
+\end{pmatrix}, \begin{pmatrix}
+	\frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X} & - \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X}\\
+	- \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X} & \frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X}
+\end{pmatrix}]$$
+
+Estimate $\sigma^2$\\
+
+
+$$ ||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 = \displaystyle \sum^n_{i=1} (y_i - \hat{\alpha} - \hat{\beta}^TX_i)^2 \sim \sigma^2 \chi^1_{n-p-1}$$
+
+So, 
+
+$$E(||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 ) = \sigma^2 (n-p-1)$$
+
+Thus, 
+
+$$\hat{\sigma}^2 = \frac{||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2 }{n-p-1}$$
+
+\begin{theorem}
+	Under the explicit intercept model, 
+
+	\begin{enumerate}
+		\item $(\hat{\alpha}, \hat{\beta}, \hat{\sigma}^1)$ is UMVUE of $(\alpha, \beta, \sigma^2)$ by Lehmann-Sheffe.
+		\item $$ \begin{pmatrix}
+	\hat{\alpha}\\
+	\hat{\beta}
+\end{pmatrix} \sim N[\begin{pmatrix}
+	\alpha\\
+	\beta
+\end{pmatrix}, \begin{pmatrix}
+	\frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X} & - \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X}\\
+	- \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X} & \frac{\sigma^2}{n} + \sigma^2 \bar{X}^T(X^TQX)^{-1} \bar{X}
+\end{pmatrix}]$$
+	\item $(n-p-1) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{(n-p-1)}$
+	\item $\begin{pmatrix}
+			\hat{\alpha}\\
+			\hat{\beta}
+		\end{pmatrix} \indep \hat{\sigma}^2$
+	\end{enumerate}
+\end{theorem}
+
+
+
+% %------------------------------------------------
+
+
+
+
+\section{$R^2$}\index{$R^2$}
+
+Proportion of Sum of Squares (SS) explained by regression (i.e. by $\beta$). 
+
+$$R^2 = \frac{SSR}{SST} = \frac{||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2}{||P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y||^2}$$
+
+But we know that, 
+
+$$R^2 = \frac{||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2}{||P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y||^2 + ||P_{\mathscr{S}_3 \ominus \mathscr{S}_2}y||^2} = \frac{SSR}{SSR + SSE} = \frac{SSR/SSE}{SSR/SSE + 1} $$
+
+$$ F = \frac{SSR/p}{SSE/(n-p-1)} = \frac{(n-p-1)}{p} \frac{SSR}{SSE} $$
+
+$$ \frac{SSR}{SSE} = \frac{p}{(n-p-1)} F$$
+
+$$R^2 = \frac{\alpha F}{\alpha F - 1}$$
+where $\alpha = \frac{p}{n-p-1}$
+
+This is how we compute the null distribution of $R^2$. \\
+
+\section{Multicollinearity}\index{Multicollinearity}
+
+\textbf{Wednesday September 14}\\
+
+$y = C_1 \beta_1 + \dots + C_p \beta_p$
+
+$$ X = (C_1, \dots, C_P) = \begin{matrix}
+	X^T_1\\
+	\vdots\\
+	X^T_n
+\end{matrix}$$
+
+In an extreme case, multicolinearity simply means that the $C_1, \dots, C_p$ are linearly dependent. In this case $\beta$ is not identifiable. 
+
+	We have $C_1, C_2, C_3$.\\
+
+	\begin{align*}
+		C_1 &= a\\
+		C_2 &= 2a\\
+		C_3 &= b
+	\end{align*}
+
+	\begin{align*}
+		y &= a\beta_1 + 2a \beta_2 + b\beta_3 + \epsilon\\
+		&= a(\beta_1 + 2\beta_2) + b\beta_3 + \epsilon
+	\end{align*}
+	
+	$\beta_1 \& \beta_2$ cannot be split. \\
+
+	In the less extreme case, $X^TX$ is nearly singular, meaning it has small eigenvalues. In this case, although $\beta$ is identifiable, they have large variance For example, if $C_1 = a C_2 x 2a$ then $\beta_1, \beta_2$ have large variance which means your parameterization is not good. So may define new parameterization.
+
+	$$ \gamma_1 = \beta_1 + 2\beta_2$$
+	$$ \gamma_2 = \beta_3$$ 
+
+	If you run regression against these then the variance would be 'normal'.\\
+
+	S0, how to wee out redundant varaibles? One way Variance Inflation Factor (VIF) which for each $ i = 1, 2, \dots, p$ regresses $C_i$ on $\{C_1, \dots, C_p \setminus C_i \}$
+then you get $R^2$ for this regression call it $R_i^2$.\\
+
+If $C_i$ is redunent then $R_i^2$ would be close to 1. 
+
+$$VIF_i = \frac{1}{1 - R_i^2} $$
+
+
+
+
+
+% %------------------------------------------------
+
+
+
+
+
+\section{Variable Selection}\index{Variable Selection}
+
+$$ y = C_1\beta_1 + \dots + C_p\beta_p + \epsilon$$
+
+Some of these $\beta$'s are zero. \\
+
+Let us define an active set of parameters, 
+
+$$A_0 = \{i: \beta_i \neq 0 \}$$
+
+To estimate $A_0$ is the goal of variable selction. \\
+
+\textbf{Mallow's $C_p$ criterion}\\
+
+The fundamental issue is variable selction, penalty - penalizing the number of parameters, so you cannot use something like $y - \hat{y}$ as criterion. The more variables you have the smaller $||\hat{y} - y ||^2$ is. So we want to penalize the number of parameters in a reasonable way. \\
+
+Let any subset $A \subset \{1, \dots, p\}$, 
+
+$$X_A = \{X_i: i \in A \}$$
+
+So, $A = \{1, 3, 5\}$, 
+
+$$X_A = \begin{pmatrix}
+	X_1\\
+	X_3\\
+	X_5
+\end{pmatrix}$$
+
+Let $P_{X_A}, Q_{X_A}$ be the projection on to span($X_a$), span$(X_A)^\perp$. For example, 
+
+$$P_{X_A} = X_A(X_A^T X_A)^{-1}X_A^T $$
+
+Let $\mu = E(y) = X\beta = X_{A_0}\beta_{A_0}$. \textbf{Mallow} says we minimize
+
+$$\frac{E||P_{A}y - \mu ||^2}{\sigma^2} $$
+
+among all $A \subset \{1, dots, p \}$.\\
+
+But we do not know what $sigma^2$ or $\mu$ are. If so, we would already know $A_0$. We must estimate these.\\
+
+$$E || P_{X_A} y - \mu ||^2 = tr(E(P_{X_A} y - \mu)(P_{X_A} y - \mu)^T) $$
+
+\begin{align*}
+	E(P_{X_A} y - \mu)(P_{X_A} y - \mu)^T &= E[(P_{X_a}y - P_{X_a}\mu) + (P_{X_a}\mu - \mu)][(P_{X_a}y - \mu)+ (P_{X_a}\mu - \mu)]^T\\
+		&=  \text{expand, two terms are zero}\\
+		&= E(P_{X_a}y - P_{X_a}\mu)(P_{X_a}y - P_{X_a}\mu) + (P_{X_a}\mu  - \mu)(\P_{X_a}\mu - \mu)^T\\
+		&= Var(P_{X_a}y)\\
+		&= P_{X_a} \sigma^2 I_n P_{X_a} = \sigma^2 P_{X_a}\\
+		&= tr(\sigma^2 P_{X_a} + Q_{X_a}\mu\mu^TQ_{X_a})\\
+		&= \sigma*2 tr(P_{X_a}) + tr(Q_{X_a}\mu\mu^tQ_{X_a})\\
+		&= \sigma^2(\#(A)) + tr(\mu^T Q_{X_a} \mu)\\
+\end{align*}
+
+$$\Rightarrow E\frac{ || P_{X_A} y - \mu ||^2}{\sigma^2} = \#(A) + \frac{tr(\mu^T Q_{X_a} \mu)}{\sigma^2}$$
+
+Now let's estimate $\frac{\mu^T Q_{X_a} \mu}{\sigma^2}$. \\
+
+Recall, if $U$ is a random vector with multivariate normal distribution so
+
+$$E(U) = e $$
+$$Var(U) = Q_{X_A} $$
+
+$$U^TU \sim \chi^2_{(rank(Q)_{X_A})} (||e||^2) $$
+
+Also, $W \sim \chi^2_{(r)} (\delta)$ where $E(W) = r + \delta$.\\
+
+Go back to our problem of estimating $\frac{\mu^T Q_{X_a} \mu}{\sigma^2}$. \\
+
+What about $y^t Q_{X_A} y$? We know that
+
+$$E (\frac{Q_{X_A}y}{\sigma}) = \frac{Q_{X_A}\mu}{\sigma}$$
+
+and
+
+$$Var(\frac{Q_{X_A}y}{\sigma}) = \frac{1}{\sigma^2} Q_{X_A}\sigma^2 I_n = 0$$
+
+So, 
+
+$$ \frac{Q_{X_A}y}{\sigma} \sim N( \frac{Q_{X_A}\mu}{\sigma}, 0)$$
+
+So
+
+$$(\frac{Q_{X_A}y}{\sigma})^T(\frac{Q_{X_A}y}{\sigma}) \sim \chi^2_{(n-\#(A))} ((\frac{Q_{X_A}\mu}{\sigma})^T(\frac{Q_{X_A}\mu}{\sigma})) = \chi^2_{(n-\#(A))} (\frac{\mu^T Q_{X_A} \mu}{\sigma^2}) $$
+
+Thus, 
+
+$$E(\frac{y^T Q_{X_A} y}{\sigma^2} ) = n - \#(A) + \frac{\mu^T Q_{X_A} \mu}{\sigma^2} $$
+
+Which, if you subtract over the n and \#(A) you get an unbiased estimator of $\frac{\mu^T Q_{X_A} \mu}{\sigma^2}$.
+
+But $\sigma^2$ is still unkown, but we use full model, 
+
+$$\hat{\sigma}^2 = \frac{y^T Q_{X_A} y}{n - p} $$
+
+Now we can estimate $\frac{\mu^T Q_{X_A} \mu}{\sigma^2} $ by 
+
+$$\frac{y^T Q_{X_A} y}{\frac{y^T Q_{X} y}{n-p}} - n + \#(A) = (n-p) \frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + \#(A)$$ 
+
+So to recap, $ E\frac{ || P_{X_A} y - \mu ||^2}{\sigma^2} = (n-p)\frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + 2 \#(A) $
 
 
 
