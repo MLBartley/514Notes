@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 517notes"] 1473444553 "517notes.bcf" "517notes.bbl" "517notes" 1473888996
-  "517notes.bcf" 1473888995 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
+["biber 517notes"] 1473444553 "517notes.bcf" "517notes.bbl" "517notes" 1474049831
+  "517notes.bcf" 1474049831 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
   (generated)
-  "517notes.bbl"
   "517notes.blg"
-["makeindex 517notes.idx"] 1473882367 "517notes.idx" "517notes.ind" "517notes" 1473888996
-  "517notes.idx" 1473888995 186 93d1f05d3b47208c0e8d33576d68f41a ""
+  "517notes.bbl"
+["makeindex 517notes.idx"] 1474049235 "517notes.idx" "517notes.ind" "517notes" 1474049831
+  "517notes.idx" 1474049831 240 c5a76b13ae48c107e377b0831b74510e ""
   (generated)
   "517notes.ilg"
   "517notes.ind"
-["pdflatex"] 1473888993 "517notes.tex" "517notes.pdf" "517notes" 1473888996
+["pdflatex"] 1474049829 "517notes.tex" "517notes.pdf" "517notes" 1474049831
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -43,6 +43,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -244,13 +245,13 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469731814 1891012 e88fe4460d26d5de00a50ed8ab1ef0ec ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469733445 3873629 a818ca6efebb3a3ff6b3d79775dd354e ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "517notes.aux" 1473888995 9473 46e60c294223ed2df882581ceb4af66e ""
+  "517notes.aux" 1474049831 9933 0fdf947683adca002815d82e010d0079 ""
   "517notes.bbl" 1473444554 466 fbca89dc3e3cb765908de4b0f2010489 "biber 517notes"
-  "517notes.ind" 1473882367 227 b2fba06b2d80f9068bbe10b2a32abf21 "makeindex 517notes.idx"
-  "517notes.ptc" 1473888995 1734 fcba72210fb7fb3ff1dfe29f5d5d9e0b ""
-  "517notes.run.xml" 1473888995 2338 8984bceff0892be39d8ebcffef8281ea ""
-  "517notes.tex" 1473888993 64381 7283c8535e8c474208fdd71cdc00b6c0 ""
-  "517notes.toc" 1473888995 1708 82c05714f841d27b61944e90e796e443 ""
+  "517notes.ind" 1474049235 294 7a3a2fc303b50875f5cf4b57c37f90b6 "makeindex 517notes.idx"
+  "517notes.ptc" 1474049831 1855 7d5c3896f19f3bd3d700a4e404b8714e ""
+  "517notes.run.xml" 1474049831 2338 8984bceff0892be39d8ebcffef8281ea ""
+  "517notes.tex" 1474049829 62737 78ca846e2960237fe1b37333c5098dae ""
+  "517notes.toc" 1474049831 1829 b840f55ad87528c9c640ff30339fa80e ""
   "Pictures/background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
@@ -259,11 +260,11 @@
   "Pictures/notes3.jpg" 1471892488 224004 f8fe38c771be9d016ebd4514498f161c ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
+  "517notes.log"
+  "517notes.run.xml"
+  "517notes.idx"
   "517notes.toc"
   "517notes.ptc"
-  "517notes.log"
-  "517notes.bcf"
-  "517notes.idx"
-  "517notes.run.xml"
   "517notes.aux"
   "517notes.pdf"
+  "517notes.bcf"

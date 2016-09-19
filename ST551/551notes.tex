@@ -1634,27 +1634,33 @@ The fundamental issue is variable selction, penalty - penalizing the number of p
 
 Let any subset $A \subset \{1, \dots, p\}$, 
 
-$$X_A = \{X_i: i \in A \}$$
+$$X_A = \{C_i: i \in A \}$$
+
+\begin{notation}
+	While we often use X  for iid variables (a vector), but here X is a matrix and $X_i$ were referring to its columns. We've changed $X_i$ to $C_i$ to better reflect that we are dealing with columns of X. 
+\end{notation}
 
 So, $A = \{1, 3, 5\}$, 
 
 $$X_A = \begin{pmatrix}
-	X_1\\
-	X_3\\
-	X_5
+	C_1\\
+	C_3\\
+	C_5
 \end{pmatrix}$$
 
-Let $P_{X_A}, Q_{X_A}$ be the projection on to span($X_a$), span$(X_A)^\perp$. For example, 
+Let $P_{X_A}, Q_{X_A}$ be the projection on to span($X_A$), span$(X_A)^\perp$. For example, 
 
 $$P_{X_A} = X_A(X_A^T X_A)^{-1}X_A^T $$
 
-Let $\mu = E(y) = X\beta = X_{A_0}\beta_{A_0}$. \textbf{Mallow} says we minimize
+Let $\mu = E(y) = X\beta = X_{A_0}\beta_{A_0}$.\\
+
+\textbf{Mallow} says we minimize
 
 $$\frac{E||P_{A}y - \mu ||^2}{\sigma^2} $$
 
-among all $A \subset \{1, dots, p \}$.\\
+among all $A \subset \{1, \dots, p \}$.\\
 
-But we do not know what $sigma^2$ or $\mu$ are. If so, we would already know $A_0$. We must estimate these.\\
+But we do not know what $\sigma^2$ or $\mu$ are. If so, we would already know $A_0$. We must estimate these.\\
 
 $$E || P_{X_A} y - \mu ||^2 = tr(E(P_{X_A} y - \mu)(P_{X_A} y - \mu)^T) $$
 
@@ -1712,208 +1718,305 @@ $$\hat{\sigma}^2 = \frac{y^T Q_{X_A} y}{n - p} $$
 
 Now we can estimate $\frac{\mu^T Q_{X_A} \mu}{\sigma^2} $ by 
 
-$$\frac{y^T Q_{X_A} y}{\frac{y^T Q_{X} y}{n-p}} - n + \#(A) = (n-p) \frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + \#(A)$$ 
+$$\frac{y^T Q_{X_A} y}{\frac{y^T Q_{X} y}{n-p}} - n + 2\#(A) = (n-p) \frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + 2 \#(A)$$ 
 
-So to recap, $ E\frac{ || P_{X_A} y - \mu ||^2}{\sigma^2} = (n-p)\frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + 2 \#(A) $
-
-
-
+So to recap,
+ $$ E\frac{ || P_{X_A} y - \mu ||^2}{\sigma^2} = (n-p)\frac{y^T Q_{X_A} y}{y^T Q_{X} y} - n + 2 \#(A) $$
 
 
+\textbf{Friday September 16}\\
 
-% %------------------------------------------------
 
-% \section{Citation}\index{Citation}
+\textbf{Akaike/Bayesian Information Criteria (AIC/BIC)}\\
 
-% This statement requires citation \cite{book_key}; this one is more specific \cite[122]{article_key}.
+Suppose we have some generic (i.e. not related to the design/covariance in regression context) $X_1, \dots, X_n$, a sample of independent random vectors with joint density $f_\theta (x_1, \dots, x_n)$.\\
 
-% %------------------------------------------------
+$\theta \in \Theta \subset \mathbb{R}^P$\\
 
-% \section{Lists}\index{Lists}
+$\theta = \begin{pmatrix}
+	\theta_1\\
+	\vdots\\
+	\theta_P
+\end{pmatrix}$\\
 
-% Lists are useful to present information in a concise and/or ordered way\footnote{Footnote example...}.
+Let $M_0 \subset \{1, \dots, P \}$ be the true active set, that is $\{i: \theta_i \neq 0 \} = M_0$. Also, let $M_0 \subset \{1, \dots, P\}$. We want to recover the true active set $M_0$.\\
 
-% \subsection{Numbered List}\index{Lists!Numbered List}
+Let $\Theta_M$ be the paramter space, corresponding to M. 
 
-% \begin{enumerate}
-% \item The first item
-% \item The second item
-% \item The third item
-% \end{enumerate}
+$$\Theta_M = \{\theta \in \Theta: \theta_i = 0 iff i \notin M \}$$
 
-% \subsection{Bullet Points}\index{Lists!Bullet Points}
+Of course we also thave $\Theta_{M_0}$.\\
 
-% \begin{itemize}
-% \item The first item
-% \item The second item
-% \item The third item
-% \end{itemize}
+for each $M \subset \{1, \dots, P \}$ define,
 
-% \subsection{Descriptions and Definitions}\index{Lists!Descriptions and Definitions}
+$$L_M = \sup_{\theta \in M} f_\theta (x_1, \dots, x_n) $$
 
-% \begin{description}
-% \item[Name] Description
-% \item[Word] Definition
-% \item[Comment] Elaboration
-% \end{description}
+Then, 
+
+$$\text{AIC}(M) = -2 \log L_M + 2(\#M) $$
+
+$$\text{BIC}(M) = -2 \log L_M + (\log n)(\#M) $$
+
+Use them 
+
+$$\hat{M} = \arg\min \{\text{AIC}(M): M \in 2^{\{1, \dots, P\}}\}$$
+$$\hat{M} = \arg\min \{\text{BIC}(M): M \in 2^{\{1, \dots, P\}}\}$$
+
+When P is large, this is called \textbf{forward backward selection} instead ov \textbf{Best Set Selection}.\\
+
+\textit{Specialized to Gaussian Linear Regression Model}\\
+
+Here there is no variable selection, 
+
+$\theta = \begin{pmatrix}
+	\beta\\
+	\sigma^2
+\end{pmatrix}$
+
+$\Theta \subset \mathbb{R}^{P+1}$ (M is in $\Theta$)\\
+$\beta \in B \\subset \mathbb{R}^P$ (A is in B)\\
+
+In our case, 
+
+$$y \sim N(X_A\beta_A, \sigma^2 I_n)$$
+
+where $A \subseteq B$ which is where $\beta$ is. 
+
+Note we are again using the notation $X_A = \{C_i: i \in \beta \}$ and that 
+$$\#A + 1 = \# M $$
+
+If A is an active set of $\beta$ then $M = A \cup \{p+1 \}$ is the active set of $\theta$ because $\sigma^2$ is always active. 
+
+But $L_M = $ ?\\
+
+Recall, MLE for $\beta$ is (under $A$), 
+
+$$\hat{\beta}_A = (X_A^TX_A)^{-1}X^T_A y $$
+
+$$\hat{\sigma}^2_A = \frac{y^T Q_{X_A}y}{n}$$
+
+So the likelihood at $(\hat{\beta}_A, \hat{\sigma}_A^2)$, 
+
+\begin{align*}
+	f_{\hat{\theta}_A}(x_1, \dots, x_n) &= \frac{1}{(2\pi)^{\frac{n}{2}} \text{det}(\hat{\sigma}^2_A I_n) } e^{\frac{-1}{2\hat{\sigma}^2_A} ||y - X_A \hat{\beta}_A ||^2}\\
+		&= L_M
+		&= \dots e^{-\frac{1}{2\hat{\sigma}^2_A} ||y - X_A \hat{\beta}_A ||^2||^2}\\
+		&= \dots e^{-\frac{1}{2 \frac{y^T Q_{X_A}y}{n}} ||y - X_A (X_A^TX_A)^{-1}X^T_A y ||^2||^2}\\
+		&= \dots e^{-\frac{1}{2 n} ||y - P_{X_A} y ||^2||^2}\\
+ 		&= \dots e^{-\frac{n}{2 } ||Q_{X_A} y ||^2||^2}\\
+ 	L_M = \frac{1}{(2\pi)^{\frac{n}{2}} (\frac{y^T Q_{X_A}y}{n})^{\frac{n}{1}} }e^{-\frac{n}{2 }}\\
+ 	\log L_M = -\frac{n}{2}\log(2\pi) - \frac{n}{2} \log (\frac{y^tQ_A y}{n}) - \frac{n}{2}
+\end{align*}
+
+$$\text{AIC}(A) = -2 \log L_M + 2(\#M) =   $$
+
+It is equivalent ti minimize,
+
+$$n\dots $$
+
+For BIC, replace $2(\#A + 1)$ by $(\log n)(\#A + 1)$.
+
+
+% FINISH NOTES
+
+\textbf{Variable Selection Consistency}\\
+(as opposed to estimation consistency)\\
+
+You have data, $(X_1, \dots, X_n) = \mathscr{X}$ (again, generic X, not in regresssion context). An estimator, 
+
+$$\mathscr{X} \rightarrow \Theta $$
+
+Variable selection, 
+
+$$\hat{A}: \mathscr{X} \rightarrow 2^{\{1, \dots, P\}}$$
+
+that is to say, 
+
+$$(x_1, \dots, x_n) \mapsto M $$
+
+\begin{definition}[Variable Selector Consistancy]
+	A variable selector, $\hat{A}$ is said to be \textbf{consistant} if 
+
+	$$P(\hat{A} = A_0) \rightarrow 1 $$
+
+	where $A_0$ is the true action set. 
+\end{definition}
+
+Next, BIC in variable seleciton consistancy.\\
+
+ Ordering of sequences, $\{a_n\}, \{b_n\}$ 2 sequences in $\mathbb{R}$, positive...
+
+ \begin{notation}[Asymptotic Order of Magnitude]
+ 	$a_n \prec b_n$ if $\frac{a_n}{b_n} \rightarrow 0$ as $ n \rightarrow \infty$. 
+
+ \begin{example}
+ \begin{itemize}
+ 	\item $a_n \prec 1 \Leftrightarrow a_n \rightarrow 0$
+ 	\item $a_n \prec n \Leftrightarrow \frac{a_n}{n} \rightarrow 0$
+ \end{itemize}
+ 	
+ \end{example}
+
+ % Also, if $a_n \prec b_n$ then $\b_n \succ a_n$.
+
+ \begin{example}
+ \begin{itemize}
+ 	\item $\begin{aligned}
+ 	 		a_n &\succ 1\\
+ 	 			&\Rightarrow 1 \prec a_n\\
+ 	 			&\Rightarrow \frac{1}{a_n} \rightarrow 0\\
+ 	 			&\Rightarrow a_n \rightarrow \infty
+ 	 	\end{aligned}$
+ 	 \item $\begin{aligned}
+ 	 	n^{\frac{1}{2}}
+ 	 \end{aligned}$
+ \end{itemize}
+ 	
+ \end{example}
+
+ The symbol $\sim$ means both $\prec$ and $\succ$.
+ \end{notation}
+
+ 
+
+
+ \textbf{Monday September 19}
+
+
+\textbf{Lemma 1.3}\\
+
+Under some regularity conditions (identifiability, smoothness of log likelihood, support doesn't depend on parameters, ...) then 
+	\begin{enumerate}
+	 	\item $\Theta_{M_0} \subseteq \Theta_M$ 
+	 	 $$2(\log L_M - \log L_{M_0}) \rightarrow^\mathscr{D} \chi^2_{(\#M - \#M_0)}$$
+	 		Here, recall, 
+
+	 			$$L_M = \sup_{\theta \in \Theta} f_\theta(x_1, \dots, x_n) $$
+	 	\item If $\Theta_M \subseteq \Theta_{M_0}$ then,
+
+	 		$$n^{-1}2(\log L_M - \log L_{M_0}) \rightarrow^P  2(\sup_{\theta \in \Theta} E\log f_\theta(x_1, \dots, x_n) - E \log f_{\theta_0}(x_1, \dots, x_n))$$
+
+	 		Moreover, if $M \subset M_0 $ then
+
+	 		$$\lim_{n\rightarrow \infty} (2(\sup_{\theta \in \Theta} E\log f_\theta(x_1, \dots, x_n) - E \log f_{\theta_0}(x_1, \dots, x_n))) < 0  $$
+	 \end{enumerate} 
+
+\begin{theorem}
+	 	Let BIC(M) = $-2 \log L_M + (c n)(\#M)$ where $ 1 \prec c(n) \prec n$. This generalizes BIC so that $c(n)$ replaces $\log(n)$ but still converges slower than n (as does log).\\
+
+	 	Let $\hat{M} = \arg \min_{M \in 2^{\{1, 2, \dots, p\}}} BIC(M)$ then
+
+	 	$$P(\hat{M} = M_0) = 1 $$
+
+
+	 \end{theorem}	 
+
+	 \begin{proof}
+	 	Consider the difference, 
+
+	 $$	BIC(M)-BIC(M_0) = 2(\log L_{M_0} - \log L_M) + c(n)(\#M - \#M_0)$$
+
+	 We want to show (with probability going to 1) that 
+	 	$$BIC(M) - BIC(M_0) >0 \quad \forall M \neq M_0 $$
+
+	 	\textit{Case 1} $M \supset M_0$\\
+	 	Then $c(n)(\#M - \#M_0) \rightarrow \infty$\\
+
+	 	Meanwhile, $2(\log L_{M_0} - \log L_M) = O_p (1)$.\\
+
+	 	\begin{remark}
+	 		Fact. If $U_n = O_p(1), \alpha_n \rightarrow \infty$ then
+
+	 		$$P(U_n + \alpha_n >0) \rightarrow 1 $$
+	 	\end{remark}
+
+	 	So, 
+
+	 		$$P(BIC(M) - BIC(M_0))\rightarrow 1$$
+
+	 \textit{Case 2} $M \subseteq M_0$
+
+	 $n^{-1} 2(\log L_{M_0} - \log L_M) \rightarrow c(n)>0$
+
+	 \begin{remark}
+	 	Fact. $n^{-1}U_n \rightarrow c >0, \alpha_n \prec n $ and $n^c \prec n$ then
+
+	 	$$P(U_n + \alpha_n > 0) \rightarrow 1 $$
+	 \end{remark}
+
+	 So again, 
+	 	$$P(BIC(M) - BIC(M_0))\rightarrow 1 $$
+
+	 	Thus, $P(BIC(M)\text{ is uniquely minimized at }M_0) \rightarrow 1$.
+
+	 \end{proof}
+
+\section{Non iid Linear Regression}\index{Non iid Linear Regression}
+
+Suppose 
+$$ y = X\beta + \epsilon $$
+
+where $\epsilon \sim N(0, \sigma^2 \Sigma)$ with arbetrary but known matrix $\Sigma > 0$.
+
+Then MLE for $\hat{\beta}$ is
+
+$$\hat{\beta} = (X^T \Sigma X)^{-1}X^T \Sigma^{-1} X $$
+
+MLE for $\hat{\sigma}^2$ is
+
+$$\hat{\sigma}^2 = ||Q_X(\Sigma^{-1})y ||^2/n $$ 
+
+
+But remember $||Q_X(\Sigma^{-1})y ||^2_{\Sigma^{-1}} \sim \sigma^2 \chi^2_{n-p}$, so now we have
+
+$$E\left(||Q_X(\Sigma^{-1})y ||^2_{\Sigma^{-1}} \right) = \sigma^2 (n-p)$$
+
+so the unbiased estimator is, 
+
+$$\tilde{\sigma}^2 = \frac{||Q_X(\Sigma^{-1})y ||^2_{\Sigma^{-1}}}{n - p} $$
+
+
+\begin{theorem}
+	Under $y = X\beta + \epsilon$  with $\epsilon$ as above, we have
+
+	\begin{enumerate}
+		\item $\hat{\beta}, \tilde{\sigma}^2$ are UMVUE
+		\item $\hat{\beta} \sim N(\beta, \sigma^2(x^T\Sigma^{-1}X)^{-1})$
+		\item $\hat{\sigma}^2 \sim \sigma^2(n-p)^{-1} \chi^2_{n-p}$
+		\item $\tilde{\sigma}^2 \indep \hat{\beta}$
+	\end{enumerate}
+	
+	All theories developed previously for $\epsilon \sim N(0, \sigma^2 I_n)$ can be generalized here in a straightforward manner.
+\end{theorem}
+
+
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 2
 %----------------------------------------------------------------------------------------
 
-\chapter{ANOVA (1-way)}
+\chapter{General Linear Hypothesis \& Simultaneous Confidence Intervals}
 
-\section{Overview}\index{Overview}
+% \section{Overview}\index{Overview}
 
-\begin{itemize}
-	\item General linear models
-	\item Scheffe's simulteaneous confidence
-	\item Singular decomposition
-	\item Non Gaussian error
-\end{itemize}
+% \begin{itemize}
+% 	\item General linear models
+% 	\item Scheffe's simulteaneous confidence
+% 	\item Singular decomposition
+% 	\item Non Gaussian error
+% \end{itemize}
 
-% \section{Theorems}\index{Theorems}
+ \section{General Linear Model}\index{General Linear Model}
 
-% This is an example of theorems.
-
-% \subsection{Several equations}\index{Theorems!Several Equations}
-% This is a theorem consisting of several equations.
-
-% \begin{theorem}[Name of the theorem]
-% In $E=\mathbb{R}^n$ all norms are equivalent. It has the properties:
-% \begin{align}
-% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-% \end{align}
-% \end{theorem}
-
-% \subsection{Single Line}\index{Theorems!Single Line}
-% This is a theorem consisting of just one line.
-
-% \begin{theorem}
-% A set $\mathcal{D}(G)$ in dense in $L^2(G)$, $|\cdot|_0$. 
-% \end{theorem}
-
-% %------------------------------------------------
-
-% \section{Definitions}\index{Definitions}
-
-% This is an example of a definition. A definition could be mathematical or it could define a concept.
-
-% \begin{definition}[Definition name]
-% Given a vector space $E$, a norm on $E$ is an application, denoted $||\cdot||$, $E$ in $\mathbb{R}^+=[0,+\infty[$ such that:
-% \begin{align}
-% & ||\mathbf{x}||=0\ \Rightarrow\ \mathbf{x}=\mathbf{0}\\
-% & ||\lambda \mathbf{x}||=|\lambda|\cdot ||\mathbf{x}||\\
-% & ||\mathbf{x}+\mathbf{y}||\leq ||\mathbf{x}||+||\mathbf{y}||
-% \end{align}
-% \end{definition}
-
-% %------------------------------------------------
-
-% \section{Notations}\index{Notations}
-
-% \begin{notation}
-% Given an open subset $G$ of $\mathbb{R}^n$, the set of functions $\varphi$ are:
-% \begin{enumerate}
-% \item Bounded support $G$;
-% \item Infinitely differentiable;
-% \end{enumerate}
-% a vector space is denoted by $\mathcal{D}(G)$. 
-% \end{notation}
-
-% %------------------------------------------------
-
-% \section{Remarks}\index{Remarks}
-
-% This is an example of a remark.
-
-% \begin{remark}
-% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-% \end{remark}
-
-% %------------------------------------------------
-
-% \section{Corollaries}\index{Corollaries}
-
-% This is an example of a corollary.
-
-% \begin{corollary}[Corollary name]
-% The concepts presented here are now in conventional employment in mathematics. Vector spaces are taken over the field $\mathbb{K}=\mathbb{R}$, however, established properties are easily extended to $\mathbb{K}=\mathbb{C}$.
-% \end{corollary}
-
-% %------------------------------------------------
-
-% \section{Propositions}\index{Propositions}
-
-% This is an example of propositions.
-
-% \subsection{Several equations}\index{Propositions!Several Equations}
-
-% \begin{proposition}[Proposition name]
-% It has the properties:
-% \begin{align}
-% & \big| ||\mathbf{x}|| - ||\mathbf{y}|| \big|\leq || \mathbf{x}- \mathbf{y}||\\
-% &  ||\sum_{i=1}^n\mathbf{x}_i||\leq \sum_{i=1}^n||\mathbf{x}_i||\quad\text{where $n$ is a finite integer}
-% \end{align}
-% \end{proposition}
-
-% \subsection{Single Line}\index{Propositions!Single Line}
-
-% \begin{proposition} 
-% Let $f,g\in L^2(G)$; if $\forall \varphi\in\mathcal{D}(G)$, $(f,\varphi)_0=(g,\varphi)_0$ then $f = g$. 
-% \end{proposition}
-
-% %------------------------------------------------
-
-% \section{Examples}\index{Examples}
-
-% This is an example of examples.
-
-% \subsection{Equation and Text}\index{Examples!Equation and Text}
-
-% \begin{example}
-% Let $G=\{x\in\mathbb{R}^2:|x|<3\}$ and denoted by: $x^0=(1,1)$; consider the function:
-% \begin{equation}
-% f(x)=\left\{\begin{aligned} & \mathrm{e}^{|x|} & & \text{si $|x-x^0|\leq 1/2$}\\
-% & 0 & & \text{si $|x-x^0|> 1/2$}\end{aligned}\right.
-% \end{equation}
-% The function $f$ has bounded support, we can take $A=\{x\in\mathbb{R}^2:|x-x^0|\leq 1/2+\epsilon\}$ for all $\epsilon\in\intoo{0}{5/2-\sqrt{2}}$.
-% \end{example}
-
-% \subsection{Paragraph of Text}\index{Examples!Paragraph of Text}
-
-% \begin{example}[Example name]
-% \lipsum[2]
-% \end{example}
-
-% %------------------------------------------------
-
-% \section{Exercises}\index{Exercises}
-
-% This is an example of an exercise.
-
-% \begin{exercise}
-% This is a good place to ask a question to test learning progress or further cement ideas into students' minds.
-% \end{exercise}
-
-% %------------------------------------------------
-
-% \section{Problems}\index{Problems}
-
-% \begin{problem}
-% What is the average airspeed velocity of an unladen swallow?
-% \end{problem}
+\begin{definition}[General Linear Models]
+	General Linear Models are the same as linear Gaussian Model, except it is stated in a coordinate-free way. 
+\end{definition}
 
 % %------------------------------------------------
 
 % \section{Vocabulary}\index{Vocabulary}
 
-% Define a word to improve a students' vocabulary.
 
-% \begin{vocabulary}[Word]
-% Definition of word.
-% \end{vocabulary}
 
 
 

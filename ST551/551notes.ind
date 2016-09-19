@@ -17,6 +17,7 @@
   \indexspace
 
   \item Gaussian Linear Regresson Model, \hyperpage{15}
+  \item General Linear Model, \hyperpage{41}
 
   \indexspace
 
@@ -32,12 +33,16 @@
 
   \indexspace
 
+  \item Non iid Linear Regression, \hyperpage{38}
+
+  \indexspace
+
   \item Orthogonal Decomposition, \hyperpage{23}
-  \item Overview, \hyperpage{35}, \hyperpage{37}, \hyperpage{39}, 
-		\hyperpage{41}, \hyperpage{45}, \hyperpage{47}, 
-		\hyperpage{49}, \hyperpage{51}, \hyperpage{53}, 
-		\hyperpage{55}, \hyperpage{57}, \hyperpage{61}, 
-		\hyperpage{63}, \hyperpage{65}
+  \item Overview, \hyperpage{43}, \hyperpage{45}, \hyperpage{47}, 
+		\hyperpage{51}, \hyperpage{53}, \hyperpage{55}, 
+		\hyperpage{57}, \hyperpage{59}, \hyperpage{61}, 
+		\hyperpage{63}, \hyperpage{67}, \hyperpage{69}, 
+		\hyperpage{71}
 
   \indexspace
 
