@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 551notes"] 1472043951 "551notes.bcf" "551notes.bbl" "551notes" 1474293023
-  "551notes.bcf" 1474293023 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
+["biber 551notes"] 1472043951 "551notes.bcf" "551notes.bbl" "551notes" 1474293315
+  "551notes.bcf" 1474293315 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
   (generated)
   "551notes.bbl"
   "551notes.blg"
-["makeindex 551notes.idx"] 1474293020 "551notes.idx" "551notes.ind" "551notes" 1474293023
-  "551notes.idx" 1474293023 1189 2cc0afd12e3289f1853ac77040d449d1 ""
+["makeindex 551notes.idx"] 1474293020 "551notes.idx" "551notes.ind" "551notes" 1474293315
+  "551notes.idx" 1474293315 1189 2cc0afd12e3289f1853ac77040d449d1 ""
   (generated)
-  "551notes.ilg"
   "551notes.ind"
-["pdflatex"] 1474293020 "551notes.tex" "551notes.pdf" "551notes" 1474293023
+  "551notes.ilg"
+["pdflatex"] 1474293312 "551notes.tex" "551notes.pdf" "551notes" 1474293315
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -268,24 +268,24 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1469731814 1891012 e88fe4460d26d5de00a50ed8ab1ef0ec ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469733445 3873629 a818ca6efebb3a3ff6b3d79775dd354e ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "551notes.aux" 1474293023 20852 f630c77de59c175250c58ef4d0dfe84f ""
+  "551notes.aux" 1474293315 20852 bfb20a86ff9c3358a231ad7ab2e0a34a ""
   "551notes.bbl" 1472043952 466 fbca89dc3e3cb765908de4b0f2010489 "biber 551notes"
   "551notes.ind" 1474293020 1155 911575c5b8f3911e6b60a7cf37048c7c "makeindex 551notes.idx"
-  "551notes.ptc" 1474293023 5541 b89cf83ccd028ef2f79210587294e241 ""
-  "551notes.run.xml" 1474293023 2338 a0c5a3f61c7ad7979c877587db7a637b ""
-  "551notes.tex" 1474293017 69371 e286b7d6f7335e785703e37d55f1a000 ""
-  "551notes.toc" 1474293023 5413 0f25aa4fb1928375a241823f0006ad0a ""
+  "551notes.ptc" 1474293315 5541 b89cf83ccd028ef2f79210587294e241 ""
+  "551notes.run.xml" 1474293315 2338 a0c5a3f61c7ad7979c877587db7a637b ""
+  "551notes.tex" 1474293309 69840 bb57ec640376b5a4bf98b9c3808bf231 ""
+  "551notes.toc" 1474293315 5413 0f25aa4fb1928375a241823f0006ad0a ""
   "Pictures/background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "Pictures/chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "Pictures/chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
   "Pictures/wedAug31-1.jpg" 1473881236 1113315 d82e9a378e2e01d5f25de6c73ab18fe4 ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
-  "551notes.toc"
-  "551notes.aux"
-  "551notes.ptc"
-  "551notes.log"
-  "551notes.run.xml"
   "551notes.bcf"
+  "551notes.log"
   "551notes.pdf"
+  "551notes.ptc"
   "551notes.idx"
+  "551notes.aux"
+  "551notes.run.xml"
+  "551notes.toc"

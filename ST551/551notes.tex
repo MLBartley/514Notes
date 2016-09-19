@@ -2009,8 +2009,28 @@ $$\tilde{\sigma}^2 = \frac{||Q_X(\Sigma^{-1})y ||^2_{\Sigma^{-1}}}{n - p} $$
  \section{General Linear Model}\index{General Linear Model}
 
 \begin{definition}[General Linear Models]
-	General Linear Models are the same as linear Gaussian Model, except it is stated in a coordinate-free way. 
+	General Linear Models are the same as linear Gaussian Model, except it is stated in a coordinate-free or geometric way. 
 \end{definition}
+
+Let $\mathcal{S} \leq \mathbb{R}^N$.\\
+
+A general linear model gives,
+
+$$y \sim N(\mu, \sigma^2 I_N) $$
+
+where $\mu \in \mathcal{S}$. \\
+
+If we take X to be a basis matrix of $\mathcal{S}$, that is span(X) = $\mathcal{S}$, then we have 
+
+$$y = \mu X + \epsilon = X\beta + \epsilon $$
+
+the same as before. (because $\mu \in \mathcal{S}, \text{span}(x) = \mathcal{S} \Rightarrow \mu = X\beta for some \beta$)
+
+The MLE can be derived in a similar way.  
+
+
+
+
 
 % %------------------------------------------------
 
