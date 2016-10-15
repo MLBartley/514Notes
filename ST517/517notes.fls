@@ -513,6 +513,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
@@ -543,7 +547,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7t.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
@@ -553,8 +556,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
@@ -566,9 +569,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
@@ -581,8 +581,11 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7v.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm
-INPUT Pictures/chapter_head_2.pdf
-INPUT ./Pictures/chapter_head_2.pdf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT 517notes.ptc
+INPUT 517notes.ptc
 INPUT Pictures/chapter_head_1.pdf
 INPUT ./Pictures/chapter_head_1.pdf
 INPUT Pictures/chapter_head_1.pdf

@@ -1,9 +1,9 @@
-[0] Config.pm:343> INFO - This is Biber 2.5
-[0] Config.pm:346> INFO - Logfile is '551notes.blg'
-[54] biber-darwin:290> INFO - === Wed Aug 24, 2016, 09:05:52
-[86] Biber.pm:351> INFO - Reading '551notes.bcf'
-[177] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
-[183] Utils.pm:149> WARN - The file '551notes.bcf' does not contain any citations!
-[190] bbl.pm:526> INFO - Writing '551notes.bbl' with encoding 'UTF-8'
-[190] bbl.pm:619> INFO - Output to 551notes.bbl
-[190] Biber.pm:108> INFO - WARNINGS: 1
+[1] Config.pm:343> INFO - This is Biber 2.5
+[1] Config.pm:346> INFO - Logfile is '551notes.blg'
+[45] biber-darwin:290> INFO - === Wed Oct 12, 2016, 15:12:09
+[65] Biber.pm:351> INFO - Reading '551notes.bcf'
+[180] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[188] Utils.pm:149> WARN - The file '551notes.bcf' does not contain any citations!
+[197] bbl.pm:526> INFO - Writing '551notes.bbl' with encoding 'UTF-8'
+[198] bbl.pm:619> INFO - Output to 551notes.bbl
+[198] Biber.pm:108> INFO - WARNINGS: 1

@@ -1,28 +1,41 @@
-\indexentry{Projection|hyperpage}{7}
-\indexentry{Cochran's Theorem|hyperpage}{14}
-\indexentry{Gaussian Linear Regresson Model|hyperpage}{15}
-\indexentry{Statistical Inference for $\beta$, $\sigma^2$|hyperpage}{18}
-\indexentry{Delete One Prediciton|hyperpage}{20}
-\indexentry{Residuals|hyperpage}{22}
-\indexentry{Influence, Cook's Distance|hyperpage}{22}
-\indexentry{Orthogonal Decomposition|hyperpage}{23}
-\indexentry{Lack of Fit Test|hyperpage}{25}
-\indexentry{Explicit Intercept|hyperpage}{28}
-\indexentry{$R^2$|hyperpage}{31}
-\indexentry{Multicollinearity|hyperpage}{31}
-\indexentry{Variable Selection|hyperpage}{32}
-\indexentry{Non iid Linear Regression|hyperpage}{38}
-\indexentry{General Linear Model|hyperpage}{41}
-\indexentry{Overview|hyperpage}{43}
-\indexentry{Overview|hyperpage}{45}
-\indexentry{Overview|hyperpage}{47}
-\indexentry{Overview|hyperpage}{51}
-\indexentry{Overview|hyperpage}{53}
-\indexentry{Overview|hyperpage}{55}
-\indexentry{Overview|hyperpage}{57}
-\indexentry{Overview|hyperpage}{59}
-\indexentry{Overview|hyperpage}{61}
-\indexentry{Overview|hyperpage}{63}
-\indexentry{Overview|hyperpage}{67}
-\indexentry{Overview|hyperpage}{69}
-\indexentry{Overview|hyperpage}{71}
+\indexentry{Projection|hyperpage}{9}
+\indexentry{Cochran's Theorem|hyperpage}{16}
+\indexentry{Gaussian Linear Regresson Model|hyperpage}{17}
+\indexentry{Statistical Inference for $\beta$, $\sigma^2$|hyperpage}{20}
+\indexentry{Delete One Prediciton|hyperpage}{22}
+\indexentry{Residuals|hyperpage}{24}
+\indexentry{Influence, Cook's Distance|hyperpage}{24}
+\indexentry{Orthogonal Decomposition|hyperpage}{25}
+\indexentry{Lack of Fit Test|hyperpage}{27}
+\indexentry{Explicit Intercept|hyperpage}{30}
+\indexentry{$R^2$|hyperpage}{33}
+\indexentry{Multicollinearity|hyperpage}{33}
+\indexentry{Variable Selection|hyperpage}{34}
+\indexentry{Non iid Linear Regression|hyperpage}{40}
+\indexentry{General Linear Model|hyperpage}{43}
+\indexentry{Hypothesis Testing|hyperpage}{45}
+\indexentry{Scheffe's Simutaneous Confidence Intervals|hyperpage}{46}
+\indexentry{Coordinate Version of SCI|hyperpage}{50}
+\indexentry{Bonferroni's SCI|hyperpage}{52}
+\indexentry{ANOVA Model and Test Statistic|hyperpage}{55}
+\indexentry{Scheffe's SCI|hyperpage}{57}
+\indexentry{Bonferonni SCI|hyperpage}{59}
+\indexentry{Orthogonal Design|hyperpage}{61}
+\indexentry{Two-Way ANOVA|hyperpage}{63}
+\indexentry{Testing Hypotheses|hyperpage}{66}
+\indexentry{Scheffe's SCI|hyperpage}{69}
+\indexentry{Non-additive 2-way ANOVA (with Interactions)|hyperpage}{70}
+\indexentry{Scheffe SCI for 2-Way ANOVA with Interactions|hyperpage}{73}
+\indexentry{Latin Squares|hyperpage}{73}
+\indexentry{Overview|hyperpage}{79}
+\indexentry{Overview|hyperpage}{81}
+\indexentry{Overview|hyperpage}{85}
+\indexentry{Overview|hyperpage}{87}
+\indexentry{Overview|hyperpage}{89}
+\indexentry{Overview|hyperpage}{91}
+\indexentry{Overview|hyperpage}{93}
+\indexentry{Overview|hyperpage}{95}
+\indexentry{Overview|hyperpage}{97}
+\indexentry{Overview|hyperpage}{101}
+\indexentry{Overview|hyperpage}{103}
+\indexentry{Overview|hyperpage}{105}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  19 SEP 2016 09:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  14 OCT 2016 09:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1900,11 +1900,13 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10.95> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 7.
  [3
 
- <./Pictures/chapter_head_1.pdf>])
+ <./Pictures/chapter_head_1.pdf>] [4])
 \tf@toc=\write7
 \openout7 = `551notes.toc'.
 
- [4]
+ [5] [6
+
+]
 \c@ttl@toc@default=\count393
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <220> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 114.
@@ -1920,12 +1922,11 @@ LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <30> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 114.
- [5
+ [7
 
-
-] [6]
+] [8]
 Chapter 1.
-<Pictures/chapter_head_2.pdf, id=237, 3581.38pt x 1790.69pt>
+<Pictures/chapter_head_2.pdf, id=317, 3581.38pt x 1790.69pt>
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
@@ -1972,7 +1973,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
-[7
+[9
 
  <./Pictures/chapter_head_2.pdf>]
 Package mdframed Info: mdframed works in twoside mode on input line 159.
@@ -1999,7 +2000,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 206.
 Package mdframed Info: Not enough space on this page on input line 211.
-[8]
+[10]
 Package mdframed Info: Not enough space on this page on input line 211.
 Package mdframed Info: mdframed works in twoside mode on input line 213.
 Package mdframed Info: mdframed detected package amsthm 
@@ -2030,7 +2031,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 273--277
 
  []
 
-[9]
+[11]
 Package mdframed Info: mdframed works in twoside mode on input line 288.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2043,12 +2044,12 @@ Package mdframed Info: mdframed works in twoside mode on input line 314.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 314.
- [10]
+ [12]
 Package mdframed Info: mdframed works in twoside mode on input line 364.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 364.
- [11]
+ [13]
 Package mdframed Info: mdframed works in twoside mode on input line 409.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2057,7 +2058,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 457.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 457.
- [12]
+ [14]
 Underfull \hbox (badness 10000) in paragraph at lines 510--511
 
  []
@@ -2082,7 +2083,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
-[13]
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 580--581
 
  []
@@ -2092,7 +2093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 592--594
 
  []
 
-[14]
+[16]
 Package mdframed Info: mdframed works in twoside mode on input line 611.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
@@ -2102,7 +2103,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 652.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 652.
- [15]
+ [17]
 Underfull \hbox (badness 10000) in paragraph at lines 690--691
 
  []
@@ -2132,7 +2133,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 720--722
 
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) in paragraph at lines 753--754
 
  []
@@ -2147,7 +2148,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 758--759
 
  []
 
-[17]
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 804--805
 
  []
@@ -2209,7 +2210,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 836--838
 
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 861--863
 
  []
@@ -2234,12 +2235,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 886--892
 
  []
 
-[19]
+[21]
 Package mdframed Info: mdframed works in twoside mode on input line 895.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 895.
- <Pictures/wedAug31-1.jpg, id=344, 3035.34pt x 3035.34pt>
+ <Pictures/wedAug31-1.jpg, id=423, 3035.34pt x 3035.34pt>
 File: Pictures/wedAug31-1.jpg Graphic file (type jpg)
 
 <use Pictures/wedAug31-1.jpg>
@@ -2248,7 +2249,7 @@ Package pdftex.def Info: Pictures/wedAug31-1.jpg used on input line 904.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20 <./Pictures/wedAug31-1.jpg>]
+ [22 <./Pictures/wedAug31-1.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 933--935
 
  []
@@ -2258,12 +2259,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 933--935
 
  []
 
-[21]
+[23]
 Package mdframed Info: mdframed works in twoside mode on input line 1003.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1003.
- [22]
+ [24]
 Missing character: There is no p in font rsfs10!
 Missing character: There is no p in font rsfs10!
 Package mdframed Info: mdframed works in twoside mode on input line 1030.
@@ -2279,7 +2280,7 @@ Package mdframed Info: mdframed works in twoside mode on input line 1069.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1069.
-[23]
+[25]
 Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
 
  []
@@ -2302,7 +2303,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1120--1121
 
  []
 
-[24]
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 1183--1184
 
  []
@@ -2317,12 +2318,12 @@ Overfull \hbox (6.91803pt too wide) in paragraph at lines 1211--1211
 [] 
  []
 
-[25]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 1220--1221
 
  []
 
-[26] [27]
+[28] [29]
 Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
 
  []
@@ -2344,12 +2345,12 @@ T1/ztmcm/m/n/10.95 = (1[]\OML/ztmcm/m/it/10.95 Q[]X\OT1/ztmcm/m/n/10.95 ) [] =
  \OT1/ztmcm/m/n/10.95 = \OML/ztmcm/m/it/10.95 U[]^^Q[]
  []
 
-[28]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
 
  []
 
-[29]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 1471--1472
 
  []
@@ -2369,7 +2370,7 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 1517.
 Package mdframed Info: Not enough space on this page on input line 1538.
-[30]
+[32]
 Package mdframed Info: Not enough space on this page on input line 1538.
 
 
@@ -2399,7 +2400,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1580--1581
 
  []
 
-[31]
+[33]
 Underfull \hbox (badness 10000) in paragraph at lines 1593--1594
 
  []
@@ -2434,7 +2435,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1633--1634
 
  []
 
-[32]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 1655--1656
 
  []
@@ -2459,7 +2460,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1689--1690
 
  []
 
-[33]
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 1691--1692
 
  []
@@ -2489,7 +2490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1736--1741
 
  []
 
-[34]
+[36]
 Underfull \hbox (badness 10000) in paragraph at lines 1742--1743
 
  []
@@ -2519,7 +2520,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1790--1791
 
  []
 
-[35]
+[37]
 Overfull \hbox (46.28354pt too wide) in paragraph at lines 1809--1809
 [] 
  []
@@ -2538,7 +2539,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1845--1846
 
  []
 
-[36]
+[38]
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <6> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 1853.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <6> not available
@@ -2564,7 +2565,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1922--1924
 
  []
 
-[37]
+[39]
 Underfull \hbox (badness 10000) in paragraph at lines 1925--1926
 
  []
@@ -2574,9 +2575,9 @@ Package mdframed Info: mdframed detected package amsthm
  changed the theorem header of amsthm
 (mdframed)              on input line 1979.
 Package mdframed Info: Not enough space on this page on input line 1990.
-[38]
+[40]
 Package mdframed Info: Not enough space on this page on input line 1990.
- [39] [40
+ [41] [42
 
 ]
 Chapter 2.
@@ -2598,115 +2599,843 @@ Underfull \hbox (badness 10000) in paragraph at lines 2021--2022
 
  []
 
-[41] [42
+
+Underfull \hbox (badness 10000) in paragraph at lines 2031--2032
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2033--2034
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2039--2040
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2041--2042
+
+ []
+
+[43]
+Package mdframed Info: mdframed works in twoside mode on input line 2086.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2086.
+ [44]
+Underfull \hbox (badness 10000) in paragraph at lines 2129--2130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2142--2143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2146--2147
+
+ []
+
+[45]
+Package mdframed Info: mdframed works in twoside mode on input line 2154.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2154.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2186--2187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2201--2202
+
+ []
+
+[46]
+Package mdframed Info: mdframed works in twoside mode on input line 2249.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2249.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2258--2259
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2260.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2260.
+[47]
+Package mdframed Info: Not enough space on this page on input line 2264.
+Package mdframed Info: mdframed works in twoside mode on input line 2266.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2266.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2267--2268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2304--2305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2311--2312
+
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 2347--2348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2349--2350
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2351--2352
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2353--2354
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 2386--2387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2414--2415
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2420--2421
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2431--2432
+
+ []
+
+[50] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 2502--2503
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2504--2505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2521--2522
+
+ []
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 2549--2550
+
+ []
+
+[53] [54
 
 ]
 Chapter 3.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2052.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2562.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [43] [44
+
+Underfull \hbox (badness 10000) in paragraph at lines 2570--2571
+
+ []
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 2617--2618
+
+ []
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 2672--2673
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2679--2680
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2690--2691
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2705--2708
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2709--2710
+
+ []
+
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 2751--2752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2756--2757
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2759--2764
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2768--2769
+
+ []
+
+
+Underfull \vbox (badness 1221) has occurred while \output is active []
+
+ [58]
+Underfull \hbox (badness 10000) in paragraph at lines 2791--2792
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2793--2794
+
+ []
+
+[59] [60
 
 ]
 Chapter 4.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2097.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2834.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [45] [46
 
-]
+Underfull \hbox (badness 10000) in paragraph at lines 2839--2840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2842--2847
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2842--2847
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2855--2856
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2867--2868
+
+ []
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 2884--2885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2886--2887
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2888--2889
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2890--2891
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2911--2912
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2917--2918
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2919--2920
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2925--2926
+
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 2927--2928
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2933--2934
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2937--2938
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2951--2952
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2953--2954
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2978--2979
+
+ []
+
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 2998--2999
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3021--3022
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3023--3024
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3040--3041
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3042--3043
+
+ []
+
+[64] [65]
+Underfull \hbox (badness 10000) in paragraph at lines 3112--3114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3112--3114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3115--3116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3117--3118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3123--3124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3129--3130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3131--3132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3149--3151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3153--3154
+
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 3168--3169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3217--3221
+
+ []
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 3249--3251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3260--3261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3274--3275
+
+ []
+
+[68]
+Underfull \hbox (badness 10000) in paragraph at lines 3297--3298
+
+ []
+
+[69]
+Underfull \hbox (badness 10000) in paragraph at lines 3331--3332
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3336--3338
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3362--3363
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3368--3369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3374--3377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3378--3379
+
+ []
+
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 3380--3381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3382--3383
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3384--3385
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3386--3387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3397--3398
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3399--3400
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3401--3402
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3403--3404
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3408--3409
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3411--3412
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3417--3418
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3419--3420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3422--3423
+
+ []
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 3450--3453
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3460--3461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3463--3464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3493--3494
+
+ []
+
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 3500--3501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3518--3519
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3520--3522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3520--3522
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3523--3524
+
+ []
+
+
+Overfull \hbox (37.29008pt too wide) detected at line 3525
+[] []\OT1/ztmcm/m/n/10.95 (\OMS/ztmcm/m/n/10.95 f[] ^^@ [] ^^@ [] \OT1/ztmcm/m/
+n/10.95 + []) \OMS/ztmcm/m/n/10.95 ^^F [][][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3531--3533
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3531--3533
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3536--3537
+
+ []
+
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 3555--3556
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3567--3568
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3575.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3575.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3595--3596
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3606--3607
+
+ []
+
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 3613--3614
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3655--3663
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3669--3670
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3672--3673
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3675--3676
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3678--3679
+
+ []
+
+[75]
+Overfull \hbox (154.74857pt too wide) detected at line 3712
+\OML/ztmcm/m/it/10.95 P[]a \OT1/ztmcm/m/n/10.95 = \OMS/ztmcm/m/n/10.95 f\OML/zt
+mcm/m/it/10.95 a[] \OMS/ztmcm/m/n/10.95 ^^@ [] ^^@ \OT1/ztmcm/m/n/10.95 ([] \OM
+S/ztmcm/m/n/10.95 ^^@ []\OT1/ztmcm/m/n/10.95 ) \OMS/ztmcm/m/n/10.95 ^^@ \OT1/zt
+mcm/m/n/10.95 ([] \OMS/ztmcm/m/n/10.95 ^^@ []\OT1/ztmcm/m/n/10.95 ) \OMS/ztmcm/
+m/n/10.95 ^^@ \OT1/ztmcm/m/n/10.95 ([] \OMS/ztmcm/m/n/10.95 ^^@ []\OT1/ztmcm/m/
+n/10.95 ) : \OML/ztmcm/m/it/10.95 i \OT1/ztmcm/m/n/10.95 = 1\OML/ztmcm/m/it/10.
+95 ; [] ; m\OT1/ztmcm/m/n/10.95 ; \OML/ztmcm/m/it/10.95 j \OT1/ztmcm/m/n/10.95 
+= 1\OML/ztmcm/m/it/10.95 ; [] ; m\OMS/ztmcm/m/n/10.95 g \OT1/ztmcm/m/n/10.95 = 
+\OMS/ztmcm/m/n/10.95 f\OML/ztmcm/m/it/10.95 a[] \OMS/ztmcm/m/n/10.95 ^^@ [] ^^@
+ [] ^^@ [] \OT1/ztmcm/m/n/10.95 + 2[] : \OML/ztmcm/m/it/10.95 i \OT1/ztmcm/m/n/
+10.95 = 1\OML/ztmcm/m/it/10.95 ; [] ; m\OT1/ztmcm/m/n/10.95 ; \OML/ztmcm/m/it/1
+0.95 j \OT1/ztmcm/m/n/10.95 = 1\OML/ztmcm/m/it/10.95 ; [] ; m\OMS/ztmcm/m/n/10.
+95 g
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3718--3719
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3720--3721
+
+ []
+
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 3737--3738
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3739--3743
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3747--3748
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3749--3753
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3754--3755
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3765--3766
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3784--3785
+
+ []
+
+[77]
+Underfull \hbox (badness 10000) in paragraph at lines 3789--3790
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3796--3797
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3802--3803
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3813--3814
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3817--3819
+
+ []
+
+[78]
 Chapter 5.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2112.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3868.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [47] [48
+ [79
 
-] (./551notes.ptc) [49] [50]
+] [80
+
+]
 Chapter 6.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2130.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3883.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [51
+ [81] [82
 
-] [52
-
-]
+] (./551notes.ptc) [83] [84]
 Chapter 7.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2141.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3901.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [53] [54
+ [85
+
+] [86
 
 ]
 Chapter 8.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2151.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3912.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [55] [56
+ [87] [88
 
 ]
 Chapter 9.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2165.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3922.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [57] [58
+ [89] [90
 
 ]
 Chapter 10.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2175.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3936.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [59] [60
+ [91] [92
 
 ]
 Chapter 11.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2185.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3946.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [61] [62
+ [93] [94
 
 ]
 Chapter 12.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2195.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3956.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [63] [64
+ [95] [96
 
-] (./551notes.ptc) [65] [66]
+]
 Chapter 13.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2212.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3966.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [67
+ [97] [98
 
-] [68
-
-]
+] (./551notes.ptc) [99] [100]
 Chapter 14.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2222.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3983.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [69] [70
+ [101
+
+] [102
 
 ]
 Chapter 15.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 2232.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3993.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [71] [72
+ [103] [104
+
+]
+Chapter 16.
+File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
+<use Pictures/chapter_head_1.pdf>
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 4003.
+(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
+ [105] [106
 
 ] (./551notes.ind
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
@@ -2714,28 +3443,32 @@ File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
 Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [73
 
+Overfull \hbox (3.40504pt too wide) in paragraph at lines 52--53
+[]\T1/ptm/m/n/10.95 (-20) Non-additive 2-way ANOVA (with In-ter-ac-tions),
+ []
+
+[107
 
 ])
 \tf@ptc=\write8
 \openout8 = `551notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2262.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2262.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4033.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4033.
  (./551notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2262.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2262.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4033.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4033.
 Package logreq Info: Writing requests to '551notes.run.xml'.
 \openout1 = `551notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34791 strings out of 493013
- 643379 string characters out of 6133343
- 1173035 words of memory out of 5000000
- 37373 multiletter control sequences out of 15000+600000
- 154798 words of font info for 333 fonts, out of 8000000 for 9000
+ 34907 strings out of 493013
+ 644552 string characters out of 6133343
+ 1173267 words of memory out of 5000000
+ 37399 multiletter control sequences out of 15000+600000
+ 155448 words of font info for 343 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,16n,57p,10511b,2575s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
@@ -2755,10 +3488,10 @@ fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 551notes.pdf (73 pages, 1623125 bytes).
+Output written on 551notes.pdf (107 pages, 1712935 bytes).
 PDF statistics:
- 921 PDF objects out of 1000 (max. 8388607)
- 723 compressed objects within 8 object streams
- 195 named destinations out of 1000 (max. 500000)
- 71577 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1232 PDF objects out of 1440 (max. 8388607)
+ 970 compressed objects within 10 object streams
+ 270 named destinations out of 1000 (max. 500000)
+ 71689 words of extra memory for PDF output out of 74296 (max. 10000000)
 

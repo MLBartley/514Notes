@@ -1558,7 +1558,7 @@ $$ F = \frac{SSR/p}{SSE/(n-p-1)} = \frac{(n-p-1)}{p} \frac{SSR}{SSE} $$
 
 $$ \frac{SSR}{SSE} = \frac{p}{(n-p-1)} F$$
 
-$$R^2 = \frac{\alpha F}{\alpha F - 1}$$
+$$R^2 = \frac{\alpha F}{\alpha F + 1}$$
 where $\alpha = \frac{p}{n-p-1}$
 
 This is how we compute the null distribution of $R^2$. \\
@@ -2026,21 +2026,531 @@ $$y = \mu X + \epsilon = X\beta + \epsilon $$
 
 the same as before. (because $\mu \in \mathcal{S}, \text{span}(x) = \mathcal{S} \Rightarrow \mu = X\beta for some \beta$)
 
-The MLE can be derived in a similar way.  
+The MLE can be derived in a similar way. 
+
+\textbf{Wednesday September 21}\\
+
+\textit{MLE for $\mu$}\\
+
+Likelihood:
+
+	$$\frac{1}{(2\pi)^{\frac{n}{2}}[det(\sigma^2 I_N)]^{\frac{N}{2}}} e^{2 \frac{1}{2\sigma^2}||y - \mu||^2} $$ 
+
+	maximiaze this over $\mu \in \mathcal{S}, \sigma^2 > 0$.\\
+
+	First we maximize over $\mu \in \mathcal{S}$ equivalent to minimizing $||y - \mu||^2$.\\
+
+	\begin{align*}
+		||y - \mu||^2 &= ||y - P_\mathcal{S}y + P_\mathcal{S}y - \mu||^2\\
+			&= ||y - P_\mathcal{S}y||^2 - 2<y - P_\mathcal{S}y, P_\mathcal{S}y - \mu> + ||P_\mathcal{S}y - \mu ||^2\\
+			&= \dots 2<y - P_\mathcal{S}y, P_\mathcal{S}y - \mu> = 0\\
+			&= ||y - P_\mathcal{S}y||^2 + ||P_\mathcal{S}y - \mu ||^2\\
+			&\Rightarrow \hat{mu} = P_\mathcal{S}y
+	\end{align*}
+
+By the argument exactly like the coordinate case, we can show that 
+
+$$\hat{\sigma}^2_{MLE} = \frac{y^TQ_\mathcal{S}y}{N}$$
+
+Because 
+
+$$ \frac{Q_\mathcal{S}y}{\sigma^2} \sim N(0, Q_\mathcal{S}) $$
+
+we know that 
+
+$$\frac{y^TQ_\mathcal{S}y}{\sigma^2} \sim \chi^2_{N-p} $$
+
+$$E(\frac{y^TQ_\mathcal{S}y}{\sigma^2}) = N-p $$
+
+So, an unbiased estimator for $\sigma^2$ would be 
+
+$$\hat{\sigma}^2 = \frac{y^TQ_\mathcal{S}y}{N-p} $$
+
+and an unbiased estimator for $\mu$ is
+
+$$ E(\hat{\mu}) = P_\mathcal{S}\mu = \mu$$
+
+What is the compelte and sufficient statistic? We may use results from exponential family. 
+
+\begin{align*}
+	\exp(\theta_1 t_1 + \theta_t 2_2)\\
+	\exp(-\frac{1}{2} ||y - \mu ||^2)= \exp(-\frac{1}{2\sigma^2}(||P_\mathcal{S}y ||^2 + || Q_{\mathcal{S}}y||^2) + \frac{1}{2\sigma^2} <P_\mathcal{S}y, \mu>) 
+\end{align*}
+
+So, complete and sufficient statistic wouldbe be
+
+$$(||P_\mathcal{S}y ||^2 + || Q_{\mathcal{S}}y||^2,P_\mathcal{S}y )  \leftrightarrow (|| Q_{\mathcal{S}}y||^2,P_\mathcal{S}y) $$
+
+By Lehmann-Scheffe,
+
+\begin{theorem}
+	Under $y \sim N(\mu, \sigma^2 I_n), \mu \in \mathcal{S}$ we have
+	\begin{enumerate}
+		\item $\hat{\mu} \indep \hat{\sigma}^2, \hat{\mu} \sim N(\mu, \sigma^2 P_\mathcal{S}), (N-p)\hat{\sigma}^2 \sim \sigma^2 \chi^2_{N-p} $
+		\item $(\hat{\mu}, \tilde{\sigma}^2)$ is UMVUE 
+	\end{enumerate}
+\end{theorem}
+
+\section{Hypothesis Testing}\index{Hypothesis Testing}
+
+$y \sim N(\mu, \sigma^2 I_N), \mu \in \mathcal{S}$
+
+Consider, 
+
+$$\mathcal{S}^\prime \leq \mathcal{S} \leq \mathbb{R}^N$$
+
+
+$$dim(\mathcal{S}^\prime) = k, dim(\mathcal{S}) = p, \quad k \leq p $$
+
+
+We have 
+
+$$ \mathbb{R}^n \ominus \mathcal{S}^\prime = (\mathbb{R}^N \ominus \mathcal{S}) \oplus (\mathcal{S \ominus \mathcal{S}^\prime}) $$
+
+So,  
+
+$$||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime}y ||^2 = || P_{\mathcal{S} \ominus \mathcal{S}}y||^2 + ||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime}y ||^2 $$
+
+Want to get, 
+
+$$H_0: \mu \in \mathcal{S}^\prime $$
+
+So 
+
+\begin{align*}
+	\mu \in \mathcal{S}^\prime &\Leftrightarrow ||P_{\mathcal{S} \ominus \mathcal{S}}\mu || = 0\\
+		&\Leftrightarrow ||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y || \text{ is small}\\
+\end{align*}
+
+Thus we can use,
+
+$$\frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y ||^2 / (p - k)}{||P_{\mathbb{R}^N \ominus \mathcal{S}}y ||^2 / (N-p)} \sim F_{p-k, N-p} $$
+
+Both Lack of Fit and explicit intercept can be written in gerneral linear model.\\
+
+In Lack of Fit, 
+
+$$\mathcal{S} = \text{span}(1_{m_1} \oplus \dots \oplus  1_{m_n}) $$ 
+
+$$\mathcal{S}^\prime = \text{span}((1_{m_1} \oplus \dots \oplus  1_{m_n}) x) $$
+
+In Explicit Intercept, 
+
+$$\mathcal{S} = \text{span}(1_{m_1} \vdots X) $$
+$$\mathcal{S}^\prime = \text{span}((1_{n}) $$
+
+\textbf{Alternative Distribution}\\
+
+When $H_0$ is not true it means that $\mu \notin \mathcal{S}^\prime$. Then we know that $|| P_{\mathcal{S} \ominus \mathcal{S}^\prime}y||^2$ is not small. In fact, 
+
+$E(P_{\mathcal{S} \ominus \mathcal{S}^\prime}y) = P_{\mathcal{S} \ominus \mathcal{S}^]prime}\mu \neq 0$\\
+
+$Var(P_{\mathcal{S} \ominus \mathcal{S}^\prime}y) = \sigma^2 P_{\mathcal{S} \ominus \mathcal{S}^\prime}$
+
+$$P_{\mathcal{S} \ominus \mathcal{S}^\prime}y \sim N(P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu, \sigma^2 P_{\mathcal{S} \ominus \mathcal{S}^\prime}) $$
+
+$$||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y ||^2 \sim \chi^2_{p-k} (||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y ||^2)$$
+
+\begin{definition}
+	If 
+	$$X \sim \chi^2_{r_1}(s) $$
+
+	$$Y \sim \chi^2_{r_2} $$ 
+	
+	$$X \indep Y $$
+
+
+	then, 
+
+	$$ \frac{X/r_1}{Y_{r_2}} \sim F_{r_1, r_2} (s) $$
+\end{definition}
+
+
+We still have that
+
+$$\mathcal{S} \ominus \mathcal{S}^\prime \perp \mathbb{R}^N \ominus \mathcal{S} $$
+
+$$Cov( P_{\mathcal{S} \ominus \mathcal{S}^\prime}y, P_{\mathbb{R}^N \ominus \mathcal{S}}y) = 0 $$
+
+$$P_{\mathcal{S} \ominus \mathcal{S}^\prime}y \indep P_{\mathbb{R}^N \ominus \mathcal{S}}y $$
+
+These are still true even though $\mu \notin \mathcal{S}^\prime$. Why? Because $\mu \in \mathcal{S}$.
+
+$$||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y||^2 \indep ||P_{\mathbb{R}^N \ominus \mathcal{S}}y ||^2  $$
+
+so to compute power:
+
+$$\frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y ||^2 \ (p-k)}{|| P_{\mathbb{R}^n \ominus \mathcal{S}}y||^2 / (N-p)} \sim F_{p-k, N-p (||P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu ||^2)} $$
+
+
+\textbf{Friday September 23}\\
+
+\section{Scheffe's Simutaneous Confidence Intervals}\index{Scheffe's Simutaneous Confidence Intervals}
+
+It's conceptually easy to construct individuals C.I.
+
+$$P_\theta (\theta \in C(X)) = 1 - \alpha $$
+
+We want to construct C.I. for several infinite sets of parameters. Then the width of the cofidence interval has to be adjusted (wider). 
+
+\begin{enumerate}
+	\item Boneroni adjustment
+	\item Sheffe's approach
+\end{enumerate}
+
+\textbf{Simultaneous C.I.}\\
+
+Say we have a set of parameters. 
+
+		$$\{\theta_\lambda : \lambda \in \Lambda \} $$
+
+Simultaneous C.I. for $\{\theta_\lambda : \lambda \in \Lambda \} $ is a family of subsets of $\Theta$ (the parameter space).
+
+		$$\{C_\lambda(x) \subset \Theta : \lambda \in \Lambda \} $$ 
+
+Where $C_\lambda(x)$ is a set in $\Theta$ depending only on x, that is it's a statistic.
+
+		$$x \rightarrow 2^\Theta $$
+
+This collection is called \textbf{Simultaneous Confidence Region} if 
+
+		$$P(C_\lambda(x) \text{ covers } \theta_\lambda \forall \lambda \in \Lambda) = 1 - \alpha $$
 
 
 
+In general linear model where,
+
+		$$y = \mu + \epsilon, \quad \mu \in \mathcal{S} $$
+
+		$$\mathcal{S}^\prime \leq \mathcal{S} $$
+
+		$$\mathcal{S} \leq \mathbb{R}^N $$
+
+		$$\epsilon \sim N(0, \sigma^2 I_N)$$
+
+we are interested in constructing S.C.I. for
+
+		$$\{C^T P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu: C \in \mathbb{R}^N \}$$
+
+That is we want, 
+
+		$$C_c(X): c \in \mathbb{R}^N$$
+
+such that
+
+		$$P(C^T P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu \in C_c(X) \forall c \in \mathbb{R}^N ) = 1 - \alpha$$
+
+or equivalently, 
+
+		$$P(d^T \mu \in C_d(X) \forall dc \subset \mathcal{S} \ominus \mathcal{S}^\prime ) = 1 - \alpha$$
+
+Here, d has a special name.
+
+\begin{definition}[Contrast]
+	Suppose $\mathcal{S} \leq \mathcal{S} \leq \mathbb{R}^N$.  A \textbf{contrast} for hypothesis, 
+
+		$$H_0: \mu \in \mathcal{S}^\prime$$
+		$$H_1: \mu \in \mathcal{S} \ominus \mathcal{S}^\prime $$
+
+	is $d^T\mu$ where $d \in \mathcal{S} \ominus \mathcal{S}^\prime $. 
+\end{definition}
+
+\textbf{Pivital Quantity}\\
+
+\begin{definition}[Pivotal Quantity]
+	$$X \sim P_\theta$$
+
+	A \textbf{pivotal quantity} is a funciton $T(X, \theta)$ such that it's distribution under $P_\theta$ is independent of $\theta$. It's almost like an ancillary statistics, except it contains the parameter $\theta$. 
+\end{definition}
+
+\begin{theorem}
+	Suppose $y \sim N(\mu, \sigma^2 I_N)$ and that $\mu \in \mathcal{S}$.\\
+
+	 Let 
+
+		$$\delta = P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu$$
+
+	Let 
+		$$F(\delta) = \frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y - \delta ||^2}{(p-k) \tilde{\sigma}^2}$$
+
+		where $p = \text{dim}(\mathcal{S})$ and $k = \text{dim}(\mathcal{S}^\prime)$
+
+	Then,
+
+		$$F(\delta) \sim F_{p-k, N-p} $$
+\end{theorem}
+
+This implies that $F(\delta)$ is a pivotal quantity because its distribution doesn't depend on $\delta$.
+
+\begin{proof}
+	We have
+		$$P_{\mathcal{S} \ominus \mathcal{S}^\prime}y - \delta  = P_{\mathcal{S} \ominus \mathcal{S}^\prime}y - P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu$$
+
+		$$P_{\mathcal{S} \ominus \mathcal{S}^\prime}(y - \mu) \sim N(0, P_{\mathcal{S} \ominus \mathcal{S}^\prime})$$
+
+	So, 
+		$$||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y - \delta ||^2 \sim \chi^2_{p-k}$$
+
+	But we also know that 
+		$$P_{\mathbb{R}^N \ominus \mathcal{S}} y \indep P_{\mathcal{S} \ominus \mathcal{S}^\prime}y  $$
+
+	Recall, 
+
+		$$||P_{\mathbb{R}^N \ominus \mathcal{S}}y||^2 \sim \sigma^2 \chi^2_{N-p} $$
+
+	Take the ratio and use the definition of $\hat{\sigma}^2$ to complete the Theorem.
+\end{proof}
+
+\textbf{Equivalence Between Confidence Region and Hypothesis Test}\\
+
+Consider the hypothesis test, 
+
+		$$H_0: \{\theta\} $$
+		$$H_1: \{\theta\}^C$$
+
+at level $\alpha$. \\
 
 
-% %------------------------------------------------
+A accpetance region is any subset $A_\theta \subseteq \mathcal{X}$ (the sample space) so that
 
-% \section{Vocabulary}\index{Vocabulary}
+		$$P_\theta(X \in A(\theta)) = 1 - \alpha $$
+
+A acceptance region is a mapping from the parameter space to a subset of x. 
+
+		$$\Theta \rightarrow 2^{\mathcal{X}}, \theta \mapsto A(\theta)$$
+
+On the other hand, for each $x \in \mathcal{X}$ let
+
+		$$C(x) = \{\theta: H_0 \text{ is accepted.} \} $$
+		$$C(x) = \{\theta: x \in A(\theta) \} $$
+
+By this definition, 
+
+		$$P_\theta(\theta \in C(x)) = P_\theta \left(x \in A(\theta)\right) = 1-\alpha$$
+
+As an illustration of this equivalence, let's construct a Confidene Region for $P_{\mathcal{S} \ominus \mathcal{S}^\prime} \mu$.
+
+		$$H_0: P_{\mathcal{S} \ominus \mathcal{S}^\prime} \mu = \delta $$
+		$$H_1: P_{\mathcal{S} \ominus \mathcal{S}^\prime} \mu \neq \delta $$
+
+Suppose we use the acceptance rule. 
+
+		$$F(\delta) < F_{p-k, N-p}(1-\alpha) $$
+
+Then the $(1-\alpha)x 100\%$ Confidence Region for $\delta$ is
+
+		$$\{\delta: F(\delta) < F_{p-k, N-p}(1-\alpha) \} $$
+
+we can evaluate if $\theta$ in the set by computing this above criteria. 
 
 
+\textbf{Monday September 26}\\
+
+SCI for contrasts.\\
+
+We are interested $C_d(x): d \in \mathbb{R}^N$ such that $P(d^T \mu \in C_d(X_, d \in \mathcal{S} \ominus \mathcal{S}^\prime)$.\\
+
+It turns out we can only do this because we can use Cauchy-Schwarz Inequality for a uniform bound.\\
+
+As before, $\hat{\delta} = P_{\mathcal{S} \ominus \mathcal{S}^\prime} y, \delta = P_{\mathcal{S} \ominus \mathcal{S}^\prime}\mu$. By CS$\neq$,
+
+	$$|d^T(\hat{\delta} - \delta)^2 \leq ||d||^2 - || \hat{\delta} - \delta ||^2 $$
+
+But we know (from last lecture) that
+
+		$$||\hat{\delta} - \delta||^2 \sim \sigma^2 \chi^2_{p-q} $$
 
 
+		$$\frac{||P_{\mathbb{R}^N \ominus \mathcal{S}}y||^2}{\sigma^2} \sim \chi^2_{N-p} $$
+
+and also that they are independent. 
+
+		$$\hat{\sigma}^2 = \frac{||P_{\mathbb{R}^N \ominus \mathcal{S}}y||^2}{N-p} $$
+
+		$$\frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime}y - \delta||^2}{\sigma^2 (p-q)} \sim F_{p-q, N-p} $$
+
+		$$P\left(||\hat{\delta} - \delta||^2 \leq \hat{\sigma}^2 (p-q) F_{p-q, N-p} (1-\alpha) \right) = 1 - \alpha $$
+
+	Using CS$\neq$,
+
+		$$P \left(\frac{d^T(\hat{\delta} - \delta)^2}{||d||^2} \leq \hat{\sigma}^2 (p-q) F_{p-q, N-p} (1-\alpha) \right) \geq 1-\alpha $$
+
+		$$\Leftrightarrow P(d^t \delta \in d^T \hat{\sigma}^2 \pm || d|| \hat{\sigma} \sqrt{ (p-q) F_{p-q, N-p} (1-\alpha)}) \geq 1 - \alpha$$
+
+In geometric terms, 
+
+	$$d^t P_{\mathcal{S} \ominus \mathcal{S}^\prime}y \pm || d|| ||P_{\mathbb{R}^N \ominus \mathcal{S}}y || \sqrt{\frac{dim \mathcal{S} - dim \mathcal{S}^\prime}{N - \mathcal{S} }F_{dim \mathcal{S} - dim \mathcal{S}^\prime, N - \mathcal{S}} (1-\alpha)}   (***)$$
+
+\section{Coordinate Version of SCI}\index{Coordinate Version of SCI}
+
+Instead of $y \sim N(\mu, \sigma^2 I_n), \mu \in \mathcal{S}$, we can se that $y = X\beta + \epsilon, \epsilon \sim N(0, \sigma^2, I_n)$.\\
+
+Typically we want to construct simultaneous SC for $\beta_1, \dots, \beta_p$, that is,
+
+	$$P(\beta_1 \in C_1(x), \dots, \beta_p \in C_p(x)) \geq 1- \alpha $$
+
+	
+
+If we can construct SCI function forall $S^T\beta, S \in \mathbb{R}^p$ then we can solve the problem beacuse, 
+	
+		$$S = \begin{pmatrix}
+			1\\
+			0\\
+			\vdots\\
+			0
+		\end{pmatrix} , \dots, \begin{pmatrix}
+			0\\
+			0\\
+			\vdots\\
+			1
+		\end{pmatrix}$$
+
+	More genrally, we may want to construct SCI for $\beta_1, \dots \beta_q$
+ for some q less than p. In this case we need SCI in the form 
+
+ 	$$\left\{S^T (I_q \vdots 0) \beta: S\in \mathbb{R}^q
+ 	 \right\} (**) $$
+
+ 	 instead of $S^T \beta$.\\
+
+ 	 So we construct general SCI, 
+
+ 	 	$$S^T A^T \beta $$
+
+ 	 where $A \in \mathbb{R}^{pxq}$. This would accommodate both (*), (**). This can be cast into the gerneral SCI, then (***). Need $\mathcal{S}^\prime, \mathcal{S}, \mathbb{R}^N$.\\
+
+ 	 Consider $H_0: A^T \beta = 0 \Leftrightarrow A^T (X^T X)^{-1} X^T \mu = 0 \Leftrightarrow C^T \mu = 0 \Leftrightarrow \mu \in span(x) \ominus span(C)$.
+
+ 	 So 
+ 	 	$$\mathcal{S}^\prime = span(x) \ominus span(C) $$
+
+ 	 	$$\mathcal{S} = span(x)$$
+
+ 	 	$$\mathcal{S} \ominus \mathcal{S}^\prime = span(C) $$
+
+ 	 We are now testing $H_0: \mu \in \mathcal{S}^\prime$ against $H_1: \mu \in \mathcal{S}$.\\
+
+ 	 Compute specific experessions in (***) (general SCI form), 
+
+ 	 		$$P_{\mathcal{S} \ominus \mathcal{S}^\prime}y = P_{span(C)y} = P_C y  $$
+
+ 	 		$$= C(C^TC)^{-1}C^T y $$
+
+ 	 		$$= X(X^TX)^{-1}A [A^T (X^T X)^{-1} A ] A^T (X^T X)^{-1} X^T y $$
+
+ 	 		$$d \in \mathcal{S} \ominus \mathcal{S}^\prime = span(c) = Cs = X(X^TX)^{-1}As$$
 
 
+ 	 		$$d^T P_{\mathcal{S} \ominus \mathcal{S}^\prime} y = d^t P_C y = S^Ta^T(X^TX)^{-1}X^T  = S^T A^T (X^T X)^{-1} X^T y = S^T A^T \hat{\beta}$$ 
+
+Recall that, 
+ 	 		$$dim(\mathcal{S}) = p, dim(\mathcal{S}^\prime) = p-q $$
+
+ 	so plug everything into (***) to get, $(1 - \alpha)$-level SCI (conservaative: Prob $\geq (1 - \alpha)$), 
+
+ 			$$S^T A^T \hat{B} \pm ||X(X^T X)^{-1} A s || \hat{\sigma} \sqrt{q F_{q, N-p} (1 - \alpha)} $$
+
+
+ 	To summarize, the whole procedure, suppose we wanted to construct SCI for $\beta_1, \dots, \beta_p$ or $\beta_1, \dots, \beta_q$ or $\beta_1 - \beta_2, \beta_2 - \beta_3 \dots, $.
+
+ 	Then, we let A be a matrix such that span(A) encloses (minimally) the above ranges of $\beta$s, so that  
+
+ 			$$\beta_j \text{ or } \beta_1 - \beta_2 = S^T A^T \beta $$
+
+ 	For example for $\beta_1, \dots, \beta_p$, 
+
+ 		$$A = I_p $$
+
+ 		$$A^T = (I_q \vdots 0)$$ 
+
+
+ 	For $\beta_1 - \beta_2, \beta_2 - \beta_3, \dots$, 
+
+ 		$$ A = \begin{pmatrix}
+ 			1 & 0 \\
+ 			-1 & 1 \\
+ 			0 & -1 \\
+ 			\vdots & 0 \\
+ 			0 & \vdots \\
+ 			0 & 0
+ 		\end{pmatrix} $$
+
+
+ The idea of Scheffe SCI is to enlarge the set to linear space. That is, even though you only want 
+
+ 		$$e_1^T \beta, \dots, e_q^T \beta $$ 
+
+ 		$$e_i = \begin{pmatrix}
+ 			0\\
+ 			\vdots \\
+ 			0 \\
+ 			1 \\
+ 			0 \\
+ 			\vdots\\
+ 			0
+
+ 		\end{pmatrix}$$
+
+ 	you still contruct sCI for more parameters than you want. 
+
+ 		$$\{s^T (I_q \vdots 0) \beta: A \in \mathcal{R}^q \} $$
+
+
+The disadvantage is that for smaller number of contrasts, this tends to be conservative. Here, you may use Bonferroni's Method. The advantage is that the width is fixed regardless of number of contrasts, as long as they are the same subspace. 
+
+
+\textbf{Wednesday September 28}\\
+
+Last time, we covered Scheffe's SCI; one feature is that SCI for infinitely many linear combination. If you just want to SCI for a few linear combinations then conservative apprach is needed. In this case, Bonferoni SCI is prefereed, but Bonferroni SCI gets wider and wider as the number of parameters inceases. So Scheffe's is preferred for large number of parameters. \\
+
+
+\section{Bonferroni's SCI}\index{Bonferroni's SCI}
+
+Suppose we want to SCI for $\theta_1, \dots, \theta_k$ (that is we want $C_1 (X), \dots, C_k(X)$) such that 
+
+	$$P(\theta_1 \in C_1(X), \dots, \theta_k \in C_k(X) ) \geq 1 - \alpha $$
+
+Let 
+
+% GET FROM PHOTO
+
+So if you let $P(A_i) = 1 - \frac{\alpha}{k}$ then 
+
+	$$P ( \bigcap^n_{i=1} A_i) \geq 1 - k(1 - (1 - \frac{\alpha}{k})) = 1 - \alpha $$
+
+So the $(1-\alpha)$- level SCI is simply $(1 - \frac{\alpha}{k})$-level ICI. (Recall, S - Simultanerous, I - Individual).\\
+
+As $k \rightarrow 0$, $1 - \frac{\alpha}{k} \rightarrow 1$  (which is disadvantageous for large k). Specialize to linear regression, where we want Bonferroni SCI for $\alpha_1^T\beta, \dots, \alpha_q^T\beta$ where $\beta$ is as in, 
+		
+		$$y = X\beta - \epsilon $$
+
+and 
+
+	$$\alpha_1, \dots, \alpha_q \in \mathbb{R}^p$$
+
+We know that 
+
+	$$\hat{\beta} \sim N(\beta, \sigma^2 (X^TX)^{-1}) $$
+
+and
+
+	$$ (N-p) \hat{\sigma}^2 \sim \sigma^2 \chi^2_{N-p}$$
+
+where note we are using the biased $\hat{\sigma}^2$. Finally we have
+
+		$$\frac{(N-p)\hat{\sigma}^2}{\sigma^2} \sim \chi^2_{N-p} \quad (*)$$
+
+Ultimately, with the $\alpha$ we obtain, 
+
+		$$\alpha_k^t \hat{\beta} \sim N(\alpha_k \beta, \sigma^2 \alpha_k^T(X^TX)^{-1}\alpha_k)  $$
+
+		$$\frac{\alpha_k^T \hat{\beta} - \alpha_k^T \beta}{\sigma \sqrt{\alpha_k^T(X^TX)^{-1}\alpha_k}} \sim N(0,1) \quad (**)$$
+
+Note that (*) and (**) are independent. \\
+
+Studentize: 
+
+% FINISH NOTES FROM PHOTO
 
 
 %----------------------------------------------------------------------------------------
@@ -2049,19 +2559,1322 @@ The MLE can be derived in a similar way.
 
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
+\chapter{One-Way ANOVA}
+
+\section{ANOVA Model and Test Statistic}\index{ANOVA Model and Test Statistic}
+
+This is a special case of general linear model. 
+
+	$$y_{ij} \sim N(\mu_i, \sigma^2) \quad j = 1, \dots, n_i,  $$
+
+All $y_{ij}$ are independent. \\
+
+In matrix form we get,
+
+		$$Y = \begin{pmatrix}
+			Y_{11} \\
+			\vdots \\
+			Y_{1 n_i}\\
+			\vdots \\
+			\vdots\\ 
+			Y_{p1}\\
+			\vdots\\
+			Y_{p n_i}\\
+		\end{pmatrix}  \sim N \left( \begin{pmatrix}
+			\mu_1\\
+			\vdots\\
+			\mu_1\\
+			\vdots\\
+			\vdots\\
+			\mu_p \\
+			\vdots\\
+			\mu_p\\
+		\end{pmatrix}, \sigma^2 I_n \right) $$
+
+
+		$$\mu = \begin{pmatrix}	
+			1_{n_1} & \dots & 0 \\
+			0 & \ddots &  0 \\
+			0 & \dots & 1_{n_p}\\
+		\end{pmatrix}	\begin{pmatrix}
+			\\mu_1\\
+			\vdots\\
+			\mu_p\\
+		\end{pmatrix} $$
+
+	In this case, 
+
+		$$Y \sim N(\mu, \sigma^2 I), \mu \in \mathcal{S}$$
+
+		$$\mathcal{S} = \text{span}\begin{pmatrix}
+			1_{n_1} & \dots & 0 \\
+			0 & \ddots &  0 \\
+			0 & \dots & 1_{n_p}\\
+		\end{pmatrix} $$
+
+		Because, $\mu$ is defined as above. 
+
+So we have a special case of General linear model. \\
+
+Once you know this form, we know everything: decomposition of Sum of Squares, F-Statistics, Scheffe's, Bonferroni's, etc. We just need to speicalize the formulae using a specific model. The same general principle applies to all the linear models yet to come. Here, we want to test
+
+		$$H_0: \mu_1 = \dots = \mu_p $$
+or
+		$$H_0: \mu = \begin{pmatrix}
+			\mu_1\\
+			\mu_1
+			\vdots\\
+			\mu_1\\
+		\end{pmatrix}  $$
+
+
+		$$\mathcal{S}^\prime = \text{span}(1_N) $$
+
+
+So our hypotheses are now 
+
+		$$H_0: \mu \in \mathcal{S}^\prime$$
+		$$H_1: \mu in \mathcal{S} $$
+
+
+F-Statistic
+
+		$$F = \frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y||^2 / \text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime)}{||P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 / \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} \sim F_{\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime), \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} $$
+
+Here we'd reject if
+
+		$$F > F_{\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime), \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} (1 - \alpha) $$
+
+
+In one-way ANOVA we have some special names. 
+
+		$$ ||P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y||^2 \leftarrow \text{SSH}$$
+
+		$$ \text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime) = p - 1 $$
+
+		$$||P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 \leftarrow \text{SSE} $$
+
+		$$ \text{dim}(\mathbb{R}^N \ominus \mathcal{S}) = N-P $$
+
+		$$\frac{SSH}{p-1} = MSH, \frac{SSE}{N-p} = MSE $$
+
+		$$ F = \frac{MSH}{MSE}$$
+
+Due to the simple structure of $X = \begin{pmatrix}
+	1_{n_1} & \dots & 0 \\
+			0 & \ddots &  0 \\
+			0 & \dots & 1_{n_p}\\
+\end{pmatrix}$ we can see (in HW) that SSH and SSE have special forms. 
+
+
+ $$SSH = \displaystyle \sum^P_{i =1} n_i (\bar{Y}_{i\cdot} - \bar{Y}_{\cdot\cdot})^2$$
+
+ where $\bar{Y}_{i \cdot} = \frac{1}{n_i} \displaystyle \sum^{n_i}_{j=1} Y_{ij}$ and $\bar{Y}_{\cdot \cdot} ^2= \frac{1}{N} \displaystyle \sum^P_{i = 1} \sum^{n_i}_{j=1} Y_{ij}$. \\
+
+ 		$$SSE =  \displaystyle \sum^P_{i = 1} \sum^{n_i}_{j=1} (Y_{ij} - \bar{Y}_{\cdot \cdot})^2$$
+
+ 		$$SST = ||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime} Y ||^2  $$
+
+ 	
+\textbf{Friday September 30}\\
+
+\section{Scheffe's SCI}\index{Scheffe's SCI}
+
+
+In this case recall, 
+
+		$$\mathcal{S} = \text{span}\{1_{n_1} \oplus \dots \oplus 1_{n_p} \}$$
+
+		$$\mathcal{S}^\prime = \text{span}\{1_N \} $$
+
+The general form from Scheffe's for GLH (General Linear Hypothesis).\\
+
+		$$H_0: \mu \in \mathcal{S}^\prime $$
+		$$H_1: \mu \in \mathcal{S} $$
+
+		$$d^T \hat{\mu} \pm \hat{\sigma} ||d|| \sqrt{(p - 1) F_{p-1, N-p} (1 - \alpha)} $$
+
+We want $d \in \mathcal{S} \ominus \mathcal{S}^\prime$. 
+
+		$$X = \begin{pmatrix}
+			1_{n_1} & & \\
+			& \ddots & \\
+			& & 1_{n_p}
+		\end{pmatrix} = 1_{n_1} \oplus \dots \oplus 1_{n_p} $$
+
+$d \in \mathcal{S} = \text{span}X$\\
+$d = XC$\\
+$d \perp \mathcal{S}^\prime$\\
+
+This means that $d^T1_N = 0$ and $C^TX^T 1_N = 0 $.\\
+
+		$$\left(C_1, \dots, C_p \right) \begin{pmatrix}
+			1^T_{n_1} & & \\
+			& \ddots & \\
+			& & 1^T_{n_p}\\
+		\end{pmatrix} \begin{pmatrix}
+			1_{n_1}\\
+			\vdots\\
+			1_{n_p}
+		\end{pmatrix} = C_1 n_1 + \dots + C_p n_p$$
+
+So d is of the form $XC$ where $n_1C_1 + \dots + n_p C_p = 0$. 
+
+		$$ \hat{\mu} = \begin{pmatrix}
+			1_{n_1} \bar{Y}_{1\cdot}\\
+			\vdots\\
+			1_{np} \bar{Y}_{p \cdot}
+		\end{pmatrix} = X \begin{pmatrix}
+			\bar{Y}_{1\cdot}\\
+			\vdots\\
+			\bar{Y}_{p \cdot}\\
+		\end{pmatrix} = P _{1_{n_1} \oplus \dots \oplus 1_{n_p} } Y = P_{\mathcal{S}} Y$$
+
+		$$d^T \hat{\mu} = C^T (X^T X)  \begin{pmatrix}
+			\bar{Y}_{1\cdot}\\
+			\vdots\\
+			\bar{Y}_{p \cdot}\\
+		\end{pmatrix} = C^T \begin{pmatrix}
+			n_1 & & \\
+			& \ddots & \\
+			& & n_p
+		\end{pmatrix} \begin{pmatrix}
+			\bar{Y}_{1\cdot}\\
+			\vdots\\
+			\bar{Y}_{p \cdot}\\
+		\end{pmatrix} = c_1n_1 \bar{Y}_{1\cdots} + \dots + C_p n_p \bar{Y}_{p \cdots} $$
+
+
+		$$||d|| = \sqrt{d^t d} = \sqrt{c^T X^T X C } = \sqrt{\sum^P_{i = 1} C_i^2 n_i} $$
+
+
+We have $\hat{\sigma}^2$ as before. \\
+
+		$$\frac{||P_{\mathbb{R}^N \ominus \mathcal{S}} Y ||^2}{N - p} = \frac{\displaystyle \sum^P_{i = 1} \sum^{n_i}_{j=1} (Y_{ij} - \bar{Y}_{\cdot \cdot})^2}{N- p} = MSE $$
+
+
+A alternative parameterization $t_i = n_i c_i$.\\
+
+
+In this from, let $\hat{v} = \begin{pmatrix}
+	\bar{Y_{1 \cdot}} \\
+	\vdots \\
+	\bar{Y}_{p \cdot}
+\end{pmatrix}$\\
+
+The SCI is 
+		$$t^T \hat{v}  \pm \hat{\sigma} \sqrt{\sigma(t_i^2/n_i) (p-1) F_{p-1, N-p} (1 - \alpha)} $$
+
+Commonly need contrasts are $\mu_i - \mu_i^\prime, \mu_1 - 3 \mu_2 + 2\mu_3 $.\\
+
+The usually mention hypothesis, 
+
+		$$\mu_1 = \dots = \mu_p, \quad \mu_i = \mu_i^\prime \quad \forall i \neq i^\prime $$
+
+
+Test equality of subsets of mean (as given before) just use 
+
+		$$t = \begin{pmatrix}
+			0\\
+			\vdots\\
+			0\\
+			1\\
+			0\\
+			\vdots\\
+			0\\
+			-1\\
+			0\\
+			\vdots\\
+			0
+		\end{pmatrix} $$
+
+Where 1 is the $i^{th}$ entry and -1 is the $i^{\prime th}$ entry.\\
+
+We can do serveral of these.\\
+
+		$$t^T \hat{v} = \bar{Y}_{i \cdot} - \bar{Y}_{i^\prime \cdot} $$
+
+		$$\sum \frac{t_i^2}{n_i} = \frac{1}{n_i} - \frac{1}{n_{i^\prime}} $$
+
+\section{Bonferonni SCI}\index{Bonferonni SCI}
+
+Say we want to construct SCI. 
+
+		$$\{t_1^T v, \dots, t^T_q v \} $$ 
+
+As discussed before, SCI, 
+
+		$$ t_k^T \hat{v} \pm t_{N-p} \left(1 - \frac{\alpha}{2q}\right) \hat{\sigma} \sqrt{t_k^T (X^TX)^{-1}t_k} $$
+
+Here, 
+
+		$$X^TX = \begin{pmatrix}
+			n_1 & & \\
+			 & \ddots & \\
+			 & & n_p 
+		\end{pmatrix} $$
+
+and, 
+
+		$$t^T_k(X^T X)^{-1} t_k = \displaystyle \sum^P_{i=1} \frac{1}{n_i}t^2_{k_i} $$
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 4
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
 \chapter{Mutiway ANOVA}
 
-\section{Overview}\index{Overview}
+\section{Orthogonal Design}\index{Orthogonal Design}
 
-\begin{itemize}
-	\item Orthogonal design
-	\item Additive 2 way ANOVA
-	\item simultaneous intervals
-	\item nonadditive
-	\item decomposition of sum of squares
-	\item Latin square
-	\item nested design
-\end{itemize}
+
+Recall, the General Linear Model: $Y \sim N(\mu, \sigma^2 I), \mu \in \mathcal{S}, \mathcal{S} \leq \mathbb{R}^N$. \\
+
+
+Orthogonal esigns mean that $\mathcal{S}$ can be decomposed in to $\mathcal{S} = \mathcal{S}_1 \oplus \dots \oplus \mathcal{S}_\nu$. Later on:\\
+\\
+$\mathcal{S}_1$ factor A\\
+$\mathcal{S}_2$ factor B\\
+$\mathcal{S}_3$ interacts\\
+
+In this case, 
+
+	$$\hat{\mu} = P_{\mathcal{S}} Y = P_{\mathcal{S}_1} Y + \dots + P_{\mathcal{S}_\nu} Y$$
+
+	$$ \mu = P_{\mathcal{S}} \mu = P_{\mathcal{S}_1} \mu + \dots + P_{\mathcal{S}_\nu} \mu = v_1 \in \mathcal{S}_1 + \dots + v_\nu \in \mathcal{S}_\nu $$
+
+
+Unique Decomposition is covered in Chapter 1. \\
+
+Suppose we want to test that there is no interaction: 
+
+		$$H_0: v_i = 0 $$
+		$$H_1: v_i \neq 0 $$
+
+This is equivalent to 
+
+		$$H_0: \mu \in \oplus_{j \neq i} \mathcal{S}_j$$
+		$$H_1: \mu \in \mathcal{S} $$
+
+In this case,  $ \mathcal{S}^\prime = \oplus_{j \neq i} \mathcal{S}_i, \mathcal{S} = \oplus^\nu_{j = 1} \mathcal{S}_j$. \\
+
+So $\mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_i.$ Thus the F-statistics for GLH is
+
+		$$\frac{||P_{\mathcal{S}_i} Y ||^2/ d_i}{|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y ||^2 / (N-p)}  \stackrel{H_0}{\sim} F_{\alpha_i, N-p}$$
+
+where $d_i = \text{dim}(\mathcal{S}_i)$
+
+If we don't have orthogonality, suppose we have GLM, 
+
+		$$Y = X_1 \beta_1 + \dots + X_p \beta_p + \epsilon $$
+
+Letting $\beta_i = 0$, simply means
+
+		$$\mu \in \text{span}(X_1, \dots, X_{i-1}, X_{i + 1}, \dots, X_p ) (= \mathcal{S}^i) $$
+
+
+Since $X_1, \dots, X_p$ are not ortogonal, this is not $\text{span}(X) \ominus \text{span}(X_i)$ so we have that $\mathcal{S} \ominus \mathcal{S}^\prime \neq \text{span}(X_i)$. \\
+
+Moreover, in the orthogonal case, the point estimation of $\beta_i$ relies entirely on $(Y, X_i)$. \\
+
+Screening (?) on Variable Selection\\
+
+In the orthogonal case, they are the same. We must demonstrate this. \\
+
+		$$\hat{\beta } = (X^T X)^{-1} X^T Y $$
+
+
+If $X_1 \perp \dots \perp X_p$, 
+
+		$$X^T X = \begin{pmatrix}
+			X_1^T X_1 & & 0 \\
+			 & \ddots &  \\
+			 0 & & X_p^T X_p
+		\end{pmatrix} $$
+
+		$$\hat{\beta} = \begin{pmatrix}
+			\frac{X_1^T Y}{X_1^T X_1}\\
+			\vdots\\
+			\frac{X_p^T Y}{X_p^T X_p}\\
+		\end{pmatrix} $$
+
+		$$\hat{\beta}_i = \frac{X_i^T Y}{X_i^T X_i} $$
+
+So to get $\beta_i$ you simply regress Y on $X_i$ which doesn't involve the other column.\\
+
+Another effect of orthogonlity is you can decompose sum of squares additively. 
+
+		$$||P_\mathcal{S} Y ||^2  = ||P_{\mathcal{S}_1} Y ||^2  + \dots ||P_{\mathcal{S}_\nu} Y ||^2 $$
+
+You can tabulate this nicely in ANOVA table. \\
+
+If no orthogonality then you don't report $||P_{\mathcal{S}_i} Y ||^2 $ as the sum of squares associated with $\beta_i$. \\
+
+The correct sum of squares, 
+
+		$$||P_{\text{span}(X) \oplus \text{span}(X_{-i})} Y ||^2$$
+
+where $X_{-1} = (X_1, \dots, X_{i - 1}, X_{i+1}, \dots, X_p)$. \\
+
+So even though you can sitll tabulate these substitutes they don't sum up to $||P_\mathcal{S} Y ||^2 $. \\
+
+This is less meaningful than ANOVA table. In generalized linear models we have to be content with this inperfect ANOVA. 
+
+
+
+\textbf{Monday October 2}\\
+
+\section{Two-Way ANOVA (without Interactions)}\index{Two-Way ANOVA}
+
+\textbf{Model - special case of general linear model}\\
+
+		$$Y_{ijk} \sim N(\mu_{ij}, \sigma^2 I_N) $$
+
+		$$k= 1, \dots, n_{ij} $$
+
+		$$j = 1, \dots, c $$
+
+		$$i = 1, dots, r $$
+
+Assume (for now), 
+
+		$$\mu_{ij} = \gamma_i + \tau_j $$
+
+\textbf{Orthoginal Design}\\
+
+To ensure orthoginal design, $n_{ij} = p_iq_i$, where $p_i, q_i$ are positive intigers. We will show that this condition ensures orthoganality. \\
+
+
+\begin{notation}[Dot Notation]
+	$n_{i\cdot} $ indicates that the sec
+\end{notation}
+
+Apply this notation to both numbers and matrix/vector notation. 
+
+	$$n_{ij} = p_i q_j $$
+
+	$$n_{i\cdot} = p_i q_\cdot $$
+
+	$$ n_{\cdot j} = p_\cdot q_j $$
+
+	$$ n_{\cdot \cdot} = p_\cdot q_\cdot $$
+
+	
+
+Orthogonal design means
+
+		$$\frac{n_{i\cdot}n_{\cdot j}}{n_{\cdot \cdot}} = n_{ij} $$
+
+		% INSERT PHOTO 
+
+\textbf{Matrix Notation}\\
+
+		$$ \mu = \begin{pmatrix}
+			\mu_{11}\\
+			\vdots \\
+			\mu_{11}\\
+			\mu_{12}\\
+			\vdots \\
+			\mu_{12}\\
+			\vdots
+		\end{pmatrix} = \begin{pmatrix}
+			1_{n_{11}} (\gamma_1 + \tau_1)\\
+			\vdots\\
+			1_{n_{ij}} (\gamma_i + \tau_j)\\
+			\vdots\\
+			1_{n_{rc}} (\gamma_r + \tau_c)\\
+		\end{pmatrix} \in \mathbb{R}^{n_{\cdot \cdot}}$$
+
+			$$\{1_{n_{ij}} (\gamma_i  + \tau_j), i = 1, \dots, r; j = 1, \dots, c \} $$
+
+Note that the latter index varies first. \\
+
+Now, we introduce a systematic $\delta$ notation that will also be useful later. 
+
+
+\begin{notation}
+	For 
+			$$(i,j) = \{1, \dots, r \} x \{1, \dots, c \} $$
+
+			$$(u,v) = \{1, \dots, r \} x \{1, \dots, c \} $$
+
+			$$w = 1, \dots, n_{uv} $$
+
+
+	We have
+
+		    % $$\delta^{ij}_{uvw} =  \begin{array}
+		    % 	1, \text{ if (u,v) = (i,j)} \\
+		    % 	0, \text{ else}
+		    % \end{array}$$
+
+\end{notation}
+
+That means there are $n_{uv}$ 1's in this vector and $n_{\cdot \cdot} - n_{uv}$ 0's. \\
+
+Let $E_{ij} = \{\delta^{ij}_{uvw}: u = 1, \dots, r, v = 1, \dots, c, w = 1, \dots, n_{uv}  \}$ where the last index funs first. \\
+
+Let 	
+		\begin{align}
+			E_{i\cdot} &= \sum^n_{j=1} E_{ij}\\
+			E_{\cdot j} &= \sum^n_{i=1} E_{ij}\\
+		\end{align}
+
+
+			$$R = \left(E_{i \cdot}, \dots, E_{r \cdot} \right) $$
+
+			$$C = \left(E_{ \cdot j}, \dots, E_{\cdot c} \right) $$
+
+In this notation, $\mu = \{\mu_{ij}: k = 1, \dots, n_i, j = 1, \dots, c, j = 1, \dots, r \}$. 
+
+		$$\mu = E_{1\cdot} \gamma_1 + \dots + E_{r \cdot}\gamma_r + E_{\cdot 1} \tau_1 + \dots + E_{ \cdot c}\tau_c = R\gamma + C\tau $$
+
+In the above, both $\gamma$ and $\tau$ are column vectors. \\
+
+\textbf{Overall Mean}\\
+
+		$$\mu = P_{1_n} \mu + Q_{1_n}\mu $$
+
+Where, 
+
+		$$P_{1_n} = \frac{1_N 1_N^T}{1_N^T 1_N} $$
+
+		$$Q_{1_n} = I_N - P_{1_n} $$
+
+So we may write $\mu$ as, 
+
+	\begin{align*}
+		 \mu &= P_{1_n} \mu + Q_{1_n}(R\gamma + C\tau)\\
+		 		&= P_{1_n}\mu + \alpha + \beta\\
+	\end{align*}
+
+It turns out that $\frac{n_{i\cdot} n_{\cdot j}}{n_{\cdot \cdot}}$ ensures that $\alpha^T\beta = 0$. We must show this. 
+
+
+		\begin{align*}
+			\alpha^T\beta &= (Q_{1_n}R\gamma)^T(Q_{1_n} C \tau)\\
+				&= \gamma^T (R^T \frac{Q_{1_N}Q_{1_N}}{Q_{1_N}} C ) \tau\\
+			R^T Q_{1_n} C &= R^T (I_N - \frac{1_N 1_N^T}{1_N}) C \\
+				&= R^T C  - \frac{R^T 1_N 1_N^T C}{N}\\
+			R^T C = \begin{pmatrix}
+				E_{1 \cdot}^T\\
+				\vdots\\
+				E_{r \cdot}^T
+			\end{pmatrix} (E_{1 \cdot}, \vdots,	E_{ \cdot c})	
+		\end{align*}
+
+
+Now look at, 
+
+		\begin{align*}
+			E_{i \cdot}^T E_{\cdot j} &= \left( \sum^c_{s=1} E_{is} \right)^T \left(\sum^r_{t=1} E_{tj} \right)\\
+				&= \sum^c_{s=1} \sum^r_{t=1} E^T_{is} E_{tj}
+		\end{align*}
+
+		% MORE NOTES
+
+
+Hence, 
+
+		$$R^TC = \begin{pmatrix}
+			n_{11}&  \dots &  n_{1c}\\
+			\vdots & & \vdots\\
+			n_{r1}  & \dots & n_{rc}
+		\end{pmatrix} $$
+ 
+ 		$$R^T 1_N = \begin{pmatrix}
+ 			E_{1 \cdot}^T\\
+ 			\vdots\\
+ 			E_{r\cdot}^T
+ 		\end{pmatrix} 1_N = \begin{pmatrix}
+ 			n_{1 \cdot}\\
+ 			\vdots\\
+ 			n_{r\cdot}
+ 		\end{pmatrix}$$
+
+ 		$$1^T_N C = (n_{\cdot 1}, \dots, n_{\cdot c}) $$
+
+
+ 		$$ \frac{R^T 1_N 1^T_N C }{N } = \begin{pmatrix}
+ 			\frac{n{1 \cdot} n_{\cdot 1}}{n_{\cdot \cdot}} & \dots & \dots \\
+ 			 & \ddots & \\
+ 			 \vdots & \dots & \ddots
+ 		\end{pmatrix}$$
+
+So by orthogonal density, \\
+\\
+
+\textbf{Wednesday October 5}\\
+
+\textbf{Geometric Representation}\\
+
+		$$\mathcal{S}_1 = \text{span}(1_N) $$
+		$$\mathcal{S}_2 = \text{span}(R) \ominus \text{span}(1_N) $$
+		$$\mathcal{S}_3 = \text{span}(C) \ominus \text{span}(1_N) $$
+
+By construction, $\mathcal{S}_1 \perp \mathcal{S}_2, \mathcal{S}_1 \perp \mathcal{S}_3$.\\
+
+Since, 	
+		$$ \mathcal{S}_2 = Q_{1_N} \text{span}(R) = \text{span}(Q_{1_N} R) $$ 
+		$$ \mathcal{S}_3 = \text{span}(_{1_N} C) $$
+
+we know that $R^T Q_N C = 0$ by orthogonal design. \\
+
+So $\mathcal{S}_2 \perp \mathcal{S}_3.$\\
+
+So it is justified to write
+
+		$$\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3 $$
+
+which means that $\mathcal{S}_1 + \mathcal{S}_2 + \mathcal{S}_3 $ and $\mathcal{S}_1 \perp \mathcal{S}_2 \perp \mathcal{S}_3 $
+
+
+\section{Testing Hypotheses}\index{Testing Hypotheses}
+
+
+		$$\mu_{ij} = \gamma_i + \tau_j = (\bar{\gamma} + \bar{\tau}) + (\gamma_i - \bar{\gamma}) + (\tau_j - \bar{\tau})$$
+
+Where $(\bar{\gamma} + \bar{\tau}) \in \mathcal{S}_1, (\gamma_i - \bar{\gamma}) \in \mathcal{S}_2, (\tau_j - \bar{\tau}) \in \mathcal{S}_3 $. 
+
+		$$\mu_{ij} = w + \alpha_i + \beta_j $$ 
+
+$\sum \alpha_i = 0 \Leftrightarrow \mathcal{S}_2 \perp \mathcal{S}_1$\\
+$\sum \beta_j = 0 \Leftrightarrow \mathcal{S}_3 \perp \mathcal{S}_1$\\
+
+
+We can test these hypotheses (among many other hypothoses), \\
+
+		\begin{enumerate}[label = \Roman*]
+			\item $H_0: \alpha_1 = \dots = \alpha_r = 0$ (no row effect)
+			\item $H_1: \beta_1 = \dots = \beta_c = 0$ (no column efect)
+		\end{enumerate}
+
+
+
+For Hypothesis I, 
+
+		$$\mu \perp \mathcal{S} \Leftrightarrow \mu \in \mathcal{S}_1 \oplus \mathcal{S}_3 $$
+
+		$$\mathcal{S}^\prime = \mathcal{S}_1 \oplus \mathcal{S}_3, \mathcal{S} = \mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3 $$
+
+So specialized on GLM, \\
+
+	F-Statistic: 
+
+			$$\frac{||P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y || ^2 / \text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime)}{|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y|| ^2 / \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} \sim F_{\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime), \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} $$
+
+	Specialize to our own context: 
+
+			$$P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y = \{\bar{Y}_{\cdot \cdot} - Y_{\cdot \cdot \cdot}; k= 1, \dots, n_{ij}; i = 1, \dots, r; j = 1, \dots, c \} $$
+
+			$$||P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y||^2 = \sum^r_{i=1} n_{i \cdot} (\bar{Y}_{\cdot \cdot} - Y_{\cdot \cdot \cdot})^2 $$
+
+
+			$$\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime) = \text{dim}(\mathcal{S}_2) = r - 1 $$
+
+			$$P_{\mathbb{R}^N \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)}  $$
+
+Now let's take just the subscript and apply results from HW problem (note the $\mathcal{S}$ are not the exact same), 
+
+			$$\mathbb{R} \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3) = (\mathbb{R}^N \ominus \mathcal{S}_1) \ominus (\mathcal{S}_2 \oplus \mathcal{S}_3) $$
+
+So we may rewrite above and again apply result from homework to get, 
+
+			$$P_{(\mathbb{R}^N \ominus \mathcal{S}_1) \ominus (\mathcal{S}_2 \oplus \mathcal{S}_3)} =  P_{(\mathbb{R}^N \ominus \mathcal{S}_1)}  - P_{(\mathcal{S}_2 \oplus \mathcal{S}_3)} = P_{(\mathbb{R}^N \ominus \mathcal{S}_1)}  - P_{(\mathcal{S}_2} - P_{\mathcal{S}_3)} $$
+
+So, 
+
+			$$||P_{\mathbb{R}^N \ominus \mathcal{S}} Y|| ^2 = ||P_{\mathbb{R}^N \ominus \mathcal{S}_1} Y|| ^2 - ||P_{\mathcal{S}_2} Y|| ^2 - ||P_{ \mathcal{S}_3} Y|| ^2 $$
+
+This is left as HW. 
+
+
+		$$||P_{\mathbb{R}^N \ominus \mathcal{S}} Y|| ^2 = \{Y_{ijk} - \bar{Y}_{i \cdot \cdot} - \bar{Y}_{ \cdot j \cdot} + \bar{Y}_{\cdot \cdot \cdot}, \dots\} $$
+
+		$$||P_{\mathbb{R}^N \ominus \mathcal{S}_1} Y|| ^2 = \{ Y_{ijk} - \bar{Y}_{\cdot \cdot \cdot}, k = \dots \} $$
+
+		$$||P_{\mathcal{S}_2} Y|| ^2 = \{\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot}, \dots \} $$
+
+		$$||P_{ \mathcal{S}_3} Y|| ^2 = \{ \bar{Y}_{ \cdot j \cdot} +  - \bar{Y}_{\cdot \cdot \cdot}, \dots\} $$
+
+
+		% get from photo
+
+
+
+So $F_I$ becomes the familiar form, 
+
+		$$F_I = \frac{MSR}{MSE} $$
+
+$MSR = SSR / (r = 1)$\\
+$SSR = \displaystyle \sum^r_{i = 1} n_{i\cdot} (\bar{Y}_{j \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot})$\\
+$MSE = SSE / (N - r -c +1)$\\
+$SSE = \displaystyle \sum^r_{i = 1} \sum^c_{j = 1} \sum^{n_{ij}}_{k = 1} (Y_{ijk} - \bar{Y}_{i \cdot \cdot} - \bar{Y}_{ \cdot j \cdot} + \bar{Y}_{\cdot \cdot \cdot} ) $\\
+
+
+		$$F_I \sim F_{r - 1 , N - r - c + 1}$$
+
+Similarly, for testing Hypothesis II, still using GHL, 
+
+		$$\beta_1  = \dots = \beta_c = 0 $$
+
+		$$\mu \perp \mathcal{S}_3$$
+
+		$$\mu \in \mathcal{S}_1 \oplus \mathcal{S}_2 $$
+
+		$$\mathcal{S}^\prime = \mathcal{S}_1 \oplus \mathcal{S}_2 $$
+
+		$$\mathcal{S} = \mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3 $$
+
+		$$\mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_3 $$
+
+
+
+		$$||P_{\mathcal{S} \ominus \mathcal{S}^\prime} ||^2 = |P_{\mathcal{S}_3} ||^2 = \sum^{c}_{j = 1} n_{ij} (\bar{Y}_{ \cdot j \cdot} -  \bar{Y}_{\cdot \cdot \cdot} )^2 = SSC $$
+
+
+		$$ \text{dim}(\mathcal{S}_3) = c - 1 $$
+
+		$$F_{II} = \frac{MSC}{MSE} $$
+
+
+$MSC = SSC / (c-1)$\\
+SSC is as above. \\
+
+		$$F_{II} \sim F_{c-1, N -r -c + 1} $$
+
+
+		Now we may summarize everything into the ANOVA table. 
+
+		% INSERT PHOTO
+
+
+\textbf{Friday October 7}\\
+
+\section{Scheffe's SCI}\index{Scheffe's SCI}
+
+Recall, the general hypothesis,
+
+		$$H_0: \mu \in \mathcal{S}^\prime, $$
+		$$H_1: \mu \in \mathcal{S}$$
+
+We want SCI for contrasts,
+
+		$$\{c^T \mu: c \in \mathcal{S} \ominus \mathcal{S}^\prime \} = \{c^T \delta: c \in \mathcal{S} \ominus \mathcal{S}^\prime \} $$
+
+
+where $\delta = P_{\mathcal{S} \ominus \mathcal{S}^\prime} \mu$. \\
+
+This because
+		
+		$$c = P_{\mathcal{S} \ominus \mathcal{S}^\prime} c $$
+
+so, 
+
+		$$C^T \mu = C^T  P_{\mathcal{S} \ominus \mathcal{S}^\prime} \mu = C^T \delta$$
+
+
+We have
+
+		$$C^T P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y \pm ||C|| ||P_{\mathcal{S} \ominus \mathcal{S}^\prime}Y|| $$
+
+		$$\sqrt{ \frac{\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime)}{\text{dim}(\mathbb{R}^N \ominus \mathcal{S})} F_{\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime), \text{dim}(\mathbb{R}^N \ominus \mathcal{S})} } $$
+
+
+Here we have two $H_0 $ of interest. 
+
+	\begin{enumerate}[label = \Roman*]
+		\item $$\alpha_1 = \dots = \alpha _r = 0 \Leftrightarrow \mu \in \mathcal{S}_1 \oplus \mathcal{S}_3 = \mathcal{S}^\prime$$
+
+		$\mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_2$\\
+
+So 
+
+		\begin{align*}
+			\delta = P_{\mathcal{S}_2}\mu\\
+				&= \alpha \\
+				&= \{\alpha_i: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \}
+		\end{align*}
+
+
+Note that
+
+		$$C \in \mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_2 $$
+
+So C is of the form
+
+		$$C = \{C: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \} $$
+
+But we also know that $C \perp 1_N$. Therefore, 
+
+
+		$$\displaystyle \sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1}  C_i =\displaystyle \sum^r_{i=1} C_i \sum^c_{j=1} \sum^{n_{ij}}_{k=1}  1 =  \sum^r_{i=1} C_i * n_{i\cdot} = 0$$
+
+		$$P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y =  P_{\mathcal{S}_2} Y = \{\bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot}: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r  \}$$ 
+
+
+		$$C^T P_{\mathcal{S}_2}Y = \displaystyle \sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1}  C_i (\bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot})  =\sum^r_{i=1} C_i * n_{i\cdot} (\bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot}) $$
+
+So usually we use this alternative parameterization, 
+
+		$$t_i = n_{i\cdot} c_i$$
+
+
+So $\displaystyle \sum^r_{i=1} t_i = 0$.\\
+
+		$$ C^T P_{\mathcal{S}_2}Y = \displaystyle \sum^r_{i=1} t_i (\bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot})$$
+
+
+$\text{dim}(\mathcal{S} \ominus \mathcal{S}^\prime) = \text{dim}(\mathcal{S}_2) = r - 1$\\
+$\text{dim}(\mathbb{R}^N \ominus \mathcal{S}) = N -r - c + 1$\\
+
+		\begin{align*}
+			||c||^2 &= \displaystyle \sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1}  C_i^2\\
+				&= \displaystyle \sum^r_{i=1} n_{i \cdot} C_i^2\\
+				&= \displaystyle \sum^r_{i=1} \frac{t_i^2}{n_i}
+		\end{align*}
+
+
+		$$ P_{\mathbb{R}^N \ominus \mathcal{S}} = \displaystyle \sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1} (Y_{ijk} - \bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot i \cdot} + \bar{Y}_{\cdot \cdot \cdot})^2$$
+
+So to summarize Scheffe's SCI for $H_0$ is 
+
+
+		% FINISH FROM PHOTO
+
+		\item $H_0: \beta_1 = \dots = \beta_c = 0$
+
+
+	\end{enumerate}
+ 
+
+
+\section{Non-additive 2-way ANOVA (with Interactions)}\index{Non-additive 2-way ANOVA (with Interactions)}
+
+\textit{"The whole is greater than the sum of its parts."}\\
+
+In this case, we have, 
+
+		$$Y_{ijk} \sim N(\mu_{ij}, \sigma^2) $$
+
+where $\mu_{ij}$ cannot be decomposed. \\
+
+So 
+
+		$$\mu_{ij} = \theta + \alpha_i + \beta_j + \gamma{ij} $$
+
+$k = 1, \dots, n_{ij}$\\
+$ j = 1, \dots, c$\\
+$ i = 1, \dots, r $\\
+
+$\mathcal{S}_1 = \text{span}(\theta: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r )$\\
+
+$\mathcal{S}_2 = \text{span}(\alpha_i: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r )$\\
+
+$\mathcal{S}_3 = \text{span}(\beta_j: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r )$\\
+
+$\mathcal{S}_4 = \text{span}(\gamma_{ij}: k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r )\ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)$\\
+
+with $n_{ij} = \phi_i \epsilon_j$ (orthogonal design)\\
+
+		$$\mathcal{S}_1 \perp \mathcal{S}_2 \perp \mathcal{S}_3 \perp \mathcal{S}_4 $$
+
+So that it is justified to write
+
+		$$\mathcal{S}_1 + \dots \mathcal{S}_4 = \mathcal{S}_1 \oplus \dots \oplus \mathcal{S}_4$$
+
+Using matrix notation as before, 
+
+
+$\mathcal{S}_1 = \text{span}(1_N)$\\
+
+$\mathcal{S}_2 = \text{span}\{E_{1\cdot} \dots E_{r \cdot}\} \ominus \mathcal{S}_1$\\
+
+$\mathcal{S}_3 = \text{span}\{E_{1\cdot} \dots E_{ \cdot c}\} \ominus \mathcal{S}_1$\\
+
+$\mathcal{S}_4 = \text{span}\{E_{ij}:j = 1, \dots, c; i = 1, \dots, r \} \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)$\\
+
+
+		$$E_{ij} = \{d^{ij}_{uvw}: w = 1, \dots, n_{uv}; v = 1, \dots, c; u = 1, \dots, r \} $$
+
+$\mathcal{S} = \mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3 \oplus \mathcal{S}_4 = \text{span}\{E_{ij}:j = 1, \dots, c; i = 1, \dots, r\} $ \\
+
+
+The projections, $P_{\mathcal{S}_i} Y, i = 1, \dots, 4$ and $P_{\mathbb{R}^N \ominus \mathcal{S}}$ are derived similarly. \\
+
+
+
+
+
+\textbf{Monday October 10}\\
+
+$\mathbb{R}^N \ominus \mathcal{S}$ is the garbage, but it's very useful for testing. \\
+
+
+Explicit expression of projections: (check youself in HW)\\
+
+		$$P_{\mathcal{S}_1} Y = \{\bar{Y}_{\cdot \cdot \cdot}:k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \} $$
+
+		$$P_{\mathcal{S}_2} Y = \{\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot} :k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \} $$
+
+		$$P_{\mathcal{S}_3} Y = \{\bar{Y}_{\cdot j \cdot} - \bar{Y}_{\cdot \cdot \cdot} :k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \}$$ 
+
+		$$P_{\mathcal{S}_4} Y = \{\bar{Y}_{ij \cdot}  - \bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot j \cdot} + \bar{Y}_{\cdot \cdot \cdot} :k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \}$$
+
+
+		$$ P_{\mathbb{R}^N \ominus\mathcal{S}} Y = \{Y_{ij k} - \{\bar{Y}_{ij \cdot}:k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r \}$$
+
+
+We may extend this to, 
+
+
+		$$||P_{\mathcal{S}_1} Y||^2 = N  \bar{Y}_{\cdot \cdot \cdot}^2 = $$
+
+		$$||P_{\mathcal{S}_2} Y||^2 = \sum^r_{i=1} n_{i\cdot}  (\{\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot})^2 = SSR$$
+
+		$$||P_{\mathcal{S}_3} Y||^2 = \sum^c_{j=1} n_{\cdot j}  (\{\bar{Y}_{ \cdot j \cdot} - \bar{Y}_{\cdot \cdot \cdot})^2 = SSC$$
+
+		$$||P_{\mathcal{S}_4} Y||^2 = \sum^r_{i=1}\sum^c_{j=1} n_{ij}  (\{\bar{Y}_{ij \cdot}  - \bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot j \cdot} + \bar{Y}_{\cdot \cdot \cdot})^2 = SSRC$$
+
+		$$||P_{\mathbb{R}^N\ominus \mathcal{S}} Y||^2 = \sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1} n_{ij}   (Y_{ij k} - \{\bar{Y}_{ij \cdot})^2 = SSE$$
+
+
+$df(R) = r- 1$\\
+$df(C) = c - 1$\\
+$df(RC) = rc - r - c + 1$\\
+
+
+How do we get this last degrees of freedom? 
+
+	$$\text{dim(span}(E_{ij})) - \text{dim}(\mathcal{S}_1) - \text{dim} (\mathcal{S}_2 ) -  \text{dim}(\mathcal{S}_3) $$
+
+
+$df(E) = N - rc$\\
+
+
+We test the following hypotheses. \\
+
+R effect:
+
+		$$H_R: \alpha_1 = \dots = \alpha_r = 0$$
+		$$H_C: \beta_1 = \dots = \beta_c = 0$$
+		$$H_{RC}: \gamma_{ij} = 0$$
+
+
+SSH (where H is null hypothesis), 
+
+		$$H = R, C, RC$$
+
+We use
+
+		$$\frac{MSH}{MSE} = \frac{SSH/df(SSH)}{SSE/df(SSE)} \sim F_{df(SSH), df(SSE)} $$
+
+For example, if H = RC, 
+
+		$$SSH = SSSRC $$
+		$$df(SSH) = rc - r - c +1$$
+
+		$$\frac{MSRD}{MSE} \sim F_{rc - r - c + 1, N - rc}$$
+
+
+
+
+\section{Scheffe SCI for 2-Way ANOVA with Interactions}\index{Scheffe SCI for 2-Way ANOVA with Interactions}
+
+
+Again this depends on which hypothesis (R, C, RC) you are interested in. \\
+
+For $H_{RC}$
+
+		$$c^T P_{\mathcal{S}_4} Y \pm ||C|| ||P_{\mathbb{R}^N \ominus \mathcal{S}} Y || - \sqrt{\frac{dim(\mathcal{S}_4)}{dim(\mathbb{R}^N \ominus \mathcal{S})} F_{dim(\mathcal{S}_4), dim(\mathbb{R}^N \ominus \mathcal{S})}(1 - \alpha)} $$
+
+
+First, figure out specific form of C.\\
+
+		$$C \in \mathcal{S} \ominus \mathcal{S}^\prime $$
+		$$C \in \mathcal{S} \Rightarrow C = \{C_{ij}:k = 1, \dots, n_{ij}; j = 1, \dots, c; i = 1, \dots, r  \}$$
+
+
+Also, 
+
+		$$C^T 1_N = 0, C^T E_{i \cdot} = 0, C^T E_{\cdot j} = 0, $$
+
+To show this, 
+
+		\begin{align*}
+			\displaystyle \sum_i \sum_j \sum_k C_{ij} 1_N &= \displaystyle \sum_i \sum_j C_{ij} \sum_k 1_N\\
+				&= \displaystyle \sum_i \sum_j C_{ij} n_{ij}\\
+				&= 0
+		\end{align*}
+
+An simililarly for the other two equations equal to zero. \\
+
+So if we let $t_{ij} = C_{ij} n_{ij}$ we can see again that summing it over i,j or i, or j all give zero. \\
+\\
+
+\textbf{Scheffe's SCI for Interactions}\\
+
+		$$\displaystyle \sum^r_{i=1} \sum^c_{j=1} (\{\bar{Y}_{ij \cdot}  - \bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot j \cdot} + \bar{Y}_{\cdot \cdot \cdot})  \pm \sqrt{\sum^r_{i=1} \sum^c_{j=1} \frac{t_{ij}^2}{n_{ij}}} \sqrt{\sum^r_{i=1} \sum^c_{j=1} \sum^{n_{ij}}_{k=1} (Y_{ij k} - \bar{Y}_{ij \cdot})^2 } \sqrt{\frac{rc - r - c + 1}{N - rc} F_{rc - r - c + 1, N - rc}(1 - \alpha)}$$
+
+
+\section{Latin Squares}\index{Latin Squares}
+
+
+Suppose we have three main effects. In general, if you have three effects you need to make a cube for the design and observations.\\
+\\
+
+Sometimes experiments over the entire cube would require too much time/money/etc. Can we test three effects using two-way table? Intuitively you have to avoid entangling the third effect with the first two effects.   
+
+Let A be a finite set, $A = \{a_1, \dots, a_m\}$.\\
+
+A latin square is a mxm matrix, 
+
+			
+			$$L = \begin{pmatrix}
+				b_{11} & \dots & b_{1m}\\
+				\vdots & & \vdots \\
+				b_{m_1} & \dots & b_{mm}
+			\end{pmatrix} $$
+
+such that
+
+	\begin{enumerate}
+		\item Each row is a permutation of $(1, \dots, m)$.
+		\item Each column is a permuation of $(1, \dots, m)$.
+	\end{enumerate}
+
+\begin{example}
+	m = 3\\
+
+	$\begin{pmatrix}
+			1 & 2 & 3\\
+			2 & 3 & 1\\
+			3 & 1 & 2
+		\end{pmatrix}$
+
+	(You may shift each row to the left each time (or right).)
+\end{example}
+
+
+Let $k(i, j)$ be the element at the (i, j)th entry. \\
+
+So, mathematically, a latin square is a mapping 
+
+		$$K: A x A \rightarrow A, (i, j) \mapsto k(i,j) $$
+
+such that (1) and (2) are satisfied. The following is the property of Latin Square. 
+
+\begin{theorem}
+	Let $K: A x A \rightarrow A$ be a Latin Square. Let $\eta: A \rightarrow \mathbb{R},k \mapsto \eta(k) $ be any function. Then
+
+			\begin{align*}
+				\sum_i \sum_j \eta(k(i,j)) &= \sum_i \eta(k(i,j))\quad \forall j \in A\\
+						&= \sum_j \eta(k(i,j)) \quad \forall i \in A
+			\end{align*}  
+
+	That is, all row and column totals are the same. 
+\end{theorem}
+
+\begin{proof}
+	This is simple because for each i, 
+
+			$$ k(i, 1), \dots, k(i,m)$$
+
+	is a permutation of $1, \dots, m$. Therefore, 
+
+			$$\eta(k(i,1)), \dots, \eta(k(i,m)) $$
+
+	is also a permutation of $\eta(1), \dots, \eta(m)$.\\
+
+	So they sum to the same values, regardless of i. 
+
+	Thus $\sum_j \eta(k(i,j))$ = a constant not dependant on i.
+
+	Similarly, for $\sum_i \eta(k(i,j))$.
+
+\end{proof}
+
+
+Linear Model with Latin Square Design\\
+
+		$$ \frac{1}{ij} \sim N(\mu_{ij}, \sigma^2) \quad \text{(independent)}$$
+
+where $\mu_{ij} = \delta_i + \epsilon_j + \eta_{k(i,j)} $ where the $\eta$ values is the Latin Effect.
+
+
+\textbf{Orthogonoal Decomposition}\\
+
+
+\begin{notation}
+	Dot Notation. For a latin square, 
+
+			$$\{a_{ij}: j = 1, \dots, m; i = 1, \dots, m \} $$
+ 
+ Let, 
+			$$a_{i \cdot} = \sum_j^m a_{ij}, a_{ \cdot j} = \sum_i^m a_{ij}$$
+
+Let 
+			$$ a_{\begin{matrix}
+				k\\
+				\cdot
+			\end{matrix}} = \sum_{k(i,j) = k} a_ij$$
+
+	be the sum over all cells whose latin letter is k. 
+\end{notation}
+
+
+\begin{notation}
+			$$d^{ij}_{uv} = \left\{ \begin{array}{ll}
+										1 &  (u,v) = (i, j)\\
+										0 & else
+									\end{array} \right.$$
+
+			$$E_{ij} = \left\{\ d^{ij}_{uv}: v = 1, \dots, m; u = 1, \dots, m \right\} $$
+
+
+								
+\end{notation}
+
+		$$E_{i\cdot} = \sum^m_{j=1} E{ij} $$
+		$$E_{\cdot j} = \sum^m_{i=1} E{ij} $$
+
+		$$E_{\begin{matrix}
+				k\\
+				\cdot
+			\end{matrix}} = \sum_{k(i,j) = k} E{ij} $$
+
+
+$\mathcal{S}_1 = \text{span}(1_N), N = m^2 $\\
+$\mathcal{S}_2 = \text{span}\{E_{i \cdot}\} \ominus \mathcal{S}_1$\\
+$\mathcal{S}_3 = \text{span}(E_{\cdot j})\ominus \mathcal{S}_1 $\\
+$\mathcal{S}_4 = \text{span}(E_{\begin{matrix}
+				k\\
+				\cdot
+			\end{matrix}})\ominus \mathcal{S}_1 $\\
+$\mathcal{S}_5 = \mathbb{R}^N \ominus (\mathcal{S}_1 \oplus \dots \oplus \mathcal{S}_4$\\
+
+
+By construction, 
+		
+		$$\mathcal{S}_2 \perp \mathcal{S}_1,  \mathcal{S}_3 \perp \mathcal{S}_1, \mathcal{S}_4 \perp \mathcal{S}_1$$
+
+By Latin Square design we can show that $\mathcal{S}_2 \perp \mathcal{S}_3$ and $\mathcal{S}_2 \perp \mathcal{S}_3 \perp \mathcal{S}_4$. \\
+
+
+Only need to check that $\mathcal{S}_2 \perp \mathcal{S}_4$. \\
+
+
+Proof in PHOTO\\
+
+
+\textbf{Point Estimation}\\
+
+Let 
+
+	$$\mathcal{S} = \oplus_{i=1}^4 \mathcal{S}_i$$
+
+	$$\mathcal{S}_5 = \mathbb{R}^N \ominus \mathcal{S} $$
+
+	$$\mathcal{S}_1 \perp \dots \perp \mathcal{S}_5  $$
+
+	$$Y = P_{\mathcal{S}_1} Y + \dots + P_{\mathcal{S}_5} Y $$
+
+	$$\mu = P_{\mathcal{S}_1} \mu + \dots + P_{\mathcal{S}_5 }\mu $$
+
+As before, 
+
+		\begin{align*}
+			\mathcal{S}_5 = \mathbb{R}^N \ominus (\mathcal{S}_1 \oplus \dots \oplus \mathcal{S}_4)\\
+				&= (\mathbb{R}^N \ominus \mathcal{S}_1) \ominus (\mathcal{S}_2 \oplus \dots \oplus \mathcal{S}_4
+		\end{align*}  
+
+
+For any vector, 
+
+		$$a = \{a_{ij}: i = 1, \dots, m; j = 1, \dots, m \} $$
+
+		$$P_{\mathcal{S}_1} a = \{\bar{a}_{\cdot \cdot}: i = 1, \dots, m; j = 1, \dots, m \} $$
+
+		$$P_{\mathcal{S}_2} a = \{\bar{a}_{i \cdot} - \bar{a}_{\cdot \cdot}: i = 1, \dots, m; j = 1, \dots, m \} $$
+
+		$$P_{\mathcal{S}_3} a = \{\bar{a}_{\cdot j} - \bar{a}_{\cdot \cdot}: i = 1, \dots, m; j = 1, \dots, m \} $$
+
+		$$P_{\mathcal{S}_4} a = \{\bar{a}_{\cdot k} - \bar{a}_{\cdot \cdot}: i = 1, \dots, m; j = 1, \dots, m \} $$
+
+		$$P_{\mathcal{S}_5} a = \{a_{ij} - \bar{a}_{\cdot \cdot} - (\bar{a}_{i \cdot} - \bar{a}_{\cdot \cdot}) - (\bar{a}_{\cdot j} - \bar{a}_{\cdot \cdot}) - (\bar{a}_{\cdot k} - \bar{a}_{\cdot \cdot}): i = 1, \dots, m; j = 1, \dots, m \} = \{a_{ij} - \bar{a}_{i \cdot} - \bar{a}_{\cdot j} - \bar{a}_{k\cdot} + 2 \bar{a}_{\cdot \cdot}:i = 1, \dots, m; j = 1, \dots, m \} $$
+
+
+
+
+
+\textbf{Friday October 14}\\
+
+Clarification of last lecture: \\
+
+
+		$$P_{\mathcal{S}_4} a = \{ \bar{a}_{k\cdot} - a_{\cdot \cdot}:  i = 1, \dots, m; j = 1, \dots, m \} $$
+
+By $\bar{a}_{k\cdot}$ we mean, 
+
+		$$ \bar{a}_{k\cdot} = \frac{1}{m_\cdot} \sum_{\{(i,j): k(i,j) = k\}} a){ij} $$
+
+
+		$$(\bar{a}_{k\cdot})_{k = k(i,j) = \bar{a}_{k(i,j) \cdot}} $$
+
+
+Using the above results and projection, 
+
+		$$\mu_{ij} = \theta + \alpha_i + \beta_j + \gamma_{k(i,j)} $$
+
+where, \\
+
+$\theta = \bar{\mu}_{\cdot \cdot}$\\
+$\alpha_i = \bar{\mu}_{i \cdot} - \bar{\mu}_{\cdot \cdot}$\\
+$\beta_j = \bar{\mu}_{ \cdot j} - \bar{\mu}_{\cdot \cdot}$\\
+$\gamma_{k(i,j)} = \bar{\mu}_{k_\cdot(i,j)} - \bar{\mu}_{\cdot \cdot}$\\
+
+
+We may estimate these by $P_{\item }$ for i = 1, 2, 3. 
+
+So,\\ 
+
+$\bar{\mu}_{\cdot \cdot} \leftarrow \bar{Y}_{\cdot \cdot}$\\
+$\bar{\mu}_{i \cdot} \leftarrow \bar{Y}_{i \cdot}$\\
+$\bar{\mu}_{\cdot j} \leftarrow \bar{Y}_{\cdot j}$\\
+$\bar{\mu}_{k_\cdot(i,j)} \leftarrow \bar{Y}_{k\cdot(i,j)}$\\
+
+\textbf{Decomposition of Sum of Squares}\\
+
+		$$|| P_{\mathcal{S}_1} Y ||^2 = m^2 \bar{Y}_{\cdot \cdot} $$
+
+		$$|| P_{\mathcal{S}_2} Y ||^2 = m \sum^m_{i=1} (\bar{Y}_{i \cdot} - \bar{Y}_{\cdot \cdot})^2 $$
+
+		$$|| P_{\mathcal{S}_3} Y ||^2 = m \sum^m_{j=1} (\bar{Y}_{\cdot j} - \bar{Y}_{\cdot \cdot})^2 $$
+
+		$$|| P_{\mathcal{S}_4} Y ||^2 = m \sum^m_{k=1} (\bar{Y}_{k_\cdot} - \bar{Y}_{\cdot \cdot})^2 $$
+
+
+\textbf{Test Hypothesis}\\
+
+For example, we would want to test $H_0$ that there is no Latin effect. 
+
+		$$H_0: \mu \in \mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3 \leftarrow \mathcal{S}^\prime $$
+
+		$$H_1: \mu in \mathcal{S} = \mathcal{S}_1 \oplus \dots \oplus \mathcal{S}_4 $$
+
+So our F-statistic is:
+
+		$$\frac{|| P_{\mathcal{S} \ominus \mathcal{S}^\prime} Y ||^2 / dim( \mathcal{S} \ominus \mathcal{S}^\prime)}{|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y ||^2 / dim(\mathbb{R}^N \ominus \mathcal{S}} $$
+
+
+Note that $\mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_4$ and its dimension is $m - 1$. \\
+
+Also that, 
+
+		$$ P_{\mathbb{R}^N \ominus \mathcal{S}} Y = \{\bar{Y}_{ij} - \bar{Y}_{i\cdot} - \bar{Y}_{\cdot j} - \bar{Y}_{k_\cdot} + 2 \bar{Y}_{\cdot \cdot}: 1 = 1, \dots, m; j= 1, \dots, m\}$$
+
+and its dimension is equal to $(m-1)(m-2)$.\\
+
+		$$|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y ||^2 = \sum^m_{i=1} \sum^m_{j=1} ( \bar{Y}_{ij} - \bar{Y}_{i\cdot} - \bar{Y}_{\cdot j} - \bar{Y}_{k_\cdot} + 2 \bar{Y}_{\cdot \cdot} ) ^2$$
+
+
+\textbf{Simultanesous Confidence Interval}\\
+
+Again, we use Latin as example, 
+
+		$$H_0: \mu \in \mathcal{S}^\prime $$
+		$$H_1: \mu \in \mathcal{S}$$
+
+$\mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_4$\\
+
+Set of contrats: 
+		
+		$$\{C^T \mu : C \in \mathcal{S} \ominus \mathcal{S}^\prime = \mathcal{S}_4  \} $$
+
+$C \in \mathcal{S}_4$\\
+
+
+\begin{align}
+	C^T 1_N &= \sum^m_{i=1} \sum^m_{j=1} C_{k(i,j)} 1\\
+			&= m \sum^m_{k=1}  C_{k}\\
+			&= 0
+\end{align}
+
+
+
+\textit{SCI}\\
+
+		$$C^T P_{\mathcal{S}_4} Y \pm ||C|| ||P_{\mathcal{S}_5}  Y|| \sqrt{\frac{dim(\mathcal{S}_4)}{dim(\mathcal{S}_5)} F_{dim(\mathcal{S}_4), dim(\mathcal{S}_5) } (1 - \alpha)} $$
+
+where,\\
+$||C||^2 = \sum^m_{i=1} \sum^m_{j=1} C^2_{k(i,j)} = m \sum^m_{k=1}  C^2_{k}$\\
+
+
+\section{Orthogonal Nested Model}\index{Orthogonal Nested Model}
+
+This is somewhat like interaction with one main effect, but this is not interpreted as interaction. So the application background is not interaction but nested design. \\
+
+
+Comparison between a crossed design and nested design. \\ 
+
+% photo
+
+Mathematically, 
+
+		$$Y_{ijk} \sim N(\mu_{ij}, \sigma^2) $$
+
+$i = 1, \dots, r$\\
+$j = 1, \dots, c_i$\\
+$k = 1, \dots, n_{ij}$\\
+
+To decompose $\mu$, 
+
+
+	$$\mathcal{S}_1 = span(1_N) $$
+
+	$$\mathcal{S}_2 = \{\mu_{i}: i = 1, \dots, r; j = 1, \dots, c_i  \} \ominus \mathcal{S}_1 $$
+
+	$$\mathcal{S}_3 = \{d_{ij}: k = 1, \dots, n_{ij}; i = 1, \dots, r; j = 1, \dots, c_i  \} \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2) $$
+
+	$$\mathcal{S}_4 = \mathbb{R}^n \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)
+
+
+Again, 
+
+		$$E_{ij} = \{\delta^{ij}_{uvw}: u = 1, \dots, r, v = 1, \dots, c, w = 1, \dots, n_{ij}  \} $$	
+
+
+		$$\mathcal{S}_2 = span(E_{i\cdot} : i = 1, \dots, r) \ominus \mathcal{S}_1 $$ 
+
+		$$\mathcal{S}_3 = span(E_{i j}) \ominus \mathcal{S}_1 \ominus \mathcal{S}_2 $$ 
+
+Explicitly, 
+
+		$$ P _{\mathcal{S}_1} \mu = \{\bar{\mu}_{\cdot \cdot}: \dots \}$$
+
+		$$ \bar{\mu}_{i \cdot} = \theta $$
+
+
+
+% \section{Overview}\index{Overview}
+
+% \begin{itemize}
+% 	\item Orthogonal design
+% 	\item Additive 2 way ANOVA
+% 	\item simultaneous intervals
+% 	\item nonadditive
+% 	\item decomposition of sum of squares
+% 	\item Latin square
+% 	\item nested design
+% \end{itemize}
 
 % \section{Table}\index{Table}
 
