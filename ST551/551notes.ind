@@ -4,12 +4,16 @@
 
   \indexspace
 
+  \item Analysis of Deviance (ANODev), \hyperpage{127}
   \item ANOVA Model and Test Statistic, \hyperpage{55}
+  \item Anscombe Residual, \hyperpage{120}
 
   \indexspace
 
+  \item Balance, Nested Random Effect Model, \hyperpage{94}
   \item Bonferonni SCI, \hyperpage{59}
   \item Bonferroni's SCI, \hyperpage{52}
+  \item Bringing in the Predictors, \hyperpage{101}
 
   \indexspace
 
@@ -19,9 +23,14 @@
   \indexspace
 
   \item Delete One Prediciton, \hyperpage{22}
+  \item Deviance Function, \hyperpage{117}
+  \item Deviance Residual, \hyperpage{120}
+  \item Dispersion Parameters, \hyperpage{102}
 
   \indexspace
 
+  \item Estimation of $\phi$, \hyperpage{108}
+  \item Estimation of AVar($\hat{\beta}$ and its CI), \hyperpage{117}
   \item Explicit Intercept, \hyperpage{30}
 
   \indexspace
@@ -36,49 +45,62 @@
   \indexspace
 
   \item Influence, Cook's Distance, \hyperpage{24}
+  \item Introduction to Random Effects, \hyperpage{85}
 
   \indexspace
 
   \item Lack of Fit Test, \hyperpage{27}
-  \item Latin Squares, \hyperpage{73}
+  \item Latin Squares, \hyperpage{74}
+  \item Link to ANOVA, \hyperpage{125}
+  \item Logistic Regression, \hyperpage{131}
 
   \indexspace
 
+  \item Mean Paramerterization of Link Function, \hyperpage{100}
   \item Multicollinearity, \hyperpage{33}
 
   \indexspace
 
+  \item Nested Mixed Effect Model, \hyperpage{98}
   \item Non iid Linear Regression, \hyperpage{40}
   \item Non-additive 2-way ANOVA (with Interactions), \hyperpage{70}
+  \item Numerical Prediction, \hyperpage{128}
 
   \indexspace
 
   \item Orthogonal Decomposition, \hyperpage{25}
   \item Orthogonal Design, \hyperpage{61}
-  \item Overview, \hyperpage{79}, \hyperpage{81}, \hyperpage{85}, 
-		\hyperpage{87}, \hyperpage{89}, \hyperpage{91}, 
-		\hyperpage{93}, \hyperpage{95}, \hyperpage{97}, 
-		\hyperpage{101}, \hyperpage{103}, \hyperpage{105}
+  \item Orthogonal Nested Model, \hyperpage{79}
+  \item Overview, \hyperpage{105}
 
   \indexspace
 
+  \item Pearson's Residual, \hyperpage{119}
   \item Projection, \hyperpage{9}
 
   \indexspace
 
-  \item Residuals, \hyperpage{24}
+  \item Residuals, \hyperpage{24}, \hyperpage{119}
+  \item Restricted MLE - REMLE, \hyperpage{89}
 
   \indexspace
 
+  \item Sampling Distributions, \hyperpage{86}
   \item Scheffe SCI for 2-Way ANOVA with Interactions, \hyperpage{73}
   \item Scheffe's SCI, \hyperpage{57}, \hyperpage{69}
   \item Scheffe's Simutaneous Confidence Intervals, \hyperpage{46}
   \item Statistical Inference for $\beta$, $\sigma^2$, \hyperpage{20}
+  \item Statistical Inference for GLM, \hyperpage{109}
 
   \indexspace
 
   \item Testing Hypotheses, \hyperpage{66}
+  \item Testing Hypothesis, \hyperpage{129}
   \item Two-Way ANOVA, \hyperpage{63}
+
+  \indexspace
+
+  \item Unbalanced Case of One Way Random Effect ANOVA, \hyperpage{92}
 
   \indexspace
 

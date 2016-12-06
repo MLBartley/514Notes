@@ -1,3 +1,4 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The Legrand Orange Book
 % LaTeX Template
@@ -145,7 +146,9 @@
 	
 \end{definition}
 
-\begin{definition}[Field] A \textbf{field} $\mathcal{F}$ is a paving satisfying
+\begin{definition}[Field] \label{def:1.1}
+
+ A \textbf{field} $\mathcal{F}$ is a paving satisfying
 	\begin{enumerate}[label = (\roman*)]
 		\item $\Omega \in \mathcal{F}$
 		\item $A \in \mathcal{F} \Rightarrow A^C \in \mathcal{F}$
@@ -181,26 +184,31 @@
 		
 
 	\item $A_1, \dots, A_m \in \mathcal{F} \Rightarrow A_1 \bigcup, \dots, \bigcup A_m \in \mathcal{F} $ (mathematical induction)
-	\item$A_1, \dots, A_m \in \mathcal{F} \Rightarrow A_1 \cap, \dots, \bigcap  A_m \in \mathcal{F} $ 
+	\item$A_1, \dots, A_m \in \mathcal{F} \Rightarrow A_1 \bigcap, \dots, \bigcap  A_m \in \mathcal{F} $ 
 \end{itemize}
 
+\begin{remark} \label{rem:1.1}
+	A field is a \emph{set of sets}. Suppose we are flipping a coin twice, so the sample space is $\Omega = \{\textrm{HH, HT, TH, TT}\}$. We observe an event $A \subset \Omega$, say $A = \{\textrm{TT}\}$. If we consider the set of sets $\mathcal{G} = \{\varnothing, \Omega, A, A^c\}$, then we \emph{cannot} say $\textrm{TT} \in \mathcal{G}$. Rather, we should write $\{\textrm{TT}\} \in \mathcal{G}$ or $A \in \mathcal{G}$.
+\end{remark}
+
+The following are some examples of fields.
+
+\begin{itemize}
+	\item $\{\varnothing, \Omega\}$
+	\item $\{\varnothing, \Omega, A, A^c\}$
+\end{itemize}
 
 
 \begin{definition}[$\sigma$-Field] Similar to the definition of a field except for (iii). A paving satisfying 
 	\begin{enumerate}[label = (\roman*)]
 		\item $\Omega \in \mathcal{F}$
 		\item $A \in \mathcal{F} \Rightarrow A^C \in \mathcal{F}$
-		\item $A_1 \in \mathcal{F}, \dots, A_m \in \mathcal{F} $\\ $\displaystyle\bigcup_{k=1}^m A_k \in \mathcal{F}$ (finite additvity)
+		\item For $A_1 \in \mathcal{F}, \dots,  \in \mathcal{F}$ 
+
+				$$\bigcup_{k=1}^\infty A_k \in \mathcal{F}$$
+
 	\end{enumerate}
-\vspace{5mm}
 
-If we replace (iii) from before by (iii') here:
-
-For $A_1 \in \mathcal{F}, \dots, A_m \in \mathcal{F}$ 
-
-$$\bigcup_{k=1}^\infty A_k \in \mathcal{F}$$
-
-then $\mathcal{F}$ is called a $\sigma$\textbf{-field}. 
 \end{definition}
 
 
@@ -214,21 +222,70 @@ then $\mathcal{F}$ is called a $\sigma$\textbf{-field}.
 				(iii) can be replaced  $A_1 \in \mathcal{F}, \dots, A_m \in \mathcal{F} $
 \end{itemize}
 
-\begin{example}
+The above examples of a field are very easy to verify using the three properties of Definition~\ref{def:1.1}. The next three take a little more thought.
+
+\begin{example}[Finite-cofinite field] \label{ex:1.1}
+	Define the set $\mathcal{F} = \{A:\;\textrm{either $A$ is finite or $A^c$ is finite}\}$. The term ``finite-cofinite'' comes from this definition. Every element is either finite, or its complement is. Suppose our sample space is the natural numbers, $\Omega = \{1,2,3,\dots\}$. Clearly $\varnothing \in \mathcal{F}$ and $\Omega \in \mathcal{F}$, satisfying property 1.
+
+	For property 2, suppose $A \in \mathcal{F}$. Again, this means that either $A$ is finite or $A^c$ is. If $A$ is finite, then $A^c \in \mathcal{F}$ because $(A^c)^c = A$ is finite. If $A^c$ is finite, then $A^c \in \mathcal{F}$ by our construction of $\mathcal{F}$. Either way, we see that $A^c \in \mathcal{F}$ and therefore property 2 holds.
+
+	For property 3, there are four cases in which $A \in \mathcal{F}$ and $B \in \mathcal{F}$: $A$ and $B$ are finite, $A^c$ and $B$ are finite, $A$ and $B^c$ are finite, or $A^c$ and $B^c$ are finite. Obviously if $A$ and $B$ are finite then $A \cup B$ is also finite and $A \cup B \in \mathcal{F}$. If $A^c$ and $B$ are finite, then $(A \cup B)^c = A^c \cap B^c \subset A^c$, so $(A \cup B)^c$ is finite and $A \cup B \in \mathcal{F}$. This argument shows that $A \cup B \in \mathcal{F}$ in the third and fourth cases as well. Therefore property 3 holds, and we can conclude that $\mathcal{F}$ is a field.
+
+	We might also ask whether $\mathcal{F}$ is a $\sigma$-field. Take $A_1 = \{2\}$, $A_2 = \{4\}$, $\dots$, $A_n = \{2n\}$. Then $\bigcup_{n=1}^\infty A_n = \{2,4,6,8,\dots\}$, the set of all even integers. This is an infinite set, as is its complement, the set of all odd integers. Thus $\bigcup_{n=1}^\infty A_n \notin \mathcal{F}$, meaning that $\mathcal{F}$ is a field but \emph{not} a $\sigma$-field.
+\end{example}
+
+\begin{example}[Countable-cocountable field] \label{ex:1.2}
+	Define the set $\mathcal{F} = \{A:\;\textrm{either $A$ is countable}$ $\textrm{or $A^c$ is countable}\}$. Suppose the sample space is some infinite set. Again, property 1 is satisfied because $\varnothing \in \mathcal{F}$ and $\Omega \in \mathcal{F}$. The arguments for why properties 2 and 3 are satisfied follow the same reasoning in Example~\ref{ex:1.1}.
+
+	Is $\mathcal{F}$ a $\sigma$-field? If $\Omega$ is a countable set, then $\mathcal{F} = \mathcal{P}(\Omega)$, the \emph{power set} of $\Omega$ (simply the set of all possible subsets of $\Omega$). $\mathcal{F}$ is a $\sigma$-field, because any $\bigcup_{n=1}^\infty A_n$ is a subset of $\Omega$, and therefore is contained in $\mathcal{F}$. If $\Omega$ is uncountable, then $\mathcal{F}$ is still a $\sigma$-field.
+\end{example}
+
+The previous two examples show two sets that appear similar and are both fields, but the one in Example~\ref{ex:1.2} is a $\sigma$-field whereas the one in Example~\ref{ex:1.1} is not.
+
+\begin{example} \label{ex:1.3}
+	Define $\mathcal{I} = \{(a,b]:\;0 \leq a \leq b \leq 1\}$. Then if we take $\mathcal{B}_0 = \{\varnothing, \textrm{ all finite disjoint}$ $\textrm{ unions of sets from } \mathcal{I}\}$, it turns out that $\mathcal{B}_0$ is a field on $(0,1]$. Again, it is easy to verify that properties 1 and 2 hold. Next, take $A = \bigcup_{i=1}^k I_i$ and $B = \bigcup_{j=1}^m I_j$. Then $A^c = \bigcap_{i=1}^k I_i^c$, which is still a finite union of disjoint intervals. So $A^c \in \mathcal{B}_0$, and $\mathcal{B}_0$ is indeed a field.
+
+	To determine whether it is a $\sigma$-field, take $A_n = (0,1-\frac{1}{n}]$. Then $\bigcup_{n=1}^\infty A_n = (0,1)$. This open interval cannot be written as a finite disjoint union of intervals, so $\mathcal{B}_0$ is \emph{not} a $\sigma$-field.
+\end{example}
+
+
+
+\begin{definition} \label{def:1.3}
+	The field \emph{generated} by $\mathcal{A}$ is the smallest field containing $\mathcal{A}$:
+	\[
+		f(\mathcal{A}) = \bigcap_{\textrm{field } \mathcal{G} \supset \mathcal{A}} \mathcal{G}.
+	\]
+
+	The $\sigma$-field \emph{generated} by $\mathcal{A}$ is the smallest $\sigma$-field containing $\mathcal{A}$:
+	\[
+		\sigma(\mathcal{A}) = \bigcap_{\sigma-\textrm{field } \mathcal{G} \supset \mathcal{A}} \mathcal{G}.
+	\]
+\end{definition}
+
+A very useful $\sigma$-field is the \emph{Borel $\sigma$-field}.
+
+\begin{definition} \label{def:1.4}
+			$$\mathcal{B} = \sigma(\mathcal{I}) = \sigma(\mathcal{B}_0) = \sigma(\mathcal{I}_0) = \sigma(\textrm{open sets}) = \sigma(\textrm{open intervals})$$
+	 is the \emph{Borel $\sigma$-field} on $(0,1]$, where $\mathcal{I}_0 = \{(a,b] \in \mathcal{I}:\;a,b$ rationals$\}$. Sets in $\mathcal{B}$ are called \emph{Borel sets}.\\
+
+	 $\mathcal{B}_0$ is the collection of all finite union of disjoint intervals. Asside: something that we can consider easily, but computers cannot. (e.g. think of all stars, etc)
+
+\end{definition}
+
+	\begin{example}
 	$\Omega = (0, 1]$ (from now on all intervals are left open, right closed)\\
 
 	\begin{remark}
 		Recall that $\sigma$-fields are generated by fields. Fancy scripts denote a $\sigma$-field. Fancy scripts with a zero subscript denote a field.
 	\end{remark}
 
-	$\mathcal{B}_0$ is the collection of all finite union of disjoint intervals. Asside: something that we can consider easily, but computers cannot. (e.g. think of all stars, etc)
-
+	In the following definitions, let $\mathcal{A}$ be a class of subsets of a non-empty set $\Omega$.
 	\begin{figure}[h]
 	\centering\includegraphics[scale=0.15]{notes1.jpg}
 	\caption{Finite unioin of three disjoint intervals.}
 	\end{figure}
 
-	Then $\mathcal{B}_0$ is a field. 
+	We can show that $\mathcal{B}_0$ is a field. 
 
 	\begin{enumerate}[label = (\roman*)]
 		\item (0, 1] $\in \mathcal{B}_0$
@@ -271,7 +328,7 @@ Total number of subsets of $\Omega$.
 
 $\emptyset, 1$ element sets, 2-element sets, $\dots$, n-element ests.
 
-$$() + () + \dots + = (1+1)^n$$
+$$ \binom{n}{0} + \binom{n}{1} + \dots + \binom{n}{n} = (1+1)^n$$
 
 $\#(\mathcal{F})  = 2^{\# \Omega}$, so it seems reasonable to denote $\mathcal{F} = 2^\Omega$. 
 
@@ -308,16 +365,16 @@ $\bigcap  B$ is a $\sigma$-field. ($B \in \mathbb{F}(\mathcal{A})$)
 \\
 	\begin{enumerate}[label = (\roman*)]
 		\item $$\Omega \in \sigma(\mathcal{A})$$ 
-			$$\Omega \in \cap_{B \in \mathbb{F}(\mathcal{A})} B $$
+			$$\Omega \in \bigcap_{B \in \mathbb{F}(\mathcal{A})} B $$
 			Because: B is $\sigma$-field, $A \in B$, $\forall B \in \mathbb{F}(\mathcal{A})$.
 		\item 
 			$\begin{aligned}
 							A \in \bigcap  B &\Rightarrow A \in B \forall B \in\mathbb{F}(\mathcal{A})\\
 							&\Rightarrow A^C \in B , \forall B  \in \mathbb{F}(\mathcal{A})\\ 
-							&\Rightarrow A^C \in \cap_{B \in \mathbb{F}}(\mathcal{A}) B\\
+							&\Rightarrow A^C \in \bigcap_{B \in \mathbb{F}}(\mathcal{A}) B\\
 						\end{aligned}$
 
-		\item $A_1, \dots, \in \cap_{B \in \mathbb{F}(\mathcal{A})} B, \forall  B  \in \mathbb{F}(\mathcal{A})$
+		\item $A_1, \dots, \in \bigcap_{B \in \mathbb{F}(\mathcal{A})} B, \forall  B  \in \mathbb{F}(\mathcal{A})$
 
 		$\Rightarrow \bigcup^\infty_{n =1} A_n \in B, \forall B \in \mathbb{F}(\mathcal{A})$
 
@@ -463,7 +520,7 @@ If $A_1, \dots$ is a sequence of sets, we say $A_n \uparrow A$ if
 
 \begin{enumerate}
  	\item $A_1 \supseteq A_2 \supseteq \dots$
- 	\item $\displaystyle \cap^\infty_{k=1} A_k = A$
+ 	\item $\displaystyle \bigcap^\infty_{k=1} A_k = A$
  \end{enumerate} 
 
  \begin{theorem}
@@ -525,7 +582,7 @@ If $A_1, \dots$ is a sequence of sets, we say $A_n \uparrow A$ if
 
 	\item By finite subadditivity, 
 
-	$$ P(\displaystyle \bigcup^n{k=1} A_k) \leq \displaystyle \sum^n{k=1} P(A_k) \leq \displaystyle \sum^\infty_{n=1} P(A_n)$$
+	$$ P(\displaystyle \bigcup^n_{k=1} A_k) \leq \displaystyle \sum^n_{k=1} P(A_k) \leq \displaystyle \sum^\infty_{n=1} P(A_n)$$
 
 	But since, by (1), because
 
@@ -743,7 +800,7 @@ $\mathcal{M}$ is defined by $P^*$ and $P^*$ is defined using $\mathcal{F}_0$ so 
 
 	$$\begin{aligned}
 		P^*(A^C (BE)) + P^*((B^CE)A) + P^*(A^C (B^CE)) &\geq P^*((A^C BE) \bigcup (AB^CE)\bigcup(A^CBE))\\
-			&= P^*(E\cap[A^CB\bigcup  AB^C\bigcup A^CB^C])\\
+			&= P^*(E\bigcap[A^CB\bigcup  AB^C\bigcup A^CB^C])\\
 			&= P^*(E \bigcap (AB)^C)
 	\end{aligned} $$
 
@@ -760,7 +817,7 @@ $\mathcal{M}$ is defined by $P^*$ and $P^*$ is defined using $\mathcal{F}_0$ so 
 \end{proof}
 
 \textbf{Lemma 2.} If $A_1, A_2, \dots$ is a sequence of disjoint $\mathcal{M}$-sets then for each $E \subseteq \Omega$, 
-$$P^*(E\cap(\bigcup_k A_k)) = \displaystyle \sum_k P^*(E \bigcap A_k) $$
+$$P^*(E\bigcap(\bigcup_k A_k)) = \displaystyle \sum_k P^*(E \bigcap A_k) $$
 
 \begin{proof}
 	First, prove this statement for finite sequence. 
@@ -970,7 +1027,7 @@ $$ = P^*(A)$$
 	\textbf{Lemma 1.} $\mathcal{M}$ is a field.
 
 	\textbf{Lemma 2.} If $A_1, A_2, \dots$ is a sequence of disjoint $\mathcal{M}$-sets then for each $E \subseteq \Omega$, 
-	$$P^*(E\cap(\bigcup_k A_k)) = \displaystyle \sum_k P^*(E \bigcap A_k) $$
+	$$P^*(E\bigcap(\bigcup_k A_k)) = \displaystyle \sum_k P^*(E \bigcap A_k) $$
 
 	\textbf{Lemma 3.}
 	
@@ -1089,7 +1146,7 @@ By definition,
 \begin{proof}
 	Let $\lambda(\mathcal{P})$ be the intersection of all $\lambda$-system that contains $\mathcal{P}$. 
 
-		$$ \lambda(\mathcal{P}) = \cap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\}$$
+		$$ \lambda(\mathcal{P}) = \bigcap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\}$$
 
 	$\lambda(\mathcal{P})$ is a $\lambda$-system.\\
 
@@ -1104,15 +1161,19 @@ By definition,
 
 		\item $A \in \lambda(\mathcal{P}) \Rightarrow A^C \in \lambda(\mathcal{P})$?\\
 
-		$$A \in \lambda(\mathcal{P}) \Rightarrow A \in \cap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\} $$
+		$$A \in \lambda(\mathcal{P}) \Rightarrow A \in \bigcap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\} $$
 
 		Then 
 
 		$A \in \mathcal{L}^\prime$ for any $\mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime$ is $\lambda$-system. 
 
-		$$\Rightarrow A^C \in \mathcal{L}^\prime $$
 
-		$$\Rightarrow A^C \in  \cap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\} = \lambda(\mathcal{P})$$
+				\begin{align*}
+					&\Rightarrow A^C \in \mathcal{L}^\prime\\
+					&\Rightarrow A^C \in  \bigcap\{\mathcal{L}^\prime: \mathcal{L}^\prime \supseteq \mathcal{P}, \mathcal{L}^\prime \text{ is }\lambda\text{-set }\} \\
+					&= \lambda(\mathcal{P})\\
+				\end{align*}
+
 
 		\item $A_1, A_2, \dots \in \lambda(\mathcal{P})$ are disjoint then $A_1, A_2, \dots \in \mathcal{L}^\prime \quad \forall \mathcal{L}^\prime$. 
 
@@ -1142,7 +1203,15 @@ By definition,
 
 			Since $AB_1 \subseteq AB_2$, $\lambda(\mathcal{P})$ is $\lambda$-system by ($\lambda_2^\prime$) for $\lambda(\mathcal{P})$
 
-			% GET FROM PHOTO
+					\begin{align*}
+						(B_2A)(B_1A)^C &\in \lambda(\mathcal{P})\\
+								&=B_2(A)(B_1^C\bigcup A^C)\\
+								&=(B_2 A B_1^C) \bigcup (B_2 A A^C)\\
+								&=(B_2 A B_1^C)\\
+								&=A(B_2B_1^C)
+					\end{align*}
+
+			So we have that $A(B_2 B_1^C) \in \lambda(\mathcal{P})$.
 
 			\item If $B_n$ is disjoint, $\mathcal{L}_A$-sets. 
 
@@ -1361,18 +1430,18 @@ Let $(\Omega, \mathcal{F})$ be a measureable space (i.e. $\Omega$ is nonempty se
 
 let $A_1, \dots \in \mathcal{F}$. We define 
 
-$$\cap^\infty_{n=1} \bigcup^\infty_{k=n} A_k = \limsup_{n\rightarrow \infty} A_n $$
+$$\bigcap^\infty_{n=1} \bigcup^\infty_{k=n} A_k = \limsup_{n\rightarrow \infty} A_n $$
 
 It is trivial to show that $\lim\sup_{n\rightarrow \infty} A_n \in \mathcal{F}$. 
 
 
-$$ \bigcup^\infty_{n=1} \cap^\infty_{k=n} A_k = \liminf_{n\rightarrow \infty} A_n $$
+$$ \bigcup^\infty_{n=1} \bigcap^\infty_{k=n} A_k = \liminf_{n\rightarrow \infty} A_n $$
 
 We swapped intersection/union...what we are doing here?
 
 $\omega$ (means outcome) $\in \Omega$
 
-$$\omega \in \limsup_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \cap^\infty_{n=1} \bigcup^\infty_{k=n} A_k$$
+$$\omega \in \limsup_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \bigcap^\infty_{n=1} \bigcup^\infty_{k=n} A_k$$
 
 $$\Leftrightarrow \omega \in \bigcup^\infty_{k=1} A_k \quad \forall n=1, 2, \dots $$
 
@@ -1382,9 +1451,9 @@ $\Leftrightarrow \omega$ is in infinitely many k.
 
 Similarly, 
 
-$$\omega \in \liminf_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \bigcup^\infty_{n=1} \cap^\infty_{k=n} A_k $$
+$$\omega \in \liminf_{n \rightarrow \infty} A_n \Leftrightarrow \omega \in \bigcup^\infty_{n=1} \bigcap^\infty_{k=n} A_k $$
 
-$$ \Leftrightarrow \omega \in \cap^\infty_{k=1} A_k \quad \text{ for some } n=1, 2, \dots$$
+$$ \Leftrightarrow \omega \in \bigcap^\infty_{k=1} A_k \quad \text{ for some } n=1, 2, \dots$$
 
 $$\Leftrightarrow \omega \in A_k \quad \forall k\geq n, \quad \text{ for some } n $$
 
@@ -1396,13 +1465,13 @@ So this is a much stronger requirement. Intuitively, if $\omega$ is in all but f
 	For i > max(n,m), 
 
 	\begin{align*}
-		\cap_{k=m}^\infty A_k \subseteq A_i &\subseteq \bigcup_{k=n}^\infty A_k\\
-		\Rightarrow \bigcup^\infty_{m=1}\cap^\infty_{k=m} A_k &\subseteq \bigcup_{k=n}^\infty A_k\\
-		\Rightarrow \bigcup^\infty_{m=1}\cap^\infty_{k=m} A_k &\subseteq \cap^\infty_{n=1}\bigcup_{k=n} A_k\\
+		\bigcap_{k=m}^\infty A_k \subseteq A_i &\subseteq \bigcup_{k=n}^\infty A_k\\
+		\Rightarrow \bigcup^\infty_{m=1}\bigcap^\infty_{k=m} A_k &\subseteq \bigcup_{k=n}^\infty A_k\\
+		\Rightarrow \bigcup^\infty_{m=1}\bigcap^\infty_{k=m} A_k &\subseteq \bigcap^\infty_{n=1}\bigcup_{k=n} A_k\\
 		\Rightarrow \liminf_{n \rightarrow \infty} A_n &\subseteq \limsup_{n \rightarrow \infty} A_n
 	\end{align*}
 	 
-	 $$\cap^\infty_{k=n}A_k \uparrow \liminf_{n \rightarrow \infty} A_n $$
+	 $$\bigcap^\infty_{k=n}A_k \uparrow \liminf_{n \rightarrow \infty} A_n $$
 	 $$\bigcup^\infty_{k=n}A_k \downarrow \limsup_{n \rightarrow \infty} A_n $$
 
 	 If $\liminf_{n \rightarrow \infty} A_n = \limsup_{n \rightarrow \infty} A_n$, then we say that the sequences $\{A_n\}$ has a limit, 
@@ -1434,7 +1503,7 @@ So this is a much stronger requirement. Intuitively, if $\omega$ is in all but f
 
 \begin{proof}
 	\begin{enumerate}[label = (\roman*)]
-		\item Let $B_n = \cap^\infty_{k=n} A_k$. 
+		\item Let $B_n = \bigcap^\infty_{k=n} A_k$. 
 
 			$$B_n \uparrow \liminf_{n } A_n $$
 
@@ -1682,14 +1751,14 @@ It follows trivially, $\{\mathcal{A}_\theta: \theta \in \Theta \}$ are independe
 
 		We have
 
-		$$ P(\cap^n_{\alpha = 1} C_{i_\alpha}) = P(\cap^n_{\alpha = 1} \bigcup^{m_\alpha}_{\beta = 1} A_{i_\alpha j_\beta})$$
+		$$ P(\bigcap^n_{\alpha = 1} C_{i_\alpha}) = P(\bigcap^n_{\alpha = 1} \bigcup^{m_\alpha}_{\beta = 1} A_{i_\alpha j_\beta})$$
 
 		because 
 
 		$$\{A_{i_\alpha j_\beta}: \alpha, = 1, 2, \dots, n , \beta = 1, 2, \dots m_\alpha\} \subseteq \{ A_{ij}: i, j = 1, 2, \dots\}$$
 
 		\begin{align*}
-			P(\cap^n_{\alpha = 1} \bigcup^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta}) &= \displaystyle \prod^n_{\alpha = 1} \prod^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta})\\
+			P(\bigcap^n_{\alpha = 1} \bigcup^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta}) &= \displaystyle \prod^n_{\alpha = 1} \prod^{m_\alpha}_{\beta = 1} P(A_{i_\alpha j_\beta})\\
 			&= \displaystyle \prod^n_{\alpha = 1} P(C_{i_\alpha})
 		\end{align*}
 		% FINISH PROOF
@@ -1710,13 +1779,18 @@ It follows trivially, $\{\mathcal{A}_\theta: \theta \in \Theta \}$ are independe
 \end{theorem}	
 
 \begin{proof}
-	$\limsup_{n \rightarrow \infty} A_n = \cap^\infty_{n=1} \bigcup^\infty_{k=n} A_k \subset \bigcup^\infty_{k=n} P(A_k) \quad \forall n$
+	$\limsup_{n \rightarrow \infty} A_n = \bigcap^\infty_{n=1} \bigcup^\infty_{k=n} A_k \subset \bigcup^\infty_{k=n} P(A_k) \quad \forall n$
 
-	So, 
+	So, using monotonicity and then subadditivity, we have
 
-	$$P(\limsup_{n \rightarrow \infty} A_n) \leq P( \bigcup^\infty_{k=n} P(A_k)) \leq \sum^\infty_{k=1} P(A_k)$$
+			$$P(\limsup_{n \rightarrow \infty} A_n) \leq P( \bigcup^\infty_{k=n} P(A_k)) \leq \sum^\infty_{k=n} P(A_n)$$
 
-	% FINISH
+
+			$$a \leq \sum^\infty_{k=1} P(A_k) \forall n $$
+
+	By taking limits we get
+
+			$$a \leq lim_n \sum^\infty_{k=n} P(A_k) = 0$$
 \end{proof}
 
 \begin{theorem}[BC2]
@@ -1730,13 +1804,13 @@ It follows trivially, $\{\mathcal{A}_\theta: \theta \in \Theta \}$ are independe
 
 	$$\Leftrightarrow P(\bigcap ^\infty_{n=1} \bigcup^\infty_{k=n} A_k) = 1 $$
 
-	$$\Leftrightarrow P(\bigcup^\infty_{n=1} \cap^\infty_{k=n} A^C_k) = 0 \quad (*)$$
+	$$\Leftrightarrow P(\bigcup^\infty_{n=1} \bigcap^\infty_{k=n} A^C_k) = 0 \quad (*)$$
 
 	because, 
 
-	$$\Leftrightarrow P(\bigcup^\infty_{n=1} \cap^\infty_{k=n} A^C_k) \leq \displaystyle \sum^\infty_{k=n} P(\cap^\infty_{k=n} A_k^C )  $$
+	$$\Leftrightarrow P(\bigcup^\infty_{n=1} \bigcap^\infty_{k=n} A^C_k) \leq \displaystyle \sum^\infty_{k=n} P(\bigcap^\infty_{k=n} A_k^C )  $$
 
-	$$\Leftarrow P(\cap^\infty_{k=n} A_k^C ) = 0 \quad \forall n = 1, 2, \dots $$
+	$$\Leftarrow P(\bigcap^\infty_{k=n} A_k^C ) = 0 \quad \forall n = 1, 2, \dots $$
 
 	but we need to prove this to imply (*). 
 
@@ -1780,7 +1854,7 @@ It follows trivially, $\{\mathcal{A}_\theta: \theta \in \Theta \}$ are independe
 
 finished proof. \\
 
-BC1 and BC@ say that  $P \left(\limsup_n A_n \right)$ is either 0 or 1.\\
+BC1 and BC2 say that  $P \left(\limsup_n A_n \right)$ is either 0 or 1.\\
 
 This is a special case of a general phonemonon, the 0-1 Law.
 
@@ -1860,8 +1934,18 @@ $$\mathcal{T} =  \bigcap ^\infty_{n=1} \sigma(\mathcal{A}_n, \mathcal{A}_{n+1}, 
 
 
 
+\section{Omitted from Course}
+
+\section{Omitted from Course}
+
+\section{Omitted from Course}
+
+\section{Omitted from Course}
+
+\section{Omitted from Course}
 
 \section{General Measure on a Field}\index{General Measure on a Field}
+
 
 
 
@@ -2131,7 +2215,7 @@ Here is another question:
 
 					This means that 
 
-							$$\sigma(\mathcal{A} \bigcap \Omega_0) = \bigcap \{\mathcal{B}: \mathcal{B} \supset \mathcal{A} \cap \Omega_0, \mathcal{B}  \text{ is a }\sigma\text{-field on }\Omega \} $$
+							$$\sigma(\mathcal{A} \bigcap \Omega_0) = \bigcap \{\mathcal{B}: \mathcal{B} \supset \mathcal{A} \bigcap \Omega_0, \mathcal{B}  \text{ is a }\sigma\text{-field on }\Omega \} $$
 
 					So, $\Omega_0 \in \mathcal{F}_0$
 					\item $A \in \mathcal{G} \Rightarrow A^C \in \mathcal{G}$.\\
@@ -2139,8 +2223,8 @@ Here is another question:
 					$\begin{aligned}
 						A \in \mathcal{G} &\Rightarrow A \Omega_0 \in \mathcal{F}_0\\
 							&\Rightarrow \Omega_0 \setminus (A \Omega_0) \in \mathcal{F}_0\\
-							&\Rightarrow \Omega_0 \cap (A \Omega_0)^C \in \mathcal{F}_0\\
-							&\Rightarrow \Omega_0 \cap (A^C \Omega_0^C) \in \mathcal{F}_0\\
+							&\Rightarrow \Omega_0 \bigcap (A \Omega_0)^C \in \mathcal{F}_0\\
+							&\Rightarrow \Omega_0 \bigcap (A^C \Omega_0^C) \in \mathcal{F}_0\\
 							&\Rightarrow (\Omega_0 A^C) \cup (\Omega_0 \Omega_0^C)\\
 							&= \Omega_0 A^C \in \mathcal{F}_0
 					\end{aligned}$
@@ -2907,7 +2991,7 @@ Now suppose that $B \in \mathcal{F}, \mu(B) = \infty$. Because $\mu$ is $\sigma$
 				
 				\begin{align*}
 					\mu (\bigcup_m \bigcup_k A_{mk} \setminus B) &= \mu ((\bigcup_m \bigcup_k A_{mk}) (\cup_m B C_m)) \\
-						&= \mu((\bigcup_m \bigcup_k A_{mk}) (\cap_m (B C_m)^C)) \\
+						&= \mu((\bigcup_m \bigcup_k A_{mk}) (\bigcap_m (B C_m)^C)) \\
 						&= \mu(\bigcup_m (\bigcup_k A_{mk})(B C_m)^C)\\
 						&\leq \sum_m \mu(\bigcup_k A_{mk} \setminus (B C_m))\\
 						&\leq \epsilon
@@ -3086,12 +3170,47 @@ What we have done is to extned $\mu$ from intervals to $\mathcal{R}^\prime$.\\
 
 
 
-\textbf{Friday October 5}\\
+\textbf{Friday October 7}\\
 
 
-% GET FROM PHOTO
+\textbf{Lebesgue Measure in $\mathbb{R}^k$}\\
+
+Let $\mathcal{A} = \{(a_1, b_1]x \dots x (a_k, b_k] : a_1, b_1, dots a_k, b_k \in \mathbb{R}\}$. \\
+
+$\mathcal{A}$ is called the collection of bounded rectangles in $\mathbb{R}^k$.\\
+
+First, we want to see that this is a semiring. There is a rigorious proff in Example 11.4, but here we will just use pictures. 
+
+\textit{Key Property of Semiring}\\ 
 
 
+		$$B|A = C_1 \bigcup \dots \bigcup C_m $$
+
+where $B|A$ are $\mathcal{A}$-sets, $A \subseteq B$ and the $C_i$ are finite disjoint unions of $\mathcal{A}$-sets.\\
+
+$\mathcal{A}$ 2 - line rectangle $b \in \mathcal{A}$.
+
+% insert photo
+
+So $B \setminus A = C_1 \bigcup \dots \bigcup C_8$, which are disjoint $\mathcal{A}$-sets.
+
+Similar argument for three dimensions with 26 cubes in rectangle. \\
+
+Define $\lambda_k$ on $\mathcal{A}$ as 
+
+		$$\lambda_k: \mathcal{A} \rightarrow \mathbb{R} $$
+
+		$$(a_1, b_b\, x \dots x (a_k, b_k] \rightarrow (b_1 - a_1) \dots (b_k-a_k)$$
+
+For $\mu$ to have an extension to $\sigma(\mathcal{A})$, $\mu$ has to be nonnegative, finitely additive, countably subadditive. We are not going to prove this now but we'll prove it later in a more general setting. For now, assume the extension exists. \\
+
+Because $\mu$ is $\sigma$-finite on $\mathcal{A}$ and $\mathcal{A}$ is a $\pi$-system, this extension is unique and we call it the Lebesgue Measure in $\mathbb{R}^k$.\\
+
+But why is $\mu \sigma$-finite on $\mathcal{A}$?
+
+		$$\bigcup^\infty_{n = 1} (-n, n] x \dots x (-n, n] $$
+
+		$$\mu((-n, n] x \dots x (-n, n]) = (2n)^k$$
 
 \textbf{Characterizing Measures in $\mathbb{R}$}\\
 
@@ -3104,10 +3223,10 @@ Bounded set: $\sup_{x \in A} ||x|| < \infty$\\
 Then we can define
 
 
-		% $$F(x) = \begin{array}
-		% 	\mu(0, x], x\geq 0\\
-		% 	-\mu(x, 0], x < 0
-		% \end{array} $$
+		$$F(x) = \begin{array}{ll}
+			\mu(0, x] & x\geq 0\\
+			-\mu(x, 0] & x < 0
+		\end{array} $$
 
 
 This is obviously nondecreasing.
@@ -3198,10 +3317,10 @@ Then we can show that
 	$sgn_A (x)$ is a signum of a vertex in a rectangle. Signum means "sign" in Latin.\\
 
 
-	% $$sgn_A (x) = \begin{array}
-	% 	1, \#\{i: x_i = a_1} \text{ is even}\\
-	% 	0, else
-	% \end{array}$$ 
+	$$sgn_A (x) = \begin{array}{ll}
+		1 & \{i: x_i = a_1\} \text{ is even}\\
+		0 & else
+	\end{array}$$ 
 
 \end{notation}
 
@@ -3629,6 +3748,16 @@ Let
 
 We say that T is measureable. $T$ measures $\mathcal{F}/\mathcal{F}^\prime$ if $\forall A^\prime \in \mathcal{F}^\prime, \{\omega: T(\omega) \in A^\prime\} \in \mathcal{F}$\\
 
+
+\begin{notation}
+	Whenever we encounter the notation, 	
+
+			$$ T \textcircled{m} \mathcal{F}\setminus\mathcal{F}^\prime$$
+
+	we may interpret this as T is a measureable function that takes inputs from $\Omega$ and maps them to outputs in $\Omega'$ where $\mathcal{F}$ is the $\sigma$-field on $\Omega$ and $\mathcal{F}'$ is the $\sigma$-field on $\Omega'$. The measurability implies that any set in $\mathcal{F}'$ has its preimage in $\mathcal{F}$.
+\end{notation}
+
+
 To understand this we need set inverse for $A^\prime \subseteq \Omega^\prime$. 
 
 		$$T^{-1}( A^\prime) = \{ \omega \in \Omega: T(\omega) \in A^\prime\} $$ 
@@ -3638,64 +3767,2465 @@ So, in terms of set inverse, $T^{-1}(A\prime)$,
 		$$T  $$
 
 
-% get a bit form PHOTO
+% get a bit (five panels - i was tired) from PHOTOS
 
 
 Don't have measure? $(\Omega^\prime, \mathcal{F}^\prime)$
 
 
-
-%----------------------------------------------------------------------------------------
-%	PART
-%----------------------------------------------------------------------------------------
-
- \part{Part Two}
+\textbf{Wednesday October 19}\\
 
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 3
-%----------------------------------------------------------------------------------------
+In particular 
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+		$$T^{-1}(\{x\}) \neq  T(\{x\}) $$
+
+		$$T^{-1}(\{x\}) = \{ \omega \in \Omega: T(\omega) = x\} $$
+
+
+Set inverse enjoys many nice properties. 
+
+\begin{itemize}
+			\item $\forall A^\prime \in \Omega^\prime$, 
+
+					$$T^{-1}((A^\prime)^C) =  T^{-1}((A^\prime))^C $$
+
+			\item If $\mathcal{B}$ is a collection of sets (could be uncountable), 
+
+					$$T^{-1}(\bigcup_{B \in \mathcal{B}} B ) = \bigcup_{B \in \mathcal{B}} T^{-1}(B) $$
+			\item 
+		\end{itemize}		
+
+
+\begin{proof}
+	\begin{itemize}
+		\item Let $\omega \in T^{-1}((A^\prime)^C)$. 
+
+				$\begin{aligned}
+						& \Leftrightarrow T(\omega \in (A^\prime)^C)\\
+						& \Leftrightarrow T(\omega) \notin  A^\prime \\
+						& \Leftrightarrow \omega \notin T^{-1}(A^\prime)\\
+						& \Leftrightarrow \omega \in (T(A^\prime))^C\\
+				\end{aligned}$
+
+		\item Let $T(\omega) \in T^{-1}(\bigcup_{B \in \mathcal{B}}) B$. 
+
+				$\begin{aligned}
+						& \Leftrightarrow T(\omega) \in \bigcup_{B \in \mathcal{B}} B\\
+						& \Leftrightarrow T(\omega) \in  B \quad \text{for some } B \in \mathcal{B} \\
+						& \Leftrightarrow \omega \in  T^{-1}(B) \quad \text{for some } B \in \mathcal{B} \\
+						& \Leftrightarrow \omega \in \bigcup_{B \in \mathcal{B}} T^{-1}(B) \\
+				\end{aligned}$	
+		\item	
+	\end{itemize}
+\end{proof}
+
+
+\textbf{Composite Function}\\
+
+$(\Omega, \mathcal{F}), (\Omega^\prime, \mathcal{F}^\prime), (\Omega^{\prime \prime}, \mathcal{F}^{\prime \prime}) $\\
+
+		$$T: \Omega \rightarrow \Omega^\prime, T^\prime: \Omega^\prime \rightarrow \Omega^{\prime \prime} $$
+
+		$$T^\prime \circ T \Omega \rightarrow \Omega^{\prime \prime}, \omega \mapsto T^\prime(T(\omega)) $$
+
+Then, 
+		$$ (T^\prime \circ T)^{-1} = T^\prime \circ (T)^{-1} $$
+
+
+\begin{proof}
+
+Want to show that for all $A^{\prime\prime} \subset \Omega^{\prime\prime}$
+
+	$$(T^\prime \circ T)^-1 (A^{\prime\prime}) = T^{-1} \circ (T^\prime)^{-1}(A^{\prime\prime}), \omega \in (T^\prime \circ T)^-1 (A^{\prime\prime}) $$
+
+		$$\Leftrightarrow (T^\prime \circ T)^-1 (\omega) \in A^{\prime\prime} \Leftrightarrow T^\prime (T(\omega)) \in A^{\prime\prime} $$
+
+		$$ $$
+
+
+\end{proof}
+
+
+\begin{theorem}
+	\begin{enumerate}
+		\item If $\mathcal{A}^\prime$ generates $\mathcal{F}^\prime$ and $T^{-1} (\mathcal{A}^\prime) \subseteq \mathcal{F}$ then T measure $\mathcal{F}/\mathcal{F}^\prime$ .
+
+		\item T measure $\mathcal{F}\setminus \mathcal{F}^\prime$, $T^\prime$ measure $\mathcal{F}^\prime \setminus \mathcal{F}^{\prime \prime}$
+	\end{enumerate}
+
+	What's the omtivation of (i)? In order to check T measures $\mathcal{F}\setminus \mathcal{F}^\prime$ we don't have to check $T^{-1} (A^\prime) \in \mathcal{F} \forall A^\prime \in \mathcal{F}^\prime$.\\
+
+	We only need to check 
+
+			$$T^{-1} (A^\prime) \in \mathcal{F} \forall A^\prime \in \mathcal{A}^\prime $$
+
+	So in order to check wither a subset
+
+		$$f :\Omega \rightarrow \mathbb{R} \text{ is measure on } \mathcal{F}\setminus \mathcal{R} $$
+
+	all we need to check is 
+			$$ 	f^{-1}((-\infty, x]) \in \mathcal{F} \Leftrightarrow \{\omega: f(\omega) \leq + x\} \in \mathcal{F} \forall x \in \mathbb{R}$$
+\end{theorem}
+
+\begin{proof}
+
+	\begin{enumerate}
+		\item Define paving in $\Omega^\prime$. 
+
+				$$\mathcal{G^\prime} = \{A^\prime \subseteq \Omega^\prime: T^{-1} (A^\prime) \in \mathcal{F}  \} $$
+
+			Interestingly, this is sometimes written as, 
+			
+					$$ T(\mathcal{F})$$	
+
+			which is not $\{T(A): A \in \mathcal{F}\}$.\\
+
+			Claim: $\mathcal{G}^\prime$ is $\sigma$-field. 
+
+					\begin{enumerate}
+						\item $\Omega^\prime \in \mathcal{G}^\prime \Leftrightarrow T^{-1}(\Omega^\prime) \in \mathcal{F}$\\
+
+								$$\{\omega\in \Omega: T(\omega) \in \Omega^\prime\} $$
+
+							because T is a mapping. 
+
+						\item Show $A^\prime \in \mathcal{G}^\prime \Rightarrow (A^\prime)^C \in \mathcal{G}^\prime$.
+
+								$$(A^\prime)^C \in \mathcal{G^\prime} \Leftrightarrow T^\prime((a^\prime)^C) \in \mathcal{F} \Leftrightarrow (T^{-1} (A^\prime))^C \in \mathcal{F} $$
+
+								$$T^{-1}() \in \mathcal{F} \text{ because } A^\prime \in \mathcal{G}^\prime$$
+
+								$$(T^{-1}(A^\prime))^C \in \mathcal{F} $$
+
+								because $\mathcal{F}$ is a $\sigma$-field. 
+
+
+						\item $A_1^\prime, \dots \in \mathcal{G}^\prime$. Want to show that $\bigcup_n A_n^\prime \in \mathcal{G}^\prime$
+
+
+								$$\Leftrightarrow T^{-1}(\bigcup_n A_n^\prime) \in \mathcal{F} $$
+
+								$$\Leftrightarrow \bigcup_n(T^{-1} (A_n^\prime)) \in \mathcal{F} $$
+
+								Now $\mathcal{A}^\prime$ generates $\mathcal{F}^\prime$ and $\mathcal{G}^\prime$ is a $\sigma$-field. 
+
+										$$\mathcal{A}^\prime \subseteq \mathcal{G^\prime} $$
+
+								beacuse  
+					\end{enumerate}
+
+		\item Want $T^\prime \circ T$ is a measure $\mathcal{F} \setminus \mathcal{F}^{\prime \prime}$, $A^{\prime\prime} \in \mathcal{F}^{\prime\prime}$.\\
+
+		Want $(T^\prime \circ T)^{-1} (A^{\prime\prime} ) \in \mathcal{F}$.\\
+
+				$$\Leftrightarrow T^{-1} \circ (T^\prime)^{-1} (A^{\prime\prime}) \in \mathcal{F}$$
+
+				$$\Leftrightarrow T^{-1} ((T^prime)^{-1} (A^{\prime\prime}))$$
+
+		But we know that 
+	\end{enumerate}
+	
+\end{proof}
+
+
+\textbf{Mapping into $\mathbb{R}^k$ }\\
+
+
+$(\Omega, \mathcal{F}), (\mathbb{R}^k, \mathcal{R}^k)$\\
+
+		$$f: \Omega \rightarrow \mathbb{R}^k $$
+
+Since the set of the form 
+
+		$$\mathcal{A} = \{(-\infty, x_1] x \dots x (-\infty, x_k]: x_1, \dots, x_k \in \mathbb{R} \} $$
+
+generates $\mathcal{R}^k$, for $f$ to be a measre on $\mathcal{F} \setminus \mathcal{R}^\prime$ we need
+
+		$$f^{-1}((-\infty, x_1] x \dots x (-\infty, x_k]) \in \mathcal{F} $$
+
+		$$= \{\omega \in \Omega: f_1(\omega) \leq x_1, \dots, f_k(\omega)\} $$
+		
+
+\textbf{Monday October 24}\\
+
+		$$ = \bigcap^k_{i=1} \{\omega \in \Omega: f_i(-\infty, x_i]\}$$
+
+if $f_i$ is a measure on $\mathcal{F}\setminus \mathcal{R}$. Then the $f_i$ are in $\mathcal{F}$. So, 
+
+		$$\bigcap^k_{i=1} \{\omega \in \Omega: f_i(-\infty, x_i]\} \in \mathcal{F}$$
+
+And we have that $f$ is a measure on $\mathcal{F}\setminus \mathcal{A}$ which implies $f$ is a measure on $\mathcal{F}\setminus \mathcal{R}^k$.\\
+
+So if $f_i$ is a measure on $\mathcal{F}\setminus \mathcal{R}$ for $i = 1, \dots, k$, then $f$ is a measure on $\mathcal{F}\setminus \mathcal{R}^k$.\\
+
+Conversely, we may also show that if $f$ is a measure on $\mathcal{F}\setminus \mathcal{R}^k$ this implies that $f_i$ is also a measure on $\mathcal{F}\setminus \mathcal{R}$ for $i = 1, \dots, k$.\\
+
+
+Let $x \in \mathbb{R}$. \\
+
+Let $A_n = (\bigcap_{i \neq j} \{\omega_i f_j (\omega) \leq n\}) \bigcap \{\omega_i f_i(\omega) \leq x\}$. Then
+		
+		$$A_n \uparrow \{\omega: f_i(\omega) \leq x\} $$
+
+
+But since f is a measure on $\mathcal{F}\setminus \mathcal{R}^k$ we have that 
+
+		$$A_n \in \mathcal{F} $$
+
+		$$\bigcup_n A_n \in \mathcal{F}$$
+
+
+		$$\{\omega: f_i(\omega) \leq x\} \in \mathcal{F}$$
+
+Where $f_i$ is a measure on $\mathcal{F}\setminus \mathcal{A}_0$.
+
+And because  $\mathcal{A}_0 = \{(-\infty, x]: x \in \mathbb{R}\}$ generates $\mathcal{R}$ we have that $f_i$ is a measure on $\mathcal{F}\setminus \mathcal{R}$.\\
+
+
+Conlusion: We have that $f$ is a measure on $\mathcal{F}\setminus \mathcal{R}^k$ is exchangeable (implies/implied by) $f_i$ being a measure on $\mathcal{F}\setminus \mathcal{R}$.\\
+
+
+\begin{theorem}
+	If $f: \mathbb{R}^i \rightarrow \mathbb{R}^k$ is continuous then f is a measure on $\mathcal{R}^i \setminus \mathcal{R}^k$.
+\end{theorem}
+	
+
+\begin{proof}
+	Let $\mathcal{G}^k$ be the collection of open sets in $\mathcal{R}^k$. Because $f: \mathbb{R}^i \rightarrow \mathbb{R}^k$ is continous we have that 
+
+			$$f^{-1}(\mathcal{G}^k) \subset \mathcal{G}^i $$
+
+	But $\mathcal{G}^i generates \mathcal{R}^i$. \\
+
+	So, $f^{-1}(\mathcal{G}^k) \subset \mathcal{R}^i$ and $f$ is a meausre on $\mathcal{R}^i\setminus \mathcal{G}^k$.\\
+
+	But $\mathcal{G}^k generates \mathcal{R}^k$.\\
+
+	So, similarly,$f$ is a meausre on $\mathcal{R}^i\setminus \mathcal{R}^k$.\\
+\end{proof}
+
+
+More generally, suppose 
+		
+		$$(\mathbb{X}, \mathcal{X}), (\mathbb{Y}, \mathcal{Y}) $$
+
+are topologicaly spaces where $f: \mathbb{X} \rightarrow \mathbb{Y}$ is continuous. Then we have that $f$ is a meausre on $\mathcal{B}_X\setminus \mathcal{B}_Y$ where
+
+		$$\mathcal{B}_X = \sigma(\mathcal{X}) $$
+		$$ \mathcal{B}_Y = \sigma(\mathcal{Y}) $$
+
+
+\begin{proof}
+	Because $f$ is continuous, 
+
+			$$f^{-1}(\mathcal{Y}) \subseteq \mathcal{X} \subseteq \sigma(\mathcal{X}) = \mathcal{B}_X $$
+
+		So $f$ is measure on $\mathcal{B}_X\setminus \mathcal{Y}$.\\
+
+		But $\mathcal{Y}$ generates $\sigma(\mathcal{Y} = \mathcal{B}_Y)$. So $f$ is measure on $\mathcal{B}_X\setminus \mathcal{B}_Y$.
+\end{proof}
+
+
+\begin{theorem}
+	If $f_j: \Omega \rightarrow\mathbb{R}$ is a measure on $\mathcal{F}\setminus \mathcal{R}$ for $j = 1, \dots, k$ and $\mathcal{Y}: \mathbb{R}^k \rightarrow\mathbb{R}$ is a measure on $\mathcal{F}\setminus \mathcal{R}$ then
+
+			$$\omega \mapsto \mathcal{G}(f_1(\omega), \dots, f_k(\omega)) \text{ is a meausre on }\mathcal{F}\setminus \mathcal{R}$$
+
+\end{theorem}
+
+
+\begin{proof}
+	
+\end{proof}
+
+
+\textbf{Measurability of Limits}\\
+
+Let $\bar{\mathbb{R}} = \{-\infty\} \bigcup \{\infty\} \bigcup \mathbb{R}$ and $\bar{\mathcal{R}} $ be the $\sigma$-field generated by
+
+		$$\{\{-\infty\}, \{\infty\}, \mathcal{R}  \} $$
+
+Let $(\Omega, \mathcal{F})$ be measureable space. \\
+
+Let $f: \Omega \rightarrow \bar{\mathbb{R}}$ be measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$. \\
+
+Here f being a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$ implies
+
+		\begin{enumerate}
+			\item $f^{-1}(\mathcal{R}) \in \mathcal{F}$
+			\item $f^{-1}(\{-\infty\}) \in \mathcal{F}$
+			\item $f^{-1}(\{+\infty\}) \in \mathcal{F}$
+		\end{enumerate}
+
+\begin{theorem}
+	Suppose $f_1, f_2, \dots, $ are function $\Omega \rightarrow \bar{\mathbb{R}}$ which are measure on $\mathcal{F} \setminus \bar{\mathcal{R}}$. Then
+
+			\begin{enumerate}
+				\item 
+					\begin{enumerate}
+						\item $\sup_n f_n$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$
+						\item $\inf_n f_n$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$
+						\item $\limsup_n f_n$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$
+						\item $\liminf_n f_n$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$
+					\end{enumerate}
+
+				\item If $\limsup_n f_n(\omega)$ exists for all $\omega\in \Omega$ then $\lim_n f_n$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$.
+
+				\item $\{\omega: \exists \lim_n f_n(\omega)\} \in \mathcal{F} $
+
+				\item If  $f$ is a measure on $\mathcal{F}\setminus \bar{\mathcal{R}}$ then $\{\omega: f_n(\omega) \rightarrow f(\omega)\} \in \mathcal{F}$.
+			\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item 
+		\item 
+		\item
+		\item
+	\end{enumerate}
+	
+	\item If $\lim_n f_n (\omega)$ exists for all $\omega$, then it is trivial that
+			$$\lim_n f_n \textcircled{m} \mathcal{F}\setminus \bar{\mathcal{R}} $$
+
+		If $\lim_n f_n$ exists this means that 	
+
+				$$\limsup_n f_n = \liminf_n f_n $$
+
+		Then, 
+
+				$$ \liminf_n f_n \equiv	\limsup_n f_n $$
+
+	\item We want to show that $\{\omega: \lim_n f_n(\omega) \exists \} \in \mathcal{F}$. 
+
+			This may be rewritten as, 
+
+				$$\{\omega: \liminf_n f_n(\omega) = \limsup_n f_n(\omega) \} \in \mathcal{F}$$
+
+				$$\{\omega: \liminf_n f_n(\omega) - \limsup_n f_n(\omega) = 0 \} \in \mathcal{F}$$
+
+		But we have that $\liminf_n f_n$ and $\limsup_n f_n$ are measurable $\mathcal{F}\setminus \bar{\mathcal{R}}$. Also that their difference is also within $\mathcal{F}$ because 
+
+				\begin{enumerate}
+					\item $\{0\} \in \mathcal{R}$
+					\item x-y is continuous
+				\end{enumerate}
+
+	\item Want to show that if $f \textcircled{m} \mathcal{F}\setminus \bar{\mathcal{R}}$, then
+
+			$$  \{\omega: \lim_n f_n(\omega) = f(\omega) \} \in \mathcal{F}$$
+
+	Which may be rewritten as 
+
+			$$ \{\omega: \lim_n f_n(\omega) - f(\omega) = 0 \} \in \mathcal{F}$$
+
+	But we can show that both terms are measurable, as is their diffrence and since 0 is in Borel set, the entire statement is in $\mathcal{F}$. 
+\end{enumerate}
+	% Rest in PHOTOS
+\end{proof}
+
+\textbf{Wednesday October 26}\\
+
+	
+Continued proving last theorem. \\
+
+\textbf{Algorithm of Proving Thing:} 3-step Argument\\
+
+\begin{enumerate}
+	\item A statement is true for indicator functions.
+	\item Then the statement is true for simple functions.
+	\item The statement is true for all measurable functions. 
+\end{enumerate}
+
+The net result is that if something is true for indicator functions, then it is true for measureable function. \\
+
+
+\begin{definition}[Simple Function]
+	$(\Omega, \mathcal{F})$ is measureable space. \\
+
+	If $\{A_1, \dots, A_n\}$ are $\mathcal{F}$-sets if $\bigcup_{i=1}^n A_i = \Omega$ and they are disjoint then $\{A_1, \dots, A_n\}$ is an $\mathcal{F}$-partition. \\
+
+	So a simple function on $\Omega$ is any function of the form
+
+			$$ f(\omega) = \sum^n_{i=1} a_i \mathbb{I}_{A_i}(\omega) $$
+
+	where $a_1, \dots, a_n \in \mathbb{R}, \{A_1 \dots, A_n \} \mathcal{F}$- partitions.
+\end{definition}
+
+\begin{theorem}
+	If $f: \Omega\rightarrow \bar{\mathbb{R}}: \textcircled{m} \mathcal{F}\setminus \mathcal{R}$ then there exists sequence of simple functions $\{f_n\}$ such that\\
+
+	if $f(\omega)= 0$, 
+
+			$$ 0 \leq f_n(\omega) \uparrow f(\omega)$$
+
+	and if $f(\omega) \leq 0$, 
+
+			$$ 0 \geq f_n(\omega) \downarrow f(\omega)$$
+\end{theorem}
+
+\begin{proof}
+	Construct a coarse grid of length 1 for each n. \\
+
+	For each of these strips fold it n times and then spread the paper out. \\
+
+	We have $2^n$ fine grids. \\
+
+	This process as a formula: 
+
+			$$f_n (\omega) = \left\{ \begin{array}{ll}
+				-n & -\infty \leq f (\omega) \leq -n\\
+				-(k-1) 2^{-n} & -k 2^{-n} < f(\omega) < -(k-1) 2^{-n}, k = 1, \dots, n2^n\\
+				(k-1) 2^{-n} & (k-1) 2^{-n} \leq f(\omega) < k 2^{-n}, k = 1, \dots, n2^n\\
+				n & n \leq f(\omega) \leq \infty 
+			\end{array} \right.$$
+
+See photo for working through different cases. \\
+
+Similarly for the opposite (down) direction. 
+
+\end{proof}
+
+\textbf{Friday October 28}\\
+
+\textbf{Measured Induces by Measureable Transformation}\\
+
+We have measurable spaces, $(\Omega, \mathcal{F}), (\Omega', \mathcal{F}')$. \\\
+
+$\mu$ is a measure on $(\Omega, \mathcal{F})$, 
+
+		$$T:  \Omega \rightarrow \Omega' \textcircled{m} \mathcal{F}\setminus \mathcal{F}' $$
+
+
+Define the set function $\mu'$ on $(\Omega', \mathcal{F}')$, 
+
+		$$\mu' = \mu (T^{-1}(A')), A' \in \mathcal{F}' $$
+
+Claim: We want to say that $\mu'$ is a measure on $\mathcal{F}'$. 
+
+	\begin{enumerate}
+		\item $\mu'(\emptyset') = 0$?
+
+
+				$$\mu'(\emptyset') = \mu(T^{-1}(\emptyset')) $$
+
+		But, by the definition of the function 
+
+				$$T^{-1}(\emptyset') = \{\omega \in \Omega: T(\omega) \in \emptyset' \} = \emptyset $$
+
+		So, 
+				$$\mu'(\emptyset') = 0 $$
+		\item $\mu'(A') = \mu(T^{-1}(A')) \geq 0$
+		\item $A'_1, A_2' \dots$ disjoint. We want to know if $\mu'(\bigcup_n A_n') = \sum_n \mu'(A_n')$ 
+
+				\begin{align*}
+					\mu'(\bigcup_n A_n') &=\mu(T^{-1}(\bigcup_n A_n'))\\
+							&=\mu (\bigcup_n T^{-1}(A'_n))\\
+						\text{Note:} T^{-1}(A_n') \bigcap	T^{-1}(A_m ')&= T^{-1}(A_n' \bigcap	A_m ')\\
+								&=\emptyset\
+						\text{So, above:} &=\sum_n \mu(T^{-1}(A_n'))\\
+							&= \sum_n \mu'(A_n')
+				\end{align*}
+	\end{enumerate}
+
+$\mu'$ is ameasure on $(\Omega', \mathcal{F}')$, this is "induced" measure by $T^{-1}$. We may write $\mu'$ as
+
+		$$\mu' = \mu \circ T^{-1} = \mu T^{-1} $$
+
+Also note that, 
+
+		$$ \mu'(\Omega') = \mu(T^{-1}(\Omega')) $$
+
+and that, 
+
+		$$T^{-1} (\Omega') = \{\omega \in \Omega: T(\omega) \in \Omega' \} $$
+
+this is $\Omega$ be ... so we have that 
+
+		$$\mu'(\Omega') = \mu(\Omega) $$
+
+So if $\mu$ is a finite measure, then $\mu'$ is finite measure; if $\mu$ is a probability measure, then so in $\mu'$.
+
+
+
+\section{Distribution of Random Elements}\index{Distribution of Random Elements}
+
+We have measurable spaces, $(\Omega, \mathcal{F}), (\Omega', \mathcal{F}')$. \\\
+
+
+\begin{definition}[Random Variable]
+	$X: \Omega \rightarrow \Omega', \textcircled{m} \mathcal{F}\setminus \mathcal{F}'$
+
+if $\Omega = \mathbb{R}$ and $\mathcal{F}' = \mathcal{R}$, then X is called a \textbf{random variable}. 
+\end{definition}
+
+\begin{definition}[Random Vector]
+	X as above, if $\Omega = \mathbb{R}^k$ and $\mathcal{F}' = \mathcal{R}^k$, then X is called a \textbf{random vector}. 
+\end{definition}
+
+
+If $\Omega'$ is a general space, Hilber space, Bunach spaces, etc then $\mathcal{F}'$ is a $\sigma$-field on these spaces. \\
+
+In these cases, X is called a \textbf{random element} or \textbf{random function/proccess/field} depending on the context.\\
+
+If P is a probability measure on $(\Omega, \mathcal{F})$ then the induce measure, $P X^{-1}$ on $\mathcal{F'}$ is called the \textbf{distribution of X}. Sometimes $P X^{-1}$ is denoted as $P_X$.\\
+
+Note that random variable comes first then the distribution. \\
+
+					\begin{remark}
+						For $A' \in \mathcal{F'}$, $\mu(T^{-1}(A')) $ is
+						 sometimes written as $\mu(T \in A')$. Because 
+
+								\begin{align*}
+									\mu(T^{-1}(A') = \mu(\omega \in \Omega: T(\omega) \in A')\\
+											&= \mu(\omega: T(\omega) \in A')\\
+											&= \mu( T \in A')\\
+								\end{align*}
+					\end{remark}
+
+Now consider the case where $\Omega' = \mathbb{R}, \mathcal{F}' = \mathcal{R}$. Let
+
+		$$F(x) = P(X^{-1} (-\infty, x]) = P(X \in (-\infty, x]) = P(X \leq x) $$
+
+This is called the distribution function of X. \\
+
+
+\textit{Some properties of distribution functions, F}\\
+
+
+	\begin{enumerate}
+		\item F is right continuous. 
+
+				$$x_n \downarrow x, (-\infty, x_n] \downarrow (-\infty, x]$$
+		So, 
+
+				$$PX^{-1}((-\infty, x_n]) \rightarrow PX^{-1}((-\infty, x]) $$
+
+		Which may be written as, 
+
+				$$F(x_n) \rightarrow F(x) $$
+
+		\item Left limit: $x_n \uparrow x$.
+
+				$$ (-\infty, x_n] \uparrow (-\infty, x]$$ 
+
+
+				$$PX^{-1}((-\infty, x_n]) \rightarrow PX^{-1}((-\infty, x) $$
+
+		Which may be written as, 
+
+				$$F(x_n) \rightarrow P(X \leq x) $$
+
+		That is to say, 
+
+				$$\lim_{x' \uparrow x} F(x') = P(X < x) $$
+
+				$$F(x-) = P(X < x) $$
+		
+		\item Jump at x. 
+
+				 $$F(x) - F(x-) = P(X\leq x) - P(X < x) = P(X = x) $$
+
+		\item 2 end points.
+
+				$$\lim_{x \rightarrow \{-\infty, \infty\}} F(x) = \text{?}$$
+
+		For $x_n \rightarrow - \infty, (-\infty, x_n] \downarrow \emptyset$. 
+
+				$$P X^{-1}((-\infty, x_n]) \rightarrow  P X^{-1}(\emptyset) = 0$$
+
+		So $F(x_n) \rightarrow 0, F(-\infty) = 0$. \\
+
+
+		For $x_n \rightarrow  \infty, (-\infty, x_n] \rightarrow \mathbb{R}$. 
+
+				$$P X^{-1}((-\infty, x_n]) \rightarrow  P X^{-1}(\mathbb{R}) = $$
+
+		So $F(x_n) \rightarrow 1, F(\infty) = 1$. \\
+		
+		\item F can only have countably many jumps. Let
+
+				$$D_F = \{x: F(x) - F(x-) > 0\} $$
+
+		Then $D_F$ is countable. \\
+	
+	Recall that Thm 10.2(iv), which supposes that $\mu$ is a measure on a field, $\mathcal{F}$ and that $\mu$ is $\sigma$-finite, then $\mathcal{F}$ cannot contain an uncountable disjoint collecition of sets with positive $\mu$-measure. \\
+
+	Therefore $D_F$ must be countable. 
+	\end{enumerate}
+
+\textbf{Monday October 31}\\
+
+\begin{theorem}
+	If F is nondecreasing and right continuous and we have that, 
+
+			$$\lim_{x \rightarrow - \infty} F(x) = 0, \lim_{x \rightarrow \infty} F(x) = 1 $$
+
+	then there exists, on some probability space $(\Omega, \mathcal{F})$, a random variable $X: \Omega \rightarrow \mathbb{R}$ measure on $\mathcal{F}\setminus \mathcal{R}$, such that
+
+			$$P(X \leq x) = F(x) $$
+
+\end{theorem}
+
+
+\begin{proof}
+ Recall that Theorem 12.4 (proved more general result in $\mathbb{R}^k$).\\ It says, if F is nondecreasing and right continuous then there exists on $\mathcal{R}$ a unique measure $\mu$ such that fora all a and b in $\mathbb{R}$, 
+
+ 		$$\mu \left( (a, b] \right) = F(b) - F(a) $$
+
+
+ So we have a measure on $(\mathbb{R}, \mathcal{R})$. To prove this theorem we need that 
+
+ 		\begin{itemize}
+ 			\item $\mu$ is a probabililty measure ($\mu(\mathbb{R}) = 1$) 
+ 			\item X on $(\mathbb{R}, \mathcal{R})$ such that $\mu X^{-1}((-\infty, x]) = F(x)$
+ 		\end{itemize}
+
+ \begin{enumerate}
+ 	\item Want that $\mu(\mathbb{R}) = 1$. Note that $\forall b \leftarrow \mathbb{R}$, $(-n, b]  \uparrow (-\infty, b]$. By continuity of $\mu$ from below we have that
+
+ 			$$\mu(-n, b])  \uparrow \mu(-\infty, b] $$ 
+
+ 	which gives us that
+
+ 			$$\mu(-n, b]) = F(b) - F(-n) = F(b) - 0 $$
+
+ 	Now $(-\infty, n] \uparrow \mathbb{R}$ by continuity of $\mu$ from below. 
+
+ 	% photo
+ \end{enumerate}
+						
+\end{proof}					
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 3
+% %----------------------------------------------------------------------------------------
+
+ \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
 \chapter{Integration with Respect to a Measure}
 
+\section{Integration}\index{Integration}
+
+We have measure space $(\Omega, \mathcal{F}, \mu)$.\\
+
+Let $f: \Omega \rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F} \setminus \bar{\mathcal{R}}$. We will keep these assumptions throughout this section. \\
+
+
+First, assume that $f \geq 0$, and let $\mathcal{P}$ be the collection of all finite $\mathcal{F}$-partitions of $\Omega$. That is, a memeber of $\mathcal{P}$ is $\{A_1, \dots, A_k\}$ where $A_i \in \mathcal{F}$, disjoint, $\bigcup^k_{i=1} A_i = \Omega$. 
+
+
+		$$\sup_{\{A_1, \dots, A_k\}} \sum^k_{i=1} [\inf_{\omega \in A_i} f(\omega)] \mu(A_i) = \int f d\mu $$
+
+
+which is the integral of f with respect to $\mu$. \\
+
+This is also written as 	
+
+		$$\int f(\omega) d\mu(\omega) $$
+
+or 
+
+		$$\int f(\omega) \mu(d\omega) $$
+
+In this definition we adopt the following regarding positive infinity ($\infty$). We pretend $\infty$ to be a finite positive number such that, 
+
+		$$\infty * 0 = 0 $$
+		$$0 * \infty = 0 $$
+		$$\infty * x = \infty $$
+		$$x * \infty = \infty $$
+		$$\infty * \infty = \infty $$
+
+Now, arbitrary function, \\
+
+positive part
+
+		$$f^+(\omega) = \begin{array}{ll}
+			f(\omega) & f(\omega) \geq 0\\
+			0 & f(\omega) \leq 0
+		\end{array} $$
+
+negative part
+
+		$$f^-(\omega) = \begin{array}{ll}
+			-f(\omega) & f(\omega) \leq 0\\
+			0 & f(\omega) \geq 0
+		\end{array} $$
+
+So we have that
+
+		$$ f = f^+ - f^-$$
+
+		$$|f| = f^+ + f^- $$
+
+The integral of f is defined according to the follwoing 4 scenarios
+
+		\begin{enumerate}
+			\item For $\int f^+ d\mu < \infty, \int f^- d\mu < 0 $, 
+
+					$$\int f d\mu = \int f^+ d\mu - \int f^- d\mu $$
+
+			\item For $\int f^+ d\mu < \infty, \int f^- d\mu = \infty $, we say that f is not integrable but has intagral 
+
+					$$\int f d\mu = - \infty $$
+
+			\item For $\int f^+ d\mu = \infty, \int f^- d\mu < \infty $, we say that f is not integrable with repsect to $\mu $but has integral 
+
+					$$\int f d\mu = \infty $$
+
+			\item For $\int f^+ d\mu = \infty, \int f^- d\mu = \infty $, we say that f is not integrable with respect to $\mu$.
+
+			\end{enumerate}
+
+
+\textbf{Properties of Integrals for Nonnegative Functions}\\
+
+In the follwoing theroem, 
+
+		$$f: \Omega \rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F}\setminus\bar{\mathcal{R}} $$
+		$$g: \Omega \rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F}\setminus\bar{\mathcal{R}} $$
+
+
+\begin{theorem}
+	\begin{enumerate}
+		\item If $\{A_1, \dots, A_k\}$ is an $\mathcal{F}$-partition of $\Omega$ and $f(\omega) = \sum^k_{i=1} x)k I_{A_i}$  then
+
+				$$\int f d \mu = \sum^k_{i = 1} x_i \mu(A_i) $$
+		
+		\item If $0 \leq f(\omega) \leq g(\omega) \forall \omega\in \Omega$ then
+
+				$$\int f d\mu \leq \int g d \mu $$ 
+		\item If $0 \leq f_n(\omega) \uparrow f(\omega) \forall \omega \in \Omega$ then
+
+				$$\int f_n d\mu \uparrow \int f d\mu $$ 
+		\item If $f \geq 0, g \geq 0, \alpha \geq 0, \beta \geq 0$ then
+
+				$$\int (\alpha f + \beta g)d\mu = \alpha \int f d\mu + \beta \int g d\mu $$
+	\end{enumerate}
+\end{theorem}
+
+\textbf{Wednesday November 2}\\
+
+\begin{proof}
+	\begin{enumerate}
+		\item Let $\{B_j: j = 1, \dots, m\} \in \mathcal{P}$. 
+
+				$$\sum^m_{j = 1} [\inf_{B_j} f(\omega)] \mu(B_j) $$
+
+		Recall that $f = \sum^k_{i =1} x_i I_{A_i}$
+
+			\begin{align*}
+				\sum^m_{j = 1} [\inf_{B_j} f(\omega)] \mu(B_j)  &= \sum^m_{j = 1} [\inf_{B_j} f(\omega)] \sum^k_{i=1} \mu(B_j A_i) \\
+					&= \sum^m_{j=1} \sum^k_{i = 1}[\inf_{B_j} f(\omega)] \mu(B_j A_i) \\
+					&= \sum_{A_i B_j \neq \emptyset}  [\inf_{B_j} f(\omega)] \mu(B_j A_i)\\
+					&\leq \sum_{A_i B_j \neq \emptyset}  x_i \mu(B_j A_i)\\
+					&\leq \sum^m_{j=1} \sum^k_{i = 1} x_i \mu(B_j A_i)\\
+					&= \sum^k_{i = 1} x_i \sum^m_{j=1}  \mu(B_j A_i)\\
+					&= \sum^k_{i = 1} x_i  \mu( A_i)\\
+			\end{align*}
+
+			So for all $\{B_j: j = 1, \dots, m\} \in \mathcal{P}$, 
+
+					$$\sum^m_{j = 1} [\inf_{B_j} f(\omega)] \mu(B_j)  \leq \sum^k_{i = 1} x_i  \mu( A_i)$$
+
+			Similarly the supremum of the LHS is also less than or equal to the RHS so, 
+
+					$$\int f d\mu \leq \sum^k_{i = 1} x_i  \mu( A_i) $$
+
+			Now for $\{A_1, \dots, A_k\} \in \mathcal{P}$,
+
+					$$\inf_{A_i} f(\omega) = x_i $$
+
+
+			So we have
+			
+					$$\sum_{\{B_j\} \in \mathcal{P}}\sum^m_{j = 1} [\inf_{B_j} f(\omega)] \mu(B_j)  \geq \sum^k_{i = 1} x_i  \mu( A_i)  $$	
+
+			Thus,
+					$$\int f d\mu \geq \sum^k_{i = 1} x_i  \mu( A_i) $$
+			 
+			\item Want $f \leq g \Rightarrow \int f d \mu \leq \int g d\mu$. 
+
+					$$f = \sum_{\{A_1, \dots, A)k\} \in \mathcal{P}} \sum^k_{i = 1} [\inf_{A_i} f(\omega)] \mu(A_i)  $$
+
+					$$\leq \sum_{\mathcal{P}} \sum^k_{i = 1} [\inf_{A_i} g(\omega)] \mu(A_i) \leq \int g d\mu$$
+
+			\item Want $0 \leq f_n \uparrow f \Rightarrow \int f_n d\mu \uparrow \int f d\mu$.
+
+			Since we have that $f_n \leq f$ for all $\omega$ by (ii) we have,
+
+					$$\int f_n d\mu \leq \int f d\mu $$
+
+					$$ \limsup_n \int f_n d\mu \leq \int f d\mu$$
+
+			Because $\int f_n d\mu \uparrow$ it has limit $\lim_n \int f_n d\mu \leq \int f d\mu$. 
+
+			Now we must show 
+
+					$$\lim_n \int f_n d\mu \geq \int f d\mu $$
+
+			This is implied by 
+
+					$$\lim_n \int f_n d\mu \geq \sum_i [\inf_{A_i} f(\omega)] \mu_({A_i}) $$
+
+			for all $A_i \in \mathcal{P}$. 
+
+
+			\textit{Case 1} Supose that $\sum_i [\inf_{A_i} f(\omega)] \mu({A_i}) < \infty$.\\ 
+
+					Assume that $[\inf_{A_i} f(\omega)] > 0$, $\mu({A_i}) > 0, i = 1, \dots, k$. \\
+
+					Hence, $\mu(A_i) < \infty, \forall i = 1, \dots, k$. \\
+
+					For sufficiently small $\varepsilon > 0$,  we may define
+
+							$$A_{ij} = \{\omega \in A_i: f_n(\omega) > \inf_{A_i} f(\omega) - \varepsilon \}$$
+
+					Because $f_n (\omega) \uparrow f(\omega)$, we have that $A_{in} \uparrow A_i$. Note that $\{A_{1n}, \dots, A_{kn}, (\bigcup^k_{k=1} A_{in})^C\} \in \mathcal{P}$.\\
+
+
+					So now we have that
+
+						\begin{align*}
+							\int f_n d\mu &\geq \sum_i [\inf_{A_i} f_n(\omega)] \mu({A_i}) + [\inf_{\bigcup^k_{i=1} A_{in}} f_n(\omega)] \mu(\bigcup^k_{i=1} A_{in})\\	
+								&\geq \sum_i [\inf_{A_{in}} f_n(\omega)] \mu(\bigcup^k_{i=1} A_{in})\\
+								&\geq \sum_i [\inf_{A_{i}} f(\omega)- \varepsilon] \mu( A_{in})\\
+								&\rightarrow \sum_i [\inf_{A_{i}} f(\omega) - \varepsilon] \mu(A_{i})\\
+						\end{align*}
+
+						So 
+
+								$$\lim_n \int f_n d\mu \geq \sum_i [\inf_{A_{i}} f(\omega) - \epsilon] \mu(A_{i}) = \sum_i [\inf_{A_{i}} f(\omega)] \mu(A_{i}) - \varepsilon \sum_i \mu(A_i)$$
+
+						Because $\mu(A_i) < \infty$ for $i = 1, \dots, k$ and we have that the above term is true for all $\epsilon$ we have that, 
+
+								$$\lim_n \int f_n d\mu \geq \sum_i [\inf_{A_{i}} f(\omega)] \mu(A_{i}) $$
+				
+				\textit{Case 2}	Here, 
+
+						$$  \sum_i [\inf_{A_i} f(\omega)] \mu(A_i) < \infty$$
+
+				We don't assume that
+
+						$$ [\inf_{A_i} f(\omega)] > 0, \mu({A_i}) > 0, i = 1, \dots, k $$	
+
+				But any way we have
+
+						$$[\inf_{A_i} f(\omega)] \mu(A_i) < \infty $$
+
+				Without loss of generality we may assume for $i = 1, \dots, k_0$ that
+
+						$$[\inf_{A_i} f(\omega)] \mu(A_i) > 0 $$
+
+				and for $i = k_{0 + 1}, \dots k$
+
+						$$[\inf_{A_i} f(\omega)] \mu(A_i) = 0 $$
+
+				Frome here we may just apply argument for Case 1 to the first set to show the same inequality. \\
+
+				\textit{Case 3} $\sum_i [\inf_{A_i} f] \mu(A_i) = \infty$, $\{A_i\} \in \mathcal{P}$\\
+
+				Then
+
+						$$[\inf_{A_{i_0}} f] \mu (A_{i_0}) = \infty $$
+
+				for some $i_0 \in \{1, \dots, k\}$.\\
+
+				Supose that $0 < x < \inf_{\omega \in A_{i_0}} f(\omega) \leq \infty$
+
+						$$- < y < \mu(A_{i_0}) \leq \infty $$
+
+				Let $A_{i_{0n}} = \{\omega\in A_{i_0}: f_n(\omega) > x\}$ and note that $f_n \uparrow f, f_n(\omega) > x$ for sufficiently large n then, 
+
+						$$A_{i_{0n}} \uparrow A_{i_0} $$
+
+				So we have that (by continuity),
+
+						$$\mu(A_{i_{0n}}) \rightarrow \mu(A_{i_0}) $$
+
+				and that $\mu(A_{i_{0n}}) > y$ for large n. \\
+
+				Since $\{A_{i_{0n}}, A_{i_{0n}}^C \} \in \mathcal{P}$, we have that
 
 
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 4
-%----------------------------------------------------------------------------------------
+					\begin{align*}
+						\int f_n d\mu &\geq [\inf_{A_{i_{0n}}} f_n]\mu(A_{i_{0n}}) + [\inf_{A_{i_{0n}}^C} f_n]\mu(A_{i_{0n}}^C)\\
+								&\geq [\inf_{A_{i_{0n}}} f_n]\mu(A_{i_{0n}})\\
+								&\geq xy 
+					\end{align*}
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+				So we have that
 
-\chapter{Random Variable}
-
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 5
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Convergence in Probability/Limit Theorem}
+						$$ \lim_n \int f_n d\mu \geq xy$$
 
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 6
-%----------------------------------------------------------------------------------------
+				But since $[\inf_{A_{i_{0}}} f]\mu(A_{i_{0}}) = \infty$ we have that either
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+						$$\begin{array}{l}
+							\inf_{A_{i_{0}}} f  =\infty\\
+							\mu(A_{i_0}) = \infty
+						\end{array} $$
 
-\chapter{Radon-Nikodym Derivative Theorem}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 7
-%----------------------------------------------------------------------------------------
+				If the first is equal to infinity we may choose x arbitrarily large. If the second is equal to infinity, we may choose y arbitrarily large. So either way (iii) holds. \\
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+				\textit{Case 4} If $g \geq 0, f \geq 0, \alpha \geq 0, \beta \geq 0$ then
 
-\chapter{Special Topics}
+						$$\int( \alpha f + \beta g) d\mu = \alpha \int f d\mu + \beta\int g d\mu $$
+
+
+				Suppose that f, g are simple, that is there eists $\{A_i\}, \{B_j\} \in \mathcal{P}$).
+
+						$$f = \sum_i x_i I_{A_i} $$								
+						$$g = \sum_j y_j I_{B_j} $$
+
+						$$A_i = \bigcup_j A_i B_j $$
+						$$B_j = \bigcup_i A_i B_j $$
+
+						$$I_{A_i} = \sum_j I_{A_i B_j} $$
+						$$I_{B_j} = \sum_i I_{A_i B_j} $$
+
+
+
+				\begin{align*}
+					\int( \alpha f + \beta g) d\mu &= \int( \alpha \sum_i x_i I_{A_i} + \beta \sum_j y_j I_{B_j}) d\mu\\
+							&=\int( \alpha \sum_i x_i \sum_j I_{A_i B_j} + \beta \sum_j y_j \sum_i I_{A_i B_j}) d\mu\\
+							&=\int(\sum_i \sum_j (\alpha x_i + \beta y_j)  I_{A_i B_j}) d\mu\\
+							&=\sum_i \sum_j (\alpha x_i + \beta y_j)  \mu(A_i B_j))\\
+							&=\sum_i \sum_j (\alpha x_i \mu(A_i B_j)
+							+ \sum_i \sum_j (\beta y_j  \mu({A_i B_j})\\
+							&= \alpha \sum_i x_i \mu(A_i) + \beta \sum_j y_j \mu(B_j)\\
+							&=\alpha \int f d\mu + \beta \int g d\mu\\
+				\end{align*}
+
+				Note that we've used the first two steps in the three step argument collapsed into one. So now step three of the three step argument:
+
+						$$0 \leq f \textcircled{m} \mathcal{F}\setminus\bar{\mathcal{R}} $$
+
+						$$0 \leq g \textcircled{m} \mathcal{F}\setminus \bar{\mathcal{R}} $$
+
+				Then by Theorem 13.1 there exists $0 \leq f_n \uparrow f, 0 \leq g_n \uparrow g$ and by (iii) we have that
+
+						$$\int f_n \mu \rightarrow\int f d\mu,  \int g_n \mu \rightarrow\int g d\mu$$
+
+				So 
+
+						$$\alpha \int f_n d\mu + \beta \int g_n d\mu \rightarrow \alpha \int f d\mu + \beta \int g d\mu $$
+
+				But by step one and two, 
+
+						$$\alpha \int f_n d\mu + \beta \int g_n d\mu = \int (\alpha f_n + \beta	g_n) d\mu \rightarrow \int (\alpha f + \beta g) d\mu $$
+
+	\end{enumerate}
+\end{proof}
+
+
+\begin{exercise}[Application of (i)]
+	Consider $(\mathbb{R}, \mathcal{R}, \lambda)$.\\
+
+	Suppose 
+			$$-\infty < a_0 \leq a_1 \leq \dots \leq a_m < \infty$$
+
+	Let 
+
+			$$ f = \sum^m_{i=1} x_i I_{(a_{i-1}, a_i]} + 0 I_{(-\infty, a_0]} + 0 I_{(a_m, \infty)}$$
+
+
+	But by (i) of the above Theorem, we have that
+
+			\begin{align*}
+				\int f d\mu &= \sum^m_{i=1} x_i \lambda{(a_{i-1}, a_i]} + 0 \lambda{(-\infty, a_0]} + 0 \lambda{(a_m, \infty)} \\
+						&= \sum^m_{i=1} x_i (a_i - a_{i -1}) + 0 + 0\\
+			\end{align*}
+
+	Consider 
+
+			$$f = \left\{\begin{array}{ll}
+				\infty & x = a\\
+				0 & x \neq 0
+			\end{array}\right. $$
+
+	So then we have that
+
+			$$\inf f d\lambda = \infty * \lambda(\{a\}) * 0 * \lambda(\mathbb{R}\setminus\{a\}) = \infty * 0 + 0 * \infty = 0$$
+
+
+			$$f = I_{(a, \infty)} $$
+
+	By (i), 
+
+			$$\int f d\lambda = \infty $$
+\end{exercise}
+
+
+\textit{Almost Surely}
+
+Now we move on to the concept of almost surely with respect to the measure $\mu$.\\
+
+$(\Omega, \mathcal{F}, \mu)$ is our measure space.\\
+
+		$$F: \Omega\rightarrow \bar{\mathbb{R}}, \textcircled{m} \mathcal{F}\setminus\bar{\mathcal{R}} $$
+
+\begin{definition}[Almost Surely]
+Let $B \in \bar{\mathcal{R}}$. \\
+
+We say that $f \in B a.s. \mu$ if
+
+		$$ \mu\{\omega:f(\omega)\notin B \} = 0$$
+
+Where we me rewrite above as 
+
+		$$\mu f^{-1} (B^C) = 0 $$ 
+
+
+So the we may define almost surely with 
+
+		$$f \in B a.s. \mu \Leftrightarrow \mu f^{-1} (B^C) = 0 $$ 
+
+\end{definition}
+
+
+Recall that in the definition of integral we requred f to be measureable, but we did not explicitely use it. Actually we don't always need it!\\
+
+The original definition of an integral involves a 'lower' and 'upper' integral. But when f is measureable, these are equal. \\
+
+\textbf{Wednesday November 9}\\
+
+\begin{theorem}
+Suppose $f, g, \geq 0$ and are measruable on $\mathcal{F} \setminus \mathcal{\bar{R}}$.
+
+	\begin{enumerate}
+	           \item If f = 0 almost everywhere (a. e.) $\mu$ then 
+	           		$$\int f d\mu = 0 $$
+
+	           \item If $\mu\{\omega: f(\omega) > 0 \} >0$, then
+
+	           			$$\int f d\mu  > 0 $$
+
+	           \item If $\int f d\mu < \infty$, then
+
+	           			$$f < \infty a.e. \mu $$
+
+
+	           \item If $f \leq g a.e. \mu$ then, 
+
+	           		$$\int f d\mu \leq \int g d\mu $$
+
+	           \item If $f = g a.e.$ then
+
+	           		$$\int f d\mu = \int g d\mu $$   		
+	\end{enumerate}                 	
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Want f = 0 a.e. $\mu \Rightarrow \int f d\mu = 0$.\\
+
+		Let $\mathcal{A}_0 = \{\omega: f(\omega) = 0 \}$. For and $\{A_i\} \in \mathcal{P}$
+
+				\begin{align*}
+					\sum_i (\inf_{A_i} f(\omega)) \mu(A_i) = \sum_i (\inf_{A_i} f(\omega)) (\mu(A_i A_i A_0) + \mu(A_i A_0^C))\\
+							&\leq \sum_i (\int_{A_i A_0} f(\omega))\mu(A_i A_0)\\
+							&= 0
+				\end{align*} 
+
+		So we have that 
+
+				$$\int f d\mu = \sup_{\{A_i\} \in \mathcal{P}} \sum_i (\int_{A_i A_0} f(\omega))\mu(A_i A_0) = 0 $$
+
+		
+		\item Want that $\mu(\{\omega: f(\omega) > 0 \} > 0 \Rightarrow \int f d\mu > 0$\\
+
+		Let $A_\varepsilon = \{\omega: f(\omega) \geq \varepsilon\}$ as $\varepsilon \downarrow 0$ such that
+
+				$$A_\varepsilon \uparrow \{\omega: f(\omega) > 0\} $$
+
+		By the continuity of probability, 
+
+				$$\mu(A_\varepsilon) \rightarrow \mu(\omega: f> 0) $$
+
+		where $\mu (A_\varepsilon) > 0$ for sufficiently small $\varepsilon$.
+
+		So we have that 
+
+				$$\{A_\varepsilon, A_\varepsilon^C \} \in \mathcal{P} $$
+
+				$$\int f d\mu \geq \{\inf_{A_\varepsilon} f\} \mu(A_\varepsilon) + (\inf_{A_\varepsilon^C} f) \mu(A_\varepsilon^C) > 0 $$
+
+	Not that the first part of the first term is $\epsilon$ while the  second part is greater than 0 and the second term is equal to zero. \\
+
+		\item Want that $\int f d\mu < \infty \Rightarrow f < \infty a. e.$. And that this is interchangeable with $(f < \infty a.e.)^C \Rightarrow \int f d\mu = \infty$.\\
+
+		Also that $f < \infty a.e.$ not true implies that $\mu(f = \infty) > 0$.\\
+
+		Let $A = \{\omega: f (\omega)\}, \{A, A^C\} \in \mathcal{P}$. \\
+
+				$$\int f d\mu \geq (\inf_A f ) \mu(A) = \infty * (> 0) = \infty $$
+
+		\item If f < g a.e. then $\int f d\mu \leq \int g d\mu$.\\
+
+		Let $G = \{\omega: f(\omega) \geq g(\omega) \}, \mu(G^C) = 0$.\\
+
+		Also, let $\{A_i\} \in \mathcal{P}$
+
+				\begin{align*}
+				 	\sum_i (\inf_{A_i})\mu(A_i) &= \sum(\inf_{A_i} f) \mu(A_i G)\\
+				 			&\leq \sum(\inf_{A_i G} f) \mu(A_i G)\\
+				 			&\leq (\sum\inf_{A_i} g) \mu(A_i G)\\
+				 			& \leq \sum(\inf_{A_i} g) \mu(A_i G) + (\inf_{G^C} g) \mu(G^C)\\
+				 			&\leq \int g d\mu\\
+				 \end{align*} 
+
+		But note that $\{A_i G, \dots, A_m G, G^C\} \in \mathcal{P}$ and the above is true for all $\{A_i\} \in \mathcal{P}$ and altogehter this implies that
+
+				$$\int f d\mu \leq \int g d\mu $$
+
+		\item Want to show that $f = g a.e. \Rightarrow \int f d\mu = \int g d\mu$.\\
+
+
+				$$f = g a.e. \Rightarrow \begin{array}{l}
+					f \leq g a.e. \rightarrow \int f d\mu \leq \int g d\mu\\
+					g \leq g a.e. \rightarrow \int g d\mu \leq \int f d\mu\\
+				\end{array}  \Rightarrow \int f d\mu = \int g d\mu$$
+	\end{enumerate}
+\end{proof}
+
+\section{Properties of Integral in General Case}\index{Properties of Integral in General Case}
+
+General case refers to g and f not being negative.\\
+
+If f has  a definite integral (has an integral) and f = g a.e. $\mu$, then $\int f d\mu = \int g d\mu$ (that is, not negative).
+
+\begin{proof}
+	We note that f = g a.e. $\mu \Rightarrow \left\{\begin{array}{l}
+		f^+ = g^+\\
+		f^- = g^-
+	\end{array}\right.$ 
+
+	So, by part 5 of the previous theorem, 
+
+			$$ \int f^+ d\mu = \int g^+ d\mu$$
+			$$ \int f^- d\mu =\int g^- d\mu$$
+
+By having definite integral, we can take the difference.
+
+		$$ \int f^+ d\mu - \int f^- d\mu = \int g^+ d\mu  - \int g^- d\mu$$
+		$$\int f d\mu = \int g d\mu$$
+			 
+\end{proof}
+
+
+\textbf{Equalities and Inequalities}\\
+
+First note that $\int |f| d\mu = \int f^+ d\mu + \int f^- d\mu =$ by linearity and nonnegative case. \\
+
+Also note that f integrable with respect to $\mu$ ($f \textcircled{s} \mu$) means that $\int f^+ d\mu < \infty, \int f^- d\mu < \infty$. 
+
+		$$f \textcircled{s} \mu \Leftrightarrow \int |f| d\mu < \infty $$
+
+So if f is integrable and $|g| < |f|$ a.e. then g is integrable because
+
+		$$\int |g| d\mu \leq \int |f| d\mu < \infty $$
+
+In particular if f is bounded ($|f| \leq M \forall \omega \in \Omega$), $\mu(\Omega)< \infty$ then $f \textcircled{s} \mu$.
+
+		$$\int |f| d\mu \leq \int M d\mu = M \mu(\Omega) \leq \infty $$
+
+\begin{theorem}
+	\begin{enumerate}
+		\item Monotonicity\\
+
+				If $f, g \textcircled{m} \mu$ and $f \leq g$ then
+
+						$$\int f d\mu \leq \int g d\mu $$
+		
+		\item \textit{Linearity}
+
+				If $\alpha \in \mathbb{R}, \beta \in \mathbb{R}$; f, g $\textcircled{m} \mu$ and we have that $\alpha f + \beta g \textcircled{m} \mu$ then
+
+						$$\int (\alpha f + \beta g) d\mu  = \alpha \int f d\mu + \beta \int g d\mu$$ 
+	\end{enumerate}
+\end{theorem}
+
+\textbf{Friday November 11}\\
+
+\begin{proof}
+	\begin{enumerate}
+		\item Monotonicity\\
+			We know that
+				$$f = f^+ - f^- $$
+				$$g = g^+ - g^- $$
+
+			so if we know that $f \leq g$ we have that
+
+					$$f^+  - f^- \leq g^+ - g^- \Leftrightarrow (f^+ - g^+ ) - (f^- - g^-) \leq 0$$
+
+			We also can easily see that both $(f^+ - g^+ ), (f^- - g^-) \geq 0$. Other results include
+
+					$$f^+ \leq g^+ a.e.$$
+					$$f^- \geq g^- a.e.$$
+
+			and
+
+					$$\int f^+ d\mu \leq \int g^+ d\mu$$
+					$$-\int f^- d\mu \leq -\int g^- d\mu$$
+
+					$$\int f^+ d\mu  -\int f^- d\mu \leq \int g^+ d\mu -\int g^- d\mu$$
+
+			so we have our result that
+
+					$$\int f \leq \int g$$
+
+		\item  \textit{Monotonicity}\\
+
+		First we need that $\alpha f + \beta g \textcircled{m} \mu$. 
+
+		\begin{align*}
+			\int | \alpha f + \beta g| d\mu &\leq \int |\alpha| |f| + |\beta||g| d\mu\\
+					&\leq |\alpha| \int |f| d\mu + |\beta| \int |g| d\mu\\
+					&< \infty
+		\end{align*}
+
+		Claim: $\int \alpha f d\mu = \alpha \int f d\mu$
+
+			
+					$$\int \alpha f d\mu = \int (\alpha f)^+ d\mu - \int (\alpha f)^- d\mu$$
+				
+
+			When $\alpha \geq 0$, 
+
+					$$(\alpha f)^+ = \alpha f^+ $$
+					$$(\alpha f)^- = \alpha f^- $$
+
+			So we have that 
+
+					\begin{align*}
+					 	\int (\alpha f)^+ d\mu - \int (\alpha f)^- d\mu &= \int \alpha f^+ d\mu - \int \alpha f^- d\mu\\
+					 			&= \alpha \int f^+ d\mu - \alpha \int f^- d\mu\\
+					 			&= \alpha( \int f^+ d\mu - \int f^- d\mu)\\
+					 			&=\alpha \int f d\mu
+					 \end{align*} 
+
+			But, when $\alpha < 0$, 
+
+					$$ (\alpha f^+) = \begin{array}{ll}
+						\alpha f(\omega) & \alpha f(\omega) \geq 0\\
+						0 & \alpha f(\omega) < 0
+					\end{array} $$
+
+			When $\alpha f(\omega) \geq 0$ we have that $f(\omega) \leq 0$
+
+					$$f(\omega) = -f^-(\omega) $$
+
+					$$\alpha f(\omega) = - \alpha f^-(\omega) $$
+
+			If $\alpha f(\omega) < 0$, then $f(\omega) \geq 0$ so we have
+
+					$$f^-(\omega) = 0 $$
+
+			So
+
+					$$(\alpha f)^- = 0 = -\alpha f^-(\omega) $$
+
+					$$(\alpha f) = - \alpha f^- $$
+
+
+			Similarly, when $\alpha < 0$, 
+
+					$$ (\alpha f)^- = - \alpha f^+ $$
+
+			So 
+
+					\begin{align*}
+						\int \alpha f d\mu = \int (\alpha f)^+ d\mu = \int (\alpha f)^- d\mu\\
+								&= \int (-\alpha) f^- d\mu - \int (-\alpha) f^+ d\mu\\
+								&= \alpha \int f^+ d\mu - \alpha \int (f)^- d\mu\\
+								&= \alpha \int f d\mu\\
+					\end{align*}
+
+
+			Now we have that
+
+					$$\alpha f + \beta g = (\alpha f + \beta g)^+ - (\alpha f + \beta g)^- $$
+
+			and also that 
+
+					$$\alpha f + \beta g = (\alpha f)^+ - (\alpha f)^- + (\beta g)^+ - (\beta g)^- $$
+
+			Which means that 
+
+				$$(\alpha f + \beta g)^+ - (\alpha f + \beta g)^- = (\alpha f)^+ - (\alpha f)^- + (\beta g)^+ - (\beta g)^-$$
+
+			Rewriting and using linearity in nonnegative cases we get
+
+					$$\int (\alpha f + \beta)^+ d\mu + \int (\alpha f)^- d\mu + \int (\beta g)^- d\mu = \int (\alpha f + \beta g)^- + \int(\alpha f)^+ d\mu + \int (\beta g)^+ $$
+			% Finish proof
+
+	\end{enumerate}
+\end{proof}
+
+
+A special case is necessary because $-|f| \leq f \leq |f|$ so we have that 
+
+		$$ -\int|f| d\mu \leq \int f d\mu \leq \int|f| d\mu$$
+
+
+So we have that $| \int f d\mu | \leq \int |f| d\mu $ if f is measureable on $\mu$. \\
+
+
+A second special case is neede for f and g measureable on $\mu$ for 
+
+		$$| \int f - g d\mu | \leq \int |f - g| d\mu $$
+
+or when
+
+		$$| \int f d\mu - \int g d\mu | \leq \int |f - g| d\mu $$
+
+
+
+For this next theorem, recall Theorem 15.1 (iii) where if
+
+			$$0 \leq f_n \uparrow f  \forall \omega \in \Omega$$
+
+	then this gives us that
+
+			$$\int f_n d\mu \uparrow \int f d\mu $$
+
+	Now we relax this theotem to almost everywhere. 
+
+\begin{theorem}[Monotone Convergence Theorem]
+
+If $0 \leq f_n \uparrow f$ a.e. $\mu$ then we have that 
+
+		$$\int f_n d\mu \uparrow \int f d\mu$$
+
+\end{theorem}
+
+\begin{proof}
+	Let $A = \{\omega \in \Omega: 0 \leq f_n(\omega) \uparrow f(\omega)\}$ and we have that $\mu(A^C) = 0$.
+
+	Then $f_n I_A \uparrow f I_A $ everywhere. So by Theorem 15.1 (iii), 
+
+			$$ \int f_n I_A d\mu \uparrow \int f I_A d\mu$$
+
+	But $f_n I_A = f_n$ a.e. $\mu$. Similarly for $f I_A = f$ which implies that
+
+			$$ \int f_n  d\mu \uparrow \int f d\mu$$ 
+\end{proof}
+
+
+\textbf{Fatou's Lemma}\\
+
+\begin{theorem}
+	If $f_n \geq 0, f_n$ is measureable $\mathcal{F}\setminus \mathcal{R}$ then 
+
+			$$\int \liminf_{n} f_n d\mu \leq \liminf_n \int f_n d\mu $$ 
+\end{theorem}
+
+
+\begin{proof}
+	This is a direct consequence of MCT. \\
+
+	Let  $g_n = \inf_{k \geq n} f_n$. 
+
+			$$g = \lim_{n \rightarrow \infty}\inf_{k \geq n} f_n = \liminf_n f_n $$
+
+	By definition, 
+			$$0 \leq g_n \uparrow g$$
+
+			$$\int g_n d\mu \rightarrow \int g d\mu = \int \liminf_n f_n d\mu $$
+
+
+	We also have that $f_n \geq \inf_{k \geq n} f_n = g_n$ so 
+
+			$$\int f_n d\mu \geq \int g_n d\mu $$
+
+			$$\liminf_n \int f_n d\mu \geq \liminf_n \int g_n d\mu $$
+			$$\liminf_n \int f_n d\mu\geq \int \liminf_n f_n d\mu $$
+\end{proof}
+
+You may wonder if 
+		
+		$$\liminf_n \int f_n d\mu \geq \liminf_n \int g_n d\mu $$
+
+	but not generally grue. But true if LHS is finite. 
+
+
+\textbf{Lebesgue's Dominated Convergence Theorem}\\
+
+\begin{example}
+	Consider $(\mathbb{R}, \mathcal{R}, \lambda)$. 
+
+			$$f_n = n^2 I_{(0, \frac{1}{n})} $$
+
+	For all $\omega \in \mathbb{R}$, $f_n(\omega) \rightarrow 0 $. \\
+
+	So we have that $\lim f_n = 0$ for all $\omega$.\\
+
+	\begin{align*}
+		f(\omega) &= \lim_n f_n(\omega)\\
+		\int f(\omega) d\lambda &= \int 0 d\lambda  = 0\\
+		\lim_n \int f(\omega) d\lambda &= \lim_n \int^{1/n}_0 n^2 d\lambda\\
+				&=\lim_n \frac{1}{n} n^2 = \lim_n n = \infty
+	\end{align*}
+
+
+
+\end{example}
+
+\textbf{Wednesday November 14}\\
+
+
+\begin{theorem}
+	If $|f_n| \leq g$, a.e. $\mu$, g is measurable on $\mu$, and if $f_n \rightarrow f$ a.e. $\mu$ then both f and $f_n$ are measurable $\mu$ and
+
+			$$\int f_n d\mu \rightarrow \int f d\mu $$
+\end{theorem}
+
+\begin{proof}
+	Since $|f_n| \leq g$ a.e. $\mu$ we have that
+
+		\begin{enumerate}
+			\item $f_n $ measureable on $\mu$ for all n because
+
+					$$\int |f_n| d\mu \leq \int g d\mu < \infty $$
+			
+			\item $\limsup_n f_n $ is measureable $\mu$ because we have that 
+
+					$$| \limsup_n f_n| \leq \limsup_n |f_n| \leq g  $$
+
+			So we have that
+
+					$$ \int | \limsup_n f_n| d\mu  \leq \int g d\mu$$
+			\item $\liminf_n$ is measurable $\mu$ because
+
+				\begin{align*}
+					\liminf_n f_n \textcircled{m} \mu &\Leftrightarrow - \liminf_n -f_n \textcircled{m} \mu\\
+							&\Leftrightarrow \limsup_n (-f_n) \textcircled{m} \mu\\
+				\end{align*}
+
+				But
+						$$|\limsup_n (-f_n)| \leq \limsup_n |-f_n| = \limsup_n |f_n| \leq g $$
+		\end{enumerate}
+
+
+	Because we have that $|f_n| \leq g$ (this is wehre we used dominating condition) we have that
+
+			$$g - f_n \geq 0 $$
+			$$g + f_n \geq 0 $$
+
+	Applying Fatou's Theorem to both, 
+
+			$$\int \liminf_n (g+ f_n) d\mu \leq \liminf_n \int (g+f_n) d\mu $$
+
+	With the LHS we get that
+
+			$$\int g+ \liminf_n f_n d\mu = \int g d\mu + \int \liminf_n f_n d\mu $$
+
+	by linearity of integrable version, this is where we use $\liminf_n f$ measurabe $\mu$.\\
+
+	With the RHS this term is equal to 
+
+			$$\liminf_n (\int g d\mu + \int f_n d\mu) $$
+
+	by the measurability version of linearity as we know both $f_n$ and g are measurable so this is equal to 
+
+			$$\int g d\mu + \liminf_n \int f_n d\mu $$
+
+	Equating the two results we have that
+
+			$$\int g d\mu + \int \liminf_n f_n d\mu = \int g d\mu + \liminf_n \int f_n d\mu $$
+
+	because y is also measurable on $\mu$ you conclude that
+
+			$$ \liminf_n f_n d\mu =  \liminf_n \int f_n d\mu$$
+
+	Apply Fatou in this same manner to $g - f_n$ and through the same argument we get that
+
+			$$ \liminf_n f_n d\mu =  \liminf_n \int f_n d\mu$$
+
+
+	\begin{align*}
+		\int \liminf_n f_n d\mu &\leq \liminf_n \int f_n d\mu\\
+				&\leq \limsup_n \int f_n d\mu\\
+				&\leq \int \limsup_n f_n d\mu
+	\end{align*}
+
+	But we assume that $f_n \rightarrow f$ a. e. $\mu$. Therefor this means that 
+
+			$$\limsup_n f_n = \liminf_n f_n \text{ a.e. } \mu $$
+
+	and the above inequalities are all now equal. 
+
+	Which may be extended to
+
+			$$ \int \limsup_n f_n d\mu = \int \limsup_n f_n d\mu = \int \lim_n f_n d\mu $$
+
+	Therefore, 
+
+			$$ \lim_n \int f_n d\mu = \int \lim_n f_n d\mu $$
+ 
+\end{proof}
+
+
+\begin{example}
+	Let $\Omega$ be a countable set and without loss of generality assume that
+
+			$$\Omega = \{1, 2, \dots \} $$
+
+	Let $\mathcal{F} = 2^\Omega$ and $\kappa: 2^\Omega \rightarrow \mathbb{N}$. 
+
+			$$A \in 2^\Omega \mapsto \#(A) $$
+
+	Where \# means that if A is finite $\#(A)$ is equal to the number of elements in A, otherwise it is equal to $\infty$.\\
+
+	It can be shown (not hard) that $\kappa$ is a measure and it is called the counting measure.\\
+
+	For 
+
+			$$(\Omega, 2^\Omega, \kappa) $$
+
+	what does $\int f d\kappa$ mean?\\
+
+	A function on $\Omega$ can be written as a sequence 
+
+			$$f(1), f(2), \dots = \{x_1, x_2, \dots x_m,  \dots\} $$
+
+	We may define a truncated sequence, 
+
+
+			$$x_{nm} = \left\{ \begin{array}{ll}
+				x_m & m \leq n\\
+				0 & m > 0
+			\end{array}
+			\right. $$
+
+	then $f_n(m) = x_{nm}$ is a simple function because $\left\{\{1\}, \dots, \{n\}, \dots \right\}$ is a finite $\mathcal{F}$-partition (in $\mathcal{P}$). \\
+
+	So we have that 
+
+			$$\int f_n d\mu = \sum^n_{m=1} x_{nm} \kappa(\{m\}) + 0 * k(\{n+1, \dots\}) = \sum^n_{m=1} x_{nm} $$
+
+	Now assume that $x_m \geq 0$ first. Then by MCT we have
+
+			$$0 \leq f_n \uparrow f $$
+
+	where $f = \sum^\infty_{m=1} x_m$ and this implies that 
+
+			$$\lim_n \int f_n d\kappa = \int f d\kappa$$
+
+	So we have that 
+
+			$$\lim_n \sum^n_{m=1} x_m \triangleq \sum^\infty_{m=1} x_m $$
+
+	So, not suprisingly, 
+
+			$$\int f d\mu = \sum^\infty_{m=1} x_m $$
+
+	Now, suppose that f is measurable on $\mu$ so that $\int |f| d\kappa < \infty$ so we have that 
+
+			$$\sum^infty_{m=1} |x_m| < \infty $$
+
+	Then 
+
+			$$\int f d\kappa = \int f^+ d\kappa - \int f^- d \kappa = \sum^\infty x_m^+ - \sum^\infty x_m^- $$
+
+	So this is how to integrate with respect to counting measure. 
+
+	$f \textcircled{m} \mu$ if and only if  $\sum x_m^{+} < \infty, \sum x_m^{-} < \infty$ 
+
+	It has a definite integrable if at least one is finite. And it does not have definite integral and if both are infinite.\\
+
+
+	When can you exchange integral and limit? That is, what is the special form of DCT in this setting?\\
+
+	Suppose for each $n = 1, 2, \dots, \{x_{nm}: m = 1, 2, \dots\}$ is a sequence (not necessarily a function, so we have a sequence of sequences) such that 
+
+			\begin{enumerate}
+				\item $|x_{nm}| \leq M_m$
+
+						$$\sum^\infty_{m=1} M_m < \infty $$ 
+				\item $\lim_{n \rightarrow \infty} x_{nm} = x_m$ for $m = 1, \dots, M$
+			\end{enumerate}
+
+	Let 
+
+			$$f: \Omega \rightarrow\mathbb{R}, m \mapsto x_m $$
+			$$f_n: \Omega \rightarrow\mathbb{R}, m \mapsto x_{nm} $$
+			$$g: \Omega \rightarrow\mathbb{R}, m \mapsto M_m $$
+
+	Then, the first item above becomes 
+
+			$$ |f_n| \leq g, \int g d\kappa < \infty$$
+
+		and the second becomes
+
+			$$f_n \rightarrow f $$
+
+	So by DCT, 
+
+			$$\int f_n d\kappa \rightarrow \int f d \kappa $$
+
+
+	that is that we have 
+
+			$$\lim_n \sum^\infty x_{nm} = \sum^\infty x-m = \sum^\infty \lim_n x_{nm} $$
+
+
+	This is called Weierstass M-test in calculus. 
+
+\end{example}
+
+		
+\textbf{Wednesday November 16}\\
+
+\begin{theorem}
+	Suppose $(\Omega, \mathcal{F}, \mu)$ is a measure space. \\
+
+	$f: \Omega \rightarrow \mathbb{R} \textcircled{m} \mathcal{F}\setminus\mathcal{R} $ is bounded, that is $|f(\omega)| \leq M$ a.e. $\mu$. \\
+
+	Suppose $\mu(\Omega) < \infty$ and that $f_n \rightarrow f$ a.e. $\mu$ for some $f: \Omega \rightarrow \mathbb{R}$ measurable $\mathcal{F} \setminus \mathcal{R}$. Then we have that
+
+			$$\int f_n d\mu \rightarrow \int f d\mu $$
+
+
+\end{theorem}
+
+\begin{proof}
+	In the DCT, take $g \equiv M$, then $|f| \leq g $a.s. $\mu$ and $f_n \rightarrow f$ a.e. $\mu$. \\
+
+	By DCT 
+			$$\int f_n d\mu \rightarrow \int f d\mu $$
+\end{proof}
+
+These theorems (MCT, DCT) can also be stated in series form. 
+
+\begin{theorem}[16.6 Series Version of MCT]
+	If $f_n \geq 0 (f_n \textcircled{m} \mathcal{F} \setminus \mathcal{\bar{R}}$ then we have that 
+
+			$$\int \sum^\infty_{n=1} f_n d\mu = \sum^\infty_{n=1} \int f_n d\mu $$
+\end{theorem}
+
+\begin{proof}
+	Let $g_n = \sum^n_{m=1} f_m, g = \sum^\infty_{m=1} f_m$. Then we have that $0 \leq g_n \uparrow g$. Using the MCT, 
+
+			$$\lim_n \int g_n d\mu = \int \lim_n g_n d\mu $$
+
+	But we know that 
+
+		\begin{align*}
+			\lim_n g_n &= \lim_n \sum^n_{m=1} f_m\\
+					&= \sum^\infty_{m=1} f
+		\end{align*}
+
+	And also that 
+
+			\begin{align*}
+				\lim_n \int g_n d\mu &= \lim_n \int \sum^n_{m-1} f_m d\mu\\
+						&= \lim_n \sum^n_{m=1 }\int f_m d\mu\\
+						&= \sum^\infty_{m=1} \int f_m d\mu
+			\end{align*}
+\end{proof}
+
+\begin{theorem}[16.7 Series version of DLT]
+	If $\sum^\infty_{n=1} f_n$ converges almost everywhere $\mu$ (in calculus, this means that the sequence $\{\sum^n_{m=1} f_m: n = 1, 2, \dots\}$ converges) and $|\sum^n_{m=1} f_m| \leq g$ almost everywhere $\mu$ and also g integrable with respect to $\mu$ then, both $f_n$ and $\sum^\infty_{n=1} f_n$ are integrable with respect to $\mu$ and we have that
+
+			$$\int \sum_n f_n d\mu = \sum_n \int f_n d\mu $$
+
+\end{theorem}
+
+\begin{proof}
+	Let $\mathcal{L}_n = \sum^n_{m=1} f_m$ and $\mathcal{L} = \sum^\infty_{m=1} f_m $. Then just need to use DCT. 
+\end{proof}
+
+\begin{corollary}
+	If $\sum^\infty_{n=1} \int |f_n| d\mu < \infty$ then $\sum^\infty_{n=1} f_n$ converges absolutely, almost everywhere $\mu$ and is integrable with respect to $\mu$. Also, 
+
+		$$\sum^\infty_{n=1} \int f_n d\mu =  \int \sum^\infty_{n=1} f_n d\mu $$
+\end{corollary}
+
+Point of this corollary is that it gives you a dominating function.
+
+\begin{proof}
+	Let $g = \sum^\infty_{n=1} |f_n| $. Then by Theorem 16.6 (MCT for series) we have that
+
+			$$\int \sum^\infty_{n=1} |f_n| d\mu =\sum^\infty_{n=1} \int  |f_n| d\mu < \infty $$
+
+	so therefor g is integrable with respect to $\mu$.\\
+
+	Since $\sum_n |f_n| \geq 0$ we know that 
+
+		$$\int \sum_n |f_n| d\mu < \infty $$
+
+	Which means that the integrand ($\sum_n |f_n|$) is less than $\infty$ almost everywhere $\mu$ and so we know that 
+
+			$$g < \infty a.e. \mu $$
+
+	Because (see remark below) $\sum_n |f_n| < \infty$ a.e. $\mu$ we know that $\sum_n f_n$ converges a. e. $\mu$. So we have that
+
+			\begin{enumerate}
+				\item $\sum_n f_n $ converges a.e. $mu$
+				\item $|\sum^n_{k=1} f_k| \leq g$ a.e. $\mu$, thus g is integrable with respect to $\mu$. 
+			\end{enumerate}
+
+	By Theorem 16.7
+
+			$$\int \sum_n f_n d\mu = \sum_n \int f_n d\mu $$
+
+\end{proof}
+
+\begin{remark}[Absolute Convergence]
+	A series, $\sum^\infty_{n=1} a_n$ is absolutely convergent if $\sum^\infty_{n=1} |a_n| < \infty$. \\
+
+	Claim: if $\sum^\infty_{n=1} |a_n| < \infty$ then $\sum^\infty_{n=1} a_n$ is convergent. 
+
+	\begin{proof}
+		It suffices to show that $\{\sum^n_{m=1} a_m : n = 1, \dots \}$ is a Cauchy sequence. That is for all $\varepsilon < 0$ there exists $n_0$ such that for all $n \geq m \geq n_0$ 
+
+				$$|\sum^n_{k=m} a_m| < \varepsilon $$
+
+		but since $\sum |a_n| < \infty$ we have that 
+
+				$$\{\sum^n_{m=1} a_m : n = 1, dots \} $$
+
+		is indeed Cauchy. \\
+
+		So we have that 
+
+				$$|\sum^n_{k=m} a_m | \leq \sum^n_{k=m} |a_m| < \varepsilon  $$
+
+		So $\{\sum^n_{k=m} a_m \}$ is Cauchy.
+	\end{proof}
+\end{remark}
+
+
+Now consider the case where 
+
+		$$\{f_t(\omega): t > 0 \} $$
+
+		$$f_t: \Omega \rightarrow \mathbb{\bar{R}}, \mathcal{F} \setminus \mathcal{\bar{R}} $$
+
+		$$f: \Omega \rightarrow \mathbb{\bar{R}} \textcircled{m}  \mathcal{F} \setminus \mathcal{\bar{R}}$$
+
+Suppose 
+
+		$$\lim_{t \rightarrow t_0} f_t (\omega) = f(\omega)  $$
+
+This means that for all $\varepsilon > 0$ there exists $\delta > 0$ such that for all $|t - t_0| < \delta$ we have that $|f(t) - f(t_0) | < \varepsilon$. \\
+
+Consider the set 
+
+		\begin{align*}
+			\{\omega: f_t(\omega) \rightarrow f_{t_0} (\omega) \} &= \{\omega: \forall \varepsilon > 0, \exists \delta > 0, s.t. \forall |t- t_0| < \delta, |f_t(\omega) - f_{t_0} (\omega)|< \varepsilon \}\\
+					&= \bigcap_{\varepsilon >0} \bigcup_{\delta > 0} \bigcap_{|t - t_0|< \delta} \{\omega: |f_t (\omega) - f_{t_0}(\omega)| < \varepsilon \}
+		\end{align*} 
+
+All of this is just to say that the inner most intersection above need not be measureable. \\
+
+So this means that extra care ahs to be taken when we say that 
+
+		$$ f_t \rightarrow f_{t_0} a.e. \mu$$
+
+because $\{\omega: f_t(\omega) - f_{t_0} (\omega) \}$ may not be in $\mathcal{F}$. \\
+
+BUT the following is true: 
+		
+		$$ f(t) \rightarrow f (t_0)$$
+
+if and only iff for any sequence $t_n \rightarrow t_0$ we have that $f(t_n) \rightarrow f(t_0)$.
+
+
+\begin{theorem}[16.8]
+	Suppose that 
+
+			$$f(\cdot, t): \Omega \rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F} \setminus \mathcal{\bar{R}} $$
+
+	and that f is integrable with respect to $\mu$ for all $t \in (a, b)$. \\
+
+	Let $\phi(t) = \int f(\omega, t) \mu(d\omega)$. 
+
+			\begin{enumerate}
+				\item Suppose that there exists $A \in \mathcal{F}$ with $\mu(A^C) = 0$ such that for all $\omega \in A$ we have  that $f(\omega, t) $ is continuous at $t_0$. \\
+
+				Also suppose that there exists $\delta > 0$ such that
+
+						$$g: \Omega\rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F} \setminus \mathcal{\bar{R}} $$
+
+				is integrable w.r.t. $\mu$ such that 
+
+						$$|f(\omega, t) | \leq g(\omega) $$
+
+				for $\omega \in A$ and $|t- t_0| < \delta$ then $\phi(t)$ is continuous at $t_0$. 
+			\end{enumerate}
+\end{theorem}
+
+
+\textbf{Friday November 18}\\
+\begin{proof}
+
+\begin{enumerate}
+	
+	% GET NOTES
+	\item
+\textbf{Monday November 28}\\
+
+Since we also know (by assumption) that 
+
+		$$\int_{B_n C_n} f - g d\mu \leq 0 $$
+
+We have that 
+
+		$$ \int I_{B_n C_n} (f-g) d\mu = 0$$
+
+But we know that
+
+		$$I_{B_n C_n} (f-g) \geq 0 \Rightarrow  I_{B_n C_n} (f-g) = 0 (a.e.)$$
+
+Claim: if $h \neq 0$ on A and $I_A h = 0$ a.e. $\mu$ then $\mu(A) = 0$. 
+
+		Proof of Claim: 
+
+		$I_A h = 0$ a.e. $\mu$ $\Rightarrow \mu(I_A h \neq 0) = 0$. \\
+
+		Since $h \neq 0$ on A then $\omega \in A \Rightarrow h(\omega) \neq 0$.\\
+
+		So 
+
+				$$\omega \in A \Rightarrow I_A h =\neq 0 $$
+
+				$$ I_A \neq 0 \Rightarrow I_A h \neq 0 $$
+
+				$$\{I_A \neq 0\} \subseteq \{I_A h \neq 0\} $$
+
+				$$mu(I_A h \neq 0) = 0 \Rightarrow \mu(I_A \neq 0) = 0 \Rightarrow \mu(A) = 0$$
+
+		Claim is proved. 
+
+We know that $f < g $ on $B_nC_n$. So if we let "A" above be $B_n C_n$ and "h" be (f-g) we have that
+
+		$$I_{B_n C_n}(f-g) = 0 (a.e.)$$
+		$$\mu(B_n C_n) = 0 $$
+
+So
+
+		\begin{align*}
+			\mu(0 \leq g < f) &= \mu( 0 \leq g < f, g < \infty)\\
+					&= \mu(\bigcup_n \{0 \leq g < f , g \leq n\})\\
+					&\leq \sum_n \mu(C_n) = 0
+		\end{align*} 
+
+
+Which show that $f \leq g$ a.e. $\mu$.\\
+
+
+ Thus we have shown that
+
+		$$\int_A f d\mu \leq \int_a g d\mu \forall A \in \mathcal{F} $$
+
+which implies that $f \leq q$ a.e. $\mu$. \\
+
+So if 
+
+		$$\int_A f d\mu = \int_A g d\mu \forall A \in \mathcal{F} $$
+
+Then this implies that
+
+		$\left\{ \begin{array}{l}
+					\int_A f d\mu \leq \int_A g d\mu \forall A \Rightarrow f \leq g a.e.\\
+					\int_A f d\mu \geq \int_A g d\mu \forall A \Rightarrow g \leq f a.e. \\
+				\end{array}\right\} \Rightarrow f = g a.e. $
+
+\item If f and g are integrable w.r.t $\mu$ and $\int_A f d\mu = \int_A g d\mu \forall A$ then f = g a. e. $\mu$. NB: No $\sigma$-finite on $\mu$.\\
+
+Again, suffices to show that
+
+		$$\int_A f d\mu \leq \int_A g d\mu \forall A  \Rightarrow f \leq g a.e. \mu$$
+
+		$$\Rightarrow \int_A f d\mu - \int_A g d\mu \leq 0$$
+
+Note that we can only do this because both are finite. \\
+
+By nonegative version of linearity 
+
+		\begin{align*}
+			\int_A f- g d\mu \leq 0 \forall A \in \mathcal{F} &\Rightarrow \int_{f > g} f - g d\mu \leq 0\\
+					&\Rightarrow \int I_{f > g} (f - g) d \mu \leq 0
+		\end{align*}
+
+So we have that 
+
+		$$ \int I_{f > g} (f - g) d \mu = 0 \Rightarrow I_{f-g}(f-g) = 0 a.e. \mu$$
+
+By the claim proved above (here we will let h = f - g and A = \{f > g\}) we have that
+
+		$$ \mu(f > g) = 0 \Rightarrow f \leq g a.e. \mu$$
+
+Hence: 
+
+		$$\int_A f d\mu = \int_A g d\mu \forall A \in \mathcal{F} \Rightarrow f =g a.e. \mu$$
+
+
+\item Here in this generalization of (ii), we want to show that if f, g are integrable on $\mu$ and 
+
+		$$\int_A f d\mu = \int_A g d\mu \forall A \in \mathcal{P} $$
+
+where $\mathcal{P}$ is a $\pi$-system generated by $\mathcal{F}$ and $\Omega$ is a finte or countalbe union of $\mathcal{P}$-sets. Then we have that f = g a. e. $\mu$\\
+
+
+		Step 1. Suppose $f \geq 0, g \geq 0$. Recall Theorem 10.4, suppose that $\mu_1, \mu_2$ are finite measures on $\sigma(\mathcal{P})$ and $\Omega$ is finte on countable union of $\sigma$-sets. If $\mu_1, \mu_2$ agree on $\mathcal{P}$ then they agree on $\sigma(\mathcal{P})$. \\
+
+
+		Let, \\
+
+		$\nu_1(A) = \int_A f d\mu$\\
+		$\nu_2(A_ = \int_A g d\mu$\\
+
+
+		Claim: $\nu_1$ (and also $\nu_2$) is a finite measure on ($\Omega, \mathcal{F}$). \\
+
+				\begin{enumerate}
+					\item $\nu_1(\emptyset) = \int_\emptyset f d\mu = \int f I_\emptyset d\mu = 0$
+					\item $\nu_1(A) = \int_A f d\mu \geq 0$
+					\item Let $A_1, \dots$ be disjoint $\mathcal{F}$-sets. \\
+
+							\begin{align*}
+								\nu_1(\bigcup_n A_n) &= \int_{\bigcup_n A_n} d\mu \\
+										&= \sum_n \int_{A_n} d\mu\\
+										&= \sum_n \nu_1(A_n)
+							\end{align*}
+					\item $\nu_a(\Omega) = \int_\Omega f d\mu < \infty$
+				\end{enumerate}
+
+		So $\nu_1, \nu_2$ are finite meausures on $(\Omega, \mathcal{F})$ and by Theorem 10. 4 we know that $\nu_1 = \nu_2 \forall A \in \mathcal{F}$.\\
+
+		Step 2. Suppose only that f integrable, g integrable w.r.t. $\mu$. 
+
+		Suppose that 
+
+				$$\int_A f d\mu = \int_A g d\mu \forall A $$
+
+		Because every term (can split into $f^+ f^-$) is finite we can move them around within this equation. 
+
+				$$\int_A f^+ d\mu + \int_A g^- d\mu = \int_A g^+ d\mu + \int_A f^- d\mu $$
+
+		By linearity, 
+
+				$$ \int_A f^+ +  g^- d\mu = \int_A g^+ + f^- d\mu$$
+
+		Using Step 1 and some more reordering of the equation, we may conclude that 
+
+				$$f^+ - f^-  =  g^+ - g^-  a.e. \mu$$
+
+	\end{enumerate}		 
+\end{proof}
+
+\begin{remark}
+	Central takeaway of last proof are the following statements
+
+			$$\int_A f d\mu \leq \int_A g d\mu $$
+			$$ \int_A f - g d\mu \leq 0 \forall A$$
+			$$ \int_{f > g} f - g d\mu \leq 0$$
+\end{remark}
+
+\textbf{Density}\\
+
+Let $(\Omega, \mathcal{F}, \mu)$ be a measure space where $\delta \geq 0$ is a measureable funciton. \\
+
+By the proof of the last theorem we know that
+
+		$$A \mapsto \int_A \delta d\mu $$
+
+is a measure. Alost that if $\delta'$ is another funciton such that 
+
+		$$\int_A \delta' d\mu = \int_A d d\mu \forall A $$
+
+then $\delta = \delta'$ a.e. $\mu$. \\
+
+If $\mu, \nu$ are measurable on $(\Omega, \mathcal{F})$ then there exists $\delta \geq 0$ such that 
+		$$\nu(A) = \int_A \delta d\mu $$
+
+then $\delta$ is called the density of $\nu$ with respect to $\mu$.
+
+\textbf{Wednesday November 30}\\
+
+Note that for the equation
+
+		$$\int_A d \nu = \int_A \delta d\mu  $$
+
+we may use the notation, 
+
+		$$d \nu = \delta d\mu $$. 
+
+\begin{theorem}
+	Suppose that $\nu$ has density $\delta$ with respect to $\mu$. Then
+
+		\begin{enumerate}
+			\item (Nonnegative Version) For any $f \geq 0$, 
+
+					$$\int f d\nu = \int f \delta d\mu $$
+
+			\item (Integrable Version) 
+
+					$$f \textcircled{s} \nu \Leftrightarrow f \delta \textcircled{s} \mu $$
+
+			in which case, 
+
+					$$\int f d\nu = \int f \delta d\mu $$
+		\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Proof is three step argument. "If an equation holds for all indecator functions then it holds for all functions". \\
+
+	\begin{enumerate}
+		\item  Step 1. \\
+
+		Let $f = I_A, A \in \mathcal{F}$. \\
+
+		Then 
+
+				$\begin{aligned}
+					\int f d\nu &= \int I_A d\nu\\
+						&= \int_A d\nu\\
+						&= \nu(A) \\
+						&=\int_A \delta d\mu\\
+						&= \int I_A \delta d\mu\\
+						&= \int f \delta d\mu
+				\end{aligned}$
+
+		Step 2. $f \geq 0$ f is simple. Then 
+
+				$$f = \sum_{i=1}^k x_i I_{A_i} $$
+
+		where \\
+		$A_1, \dots, A_k \in \mathcal{P}$\\
+		$x_i \geq 0$\\
+
+				$\begin{aligned}
+					\int f d\nu &= \int (\sum_i x_i I_{A_i}) d\nu\\
+						&=\sum_i x_i \int_{A_i}d\nu\\
+						&=\sum_i x_i \int_{A_i} \delta d\mu\\
+						&= \int \sum_i x_i I_{A_i} \delta d\mu\\
+						&= \int f \delta d\mu
+				\end{aligned}$
+
+		 Step 3. Let $ f \geq 0$. Then there exists $0 \leq f_n \uparrow f$ where $f_n$ is simple. Using the MCT, 
+
+				$\begin{aligned}
+					\int f_n d\nu &\rightarrow \int f d\nu\\
+						&=\int f_n \delta d\mu\\
+						&= \int \delta d\mu
+				\end{aligned}$	
+
+		\item f is integrable on $\nu$ is interchangable with $f \delta$ integrable on $\mu$. In this case, 
+		
+				$$\int f d\nu = \int f \delta d\mu $$
+
+		By (i), 
+
+				$\begin{aligned}
+					\int |f| d\nu &= \int |f| \delta d\mu\\
+						&=\int |f\delta| d\mu\\
+				\end{aligned}$			
+
+		Since the RHS is finite $\Leftrightarrow$ the LHS is finite. \\
+
+		Since f integrable on $\nu$, 
+
+			$\begin{aligned}
+				\int f d\nu &= \int f^+ d\nu - \int f^- d\nu\\
+					&=\int f^+ \delta d\mu - \int f^- \delta d\mu\\
+					&= \int (f^+ \delta - f^- \delta) d\mu\\
+					&= \int (f^+ - f^-)\delta d \mu\\
+					&= \int f \delta d \mu
+			\end{aligned}$
+	\end{enumerate}
+\end{proof}
+
+\textbf{Scheffe's Theorem}\\
+
+\textbf{Lemma.} If $f_n \rightarrow 0 a.e. \mu$ then $f_n^+ \rightarrow 0 a.e. \mu$ and $f_n^- \rightarrow 0 a.e. \mu$. 
+
+\begin{proof}
+	Suffices to show that 
+			$$\mu(f_n^+ \not\rightarrow 0) = 0 $$
+
+			$$\mu(f_n^+ \not\rightarrow 0) = \mu(f_n \not \rightarrow 0, f_n \geq 0) + \mu(f_n^+ \not \rightarrow 0), f_n < 0)$$
+
+	But when $f_n < 0$, $f_n^+ = 0$, then $f_n^+ \not\rightarrow 0 $ will not happen.
+
+		% FInish proof - or don't meh. 
+\end{proof}
+
+
+\begin{theorem}[16.2 Sheffe's Theorem]
+	Suppose $(\Omega, \mathcal{F}, \mu)$ is a measure space. $\delta_n \geq0, \delta \geq 0$ are measurable and $\delta_n \rightarrow \delta$ a.e $\mu$. For all $A \in \mathcal{F}$ let
+
+			$$\nu_n(A) = \int_A \delta_n d\mu $$
+
+			$$ \nu_n(A) = \int_A \delta d\mu $$
+
+	and suppose that 
+
+			$$\nu_n(\Omega) = \nu(\Omega) < \infty $$
+
+	which is true if $\nu_n, \nu$ are probability measures. \\
+
+	Then 
+
+			$$\sup_{A \in \mathcal{F}} |\nu_n(A) - \nu(A)| \leq \int |\delta_n - \delta| d\mu \rightarrow 0 $$
+
+	Note that the first term is total variation distance between two measures, and the second is the $L_1$ distance between two densities. \\
+\end{theorem}
+
+\begin{proof}
+	
+	\begin{align*}
+			\sup_{A \in \mathcal{F}} |\nu(A) - \nu_n(A)| &= \sup_{A \in \mathcal{F}} |\int I_A \delta d\mu - \int I_A \delta_n d\mu|\\
+				&= \sup_{A \in \mathcal{F}} |\int I_A (\delta - \delta_n) d\mu|\\
+				&\leq \sup_{A \in \mathcal{F}} \int I_A |\delta - \delta_n| d\mu\\
+				&\leq \sup_{A \in \mathcal{F}} \int_A |\delta - \delta_n| d\mu\\
+				&\leq \int |\delta - \delta_n| d\mu\\
+	\end{align*}
+
+	Let $g_n = \delta - \delta_n$. Since $\delta - \delta_n \rightarrow0 a.e. \mu$ we have that $g_n^+ \rightarrow 0 a.e. \mu$ by lemma. Since $0 \leq g_n^+ \leq \delta$ and we know that $\delta$ is integrable, then by the DCT
+
+			$$ \int g_n^+ d\mu \rightarrow 0 $$
+
+	Also, 
+
+			$$\int g_n d \mu = \int \delta - \delta_n d\mu = \nu(\Omega) - \nu_n(\Omega) = 0 $$
+
+			$$\int_{g_n \geq 0} g_n d\mu + \int _{g_n < 0} g_n d\mu = 0 $$ 
+
+\textbf{Friday December 2}\\
+
+		\begin{align*}
+			\int |g_n| d\mu &= \int_{g_n \geq 0} g_n d\mu - \int _{g_n < 0} g_n d\mu\\ 
+				&= 2\int_{g_n \geq 0} g_n d\mu \\
+				&=2 \int_{g_n \geq 0} g_n^+ d\mu
+				&\leq 2 \int g_n d\mu
+				&\rightarrow 0   
+		\end{align*} 
+
+\end{proof}
+
+\textbf{Change of Variable Theorem}\\
+
+
+This result is very similar to the density theorem.  That is, if $d\nu = \delta d\mu \Rightarrow \int f d\nu = \int f \delta d\mu$. But the scenario is different. Here $(\Omega, \mathcal{F}, \mu)$ is a measure space, while $(\Omega', \mathcal{F}')$ is a measureable space (no measure). \\
+
+		$$ T: \Omega \rightarrow \Omega' \textcircled{m} \mathcal{F}\setminus\mathcal{F}'$$
+
+$\mu \cdot T^{-1} $ is the induced measure. 
+
+		$$ f: \Omega' \rightarrow \bar{\mathbb{R}} \textcircled{m} \mathcal{F}'\setminus\bar{\mathcal{R}} $$
+
+\begin{theorem}[16.3 Change of Variable Theorem]
+	\begin{enumerate}
+		\item Nonnegative Case. \\
+
+			If $f \geq 0$ then for all $A' \in \mathcal{F}'$
+
+					$$\int_{A'} f d(\mu T^{-1}) = \int_{T^{-1}A'} f \circ T d\mu$$
+		
+		\item A function f integrable $\mu T^{-1} \Leftrightarrow$ $f \circ T$ is integrable on $\mu$ in which case (again) for all $A' \in \mathcal{F}'$
+
+					$$\int_{A'} f d(\mu T^{-1}) = \int_{T^{-1}A'} f \circ T d\mu$$
+	\end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+	\begin{enumerate}
+		\item  Want to again use Three Step Argument.\\
+
+			Step 1. \\
+
+					$$f = I_{A'}, A' \in \mathcal{F}'$$
+
+					$$ f \circ T = I_{A'} = I_{A'} \circ T$$
+
+			Claim: $I_{A'} \circ T = I_{T^{-1}}(A')$\\
+
+					$$(I_{A'} \circ T)(\omega) = I_{A'}(T(\omega)) = \left\{\begin{array}{ll}
+						1 & T(\omega) \in A'\\
+						0 & T(\omega) \notin A'\\
+					\end{array} \right. = \left\{\begin{array}{ll}
+						1 & \omega \in T^{-1}(A')\\
+						0 & \omega \notin T^{-1}(A')\\
+					\end{array} \right. = I_{T^{-1}(A')} $$
+
+			$$\begin{aligned}
+							\int f \circ T d\mu &= \int I_{T^{-1}(A')}d\mu\\
+								&= \mu(T^{-1}(A'))\\
+								&= \mu T^{-1}(A')	\\
+								&= \int I_{A'} d\mu T^{-1}		
+						\end{aligned}$$
+
+			Step 2.\\
+
+			$f \geq 0$ f simple. 
+
+					$$\begin{aligned}
+						\int f \circ T d\mu &= \int (\sum_k x_k I_{A_k'}) (T(\omega)) d\mu(\omega)\\
+								&= \int \sum_i x_k (I_{A_k'} (T(\omega))) d\mu(\omega)\\
+								&=\sum_i x_k \int  I_{A_k'} T d\mu\\
+								&= \sum_i x_k \int  I_{A_k'}  d(\mu T^{-1})\\
+								&= \int \sum_k x_k I_{A_k'}  d(\mu T^{-1})\\
+								&=\int f d\mu T^{-1}
+					\end{aligned} $$ 	
+
+			Step 3. \\
+
+			$f \geq 0$ measureable on $\mathcal{F'}\setminus \bar{\mathcal{R}}$. Then there exists $ 0 \leq f_n \uparrow f$, $f_n$ simple. \\
+
+			MCT: \\
+					$$\int f_n d\mu T^{-1} \rightarrow \int f d(\mu T^{-1}) = \int f_n \circ T d\mu$$
+
+			But $0 \leq f_n \circ T \uparrow f \circ T$. By MCT, 
+
+					$$\int f_n \circ T d\mu \rightarrow \int f \circ T d\mu $$
+
+			Take 2 limints of same sequnce, so 
+
+					$$\int f d \mu T^{-1} = \int f T d\mu $$
+
+			Now consider the gerneral case, 
+
+					$$\begin{aligned}
+							\int_{A'} f d(\mu \circ T^{-1}) &= \int f * I_{A'} d \mu(T^{-1})\\
+								&=	\int (f * I_{A'}) \circ T d\mu\\
+					\end{aligned}$$	
+
+			But we claim that 
+
+					$$\begin{aligned}
+						[(f * I_{A'}) \circ T](\omega) &= (f * I_{A'}) T(\omega)\\
+								&= f(T(\omega)) * I_{A'}) T(\omega)\\
+								&= f(T(\omega)) * I_{T^{-1}(A')})(\omega)\\
+								&= (f \circ T) * I_{T^{-1}(A')})(\omega)\\
+					\end{aligned} $$
+
+		Returning to above equations, 
+
+			$$\begin{aligned}
+				\int_{A'} f d(\mu \circ T^{-1}) &= \int f * I_{A'} d \mu(T^{-1})\\
+					&=	\int (f * I_{A'}) \circ T d\mu\\
+					&= \int (f \circ T) * I_{T^{-1}(A')}) d\mu\\
+					&= \int_{T^{-1}(A')} f \circ T d\mu
+			\end{aligned}$$	
+
+	\item Since $|f| \geq 0$
+
+			$$\int |f| d\mu T^{-1} = \int |f| \circ T d\mu $$
+
+					Claim: $|f| \circ T = |f \circ T|$. 
+
+							$$\begin{aligned}
+								(|f| \circ t)(\omega) &= |f|(T(\omega))\\
+									&=|f(T(\omega))|
+							\end{aligned} $$
+					CIP\\
+		Thus, 
+
+				$$\begin{aligned}
+					\int |f| d\mu T^{-1} &= \int |f| \circ T d\mu\\
+					 &= \int |f\circ T| d\mu\\
+				\end{aligned}  $$
+
+		So f is integrable w.r.t $\mu T^{-1}$ $\Leftrightarrow$ $f \circ T$ integrable $mu$. \\
+		
+		Now since f is measurabe on $\mu$, 
+
+
+				$$\int f d\mu T^{-1} = \int f^+ d\mu T^{-1} - \int f^- d\mu T^{-1} $$	
+
+						Claim: $f^+ \circ T = (f \circ T)^+$ and same for $f^-$. 
+
+						Claim left for you to prove. 
+
+						% Finish from photo
+	\end{enumerate}
+\end{proof}
+
+\textbf{Monday December 5}\\
+
+\textbf{Uniform Integrability}\\
+
+This is an alternative condition for, 
+
+		$$\lim_n \int f_n d\mu = \int \lim_n f_n d\mu $$
+
+which applies to DCT, MCT, BCT. Here, $u_i$ is a weaker condition than dominated condition but requres $\mu(\Omega) < \infty$. So it's neight weaker or stronger than DCT. (?)\\
+
+Motivation (want to investigate a single function): If $(\Omega, \mathcal{F}, \mu)$ is a measure space, 
+
+		$$f: \mathcal{F} \rightarrow \bar{\mathbb{R}}, \textcircled{m} \mathcal{F}\setminus \bar{\mathcal{R}} $$
+
+		$$f \textcircled{s} \mu \Rightarrow \lim_{\alpha \rightarrow \infty} \int_{|f| \geq 0} |f| d\mu = 0 $$
+
+
+		\begin{proof}
+			Since f integrable on $\mu$, 
+
+					$$\int |f| d\mu < \infty \Rightarrow \mu(|f| = \infty) = 0 $$
+
+			Let's show that $|f| I(|f| \geq \alpha) \rightarrow 0 a.e. \mu$. That is, 
+
+					$$\mu(|f| I(|f| \geq \alpha)\not\rightarrow 0) \rightarrow 0 $$
+
+					$$|f| I (|f| \geq \alpha) \not \rightarrow 0 = \limsup_{\alpha \rightarrow \infty} |f| I(|f| \geq \alpha) > 0 $$
+
+			So there exists $\alpha_n$ where $\lim (\alpha_n) \rightarrow \infty$ such that
+
+					$$|f| I(|f| \geq \alpha_n) > 0 \forall n $$
+
+			Which implies that
+
+					$$I(|f| \geq \alpha_n) > 0 \forall n \Rightarrow |f| = \infty $$
+
+			But note that $\mu(|f| = \infty) = 0$ which implies that 
+
+					$$\mu(|f| I (|f| \geq \alpha) \not \rightarrow 0) = 0 $$
+
+		\end{proof}
+
+Now, let $f_n$ be a sequence of functions
+
+		$$\Omega \rightarrow \bar{\mathbb{R}}, \textcircled{m} \mathcal{F}\setminus\bar{\mathcal{R}} $$
+
+We say that $\{f_n\}$ is uniformly integrable if
+
+		$$\lim_{\alpha \rightarrow \infty} \sup_n \int_{|f_n| \geq \alpha} |f_n| d\mu = 0 $$
+
+in which case we write $\{f_n\}  \textcircled{u} \mu$
+
+
+\begin{notation}{Uniformly Integrable}
+	Here we shall use \textcircled{u} to denote uniform integrability. 
+\end{notation}
+
+Fact 1. \\
+
+If $\{f_n \}$ is uniformly integrable on $\mu, \mu(\Omega) < \infty$ then each $f_n$ is integrable on $\mu$. 
+
+		\begin{align*}
+			\int |f_n| d\mu &\leq \int_{|f_n| \leq \alpha} |f_n| d\mu + \int_{|f_n| > \alpha}|f_n| d\mu \\
+					&\leq \alpha \mu(\Omega) + \int_{|f_n| > \alpha}|f_n| d\mu \\
+					&\leq \alpha \mu(\Omega) + \sup_{n} \int_{|f_n| > \alpha}|f_n| d\mu \\
+		\end{align*}
+
+Take $\alpha$ to be sufficiently large then $\int |f_n| d\mu < \alpha \mu(\Omega) + 1 < \infty$. 
+
+
+
+Fact 2. \\
+
+If $f_n$ and $g_n$ are both uniformly integrable on $\mu$ then $f_n + g_n$ is uniformly integrable on $\mu$. 
+
+		\begin{proof}
+			Let $h_n = \max(|f_n|, |g_n|)$. 
+
+			Consider 
+
+					$$\int_{|f_n + g_n| \geq \alpha} |f_n + g_n| d\mu $$
+
+			By the triangle inequality, 
+
+				\begin{align*}
+					|f_n + g_n| &\leq |f_n| + |g_n| \\
+						&\leq 2 h_n \\
+						&\leq \int_{h_n \geq \frac{\alpha}{2}} |f_n + g_n| d\mu \\
+						&\leq \int_{h_n \geq \frac{\alpha}{2}, |f_n| \geq |g_n|} |f_n + g_n| d\mu + \int_{h_n \geq \frac{\alpha}{2}, |f_n| < |g_n|} |f_n + g_n| d\mu\\
+						&\leq 2 \int_{h_n \geq \frac{\alpha}{2}, |f_n| \geq |g_n|} h_n ^{|f_n|} d\mu + 2 \int_{h_n \geq \frac{\alpha}{2}, |f_n| < |g_n|} h_n ^{|g_n|} d\mu\\
+						&\leq 2 \int_{|f_n| \geq \frac{\alpha}{2}} |f_n| d\mu + 2 \int_{|g_n| \geq \frac{\alpha}{2}} |g_n| d\mu\\
+						&\leq
+						% Finish from photo
+				\end{align*}
+		\end{proof}
+
+Can think of this as integrability of a sequence of function. \\
+
+\begin{theorem}[16.14]
+	Suppose that $\mu(\Omega)< \infty$ and $f_n \rightarrow f$
+ a. e. $\mu$. 
+
+ 		\begin{enumerate}
+ 			\item If $f_n$ uniformly integrable on $\mu$ then f is uniformly integrable on $\mu$ as well. Also, 
+
+ 					$$\int f_n d\mu \rightarrow \int f d\mu $$ 
+
+ 			\item If $f \geq 0, f_n \geq 0$, f integrable on $\mu$, and $f_n$ integrable on $\mu$ then 
+
+ 					$$\int f_n d\mu \rightarrow \int f d\mu \Rightarrow f_n \textcircled{u} \mu $$
+
+ 		\end{enumerate}
+ \end{theorem}
+
+		
+\begin{proof}
+	
+	\begin{enumerate}
+		% \item photos
+
+		\item  
+	\end{enumerate}
+\end{proof}
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	PART
+% %----------------------------------------------------------------------------------------
+
+%  \part{Part Two}
+
+
+
+
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 4
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Random Variable}
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 5
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Convergence in Probability/Limit Theorem}
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 6
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Radon-Nikodym Derivative Theorem}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 7
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Special Topics}
 
 
 %----------------------------------------------------------------------------------------
@@ -3719,7 +6249,7 @@ Don't have measure? $(\Omega^\prime, \mathcal{F}^\prime)$
 \phantomsection
 \setlength{\columnsep}{0.75cm}
 \addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
-\printindex
+% \printindex
 
 %----------------------------------------------------------------------------------------
 

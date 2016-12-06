@@ -1258,14 +1258,14 @@ $$ \mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathscr{S}_3 $$
 \textbf{Lemma 1.1} If $ \mathscr{S}_1 \leq \mathscr{S}_2 \leq \mathscr{S}_3$ then
 
 \begin{enumerate}
-	\item $\mathscr{S}_3 \ominus \mathscr{S}_2 \leq \mathscr{S}_3 \ominus \mathscr{S}_1$		  \item $(\mathscr{S}_3 \ominus \mathscr{S}_1) \ominus \mathscr{S}_2 =  \mathscr{S}_3 \mathscr{S}_2$
+	\item $\mathscr{S}_3 \ominus \mathscr{S}_2 \leq \mathscr{S}_3 \ominus \mathscr{S}_1$		  \item $(\mathscr{S}_3 \ominus \mathscr{S}_1) \ominus \mathscr{S}_2 =  \mathscr{S}_3 \ominus \mathscr{S}_2$
 	\item $(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \ominus \mathscr{S}_1)$
  
 \end{enumerate}
 
 Go back to lack of fit, 
 
-$$(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \oplus \mathscr{S}_1)$$
+$$(\mathscr{S}_3 \ominus \mathscr{S}_1) = (\mathscr{S}_3 \ominus \mathscr{S}_2) \oplus (\mathscr{S}_2 \ominus \mathscr{S}_1)$$
 
 $$P_{\mathscr{S}_3 \ominus \mathscr{S}_1}y = P_{\mathscr{S}_3 \ominus \mathscr{S}_3}y + P_{\mathscr{S}_2 \ominus \mathscr{S}_1}y \quad \text{(Orthogonal Decomposition)} $$
 
@@ -2109,7 +2109,7 @@ $$ \mathbb{R}^n \ominus \mathcal{S}^\prime = (\mathbb{R}^N \ominus \mathcal{S}) 
 
 So,  
 
-$$||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime}y ||^2 = || P_{\mathcal{S} \ominus \mathcal{S}}y||^2 + ||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime}y ||^2 $$
+$$||P_{\mathbb{R}^N \ominus \mathcal{S}^\prime}y ||^2 = || P_{\mathcal{S} \ominus \mathcal{S}^\prime}y||^2 + ||P_{\mathbb{R}^N \ominus \mathcal{S}}y ||^2 $$
 
 Want to get, 
 
@@ -2835,6 +2835,19 @@ and,
 
 \section{Orthogonal Design}\index{Orthogonal Design}
 
+% \section{Overview}\index{Overview}
+
+% \begin{itemize}
+% 	\item Orthogonal design
+% 	\item Additive 2 way ANOVA
+% 	\item simultaneous intervals
+% 	\item nonadditive
+% 	\item decomposition of sum of squares
+% 	\item Latin square
+% 	\item nested design
+% \end{itemize}
+
+
 
 Recall, the General Linear Model: $Y \sim N(\mu, \sigma^2 I), \mu \in \mathcal{S}, \mathcal{S} \leq \mathbb{R}^N$. \\
 
@@ -3011,10 +3024,10 @@ Now, we introduce a systematic $\delta$ notation that will also be useful later.
 
 	We have
 
-		    % $$\delta^{ij}_{uvw} =  \begin{array}
-		    % 	1, \text{ if (u,v) = (i,j)} \\
-		    % 	0, \text{ else}
-		    % \end{array}$$
+		    $$\delta^{ij}_{uvw} =  \begin{array}{ll}
+		    	1 & \text{ if (u,v) = (i,j)} \\
+		    	0 & \text{ else}
+		    \end{array}$$
 
 \end{notation}
 
@@ -3056,7 +3069,7 @@ So we may write $\mu$ as,
 		 		&= P_{1_n}\mu + \alpha + \beta\\
 	\end{align*}
 
-It turns out that $\frac{n_{i\cdot} n_{\cdot j}}{n_{\cdot \cdot}}$ ensures that $\alpha^T\beta = 0$. We must show this. 
+It turns out that $\frac{n_{i\cdot} n_{\cdot j}}{n_{\cdot \cdot}} = n_{ij}$ ensures that $\alpha^T\beta = 0$. We must show this. 
 
 
 		\begin{align*}
@@ -3110,7 +3123,10 @@ Hence,
  		\end{pmatrix}$$
 
 So by orthogonal density, \\
-\\
+
+
+		$$R^TC - \frac{R^T 1_N 1_N^T C}{N} = 0, \quad \alpha^T\beta = 0$$
+
 
 \textbf{Wednesday October 5}\\
 
@@ -3348,9 +3364,14 @@ $\text{dim}(\mathbb{R}^N \ominus \mathcal{S}) = N -r - c + 1$\\
 So to summarize Scheffe's SCI for $H_0$ is 
 
 
-		% FINISH FROM PHOTO
+		$$\sum_i t_i (\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot}) \pm \sqrt{\sum^r_{i=1} \frac{t_i^2}{n_{i \cdot}}} \sqrt{\sum_i \sum_j \sum_k (Y_{ijk} - \bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot i \cdot} + \bar{Y}_{\cdot \cdot \cdot})^2 } \sqrt{\frac{r - 1}{N - r -c +1} F_{r - 1, N - r -c +1} (1 - \alpha)} $$
 
-		\item $H_0: \beta_1 = \dots = \beta_c = 0$
+	
+
+	\item $H_0: \beta_1 = \dots = \beta_c = 0$
+
+
+		$$\sum^c_j u_j (\bar{Y}_{ \cdot j \cdot} - \bar{Y}_{\cdot \cdot \cdot}) \pm \sqrt{\sum^c_{j=1} \frac{u_j^2}{n_{ \cdot j}}} \sqrt{\sum_i \sum_j \sum_k (Y_{ijk} - \bar{Y}_{i\cdot \cdot} - \bar{Y}_{\cdot i \cdot} + \bar{Y}_{\cdot \cdot \cdot})^2 } \sqrt{\frac{c - 1}{N - r -c +1} F_{c - 1, N - r -c +1} (1 - \alpha)} $$
 
 
 	\end{enumerate}
@@ -3742,7 +3763,7 @@ $\beta_j = \bar{\mu}_{ \cdot j} - \bar{\mu}_{\cdot \cdot}$\\
 $\gamma_{k(i,j)} = \bar{\mu}_{k_\cdot(i,j)} - \bar{\mu}_{\cdot \cdot}$\\
 
 
-We may estimate these by $P_{\item }$ for i = 1, 2, 3. 
+We may estimate these by $P_{\mathcal{S}_i }$ for i = 1, 2, 3. 
 
 So,\\ 
 
@@ -3844,7 +3865,7 @@ To decompose $\mu$,
 
 	$$\mathcal{S}_3 = \{d_{ij}: k = 1, \dots, n_{ij}; i = 1, \dots, r; j = 1, \dots, c_i  \} \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2) $$
 
-	$$\mathcal{S}_4 = \mathbb{R}^n \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)
+	$$\mathcal{S}_4 = \mathbb{R}^n \ominus (\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3)$$
 
 
 Again, 
@@ -3860,71 +3881,87 @@ Explicitly,
 
 		$$ P _{\mathcal{S}_1} \mu = \{\bar{\mu}_{\cdot \cdot}: \dots \}$$
 
+
+\textbf{Monday October 17}\\
+
+		$$ P _{\mathcal{S}_2} \mu = \{\bar{\mu}_{i \cdot} - \bar{\mu}_{\cdot \cdot}: \dots \}$$
+
+		$$ P _{\mathcal{S}_3} \mu = \{\bar{\mu}_{i j} - \bar{\mu}_{i \cdot}: \dots \}$$
+
 		$$ \bar{\mu}_{i \cdot} = \theta $$
 
+		$$ \alpha_i = \bar{\mu}_{i \cdot} - \bar{\mu}_{\cdot \cdot} $$
+
+		$$ \delta_{ij} = \mu_{i j} - \bar{\mu}_{\cdot \cdot} $$
+
+Then we have our parameterization according to orthogonal decomposition, 
+
+		$$ \mu_{ij} = \theta + \alpha_i + \delta_{ij} $$
+
+UMVUE Estimation: 
+
+		$$\hat{\theta} =P _{\mathcal{S}_1} Y =  \{\bar{Y}_{\cdot \cdot \cdot} \} $$
 
 
-% \section{Overview}\index{Overview}
+		$$\hat{\alpha}_i =P _{\mathcal{S}_2} Y =  \{\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot} \} $$
 
-% \begin{itemize}
-% 	\item Orthogonal design
-% 	\item Additive 2 way ANOVA
-% 	\item simultaneous intervals
-% 	\item nonadditive
-% 	\item decomposition of sum of squares
-% 	\item Latin square
-% 	\item nested design
-% \end{itemize}
+		$$\hat{\delta}_{ij} =P _{\mathcal{S}_2} Y =  \{\bar{Y}_{i j \cdot} - \bar{Y}_{\cdot \cdot \cdot} \} $$
 
-% \section{Table}\index{Table}
+\textbf{Hypothesis Testing}\\
 
-% \begin{table}[h]
-% \centering
-% \begin{tabular}{l l l}
-% \toprule
-% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-% \midrule
-% Treatment 1 & 0.0003262 & 0.562 \\
-% Treatment 2 & 0.0015681 & 0.910 \\
-% Treatment 3 & 0.0009271 & 0.296 \\
-% \bottomrule
-% \end{tabular}
-% \caption{Table caption}
-% \end{table}
+		$$||P _{\mathcal{S}_1} Y ||^2 = N  \bar{Y}_{\cdot \cdot \cdot}  $$
 
-% %------------------------------------------------
+		$$||P _{\mathcal{S}_2} Y ||^2 = \sum_i n_{i \cdot} (\bar{Y}_{i \cdot \cdot} - \bar{Y}_{\cdot \cdot \cdot})^2   = SSA $$
 
-% \section{Figure}\index{Figure}
+		$$||P _{\mathcal{S}_3} Y ||^2 = \sum_i \sum_j n_{ij} (\bar{Y}_{i j \cdot} - \bar{Y}_{\cdot \cdot \cdot})^2  = SSB(A) $$
 
-% \begin{figure}[h]
-% \centering\includegraphics[scale=0.5]{placeholder}
-% \caption{Figure caption}
-% \end{figure}
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 4
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Nonorthogonal Design}
-
-\section{Overview}\index{Overview}
-
-\begin{itemize}
-	\item $\bar{X_{i\dot\dot}} - \bar{X_{\dot\dot i}}$
-\end{itemize}
+		$$||P _{\mathcal{S}_4} Y ||^2 = \sum_i \sum_j \sum_k (\bar{Y}_{i j k} - \bar{Y}_{i j \cdot})^2  = SSE $$
 
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 5
-%----------------------------------------------------------------------------------------
+$n_{i\cdot} = \sum_j \sum_k 1 = \sum_j^{c_i} n_{ij}$\\
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+We may show that these are independent (look at Covariance.)\\
 
-\chapter{Random Effects Model}
+$dim(\mathcal{S}_2) = r - 1$\\
 
-\section{Overview}\index{Overview}
+$dim(\mathcal{S}_3) = \sum_i^r C_i - r$\\
+
+$dim(\mathcal{S}_4) = N -  \sum_i^r C_i $\\
+
+
+\textbf{Scheffe's SCI}\\
+
+
+		$$ H_0: \alpha = 0 $$
+
+$\mathcal{S}^\prime = \mathcal{S}_1 \oplus \mathcal{S}_3$\\
+$\mathcal{S} = \mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3$\\
+
+$\mathcal{S} - \mathcal{S}^\prime = \mathcal{S}_2$\\
+
+
+		$$\{C^T \mu: c \in \mathcal{S}_2\} = \{c^t P_{\mathcal{S}_2} \mu: C \in \mathcal{S}_2 \} $$
+
+		$$C^T P_{\mathcal{S}_2} Y \pm ||c|| ||P_{\mathcal{S}_4} Y|| \sqrt{\frac{dim(\mathcal{S}_2)}{dim(\mathcal{S}_4)} F_{dim(\mathcal{S}_2), dim(\mathcal{S}_4)} (1 - \alpha)} $$
+
+
+$c = \{f_i: \dots \}$\\
+
+$C \perp 1_N$\\
+
+$C^T 1_N = 0$\\
+
+$\sum \sum \sum f_i = 0$\\
+
+$\sum_i n_{i\cdot} f_i = 0$
+
+
+			$$||C||^2 = \sum_{i=1}^r n_{i \cdot} f_i^2 $$
+
+$t_i = n_{i \cdot} f_i $
+
+			$$ ||C||^2 = \sum_{i=1}^r \frac{t_i^2}{n_{i \cdot}}$$ 
+
 
 
 
@@ -3934,60 +3971,6 @@ Explicitly,
 
  \part{Part Two}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 1
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Basic Concepts}
-
-\section{Overview}\index{Overview}
-
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 2
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Estimation}
-
-\section{Overview}\index{Overview}
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 3
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Inference}
-
-\section{Overview}\index{Overview}
-
-\begin{itemize}
-	\item deviance <-> sum of squares
-\end{itemize}
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 4
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Residuals}
-
-\section{Overview}\index{Overview}
-
-%----------------------------------------------------------------------------------------
-%	CHAPTER 5
-%----------------------------------------------------------------------------------------
-
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-\chapter{Cetegorical Prediction}
-
-\section{Overview}\index{Overview}
 
 %----------------------------------------------------------------------------------------
 %	CHAPTER 6
@@ -3995,80 +3978,2205 @@ Explicitly,
 
 \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-\chapter{Some Important GLM}
+\chapter{Random Effects Model}
 
-\section{Overview}\index{Overview}
+\section{Introduction to Random Effects}\index{Introduction to Random Effects}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 7
-%----------------------------------------------------------------------------------------
+ANOVA fixed effect model is based on decomposition of means. It could conceivibly be called Analysis of Means (ANOME!). But random effect models is more strictly about variance (ANOVA). \\
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+In fixed effect model, the attention is focused on means, for example One-Way ANOVA where we explore $\mu_1, \dots, \mu_p$ and check whether they are different through estimation. But in random effect model, we just want to know if they treatment makes a difference at all.\\
 
-\chapter{Multivariate GLM}
+In this case, we can assume $\mu_1, \dots, \mu_p$ are latent random variables (getting into a more Bayesian mindset) sampled from the same distribution.  \\
 
-\section{Overview}\index{Overview}
+Othertimes we have a case where p is large relative to n ($n = 200, p = 100$). We essentailly only have two observations for each parameter! It's not a good strategy to estimate $\alpha_1, \dots, \alpha_{100}$, so we assume they are all independent and identically distributed at some distribution, say Normal with mean 0 and varience $\sigma^2_\alpha$. Then we only have one parameter! A very general idea, to deal with a lot of parameters. \\
+
+\textbf{Monday October 24}\\
+
+One Way Random ANOVA Model
+
+		$$Y_{ij} = \theta + \alpha_i + \epsilon_{ij} $$
+
+where $\theta \in \mathbb{R}$, fixed, and $i = 1, \dots, \phi; j = 1, \dots, n$.\\
+
+$\alpha_i \sim^{iid} N(0, \sigma_a^2)$\\
+
+$\epsilon_{ij} \sim^{iid} N(0, \sigma_e^2)$\\
 
 
-%----------------------------------------------------------------------------------------
-%	PART
-%----------------------------------------------------------------------------------------
+Moreover, 
+		
+		$$\{\alpha_i\} \indep \{\epsilon_{ij}\} $$
 
- \part{Part Three}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 1
-%----------------------------------------------------------------------------------------
+Recall that with fixed effect our hypothesis was that all $\alpha$ are the same and equal to zero. Our goal with random effect is to test the variance
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+		$$H_0: \sigma^2_a = 0 $$
 
-\chapter{Principle Componant Analysis}
 
-\section{Overview}\index{Overview}
+\section{Sampling Distributions}\index{Sampling Distributions}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 2
-%----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+\begin{theorem}
+	Under the one way random effect model above, we have 
 
-\chapter{Canonical Correlation Analysis}
+			$$E(Y_{ij}) = \theta $$
 
-\section{Overview}\index{Overview}
+			$$\text{Cov}(Y_{ij}) =  \begin{array}{ll}
+				\sigma^2_a + \sigma^2_e  & (i,j) = (i^\prime, j^\prime)\\
+				\sigma^2_a & i = i^\prime, j \neq j^\prime\\
+				0 & i \neq i^\prime, j \neq j^\prime\\
+			\end{array}[ll] $$
+\end{theorem}
 
-%----------------------------------------------------------------------------------------
-%	CHAPTER 3
-%----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+\begin{proof}
 
-\chapter{Independent Componant Analysis}
+	$\begin{aligned}
+			E(Y_{ij}) &= E(\theta + \alpha_i + \epsilon_{ij})\\
+					&= \theta + E(\alpha_i) + E(\epsilon_{ij})\\
+					&= 0\\
+		\end{aligned}$
 
-\section{Overview}\index{Overview}
+
+	$\begin{aligned}
+			\text{Cov}(Y_{ij}, Y_{i^\prime, j^\prime}) &= \text{Cov}(\alpha_i + \epsilon_{ij},  \alpha_{i^\prime} + \epsilon_{i^\prime j^\prime})\\
+						&= \text{Cov}(\alpha_i, \alpha_{i^\prime}) + \text{Cov}(\epsilon_{ij}, \epsilon_{i^\prime j^\prime})\\
+			\text{Cov}(\alpha_i, \alpha_{i^\prime}) &= \sigma_a^2 \quad (i = i^\prime)\\
+			\text{Cov}(\epsilon_{ij}, \epsilon_{i^\prime j^\prime}) = \sigma^2_e \quad (i = i^\prime, j = j^\prime)\\
+		\end{aligned}$
+	
+\end{proof}
+
+
+In matrix notation we may write the block of variances as
+
+		$$\sigma^2_e (I_n) + \sigma^2_a (1_n 1_n^T) = \sigma^2_e (I_n) + n \sigma^2_a P_0$$
+
+where $P_0 = P_{span(1_n)}$\\
+
+We may rewrite as
+
+		$$(\sigma^2_a + \sigma^2_e) (\frac{\sigma^2_e}{\sigma^2_a + \sigma^2_e}(I_n) + n\frac{\sigma^2_a }{\sigma^2_a + \sigma^2_e}P_0 ) $$
+
+where the fractions may be denoted by $1 - \rho$ and $\rho$, respectfully. 
+
+
+Above is for each block of variances, all together we have, 
+
+
+
+		$$Var(Y) = (\sigma^2_a + \sigma^2_e) \begin{pmatrix}
+			(1 - \rho)I_n + n \rho(P_0) & & 0\\
+				& \ddots & \\
+			0 & & (1 - \rho)I_n + n \rho(P_0)
+		\end{pmatrix} $$
+
+
+\textbf{Orthogonal Decomposition}\\
+
+
+$$\delta^{ij}_{uvw} =  \begin{array}{ll}
+		    	1 & \text{ if (u,v) = (i,j)} \\
+		    	0 & \text{ else}
+		    \end{array}$$
+
+
+
+Let $E_{ij} = \{\delta^{ij}_{uvw}: u = 1, \dots, r, v = 1, \dots, c, w = 1, \dots, n_{uv}  \}$ where the last index funs first. \\
+
+
+			$$E_{i\cdot} = \sum^n_{j=1} E_{ij}$$
+
+
+Let 
+		$$\mathcal{S}_1 = span(1_N) $$
+		$$\mathcal{S}_2 = span(E_{1 \cdot}, \dots, E_{p \cdot}) \ominus \mathcal{S}_1 $$
+
+So $\mathcal{S}_1 \perp \mathcal{S}_2$.\\
+
+
+Let $\mathcal{S}  = \mathcal{S}_1 + \mathcal{S}_2$\\
+
+And $P =  P_{\mathcal{S}_1} = \frac{1}{N} 1_N 1_N^T$ where N = np. 
+
+
+\textbf{Lemma 6.2}\\
+
+We have the following identities about $P_0$ and $P$. 
+
+	\begin{enumerate}
+		\item $\begin{pmatrix}
+					P_0 & &\\
+					 & \ddots &\\
+					 & & P_0 
+				\end{pmatrix} * P = P $
+
+		\item For any $C_1, C_2 \in \mathbb{R}$, 
+
+				$$\begin{pmatrix}
+					C_1I_n + C_2 P_0 & &\\
+					& \ddots & \\
+					& & C_1I_n + C_2 P_0
+				\end{pmatrix}P = (C_1 + C_2)P $$ 
+
+		This identity may be rewritten as
+
+				$$I_P \otimes (C_1 I_n + C_2 P_0)P = (C_1 + C_2)P $$
+
+		\item For any $C_1, C_2 \in \mathbb{R}$, 
+
+			$$I_P \otimes (C_1 I_n + C_2 P_0)(I_P \otimes P_0) = (C_1 + C_2)(I_P \otimes P_0) $$
+	\end{enumerate}
+
+
+	\begin{proof}
+		See in someone else's notes. Lots of matrices. 
+		% Have a PHOTO
+	\end{proof}
+
+\textbf{Wednesday October 26}\\
+
+\begin{theorem}
+	Under the one way random effect ANOVA model, we have 
+
+		\begin{enumerate}
+			\item $P_{\mathcal{S}_2} Y \indep P_{\mathbb{R}^N \ominus \mathcal{S}} Y$
+			\item  $P_{\mathcal{S}_2} Y \sim N(0, (\sigma^2_e + n\sigma^2_a)(\begin{pmatrix}
+				P_0 & & \\
+				 & \ddots & \\
+				 & & P_0
+			\end{pmatrix} -P)$
+			\item $P_{\mathbb{R}^N \ominus \mathcal{S}} Y \sim N(0, (\sigma^2_e)(I_N - \begin{pmatrix}
+				P_0 & & \\
+				 & \ddots & \\
+				 & & P_0
+			\end{pmatrix})$
+			\item $|| P_{\mathcal{S}_2} Y||^2 \sim (\sigma^2_a + \sigma^2_e) \chi^2_{(p-1)}  $
+			\item $|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 \sim (\sigma^2_e) \chi^2_{(np-p)}  $
+		\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item $Cov(P_{\mathcal{S}_2} Y, P_{\mathbb{R}^N \ominus \mathcal{S}} Y) = P_{\mathcal{S}_2} Var(Y) P_{\mathbb{R}^N \ominus \mathcal{S}} Y$ 
+
+		See last lecture for Var(Y).\\
+
+		Let
+
+		$\mathcal{T}_1 = \mathcal{S}_1 = span(1_N)$\\
+		$\mathcal{T}_2 = span(E_{1\cdot}, \dots, E_{p, \cdot})$\\
+
+		Then, 
+
+		$\mathcal{S}_1 = \mathcal{T}_1, \mathcal{S}_2 = \mathcal{T}_2 \ominus \mathcal{T}_1, \mathcal{S} = \mathcal{T}_2$\\
+
+		So, 
+
+				$$P_{\mathcal{S}_2} = P_{\mathcal{T}_2 \ominus \mathcal{T}_1} = P_{\mathcal{T}_2} - P_{\mathcal{T}_1} $$
+
+				% SEE PHOTOS FOR PROOF
+
+		Ultimately, because the two are multivariate normal with covariance 0, the must be independent. \\
+
+		\item Only need to calculate the mean and variance (we know that $P_{\mathcal{S}_2} Y$ is MVN). \\
+
+
+		\begin{align*}
+			E(P_{\mathcal{S}_2} Y) &= P_{\mathcal{S}_2} E( Y)\\
+				&=  P_{\mathcal{S}_2} (\theta 1_N)\\
+				&= \theta P_{\mathcal{S}_2} 1_N\\
+				&= 0
+		\end{align*}
+
+		\begin{align*}
+			Var(P_{\mathcal{S}_2} Y) &= P_{\mathcal{S}_2} Var( Y) P_{\mathcal{S}_2} \\
+				&=  P_{\mathcal{S}_2} (\sigma^2_a + \sigma^2_e) \begin{pmatrix}
+			(1 - \rho)I_n + n\rho(P_0) & & 0\\
+				& \ddots & \\
+			0 & & (1 - \rho)I_n + n\rho(P_0)
+		\end{pmatrix}P_{\mathcal{S}_2}\\
+				&= \\
+				&= (\sigma^2_a + \sigma^2_e)(\begin{pmatrix}
+				P_0 & & \\
+				 & \ddots & \\
+				 & & P_0
+			\end{pmatrix} -P)
+		\end{align*}
+
+	\item Again, we only need to check moments. 
+	\item Follows from Cochran's Theorem.
+	\item Follows from Cochran's Theorem.
+	\end{enumerate}
+\end{proof}
+
+
+\textbf{Hypothesis Test}\\
+
+		$$H_0: \sigma_a = 0 $$
+		$$H_1: \sigma_a > 0 $$
+
+By previous Theorem, under $H_0$ we have the following (independent) distributions:
+
+ $|| P_{\mathcal{S}_2} Y||^2 \sim (\sigma^2_a + \sigma^2_e) \chi^2_{(p-1)}  $\\
+
+ $|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 \sim (\sigma^2_e) \chi^2_{(np-p)}  $\\
+
+ Again we may calculate the F statistic under the null, 
+
+
+ 		$$F = \frac{|| P_{\mathcal{S}_2} Y||^2/(p-1)}{|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 / (np - p)} \sim F_{p-1, np - p} $$
+
+
+The same again (as the fixed effect model)! But we will find that under the alternative hypothesis, the statistic will be different.\\
+
+
+\textbf{Friday October 28}\\
+
+
+
+Alternative Hypothesis\\
+
+
+
+If $H_0$ is not true, \\
+
+		$$ || P_{\mathcal{S}_2} Y||^2 \sim (\sigma_e^2 + \sigma_a^2) \chi^2 _{p-1}$$
+
+		$$|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2 \sim \sigma_e^2 \chi^2_{np - p} $$
+
+
+
+			$$ \frac{\frac{|| P_{\mathcal{S}_2} Y||^2/(p-1)}{(\sigma_e^2 + \sigma_a^2)}}{\frac{|| P_{\mathbb{R}^N \ominus \mathcal{S}} Y||^2}{\sigma_e^2 } / (np - p)} \sim F_{p-1, np - p} $$
+
+Which gives us a scaled statistic, 
+
+
+		$$\frac{\sigma^2_e}{(\sigma_e^2 + \sigma_a^2)} F \sim  F_{p-1, np - p} $$
+
+which is equivalent to a scaled F distribution, 
+
+
+		$$ F \sim  \frac{(\sigma_e^2 + \sigma_a^2)}{\sigma^2_e} F_{p-1, np - p} $$
+
+
+
+\section{Restricted MLE - REMLE}\index{Restricted MLE - REMLE}
+
+
+For estimations of variance component, the idea of REMLE is that we use the density 
+
+		$$ P_{\mathbb{R}^N \ominus \mathcal{S}_1} Y$$
+
+as the object function to be maximized instead of the full likelihood, which is the density of Y. \\
+
+So when you want to estimate the variance you use the part of the likelihood that depends only on the variance if the likelihood can be factorized. \\
+
+To motivate REMLE, we will consider a simple case. \\
+
+
+		$$Y_1, \dots, Y_n \sim^{iid} N(\mu, \sigma^2) $$
+
+Note that $\mu$ is our fixed effect and $\sigma^2$ is the random effect. \\
+
+MLE for $\sigma^2$: $\frac{1}{n} \sum^n_{i =1} (Y_i - \hat{Y})^2$\\
+
+But this estimate is biased. But if we use distribution, 
+
+		$$ ||(I - P)Y ||^2 \sim \sigma^2 \chi^2_{n-1}$$
+
+
+we have the following density to use, 
+
+
+		$$f(s) \approx (\frac{s}{\sigma^2})^{\frac{n-1}{2} - 1} \exp{\frac{s/\sigma^2}{2}} \frac{1}{\sigma^2} $$
+
+where s = $||(I - P)Y ||^2 $.\\
+
+Note that we no longer have $\mu$ in the density. \\
+
+We can show that now we have an unbiased estimator of $\sigma^2$, 
+
+		$$\tilde{\sigma^2} = \frac{1}{n-1}s $$
+
+This is REMLE, which is just a systematic way of doing this in more complicated situations. \\
+
+
+
+Now we may consider one way ANOVA for random effect. We are going to use
+
+		$$  P_{\mathbb{R}^N \ominus \mathcal{S}_1} Y$$
+
+as our restricted likelihood. But recall that we may rewrite the following
+
+
+		$$ \mathbb{R}^N \ominus \mathcal{S}_1 = \mathcal{S}_2 \oplus (\mathbb{R}^N \ominus \mathcal{S})$$
+
+also that there is one to one correspondence between
+
+		$$P_{\mathbb{R}^N \ominus \mathcal{S}_1} Y \leftrightarrow \left( P_{\mathcal{S}_2},  P_{(\mathbb{R}^N \ominus \mathcal{S})} \right)$$
+
+So it suffices to use the following distribution of 
+
+		$$\left( P_{\mathcal{S}_2},  P_{(\mathbb{R}^N \ominus \mathcal{S})} \right) = (U, V) $$
+
+which, it maybe noted, are independent. 
+
+
+		$$ U \sim N \left( 0 , (\sigma_e^2 + \sigma_a^2) ( \begin{pmatrix}
+			P_0 & & \\
+			& \ddots & 
+			& & P_0
+		\end{pmatrix}- P)\right)$$
+
+
+		$$V \sim N \left( 0 , \sigma_e^2 ( I_N -  \begin{pmatrix}
+			P_0 & & \\
+			& \ddots & 
+			& & P_0
+		\end{pmatrix})\right) $$
+
+In the follwing we may write $(\sigma_e^2 + \sigma_a^2)$ as $\gamma$. \\
+
+First, let's understand what it means for a random vector, X to have MVN(0, P), with P being a projection. It means that some projection of X is degenerate at 0. \\
+
+
+Suppose rank(P) = r, then by spectral decomposition, 
+
+		$$P = AA^T $$
+
+
+where $A^T A = I_r$. \\
+
+The distribution, 
+
+			$$ X \sim N(\mu, \sigma^2 P) $$
+
+gives us two things, 
+
+		\begin{enumerate}
+			\item $(I_P - P)X = 0$ (Var(...) = 0)
+			\item $A^T X \sim N(A^T\mu, \sigma I_P)$ and this is the distribution of X. 
+		\end{enumerate}
+
+
+So the distribution of 
+
+		$$ U = P_{\mathcal{S}_2} $$
+
+gives us, 
+
+		$$f(u) = f(A^Tu) = \frac{1}{(2\pi)^{\frac{p-1}{2}} \gamma^{p-1}} e^{\frac{-1}{2 \gamma^2} ||U||^2} $$
+
+Similarly, 
+	
+	$$ V = P_{(\mathbb{R}^N \ominus \mathcal{S})} $$
+
+gives us, 
+
+		$$f(v) \approx  \sigma_e^{\frac{np- p}{2}} e^{\frac{-1}{2 \sigma_e^2} ||V||^2} $$
+
+
+We know that $U \indep V$ so we may find the joint density by multiplying, 
+
+
+		$$f(u, v) \approx \gamma^{\frac{-(p-1)}{2}} \sigma_e^{\frac{- (np - p)}{2}} e^{- \frac{||U||^2}{2 \gamma} - \frac{||V||^2}{2\sigma_e^2}} = \ell_R(\gamma, \sigma_e^2)$$
+
+
+Now we want to maximize $\ell_R(\gamma, \sigma_e^2)$ over $\gamma \geq \sigma^2_e \geq 0$. \\
+
+\textbf{Monday October 31}\\
+
+Let $(\tilde{\sigma_e^2)}, \tilde{\gamma})$ be the unconstrained maximizer of $\ell_R$. And let $(\hat{\sigma_e^2)}, \hat{\gamma})$ be the constrained maximizer of $\ell_R$. \\
+
+We have two scenarios. \\
+
+% PHOTO
+
+Scenario 1: $(\tilde{\sigma_e^2)}, \tilde{\gamma}) = (\hat{\sigma_e^2)}, \hat{\gamma})$\\
+
+Scenario 2: $(\hat{\sigma_e^2)}, \hat{\gamma})$ \\
+
+In other words, we should first maximize $\ell_R(\gamma, \sigma_e^2)$ to get $(\tilde{\sigma_e^2)}, \tilde{\gamma})$. Then if $\tilde{\gamma} \geq \hat{\sigma_e^2}$ we set $(\tilde{\sigma_e^2}), \tilde{\gamma}) = (\hat{\sigma_e^2}, \hat{\gamma})$. But if not, then we remaximize $\ell_r$ and set $(\hat{\sigma_e^2}, \hat{\gamma})$ to be maximizer. 
+
+		$$\hat{\sigma_e^2} = \hat{\gamma}, \hat{\gamma} = \hat{\gamma} $$
+
+Here is the result, 
+
+\begin{theorem}
+	The REMLE for $(\gamma, \sigma_e^2)$ takes the following forms, 
+
+			\begin{enumerate}
+				\item Unconstrained: the maximizer is of $\ell_R((\gamma, \sigma_e^2)$, over $\sigma_e^2 \geq 0, \gamma \geq 0$ are
+
+						$$\tilde{\sigma_e^2} = ||v||^2/(np - p) $$ 
+						$$\tilde{\gamma} = ||u||^2 / (p - 1) $$
+				\item Constrained: if $\tilde{\gamma} \geq \hat{\sigma_e^2}$ then 
+
+						$$(\hat{\sigma_e^2}, \hat{\gamma}) = (\tilde{\sigma_e^2}, \tilde{\gamma})$$
+
+				Otherwise, 
+
+						$$ \hat{\sigma_e^2} = \hat{\gamma} = (||u||^2 + ||v||^2/ (np-1)) $$
+
+			\end{enumerate}
+\end{theorem}
+
+
+Also, this second case in part 2 of the above theorem gives us that, 
+		
+		$$\sigma_a^2 = 0, \hat{\sigma}_e^2  =(||u||^2 + ||v||^2/ (np-1)) $$
+
+Further note that 
+
+		$$||u||^2 \text{ is SSA } $$
+		$$||v||^2 \text{ is SSE } $$
+
+In the first case of part 2, 
+
+		$$\sigma_a^2 = \frac{||u||^2}{np - p} - \frac{||v||^2}{ p - 1} $$
+
+\section{Unbalanced Case of One Way Random Effect ANOVA}\index{Unbalanced Case of One Way Random Effect ANOVA}
+
+
+		$$\{Y_{ij}: j = 1, \dots, n_i; i = 1, \dots,  p\} $$
+
+\begin{definition}
+	We sat that the above model follows a random effect (unballance) one way ANOVA moel if, 
+
+			$$Y_{ij} = \theta + \alpha_i + \epsilon_{ij} $$
+
+where
+			$$\alpha_i \sim N(0, \sigma_a^2) $$
+			$$\epsilon_{ij} \sim N(0, \sigma_e^2) $$
+
+
+			$$\{\alpha_i\} \indep \{\epsilon_{ij}\} $$
+
+\end{definition}
+
+
+As before, let $E_{ij} = \{\delta^{ij}_{uvw}: v = 1, \dots, n_i, i = 1, \dots, p  \}$. 
+
+
+Let 	$N = \sum^p_{i=1} n_i$\\
+
+Let\\
+
+$\mathcal{T}_1 = span\{1_N\}$\\
+$\mathcal{T}_2 = span\{E_1, \dots, E_p\}$\\
+$\mathcal{T}_3 = \mathbb{R}^N$\\
+
+Then let\\
+
+$\mathcal{S}_1 = \mathcal{T}_1 $\\
+$\mathcal{S}_2 = \mathcal{T}_2 \ominus \mathcal{T}_1$\\
+$\mathcal{S}_3 = \mathcal{T}_3 \ominus \mathcal{T}_2$\\
+
+So that $\mathcal{S}_1 \perp \mathcal{S}_2 \perp \mathcal{S}_3$ and $\mathcal{S}_1 \oplus \mathcal{S}_2 \oplus \mathcal{S}_3  = \mathbb{R}^N$
+
+
+\textbf{Lemme 6.3} We have that
+
+		$$P_{\mathcal{T}_2} = \begin{pmatrix}
+			P_{1_{n_1}} & & \\
+			& \ddots & \\
+			 & & P_{1_{n_p}}
+		\end{pmatrix} $$
+
+where $P_{n_m} = \frac{1_m 1_m^T}{m}$ for $m = 1, \dots, p$.
+
+
+Now $Y = \{Y_{ij}: j = 1, \dots, n_i; i = 1, \dots,  p\}$.\\
+
+We maybe calculate variance of Y. 
+
+\begin{theorem}
+	Under the one-way random effect model, we have that
+
+			$$Var(Y) = \sigma^2_e I_N + \bar{n} \sigma^2_a J_{N} P_{\mathcal{T}_2} $$
+
+	where $\bar{n} = \frac{n_1 + \dots + n_p}{p}$\\
+
+	and $J_N = \begin{pmatrix}
+		\frac{n_1}{\bar{n}} I_{n_1} &  & 0\\
+		 & \ddots & \\
+		 0 & & \frac{n_p}{\bar{n}} I_{n_p}
+	\end{pmatrix}$
+\end{theorem}
+
+
+\begin{proof}
+	 % photo
+\end{proof}
+
+\textbf{Lemma 6. 4}\\
+
+		$$J_N P_{\mathcal{T}_2} =  P_{\mathcal{T}_2} J_N$$
+
+
+\begin{theorem}[Orthogonality and Sample Distribution Theorem]
+	Under the assumptions of definition above, we have that
+			\begin{enumerate}
+				\item $P_{\mathcal{S}_1} \indep P_{\mathcal{S}_2} \indep P_{\mathcal{S}_3}$
+				\item $ P_{\mathcal{S}_2} Y \sim N(0, P_{\mathcal{S}_2}(\sigma_e^2 I_N + \bar{n}\sigma^2_a J_N) P_{\mathcal{S}_2}$)
+				\item $P_{\mathcal{S}_3}Y \sim N(0, \sigma^2_e P_{\mathcal{S}_3})$
+				\item Under $H_0$, 
+
+						$$||P_{\mathcal{S}_2}Y||^2 \sim \sigma_e^2 \chi^2_{p-1}$$
+				\item 
+						$$||P_{\mathbb{R}^N \ominus \mathcal{S}}Y||^2 \sim \sigma_e^2 \chi^2_{N - p} $$
+			\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		\item Proved similarly to balanace case. 
+		\item Need calculations of moments, which has been completed. 
+		\item Calculate moments. 
+		\item Under $H_0: \sigma_a^2 = 0$, 
+
+				$$P_{\mathcal{S}_2} Y \sim N(0, \sigma_e^2 P_{\mathcal{S}_2}) $$
+
+		where rank($P_{\mathcal{S}_2}$) = p - 1. \\
+
+		and by Chochran's Theorem we have $|| P_{\mathcal{S}_2} Y||^2 \sim \sigma_e^2\chi^2_{p-1}$.\\
+
+		\item Under $H_1: \sigma_a^2 = 0$, 
+
+				$$P_{\mathcal{S}_3} Y \sim N(0, \sigma_e^2 P_{\mathcal{S}_3}) $$
+
+		where rank($P_{\mathcal{S}_3}$) = N - p. \\
+
+		and by Chochran's Theorem we have $|| P_{\mathcal{S}_3} Y||^2 \sim \sigma_e^2\chi^2_{N - p}$.\\
+	\end{enumerate}
+\end{proof}
+		
+\textbf{Wednesday November 2}\\
+
+Finished proof. 
+
+
+\textbf{Hypothesis testing}\\
+
+		$$H_0: \sigma^2_a = 0$$
+
+
+For our test statistic we may again use
+
+		$$F = \frac{|| P_{\mathcal{S}_2} Y||^2/ (p -1)}{|| P_{\mathcal{S}_3} Y||^2/(N - p)}  $$
+
+Under $H_0$, 
+
+		$$F \sim F_{p - 1, N - p} $$
+
+Under $H_1$, 
+
+		$$ || P_{\mathcal{S}_2} Y||^2 \sim (\sigma^2_e + \bar{n} \sigma_a^2) \chi^2_{p-1}$$
+
+So, 	
+		$$F \sim \frac{(\sigma^2_e + \bar{n} \sigma_a^2)}{(\sigma^2_e )} F_{p - 1, N - p} $$
+
+
+
+\section{Balance, Nested Random Effect Model}\index{Balance, Nested Random Effect Model}
+
+
+Recall our carmaker example. We have different models of cars nested under various makers. Cannot possibly have the different companies make the same model of cars. \\
+
+
+Also recall our fixxed effect case, 
+
+		$$Y_{ijk} = \theta + \alpha_i + \delta_{ij} + \varepsilon_{ijk} $$
+
+
+
+Now, 
+
+		$$ Y_{ijk} = \theta + a_i + d_{ij} + e_{ijk}$$
+
+where,\\
+$k = 1, \dots, n$\\
+$j = 1, \dots, c$\\
+$i = 1, \dots, p$\\
+
+		$$a_i \sim N(0, \sigma_a^2)$$
+		$$d_{ij} \sim N(0, \sigma_a^2)$$
+		$$e_{ijk} \sim N(0, \sigma_e^2)$$
+
+Our set of random variables, $\{a_i\}, \{d_{ij}\}, \{e_{ijk}\}$ are all independent. \\
+
+Let $Y = Y_{ijk}$ and $N = pcn$.
+
+		$$E_{ijk} = \{\delta^{ij}_{uvw}: u = 1, \dots, r; v = 1, \dots, c; w = 1, \dots, n \} $$
+
+$E_{i \cdot} = \sum^c_{j=1} E_{ij}$\\
+
+
+$\mathcal{T}_1 = span(1_N)$\\
+$\mathcal{T}_2 = span(E_{i\cdot})$\\
+$\mathcal{T}_3 = span(E_{ij})$\\
+$\mathcal{T}_4 = \mathbb{R}^N$\\
+
+With these we can create, 
+
+		$$\mathcal{S}_1 = \mathcal{T}_1 $$
+		$$\mathcal{S}_2 = \mathcal{T}_2 \ominus \mathcal{T}_1 $$
+		$$\mathcal{S}_3 = \mathcal{T}_3 \ominus \mathcal{T}_2 $$
+		$$\mathcal{S}_4 = \mathcal{T}_4 \ominus \mathcal{T}_3 $$
+
+So we have that each of the above spaces are independent.\\
+
+Let $A_1, \dots, A_k$ be arbitrary matrices.
+
+		$$A_1 \oplus \dots \oplus A_k = \begin{pmatrix}
+			A_1 & & 0\\
+			 & \ddots & \\
+			 0 & & A_k
+		\end{pmatrix} $$
+
+
+\textbf{Lemma 6.5}
+
+		$$P_{\mathcal{T}_3} = \oplus^p_{i-1} \oplus^n_{j=1} P_{1_N} $$
+
+		$$P_{\mathcal{T}_2} = \oplus^p_{i-1}  P_{1_{nc}} $$
+
+		$$P_{\mathcal{T}_1} =  P_{1_{pcn}} $$
+
+
+\begin{theorem}
+	Under the nested random effect ANOVA, we have
+
+			$$Var(Y) = \sigma^2_e I_N + nc P_{\mathcal{T}_2} + n \sigma_d^2 P_{\mathcal{T}_3}$$
+\end{theorem}
+
+
+\begin{theorem}
+	Under the nested random effect ANOVA model we have that
+
+		\begin{enumerate}
+			\item $P_{\mathcal{S}_1}Y \indep P_{\mathcal{S}_2}Y \indep P_{\mathcal{S}_3}Y \indep P_{\mathcal{S}_4}Y $
+
+			\item $P_{\mathcal{S}_1}Y \sim N(\theta 1_N, (\sigma_e^2 + nc \sigma^2_a + n\sigma_d^2)P_{\mathcal{S}_1})$
+
+			\item $P_{\mathcal{S}_2}Y \sim N(0, (\sigma_e^2 + nc \sigma^2_a + n\sigma_d^2)P_{\mathcal{S}_2})$
+
+			\item $P_{\mathcal{S}_3}Y \sim N(0, (\sigma_e^2 + n\sigma_d^2)P_{\mathcal{S}_3})$
+
+			\item $P_{\mathcal{S}_4}Y \sim N(0, (\sigma_e^2)P_{\mathcal{S}_4})$
+			
+			\item $||P_{\mathcal{S}_1}Y||^2  \sim (\sigma_e^2 + nc \sigma^2_a + n\sigma_d^2)\chi^2_{1}(\frac{n pc \theta^2}{(\sigma_e^2 + nc \sigma^2_a + n\sigma_d^2)})$
+
+			\item $||P_{\mathcal{S}_2}Y||^2  \sim (\sigma_e^2 + nc \sigma^2_a + n\sigma_d^2)\chi^2_{p - 1}$
+
+			\item $||P_{\mathcal{S}_3}Y||^2  \sim (\sigma_e^2  + n\sigma_d^2)\chi^2_{pc - p}$
+
+			\item $||P_{\mathcal{S}_4}Y||^2  \sim (\sigma_e^2)\chi^2_{pnc - pc}$
+		\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+		\item ONly need to show $P_{\mathcal{S}_2} Y \indep P_{\mathcal{S}_4} Y $ through covariance. 	
+		\item Show moments. 
+		\item Moments
+		\item Moments 
+	\end{enumerate}	
+\end{proof}
+
+
+\textbf{Monday November 7}\\
+
+
+\textbf{Hypothesis Testing}
+
+		$$H_0: \sigma_d^2 = 0, H_1: \sigma_d^2 > 0 $$
+
+
+			$$T(d) = \frac{|| P_{\mathcal{S}_3} Y||^2 \ (pc-p)}{|| P_{\mathcal{S}_4} Y||^2 \ (pcn- pc)}  $$
+
+Under the null hypothesis, 
+
+		$$T(d) \sim F_{pc-p, pcn - pc} $$
+
+Under the alternative hypothesis, 
+
+		$$ || P_{\mathcal{S}_3} Y||^2 \ (pc-p) \sim (\sigma_e^2 + n \sigma_d^2) \chi^2_{pc-p}$$
+
+		$$ || P_{\mathcal{S}_4} Y||^2 \ (pc-p) \sim (\sigma_e^2) \chi^2_{pcn-pc}$$
+
+		$$\frac{[|| P_{\mathcal{S}_3} Y||^2 /(\sigma_e^2 + n \sigma_d^2)]/ (pc-p)}{|| [P_{\mathcal{S}_4} Y||^2 / \sigma^2_e]/ (pcn- pc)} \sim F_{p-pc, pcn - pc}$$
+
+So if we rewrite above in the form of $T(d)$ we get, 
+
+		$$T(d) \sim (1 + n\frac{\sigma^2_d}{\sigma^2_e})F_{p - pc, pcn - pc}$$
+
+Now we may test $\sigma_a^2$
+
+		$$H_0: \sigma_a^2 = 0, H_1: \sigma_a^2 > 0 $$
+
+
+Which corresponds to the fixed effects version of
+		
+		$$H_0: \alpha_1 = \dots = \alpha_p $$
+
+The test statistic for the fixed effect model was
+
+		$$ \frac{|| P_{\mathcal{S}_2} Y||^2 / dim(\mathcal{S}_2)}{|| P_{\mathcal{S}_4} Y||^2 / dim(\mathcal{S}_4)}$$
+
+Now instead we will use
+
+	$$T(a) =  \frac{|| P_{\mathcal{S}_2} Y||^2 / dim(\mathcal{S}_2)}{|| P_{\mathcal{S}_3} Y||^2 / dim(\mathcal{S}_3)}$$
+
+because their likelihoods are different. We derive UMPU-tests under different likelihood. It turns out that each are the respective UMPU tests for fixed and random effects respectively. This proof is beyond the scope of this course, will be covered in STAT 561. \\
+
+Under the null hypothesis, 
+
+		$$|| P_{\mathcal{S}_2} Y||^2 \sim (\sigma_e^2 + n\sigma^2_a) \chi^2_{p-1} $$
+
+
+		$$|| P_{\mathcal{S}_3} Y||^2 \sim (\sigma_e^2 + n\sigma^2_d) \chi^2_{pc-p} $$
+
+		$$T(a) \sim F_{p - 1, pc - p} $$
+
+Under the alternative hypothesis, 
+
+		$$|| P_{\mathcal{S}_2} Y||^2 \sim (\sigma_e^2 + nc\sigma^2_a n\sigma_d^2) \chi^2_{p-1} $$
+
+
+		$$|| P_{\mathcal{S}_3} Y||^2 \sim (\sigma_e^2 + n\sigma^2_d) \chi^2_{pc-p} $$
+
+		$$T(a) \sim  (\frac{\sigma_e^2 + nc\sigma^2_a n\sigma_d^2}{\sigma_e^2 + n\sigma^2_d}) F_{p - 1, pc - p} $$
+
+
+\textit{REML for $\sigma_e^2, \sigma_a^2, \sigma_d^2$}\\
+
+Based on the same principle, we will discard fixed effect from the likelihoods. $\ell_R(\sigma_e^2, \sigma_a^2, \sigma_d^2)$ is the distribution of 
+
+		$$ P_{\mathcal{S}_2}Y, P_{\mathcal{S}_3}Y, P_{\mathcal{S}_4}Y$$
+
+This is
+
+		$$\ell_R \sim N(0, (\sigma_e^2  + nc\sigma_a^2 + n\sigma_d^2)P_{\mathcal{S}_2})* 
+					N(0, (\sigma_e^2  + n\sigma_d^2)P_{\mathcal{S}_3})* 
+					N(0, (\sigma_e^2 )P_{\mathcal{S}_4})$$
+
+Let the variance coefficients be denoted as: $\gamma_1, \gamma_2, \sigma_e^2$ where
+
+		$$\gamma_1 \geq \gamma_2 \geq \sigma_e^2 $$
+
+
+We want to maximize $\ell_R( \gamma_1, \gamma_2, \sigma_e^2)$ subject to the above inequality. \\
+
+It is straightforward to show that the unconstrained maximizers are
+	
+	$$\tilde{\gamma_1} = || P_{\mathcal{S}_3} Y||^2 / (pc - p) $$
+
+	$$\tilde{\gamma_2} = || P_{\mathcal{S}_2} Y||^2 / (p - 1) $$
+
+	$$\tilde{\sigma_e^2} = || P_{\mathcal{S}_4} Y||^2 / (pcn - pc) $$
+
+
+Let $ A = \{ (\gamma_1, \gamma_2, \sigma_e^2): \gamma_1 \geq \gamma_2 \geq \sigma_e^2\}$. \\
+
+Before in the one way case, 
+
+% photo
+
+Use the same idea, but now the boundary is more complicated. 
+
+% photo
+
+
+So if $(\tilde{\gamma_1}, \tilde{\gamma_2}, \tilde{\sigma_e^2}) \in A$ then REML is 
+
+		$$(\tilde{\gamma_1}, \tilde{\gamma_2}, \tilde{\sigma_e^2}) = (\tilde{\gamma_1}, \tilde{\gamma_2}, \tilde{\sigma_e^2})$$ 
+
+If $(\tilde{\gamma_1}, \tilde{\gamma_2}, \tilde{\sigma_e^2}) \notin A$ then we have three regions (in order we obtain $A_1, A_2, A_3$), 
+
+
+		$$\{ (\gamma_1, \gamma_2, \sigma_e^2):  \gamma_2 = \sigma_e^2\}
+			\bigcup \{ (\gamma_1, \gamma_2, \sigma_e^2): \gamma_1 = \gamma_2 \}
+			\bigcup \{ (\gamma_1, \gamma_2, \sigma_e^2): \gamma_1 = \gamma_2 = \sigma_e^2\} $$
+
+So $(\hat{\gamma_1}, \hat{\gamma_2}, \hat{\sigma_e^2}) = \max(sup_{A_1} \ell_R, sup_{A_2} \ell_R, sup_{A_3} \ell_R)$.
+
+
+
+
+
+\section{Nested Mixed Effect Model}\index{Nested Mixed Effect Model}
+
+Mixed: mixed fixed and random effects. 
+
+So in our earlier car example the numerous car makers would be fixed effects, but the nested models would be randome effects. 
+
+\begin{remark}
+	Recall that greek letters denote fixed effects, and latin letters denote random effects. 
+\end{remark}
+
+
+\begin{definition}[Nested Mixed Effect Model]
+
+	$$Y_{ijk} = \theta + \alpha_i + d_{ij} + e_{ijk}$$
+
+where $\theta \in \mathbb{R}, \sum \alpha_i = 0$\\
+$d_{ij} \sim^{iid} N(0, \sigma^2_d)$\\
+$e_{ijk} \sim^{iid} N(0, \sigma^2_e)$\\
+$\{d_{ij}\} \indep \{e_{ijk}\}$\\
+
+Let $\mu = \{\theta + \alpha_i: \dots \}$. 
+
+$\mathcal{T}_1, \dots, \mathcal{T}_4, \mathcal{S}_1, \dots, \mathcal{S}_4$ are defined as before. 
+
+\end{definition}
+
+
+\begin{theorem}
+	Under the nexted mixed effect model we have that
+
+			$$E(Y) = \mu = P_{\mathcal{T}_2}\mu = \{\theta + \alpha_i: \dots\} $$
+
+			$Var(Y) = \sigma_e^2I_{pcn} + n\sigma_d^2 P_{\mathcal{T}_3}$
+\end{theorem}
+
+\begin{proof}
+	Simple, left as exercise.
+\end{proof}
+
+\begin{theorem}
+	Under nested mixed effect ANOVA model, 
+
+		\begin{enumerate}
+			\item $P_{\mathcal{S}_1}Y \indep P_{\mathcal{S}_2}Y \indep P_{\mathcal{S}_3}Y \indep P_{\mathcal{S}_4}Y$
+			\item $P_{\mathcal{S}_1}Y \sim N (\theta 1_N, (\sigma_e^2 + n \sigma_d^2)P_{\mathcal{S}_1}) $
+			\item $P_{\mathcal{S}_2}Y \sim N (P_{\mathcal{S}_2}\mu, (\sigma_e^2 + n \sigma_d^2)P_{\mathcal{S}_2}) $\\
+
+			where $P_{\mathcal{S}_2}\mu = \{\alpha_i - \bar{\alpha_\cdot}: \dots\}$.
+
+			\item $P_{\mathcal{S}_3}Y \sim N (0, (\sigma_e^2 + n \sigma_d^2)P_{\mathcal{S}_3}) $
+
+
+			\item $P_{\mathcal{S}_4}Y \sim N (0, (\sigma_e^2 )P_{\mathcal{S}_4}) $
+			\item MAKE SURE HE REWRITES 6.
+
+		\end{enumerate}
+\end{theorem}
+ 
+
+\textbf{Wednesday November 9}\\
+
+\textbf{Friday November 11}\\
+
+
+\begin{example}
+			$$Y \sim Pois(\lambda)$$
+
+			\begin{align*}
+				f_\lambda(y) &= \frac{\lambda^y}{y!} e^{-\lambda}\\
+						&=c(\lambda) e^{\lambda \log y} \frac{1}{y!}\\
+			\end{align*}
+So in exponential family form we have that $\lambda = \vartheta, c(\lambda) = e^{-\lambda}, t_0(y) = \log y, \mu_0(y) = \frac{1}{y!} \kappa(y)$.\\
+
+Which gives us that $\mu_0(A) = \sum_{y \in A} \frac{1}{y!}$.\\
+\end{example}
+
+
+Let $Y_1, \dots, Y_n \sim^{iid} E_p (\theta t_0, \mu_0)$
+
+		\begin{align}
+			f_{y_1}, \dots, f_{y_n} (y_1, \dots, y_n) &=   e^{\theta^T t_0(y_i)} \\
+						&= \left[\prod^n_{i =1} c(\theta)\right]e^{\theta^T \sum^n_{i=1} t(y_i)}
+		\end{align}
+
+
+This is still in exponential family form. 
+
+		$$E_p(\theta, t, \mu) $$
+
+		$$t(y) =  \sum^n_{i=1} t_0(y_i)$$
+		$$\mu = \mu_0 x \dots x\mu_0$$
+
+
+Sometimes $\vartheta$ can be replaced by one to one funciton of $\vartheta$. 
+
+\section{Mean Parameterization of Link Function}\index{Mean Paramerterization of Link Function}
+
+Take $\vartheta$ as in $c(\vartheta) e^{\theta^T t_0(y)}$ is call canonical parameterization. \\
+
+In GLM there is another parameterization, mean parameteraization. Take $t_0(y) = y$ so that $t_0 = I$. 
+
+			$$c(\theta)e^{\theta ty}$$
+
+which may be rewritten as
+
+		$$c(\theta) = \frac{1}{\int e^{\theta ty} d\mu_0(y) }  $$
+
+
+Let 
+
+	$$b(\theta) = \log \int e^{\theta ty} d\mu_0(\theta) $$
+
+"b(.)" is called the cumulant generating function.\\
+
+Then we have, with respect to $\mu_0(y)$:
+
+		$$f_\theta(y) = e^{\theta ty - b(\theta)} $$
+
+We claim that 
+
+		$$E_\vartheta(Y) = b'(\theta) = \frac{d b(\vartheta)}{d\vartheta} $$
+		$$Var_\vartheta(Y) = b''(\vartheta) = \frac{d^2 b(\vartheta)}{d\vartheta^2}$$
+
+		\begin{align*}
+			\int  e^{\theta ty - b(\theta)} d\mu_0(y) &= 1\\
+			\frac{\delta}{\delta\vartheta}\int  e^{\theta ty - b(\theta)} d\mu_0(y) &= 0\\
+			\int \frac{\delta}{\delta\vartheta} e^{\theta ty - b(\theta)} d\mu_0(y) &= 0\\
+			\int  e^{\theta ty - b(\theta)} (y - b(\theta)) d\mu_0(y) &= 0\\
+			\int  e^{\theta ty - b(\theta)} y d\mu_0(y) - b(\theta) \int  e^{\theta ty - b(\theta)} d\mu_0(y) &=0\\
+			E_\theta(y) - b(\theta) &= 0\\
+			E_\theta(y) &= b(\theta)
+		\end{align*}
+
+By a similar argument (omitted here but will proved as a more general version later) we may show that
+
+		$$V_\vartheta(y) = b''(\vartheta) $$
+
+Aside: In general, the cumulant generating function is 
+
+		$$ C_y(t) = \log M_y(t)$$
+
+where $M_X(t) - E(e^{t^T y}$.\\
+
+It is true that
+
+		$$\frac{d^k C_y(t)}{d t^k} = k^{th} \text{ cumulant of y} $$
+
+What's cumulant? Not covered here but it note the first two cumulants are expectation and variance. \\
+
+
+Since $b''(\theta) = Var_\theta(Y)$ if Var(Y) > 0 for all $\theta$ then 
+
+		$$b(theta) \uparrow \theta $$
+
+So we have that 
+
+		$$ Y  \sim E_p (b^{-1}(\mu), I, \mu_0)$$
+
+Where this paramterization is called mean parameterization.\\
+
+
+\section{Bringing in the Predictors}\index{Bringing in the Predictors}
+
+
+Recall that in the linear model, 
+		
+		$$Y = \alpha + \beta^T X + \varepsilon $$
+
+This was how you brought in predictors. But here our Y is Poisson, Hypergeometric, etc. This is not the best way to bring in predictors, but the above can be rewritten as
+
+		$$E(Y|X) = \alpha + f(X) $$
+
+So in GLM, 
+		
+		$$E_\theta(Y|X) = \mu(\beta^T X) $$
+
+that is we have the conditional distribution of Y given X,
+		
+		$$Y|X \sim E_p (\theta^T(\beta^T X), t_0, \mu_0)$$
+
+We may write $\eta = \beta^T X$ wehre $\eta$ is the "linear prediction" or "linear index".\\
+
+Note that $\mu$ is a function of $\eta$ and likewise $\eta$ is an inverse function of $\mu$, which is our link function. \\
+
+In GLM, you chose the link function as part of the modeling process.
+
+		$$\eta = \ell(\mu)$$
+		$$\mu = \ell^{-1}\mu$$
+
+Here $\ell$ is the link function. \\
+
+To recap, there are three ways to parameterize exponential families, 
+
+		\begin{itemize}
+			\item Canonical $\vartheta$
+			\item Mean $\mu$
+			\item Linear Index $\eta$
+		\end{itemize}
+
+This is how they are related
+
+		$$\mu = b'(\theta) $$
+		$$\theta = b'^{-1}(\mu) $$
+		$$\eta = \ell(\mu)$$
+		$$\mu = \ell^{-1}(\eta) $$
+		$$\eta = (ell \circ b')(\theta) $$
+		$$\theta = (\ell \circ b')^{-1} (\eta) = (b'^{-1} \circ \ell^{-1}) (\eta)$$
+		
+
+Although you chose the link you want, that fits the data, there is a canonical link, most commonly used link. 
+
+\begin{definition}
+	The canonical link is the link that makes $\ell \circ b'$ identity so that $\theta = \eta$. So that the canonical parameter is the linear index.
+\end{definition}
+
+So we have that
+
+		$$\ell \circ b' = I $$
+		$$\ell = b'^{-1}$$
+
+where $b'^{-1}$ is the canonical link.\\
+
+So, using the link funciton we may write
+
+		$$Y|X E_p \left( (b'^{-1} \circ \ell^{-1})(\beta^T X), t_0, \mu_0 \right) $$
+
+as (under the canonical link)
+
+		$$Y|X \sim E_p (\beta^T X, t_0, \mu_0) $$
+
+
+\section{Dispersion Parameters}\index{Dispersion Parameters}
+
+As is normal we have $\mu, \sigma^2$. So when we bring $\sigma^2$ to GLM, this is called \textbf{Dispersion}. \\
+
+
+Introduce segmented exponential family
+	
+	$$f(y, \theta, \phi) = C(y, \phi) e^{\theta y - b(\theta)/ a(\phi)} $$	
+
+where $\phi$ is the dispersion parameter, a() is a (given) function. 
+
+\begin{theorem}
+	If $f(y, \theta, \phi)$ is of the form above, then 
+
+			$$E_\theta(Y) = b'(\theta) $$
+			$$Var_\vartheta(Y) = a(\phi) b''(\theta) $$
+\end{theorem}
+
+\begin{proof}
+	
+			\begin{align*}
+				\int C(y, \phi) e^{\theta y - b(\theta)/ a(\phi)} d\mu_0(y) &= 1\\
+				\frac{\partial}{\partial \theta}\int C(y, \phi) e^{\theta y - b(\theta)/ a(\phi)} d\mu_0(y) &= 0\\
+				\int C(y, \phi) e^{\theta y - b(\theta)/ a(\phi)} y - b'(\theta)  d\mu_0(y) &= 0\\
+				\int C(y, \phi) e^{\theta y - b(\theta)/ a(\phi)} y - b'(\theta)  d\mu_0(y) &= 0\\
+				E(Y) - b'(\theta) &= 0\\
+				E(Y) &= b'(\theta)
+			\end{align*} 
+
+
+			\begin{align*}
+			\int C(y, \phi) e^{\theta y - b(\vartheta)} (y - b(\vartheta)) d \mu_0(y) &= 0\\
+			\frac{\partial}{\partial \theta}\int C(y, \phi) e^{\theta y - b(\vartheta)} (y - b(\vartheta)) d \mu_0(y) &= 0\\
+			\int \frac{\partial}{\partial \theta} C(y, \phi) e^{\theta y - b(\vartheta)} (y - b(\vartheta)) d \mu_0(y) &= 0\\
+			\frac{1}{a(\phi)} \int C(y, \phi)e^{\theta y - b(\vartheta)/ a(\phi)} \frac{y - b'(\theta)}{a(\phi)}d\mu_0(y) - \int C(y, \phi)e^{\theta y - b(\vartheta)/ a(\phi)} b''(theta) d\mu_0(y) &= 0\\
+			\frac{1}{a(\phi)} Var_\theta(y) - b''(\theta) &= 0\\
+			Var_\theta(Y) &= a(\phi)b''(\theta)\\
+			\end{align*}
+\end{proof}
+
+\textbf{Monday November 14}\\
+
+Finished proof. 
+
+So in $\mu$-parameterization we have our variance funciton, 
+
+		$$Var_\theta(Y) = a(\phi)b''(b^{-1}(\mu)) = a(\phi) V(\mu)$$
+
+
+
+
 
 
 % %----------------------------------------------------------------------------------------
-% %	BIBLIOGRAPHY
+% %	CHAPTER 8
 % %----------------------------------------------------------------------------------------
 
-% \chapter*{Bibliography}
-% \addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
-% \section*{Books}
-% \addcontentsline{toc}{section}{Books}
-% \printbibliography[heading=bibempty,type=book]
-% \section*{Articles}
-% \addcontentsline{toc}{section}{Articles}
-% \printbibliography[heading=bibempty,type=article]
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-%----------------------------------------------------------------------------------------
-%	INDEX
-%----------------------------------------------------------------------------------------
+ \chapter{Estimation in GLM}
+
+ \section{Overview}\index{Overview}
+
+
+
+ 	$(X_1, Y_1), \dots, (X_n, Y_n) $ are independent and identically distributed from (X, Y). This assumption is not crucial, you can treat X as fixed as well. \\
+
+ 	If we treat $X_i$ as fixed, then $Y_i$ are non identical, but still independent. So, for asymptotics we use Lindeberg-Feller Theorem.\\
+
+ 	Is we are assuming that the X are also random then we can use the Lindeberg-Levy (iid CLT).\\ 
+
+ 	Another point, as in ANOVA, the X may not be explicit, that is the X could be subspaces described by dummy variables.\\
+
+ 	Anyway, let
+
+ 			$$(X_1, Y_1), \dots, (X_n, Y_n) \sim^{iid} (X, Y) $$
+
+ 	where (X, Y) has density
+
+ 			$$Y_i|X_i \sim C(\phi y_i) e^{\theta_i - b(\theta_i)/ a(\phi)} $$
+
+ 	where our predictor comes in through $\theta_i = b'^{-1}(\mu(\beta^T X_i))$. \\
+
+ 	We often take 
+
+ 			$$a(\phi) = \frac{\phi}{\ominus_i} $$
+
+ 	so that we may weight the values according to context. The joint density of $(X_i, Y_i)$ is
+
+ 		$$f_{X_i}(x_i) f_{Y_i| X_i}(y_i|x_i) $$
+
+ 	But the marginal of X does not matter because it doesn't have any parameter terms after taking the log and then the derivative.\\
+
+ 			$$\log f_{X_i} + \log (\phi y_i) + \omega_i(\theta y_i - b(\theta)) (\phi) $$
+
+
+ 	Take the partial derivatives with respect to $\theta_i$ and $\beta$. 
+
+ 	Skipping some steps we get 
+
+ 			$$\frac{\partial}{\partial \beta}[\log f_{X_i} + \log (\phi y_i) + \omega_i(\theta y_i - b(\theta)) (\phi) ] = w_i [(y_i - b'(\theta_i) / \phi] \frac{1}{V(\mu_i)} \mu^\cdot(\beta^T X_i) X_i $$
+
+ 	So our score (derivative of log density) for $\beta$ for a single observation is
+
+ 			$$w_i [(y_i - b'(\theta_i) / \phi] \frac{\mu^\cdot(\beta^T X_i) X_i}{V(\mu_i)}  $$
+
+ 	and the score equation of the whole sample is 
+
+ 			$$\sum^n_{i=1}  w_i  X_i \frac{\mu^\cdot(\beta^T X_i) X_i}{V(\beta^T X_i)} [(y_i - b'(\theta_i) / \phi] $$
+
+ 	We may solve this equation using Newton - Raphson algorithm. 
+
+
+
+
+ 	\begin{remark}
+ 		Recall the Newton-Raphson algorithem. Suppose $f: \mathbb{R}^p \rightarrow \mathbb{R}^p$ and we want to solve for $f(x) = 0$.  We can take the Taylor Expanson around $x_0$ and get
+
+ 				$$f(x) \approx f(x_0) + \frac{\partial f}{\partial x^T} (x_0) (x - x_0) - \hat{f}(x) $$
+
+ 		Instead of solving nonlinear equation $f(x) = 0$ we may solve linear equation $\hat{f}(x) = 0$. 
+
+ 		We can iterate to find next iteration of x using previous iterations,
+
+ 				$$x = x_0 - [\frac{\partial f}{\partial x^T}(x_0)]^{-1} f(x_0) $$
+
+ 		Iterate until convergence. This method works best if the objective function $\int f(x) dx$ is convex or concave (which is the case for all in exponential family - useful for GLM). Usually can converge to the 7th digit within 10 iteration using only 4 or 5 lines of code in R.
+ 	\end{remark}
+
+
+ 	In our case, 
+
+ 		$$S(\beta, X, Y) = \sum^n_{i=1} w_i a(\beta^T X_i) X_i (Y_i - \mu(\beta^T x_i)) $$
+
+
+ 		$$\frac{\partial S}{\partial \beta^T} = \sum w_i a'(\eta_i) X_i X_i^T (Y_i - \mu(\theta^T X)i) = \sum w_i a(\eta) X_i X_i^T (-\mu'(\beta^T X_i) $$
+
+
+ 	So the Newton-Raphson iteration will be
+
+ 			$$\hat{\beta}^{(k +1)} = \hat{\beta}^{(k)} + \frac{\partial S(\hat{\beta}^{(k)}, X, Y)}{\partial \beta^T}]^{-1} S(\hat{\beta}^{(k)}, X, Y) $$
+
+ 	A modification of this algorithm is called Fisher's Scoring method which igmores the first term in the partial derivative with respect to $\beta^T$ and only focusing on the second to aide the algorithm. \\
+
+ 			$$\hat{\beta}^{(k +1)} = \hat{\beta}^{(k)} + I^{-1}(\beta) S(\hat{\beta}^{(k)}, X, Y) $$
+
+
+\textbf{Wednesday November 16}\\
+
+
+Suppose we have $U_1, \dots, U_n$ independent sample with the expectation of each being 0 and
+
+		$$\sum^n_{i=1} U_i = O_p (\frac{1}{\sqrt{n}}) $$
+
+
+why might
+
+		$$\frac{\sum U_i}{\sqrt{n}} \rightarrow N(0, \Sigma) $$
+
+but, if $E(U_i) \neq$ then 
+
+		$$\frac{\sum U_i - n\mu}{\sqrt{n}} \rightarrow N(0, \Sigma) $$
+
+
+here, 
+
+		$$ \sum^n_{i=1} U_i = n\mu + O_p(\sqrt{n}) = O_p(n)$$
+
+and 
+
+		$$\max(U_1, \dots, U_n) = O_p(\log n) $$
+
+But we have that, using results from before
+
+		\begin{align*}
+			E(U_i) &= E\left(W_I \frac{\partial a(\eta_i)}{\partial \eta_i} X_i X_i^T (Y_i -\mu(\eta_i)\right)\\
+					&= E\left(W_I \frac{\partial a(\eta_i)}{\partial \eta_i} X_i X_i^T E(Y_i -\mu(\beta^T X_i|X_i)\right)\\
+					&= 0
+		\end{align*}
+
+So we can ignore the $O_p(\sqrt{n})$ term in the partial derivative of S with respect to $\beta^T$. We may now use
+
+		$$\frac{\partial S}{\partial \beta^T} \approx - \sum W_i a(\beta^T X_i)\mu(\beta^TX_i) X_i X_i^T $$
+
+which is proportional to Fisher information and we may write it as $J_n(\beta)$.\\
+
+So, can use iteration as follows
+
+		$$\hat{\beta}^{(k+1)} = \hat{\beta}^{(k)} + J_n(\hat{\beta}^{(k)}) S(\hat{\beta}^{(k)}, X, Y) $$
+
+This turns out to be easier to compute via the Newton- Raphson method and is often more stable, but takes slightly longer to converge. 
+
+\section{Estimation of $\phi$}\index{Estimation of $\phi$}
+
+Commonly used two methods to estimate $phi$. \\
+
+\textbf{Maximum Likelihood Estimator}\\
+
+Assume we have estimated $\beta$ as $\hat{\beta}$. Then the likelihood is
+
+		$$\prod^n_{i=1} C(\phi, Y_i) e^{(\hat{\theta}_i Y_i - b(\hat{theta}_i))/a(\phi)} $$
+
+where $\hat{\theta}_i = b'^{-1}(\mu(\hat{\eta}_i)$ and $\hat{\eta}_i = \hat{\beta}^T X_i$.
+
+
+We want to maximize the log likelihood with respect to $\phi$  (and then set equal to zero). 
+
+		$$\frac{\partial \log L}{\partial \phi} = \sum \frac{C'(\phi, Y_i)}{C(\phi, Y_i)} - \sum (\hat{\theta}_i Y_i - b(\hat{theta}_i))(-1)a^{-2}(\phi) = 0$$
+
+
+With Newton Raphson we get that the derivative of the above result gives us
+
+		$$\sum^n_{i=1} \left\{ \left[\frac{C''(\phi, Y_i)}{C(\phi, Y_i)} - \frac{C'(\phi, Y_i)}{C(\phi, Y_i)} \right] - (\hat{\theta}_i Y_i - b(\hat{\theta}_i)) \left(\frac{a''(phi)}{a(\phi)} - 2\frac{a'(\phi)^2}{a(\phi)^3} \right) \right\} $$
+
+	Use Newton-Raphson iteration to find $\phi$, usually $a(\phi)= \phi$.\\
+
+\textbf{Method of Moments}\\
+
+This method is used in an asymptotic sense. Some detailed asymptotis are omitted (will be covered in STAT 561). We know that 
+
+		$$Var(Y_i|X_i) = a(\phi)V(\mu(\beta^T X_i)) $$
+
+Let $\mu_i = \mu(\beta^T X_i)$ and $\hat{\mu} = \mu(\beta^T X_i)$. Then it can be shown that
+
+		$$\sum^n_{i=1} \left[\frac{(Y_i -\mu_i)^2}{V(\mu_i)} - \frac{(Y_i - \hat(\mu_i))^2}{V(\hat{\mu})} \right] \rightarrow a(\phi \chi^2_p) $$
+
+by vonMises espansion therefore, 
+	
+		$$E(\text{above equation}) \rightarrow a(\phi)P $$
+
+In the meantime
+		
+		\begin{align*}
+			E\left(\sum^n_{i=1} \frac{(Y_i - \mu_i)^2}{V(\mu_i)} \right) &= \sum^n_{i=1} E\left( \frac{(Y_i - \mu_i)^2}{V(\mu_i)} \right)\\
+					&= \sum^n_{i=1} E\left( \frac{E[(Y_i - \mu_i)^2|X_i]}{V(\mu_i)} \right)\\
+					&= \sum^n_{i=1} a(\phi) E(\frac{V(\mu_i)}{V(\mu_i)})\\
+					&= n a(\phi)
+		\end{align*}
+
+Now want to take $E(\dots)$ of both sides and equate them. 
+
+		\begin{align*}
+			n a(\phi) - E(sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}) &= p a(\phi)\\
+			 E(sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}) &= (n-p) a(\phi)
+		\end{align*}
+
+So by Method of Moments we have
+
+		$$ 	sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})} = (n-p) a(\phi)$$
+
+and thus 
+		$$\hat{a(\phi)} = \frac{1}{(n-p)} sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})} $$
+
+which has the same form as the MSE for linear regression. \\
+
+So if $a(\phi) = \phi$ then 
+
+		$$\hat{\phi} =   \frac{1}{(n-p)} sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}$$
+
+
+\section{Statistical Inference for Generalized Linear Model}\index{Statistical Inference for GLM}
+
+Let $Y_1, \dots, Y_n$ be independent with density
+
+		$$C(\phi, y_i) e^{\ell_i(\beta, Y_i)/\phi} $$
+
+where $a(\phi) = \phi$\\
+$\ell_i(\beta, Y_i) = W_i(Y_i\theta_i - b(\theta_i)$\\
+$\theta_i = b'^{-1}(\mu(\beta^T X_i))$
+
+let $\hat{\beta}$ be the MLE, that is the maximizer of 
+
+		$$\sum^n_{i=1} \left[\log C(\phi, y_i) + \ell_i(\beta, Y-i)/\phi \right] $$
+
+or equivalently the maximizer of 
+
+		$$\sum^n_{i=1} \ell_i(\beta, Y_i) $$
+
+By standard theory of statistical inference we have that
+
+		$$\sqrt{n}(\hat{\beta} - \beta) \rightarrow N(0, I(\beta)) $$
+
+
+where $I(\beta)$ is the fisher information, which is the limit of
+
+		$$-\frac{1}{\phi} \frac{1}{n}\sum^n_{i=1}E\left(\frac{\partial^2 \ell_i(\beta, Y-i)}{\partial \beta \partial \beta^T}\right) $$		
+
+In practice we approximate $I(\beta)$ by
+
+		$$-\frac{1}{\phi} \frac{1}{n}\sum^n_{i=1} \frac{\mu^{2'} (\hat{\beta}^T X_i)}{V(\hat{\beta}^T X_i} X_i X_i^T $$
+
+
+Furthermore, if $\beta_0 \in \mathcal{S} \subseteq \mathbb{R}^p$ under the null hypothesis and suppose $\tilde{\beta}$ is the constrained MLE, then what is the distribution of 
+
+		$$ \sqrt{n}(\tilde{\beta} - \beta_0) \rightarrow N(0, \phi)$$
+
+
+
+\textbf{Friday November 18}\\
+
+
+This is the MLE under the full model. As in linear mdoels wnat to test where 
+
+		$$H_0: \beta_0 \in \mathcal{S} \subseteq \mathbb{R}^T $$
+
+Let $\tilde{\beta}$ be the constrained MLE under the null hypothesis. It can be shown (omitted - covered in STAT 561) that
+
+		$$\sqrt{n}(\tilde{\beta} - \beta_0) = P_{\mathcal{S}}^T(I^{-1}(\beta_0))\sqrt{n}(\hat{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}}) $$
+
+		$$P_{\mathcal{S}}^T(I^{-1}(\beta_0)) = V(V^T I^{-1}(\beta_0)V)^{-1}V^T I^{-1}(\beta_0) $$
+
+where $span(V) = \mathcal{S}$\\
+
+It follows that
+
+		\begin{align*}
+			\sqrt{n}(\hat{\beta} - \tilde{\beta}) &= \sqrt{n}(\hat{\beta} - \beta_0) - \sqrt{n}(\tilde{\beta} - \beta_0)\\
+				&= \sqrt{n}(\hat{\beta} - P^T_\mathcal{S}(I^{-1}(\beta_0))\sqrt{n}(\hat{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}})\\
+				&=[I_p - P^T_\mathcal{S}(I^{-1}(\beta_0))]\sqrt{n}(\hat{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}})\\
+				&=Q^T_\mathcal{S}(I^{-1}(\beta_0))\sqrt{n}(\hat{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}})\\
+		\end{align*}
+
+		\begin{remark}
+			Here I is the Fisher information and $I_p$ is the pxp identity matrix.
+		\end{remark}
+
+So, all the geometric structure reemerges at the asymptotic level after ifnoring the small term, $O_p(n^{-\frac{1}{2}})$.\\
+
+We can find the joint asymtotic distribution of 
+
+		$$(\sqrt{n}(\hat{\beta} - \tilde{\beta}), \sqrt{n}(\tilde{\beta} - \beta_0)) $$
+
+
+		\begin{align*}
+			\begin{pmatrix}
+			\sqrt{n}(\tilde{\beta} - \beta_0)\\
+			\sqrt{n}(\hat{\beta} - \tilde{\beta})\\
+			\end{pmatrix} &= 
+					\begin{pmatrix}
+						\sqrt{n}P^T_\mathcal{S}(I^{-1}(\hat{\beta} - \beta_0))\\
+						\sqrt{n}Q^T_\mathcal{S}(I^{-1}(\hat{\beta} - \beta_0))\\
+					\end{pmatrix} +
+								O_p(n^{-\frac{1}{2}})\\
+				&=  \begin{pmatrix}
+						P^T_\mathcal{S}(I^{-1})\\
+						Q^T_\mathcal{S}(I^{-1})\\
+					\end{pmatrix} \sqrt{n} (\hat{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}})\\
+				&\rightarrow 	\begin{pmatrix}
+						P^T_\mathcal{S}(I^{-1})\\
+						Q^T_\mathcal{S}(I^{-1})\\
+					\end{pmatrix} N(0, \phi I^{-1})\\
+				&= N(0, \phi \begin{pmatrix}
+						P^T_\mathcal{S}(I^{-1})\\
+						Q^T_\mathcal{S}(I^{-1})\\
+					\end{pmatrix}I^{-1} (P^T_\mathcal{S}(I^{-1}), Q^T_\mathcal{S}(I^{-1})))	
+		\end{align*}
+
+		Note that
+
+			$$\Omega = \begin{pmatrix}
+				P^T_\mathcal{S}(I^{-1}) (I^{-1})P_\mathcal{S} & P^T_\mathcal{S}(I^{-1})(I^{-1}) Q_\mathcal{S}\\
+				Q^T_\mathcal{S}(I^{-1}) (I^{-1})P_\mathcal{S} & Q^T_\mathcal{S}(I^{-1})(I^{-1}) Q_\mathcal{S}\\
+			\end{pmatrix} = \begin{pmatrix}
+				P^T_\mathcal{S}(I^{-1}) (I^{-1})P_\mathcal{S} & 0\\
+				0 & Q^T_\mathcal{S}(I^{-1})(I^{-1}) Q_\mathcal{S}\\
+			\end{pmatrix} $$
+
+
+	So the asymptotic variance matrix for 
+
+			$$\begin{pmatrix}
+			\sqrt{n}(\tilde{\beta} - \beta_0)\\
+			\sqrt{n}(\hat{\beta} - \tilde{\beta})\\
+			\end{pmatrix} $$
+
+	is block -diagonal. So they are asymptotically independent (asymptotic normal with 0 covarience). Note the parallels between this and the linear model. \\
+
+Let 
+
+		$$\triangle (\tilde{\beta}, \beta_0)= \sqrt{n} (\tilde{\beta} - \beta_0)^T\left[P^t_\mathcal{S}(I^{-1} I^{-1} P_\mathcal{S}(I^{-1})\right]\sqrt(\tilde{\beta} - \beta_0) + O_p(n^{-\frac{1}{2}})$$
+
+Then by the continuous mapping theorem we have that
+
+		$$\triangle (\tilde{\beta}, \beta_0) \rightarrow \phi \chi^2_{q}$$
+
+where $q = dim(\mathcal{S})$.\\
+
+Let 
+
+		$$\triangle (\hat{\beta}, \tilde{\beta})  = \sqrt{n} (\hat{\beta} - \tilde{\beta})^T \left[Q^T_\mathcal{S}(I^{-1}) I^{-1} Q_\mathcal{S}(I^{-1})\right]\sqrt(\hat{\beta} - \tilde{\beta})$$
+
+And again by CMT we have
+
+		$$\triangle (\hat{\beta}, \tilde{\beta}) \rightarrow \phi \chi^2_{p - q}$$
+
+Furthermore the two are asymptotically indepenent.\\
+
+Again note the parallels to the linear model. Finally, it can be shown (omitted - STAT 561) that 
+
+		$$W_1 = 2 \sum^n_{i=1} \left[\ell_i(\tilde{\beta}, X_i) - \ell_i(\beta_0, X_i) \right] = \triangle (\tilde{\beta}, \beta_0) + O_p(n^{-\frac{1}{2}})$$
+
+		$$W_2 = 2 \sum^n_{i=1} \left[\ell_i(\hat{\beta}, X_i) - \ell_i(\tilde{\beta}, X_i) \right] = \triangle (\hat{\beta}, \tilde{\beta}) + O_p(n^{-\frac{1}{2}})$$		
+
+
+Which gives us the same results as above (convergence in distribution and asympototic independence). It follows that
+
+		$$W_1 + W_2 \rightarrow \phi \chi^2_p $$
+
+Note that $X_1, \dots, X_n$ represent a generic sequence, so it's actually ($Y_1, \dots, Y_n$). This leads naturally to something call deviance which is the generalization of sum of squares. 
+
+
+\chapter{Omitted}
+\chapter{Omitted}
+
+\chapter{Statistically Inference for GLM}
+
+\section{Asymptotic Distribution}
+
+\section{Estimation of Asymptotic Varariance of ($\hat{\beta}$) and its Confidence Interval}\index{Estimation of AVar($\hat{\beta}$ and its CI)}
+
+By Section 9.1 
+
+		$$\sqrt{n}(\hat{\beta} - \beta_0) \rightarrow N(0, \phi I^{-1}(\beta_0))$$
+
+Which gives us that
+
+		$$AVar(\sqrt{n}(\hat{\beta} - \beta_0)) = \phi I^{-1}(\beta_0) $$
+
+which can be estimated using results from chapters 6 and 7
+
+		$$\hat{\phi} I^{-1}(\hat{\beta}) $$
+
+Recall that
+
+		$$I_n(\hat{\beta}) = \frac{1}{n} \sum^n_{i=1} W_i X_i X_i^T \frac{\mu^2(X_i^2 \hat{\beta})}{V(X_i^T \hat{\beta})} $$
+
+So if you want to construct the C.I. for $C^T \beta_0$ it is
+
+		$$ C^T \beta_0 \pm \xi_{\alpha/2} \sqrt{C^T AVar(\hat{\beta})}$$
+
+		
+
+\textbf{Monday November 28}\\
+
+\section{Deviance Function}\index{Deviance Function}
+
+This corresponds to SSE in the linear model. It is the $2*\log$likelihood ratio between the saturated model (i.e. p = n) and your Generalized Linear Model. This reduces to SSE. \\
+
+Again, assume $Y_1, \dots, Y_n$ independent where
+		
+		$$Y_i = C_i (Y_i ,\phi) e^{w_i (\theta_i Y_i - b(\theta_i))/\phi} $$
+
+The log likelihood ratio is
+
+		$$\sum_i \log C_i(Y_i, \phi) + w_i(\theta_iy_i - b(\theta_i)) /\phi$$
+
+So, to estimate $\theta_i$ you only need to consider
+
+		$$\sum_i w_i (\vartheta_i Y_i - b(\vartheta_i)) $$
+
+\textbf{MLE under Saturated Model}\\
+
+Note that $\vartheta^\star = \begin{pmatrix}
+	\theta_1^\star\\
+	\vdots\\
+	\theta_n^\star
+\end{pmatrix}$. 
+
+		\begin{align*}
+			\frac{\partial}{\partial \vartheta_j} \sum_i w_i (\theta_i Y_i - b(\vartheta_i) &= \frac{\partial}{\partial \vartheta_j} [ w_i (\theta_i Y_i - b(\vartheta_i)]\\
+				&=  w_j ( Y_j - b(\vartheta_j) = 0
+				&\Rightarrow \theta^\star_j = b^{'-1}(y_j)
+		\end{align*}
+
+
+\textbf{MLE under Full Model}\\
+
+Here $\eta \in \mathcal{S} \subseteq \mathbb{R}^p$. Also, recall that $\eta = \begin{pmatrix}
+	\eta_1\\
+	\vdots\\
+	\eta_n
+\end{pmatrix}$ is our linear predictor. Because $\eta \in \mathcal{S}$ we have that $dim(\mathcal{S}) = \phi$. 
+
+		$$\eta = X \beta $$
+
+$X \in \mathbb{R}^{nxp}$\\
+
+Here X is a basis matrix of $\mathcal{S}$, that is to say that $\mathcal{S}  = span(X)$. Recall that
+
+		$$\vartheta_i = b^{'-1}(\ell^{-1}(\eta_i)) = b^{'-1}(\mu(\eta_i)) $$
+
+So we can maximize $\sum_i w_i (\vartheta_i Y_i - b(\vartheta_i)) $ (mentioned before as important to consider) over 
+
+		$$\left\{ \begin{pmatrix}
+			b^{'-1}(\ell^{-1}(\beta^T X_1))\\
+			\vdots\\
+			b^{'-1}(\ell^{-1}(\beta^T X_n))
+		\end{pmatrix} : \beta \in \mathbb{R}^p \right\} $$
+
+We explained how to do this via Newton Raphson or Fisher scoring to get $\hat{\beta}$. From here you can find that
+
+		$$\hat{\vartheta}_i = b^{'-1}(\ell^{-1}(\hat{\beta}^T X_i) $$
+
+is the MLE of $\vartheta$ under the full model. \\
+
+So, the deviance is definded to be 
+	
+		$$D(\theta^\star, \hat{\vartheta}) = 2[\ell(\theta^\star) - \ell(\hat{\theta})] $$
+
+Where $ell$ is defined before as the log likelihood ratio. \\
+
+The scaled deviance is 
+		
+		$$\frac{1}{\phi} D(\theta^\star, \hat{\vartheta}) $$
+
+It can be shown under the null hypothesis, $H_0: \vartheta \in \mathcal{S}$, that 
+
+		$$D(\theta^\star, {\vartheta_0}) - D(\theta^\star, \hat{\vartheta}) = 2(\ell(\hat{\theta}) - \ell(\vartheta_0) \rightarrow \phi \chi^2_p$$
+
+Furthermore, consider a submodel where $H_0: \eta \in \mathcal{S}' \subseteq \mathcal{S}$ where the dimension of $\mathcal{S}$ is $q < p$. (Again, this is a parellel of LM where we consider $\mu = \theta = \eta$ and itmade no difference to state that $\mu \in \mathcal{S}', \eta \in \mathcal{S}', \theta \in \mathcal{S}'$. But here, we only say that $q \in \mathcal{S}'$).\\
+
+Typically, there exists a submatrix, $\tilde{X}$ of X such that 
+
+		$$ \eta = \tilde{X} \tilde{\beta} $$
+
+where $\tilde{\beta}$ is a subvector of $\beta$. In general, $\tilde{X}$ can be any n x q matrix such that 
+
+	$$span(\tilde{X}) = span(X) $$
+
+and $\tilde{\beta}$ can be any q linear combination of $\beta$. \\
+
+So let $\tilde{\vartheta}$ be the MLE under $H_0: \eta \in \mathcal{S}'$ (this can be done using Newton Raphson with X replace by $\tilde{X}$). \\
+
+Then you have that 
+
+		$$D(\theta^\star, \tilde{\vartheta}) = 2[\ell(\theta^\star) - \ell(\tilde{\theta})]$$
+
+As we discussed in Section 9.1 (?), in the deviance, 
+
+		\begin{enumerate}
+			\item  $D(\theta^\star, {\vartheta_0}) - D(\theta^\star, \tilde{\vartheta}) \rightarrow \phi \chi^2_q$
+			\item $D(\theta^\star, \tilde{\vartheta}) - D(\theta^\star, \hat{\vartheta}) \rightarrow \phi \chi^2_{p-q}$
+			\item $D(\theta^\star, {\vartheta_0}) - D(\theta^\star, \tilde{\vartheta})$ and $D(\theta^\star, \tilde{\vartheta}) - D(\theta^\star, \hat{\vartheta})$ are asymptotically independent. 
+		\end{enumerate}
+
+
+So you can use deviance as a substitute for sum of squares in statistical inference. 
+
+
+\section{Residuals}\index{Residuals}
+
+The same diagnostic issues arise as in GLM. We want to look at the residuals to see if any important is in trash, if there is anything in your model not good. We will consider three types of residuals. 
+
+\subsection{Pearson's Residual}\index{Pearson's Residual}
+
+		$$r_p = \frac{y_i - \hat{\mu}_i}{\sqrt{V(\hat{\mu}_i)}} $$
+
+where $\hat{\mu}_i = \mu(\hat{\beta} X_i) =\ell^{-1}(\hat{\beta}^T X_i$.\\
+
+However, this residual is typically skewed. For example, Y could be Poisson, Gamma, Chi Squared, etc. 
+
+
+\subsection{Anscombe Residual}\index{Anscombe Residual}
+
+Used to correct for skewness. This is derived from asymptotic expansion not used in this course. \\
+
+Let $A(\mu) = \int V^{-1/3}(\mu) d\mu$. Or rather that
+
+		$$\frac{d A(\mu)}{d \mu} = V^{-1/3}(\mu) $$
+
+
+Then we have that 
+
+		$$r_A = \frac{A(y_i) - A(\hat{\mu}_i)}{A(\hat{\mu}_i) \sqrt{V(\hat{\mu})}} $$
+
+
+
+\begin{example}
+	$$Y_i \sim Pois(\mu_i) $$
+
+	$$V(\mu_i) = \mu_i $$
+
+	$$V(\mu) = \mu$$
+
+
+	% \begin{align*}
+	% 	A(\mu) &= \int \mu^{-1/3) d\mu\\
+	% 			&= (-1/3 + 1)^{-1} \mu^{-1/3 + 1} + c\\
+	% 			&= 3/2 \mu^{3/2} + c\\
+	% 	A'(\mu) &= 3/2 * 2/3 \mu^{2/3 -1} = \mu^{-1/3}\\
+	% \end{align*}
+
+
+\end{example}
+
+\textbf{Wednesday November 30}\\
+
+\section{Deviance Residual}\index{Deviance Residual}
+
+
+The idea from before is that 
+		
+		$$SSE = \sum_i (Y_i - \hat{\beta}^T X_i)^2 $$
+
+For GLM, 
+
+		$$D(\vartheta^\star, \hat{\theta}) = \sum_i d_i $$
+
+where $d_i \geq 0$.\\
+
+From here we may calculate the deviance residual, 
+
+		$$r_D = sgn(d_i) \sqrt(d_i) $$
+
+More specifically, 
+
+		$$d_i = 2 w_i (\vartheta^* y_i - b(\vartheta^*_i)) - w-i (\hat{\vartheta}_i y_i - b(\hat{\beta}_i)) = 2 w_i [(\vartheta^* - \hat{\vartheta}_i) y_i - (b(\vartheta^*_i) - b(\hat{\beta}_i))] $$
+
+Recall that
+
+		$$\vartheta^*_i = b^{'-1} (y_i) $$
+		$$\hat{\vartheta}_i = b^{'-1} (\hat{\mu}_i) $$
+		$$\hat{\mu}_i = \ell^{-1}(\hat{\beta}^T X_i) = \mu(\hat{\beta}^T X_i)$$
+
+This is a generalization of 
+
+		$$Y_i = \hat{\beta}^T X_i = sgn(y_i - \hat{\mu}_i)\sqrt{(y_i - \hat{\mu}_i)^2} $$
+
+This also is less skewed than Pearson (as seen in  ?).
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 10????
+% %----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Omitted - adding to make next chapter 11}
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 11
+% %----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Nature of Predictors}
+
+\section{Link to ANOVA}\index{Link to ANOVA}
+
+The difference between ANOVA and regression is that ANOVA prediction is categorical. Here, consider categorical prediciton for GLM. So, we are doing ANOVA for GLM - ANODEV (Bing Li's abbreviation) 
+
+	\begin{enumerate}
+		\item 1 - way Main Effect Model 
+
+				$$\eta_{ij} C + \alpha_i; j = 1, \dots, n_i; i = 1, \dots, p $$ 
+
+		$\sum_i \alpha_i = 0$\\
+
+		Note that $\alpha_p = - \alpha_1 - \dots - \alpha_{p-1}$
+
+Consider the example where $n_1 = 3, n_2 = 3, n_3 = 2$
+
+		$$\eta_{11} = c + \alpha_1 $$
+		$$\eta_{12} = c + \alpha_1 $$
+		$$\eta_{13} = c + \alpha_1 $$
+		$$\eta_{21} = c + \alpha_2 $$
+		$$\eta_{22} = c + \alpha_2 $$
+		$$\eta_{23} = c + \alpha_2 $$
+		$$\eta_{31} = c + \alpha_3 $$
+		$$\eta_{32} = c + \alpha_3 $$
+		
+
+
+		$$ \eta = \begin{pmatrix}
+			\eta_{11}\\
+			\vdots\\
+			\eta_{32}
+		\end{pmatrix} = \begin{pmatrix}
+			1\\
+			\vdots\\
+			1\\
+		\end{pmatrix} \begin{pmatrix}
+			1 & 0 \\
+			1 & 0 \\
+			1 & 0 \\
+			0 & 1 \\
+			0 & 1 \\
+			0 & 1 \\
+			-1 & -1 \\
+			-1 & -1 \\
+			-1 & -1 \\
+		\end{pmatrix}\begin{pmatrix}
+			c\\
+			\alpha_1 \\
+			\alpha_2
+		\end{pmatrix} = 1_n C + A \alpha_{12}$$
+
+Obviously we may also use $\alpha_2 = -\alpha_1 - \alpha_3 $
+	\end{enumerate}
+
+	% FINISH NOTES
+
+	We introduce algebraic structure to describe categorical predictors. Let A and B represent the design matrices for factor A and B. 
+
+	\begin{enumerate}
+		\item \textit{Addition} We use A + B to represent $(A \vdots B)$ and remove any dependent columns. (Note that A + cA = A and A + B = B + A)
+		\item \textit{Multiplication} $A \cdot B$ is defined as 
+
+				$$\{A)i \odot B_J: j = 1, \dots, q; i = 1, \dots, p \} $$
+
+		Where $\odot$ is Hadamard matrix prduct which is point wise product. 
+		
+		\item \textit{Subtraction} IF f(A, B) is an algebraic factor, of the form $g(A, B) + A$, then f(A, B) - A simply means g(A, B).	
+	\end{enumerate}
+
+
+The following applies largly to factor algebra. \\
+
+
+\textbf{Proposition 11.1}  (Proved in HW 6)\\
+\begin{enumerate}
+	\item Associative Law: 
+			
+			$$A \cdot (B \cdot C) = (A \cdot B) \cdot C$$
+
+	\item Associative Law: 
+
+			$$ A + (B + C) = (A + B) + C$$
+
+	\item Distributive Law:
+
+			$$A \cdot (B + C) = (A \cdot B) + (A \cdot C) $$
+\end{enumerate}
+
+Using these algebraic notation, we can summarize interaction models and nested models nicely as follows \\
+
+2-way ANODEV with Interation:
+
+		$$\eta_{ijk} = c + \alpha_i + \beta_j + \gamma_{ij} $$
+
+$\sum_i \alpha_i = 0$\\
+$\sum_j \beta_j = 0$\\
+$\sum_i \gamma_{ij} = 0$\\
+$\sum_j \gamma_{ij} = 0$\\
+
+
+We may write this in matrix form as 
+
+		$$ \eta = 1_n C + A\alpha_{1:p-1} + B\beta_{1: q-1} + (A \cdot B) \gamma_{1:(p-1)(q-1)}$$
+
+Then plug in all the formulates before to do estimation, inference, diagnostics, etc. 
+
+
+
+textbf{Friday December 2}\\
+
+Crossed design is abbreviated as A * B. \\
+
+Nested design is abbreviated as A + AB. This is written as A/B and is called B nesed in A.\\
+
+Lot of the designed can be created from these basic designs.\\
+
+
+\begin{enumerate}
+	\item 3 Way Crossed Design
+
+			$$A * B * C = A + B*C + A\cdot(B*C) = A + B + C + A\cdot B + A\cdot C + B \cdot C + A\cdot B \cdot C$$ 
+	\item Nested Nested Design
+
+			$$ A/(B/C)$$
+
+			$\begin{aligned}
+			 	A + A\cdot(B/C) &= A + A \cdot(B + B\cdot C)\\
+			 		&=A + A \cdot B + A\cdot B \cdot C\\			 	
+			 \end{aligned}$ 
+\end{enumerate}
+
+You can write down the model in terms of $\eta$ easily. 
+
+\begin{enumerate}
+	\item 3 Way Crossed Design
+
+			$$\eta_{ijk} = c + \alpha_i + \beta_j + \gamma_k + \kappa_{ij} + \nu_{jk} + \epsilon{ijk}$$
+
+	\item Nested Nested Design
+
+			$$\eta_{ijk} = c + \alpha_i + (\alpha \beta)_{ij} + (\alpha \beta \gamma)_{ijk}$$
+
+		
+\end{enumerate}
+
+This also applies to ANOVA. 
+
+\section{Analysis of Deviance (ANODev)}\index{Analysis of Deviance (ANODev)}
+
+
+You can ceate a table of deviance just like ANOVA table, except that orthogonality is lost. So the table is not additive. In fact, without orthogonal design, even ANOVA table is nonadditive. \\
+
+We will illustrate ANODev tabel by crossed design with intercept. 
+
+		$$1 + A + B + A\cdot B $$
+
+
+Supose A has p-levels and B has q-levels. Then the total Degrees of Freedom will be 
+
+		$$1 + (p-1) + (q-1) + (p-1)(q-) = pq $$
+
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{lrrrrr}
+  \hline
+ Factor & Df & DEV & Deviance   \\ 
+  \hline
+1           & 1 & $2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{-1})] $ &$ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-1})$ \\ 
+ A           & p-1 & $2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{-A})]$ & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-A})$\\ 
+ B           & q-1 &$2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{-B})] $ & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-B})$ \\ 
+ $A\cdot B $    & (p-1)(q-1) & $2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{- A\cdot B})]$  & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-A \cdot B})$\\ 
+ A * B        & pq - 1 & $2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{-A*B})]$ & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-A*B})$\\ 
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+In terms of deviance, in general for any submodel the deviance column is 
+
+		$$- D(\theta^*, \hat{\theta}(full)) - D(\theta^*, \tilde{\theta}(complement of sub)) $$
+
+Which is analogus to 
+
+		$$-SSE(full) + SSE(compliment of sub) $$
+
+The role played by orthogonality in ANOVA when it exists, 
+
+		$$SS(sub_1)= SSE(sub_1^C) - SSE(F) $$
+		$$SS(sub_2)= SSE(sub_2^C) - SSE(F) $$
+
+Under orthogonality, 
+
+		$$SS(sub_1 \cup sub_2)  = SS(sub_1) + SS(sub_2)$$
+
+Without orthogonality, this equation no longer holds. \\
+
+SS(sub), as defined by projection norm no longer adequately represents the variation of the submodel. However, 
+
+		$$SSE(sub^C) - SSE(F) $$
+
+still makes since so in ANODev, we only have the full. 
+
+\section{Numerical Prediction}\index{Numerical Prediction}
+
+In this section, bring in numerical predictor on top of categorical predictor. In linear model this is called ANCOVA, Analysis of Covariance. For example, we may have,
+
+		$$Y_{ij} = \mu + \alpha_i + \beta^T x + \epsilon_{ij} $$
+
+where $\alpha_i$ is the categorical predictor and $\beta^T x$ is the numerical predictor.\\
+
+A linear model with each cell haaving different intercepts, but common slope. \\
+
+
+
+\textbf{ANCODEV, or Analysis of Codeviance}\\
+
+
+		$$\eta_i = C + \alpha_i + X_i^T \beta $$
+
+In algebraic representation, $ 1_n \vdots A \vdots X$.\\
+
+This can also apply to more cmoplicated categorical predictors. \\
+
+
+2 Way Main Effect Model  \\
+
+		$$C + \alpha_i + \beta_i + \gamma^T X $$
+
+		$$ 1 + A + B + X $$
+
+2 Way Crossed Design Model \\
+
+		$$1 + A + B + A\cdot B + X $$
+
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{lrrrrr}
+  \hline
+ Factor & Df & DEV & Deviance   \\ 
+  \hline
+1           & 1 & $2[\ell(\hat{\theta}_{I + A*B + X}) - \ell (\tilde{\theta}_{A*B - X})] $ &$ - D(				\theta^*, \hat{\theta}_{1 + A*B + X}) + D(\theta^*, \tilde{\theta}_{A*B + X})$ \\ 
+
+ A           & p-1 & $2[\ell(\hat{\theta}_{1 + A*B + X}) - \ell (\tilde{\theta}_{1 + A*B + X -A})]				$ & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-A})$\\ 
+
+ B           & q-1 &$2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{-B})] $ & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-B})$ \\ 
+ 
+ $A\cdot B $    & (p-1)(q-1) & $2[\ell(\hat{\theta}) - \ell (\tilde{\theta}_{- A\cdot B})]$  & $ - D(\theta^*, \hat{\theta}) + D(\theta^*, \tilde{\theta}_{-A \cdot B})$\\ 
+ 
+ X 			& r & & \\
+ 
+ A*B + X 	& (pq-1) + r & & \\
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Note the general formulas for deviance are
+
+		$$2[\ell(\hat{\theta}_{full}) - \ell(\hat{\theta}_{sub^C})] = D(\theta^*, \tilde{\theta}_{sub^C}) - D(\theta^*, \hat{\theta}_{full}) $$
+
+\section{Testing Hypothesis}\index{Testing Hypothesis}
+
+Illustration by cross design ANCODEV
+
+		$$H_0: A = 0 $$
+
+		$$H_0: \alpha_1 = \dots = \alpha_p $$
+
+
+		$$2[\ell(\hat{\theta}_{1 + A*B + X}) - \ell(\tilde{\theta}_{1 + A*B + X - A})] \rightarrow^{\mathcal{D}} \chi^2 _{pq+ r - pq + r - (p-1)} = \chi^2_{p-1} $$
+
+
+That is, we want to use $\chi^2_{p-1}$ as the reference distribution. We may wonder why not the F distribution, as it is so often used in prior models, but using a strict analogy to linear model we can see that 
+
+		$$ \frac{D(\theta^*, \tilde{\theta}_{sub^C}) - D(\theta^*, \hat{\theta}_{full}) }{D(\theta^*, \hat{\theta}_{full}) } \rightarrow F{df}$$
+
+But the bottom assumption does not hold. When n is large, $\chi^2$ large is constant. So even if you try to use this approach to getting an F distribution, it is still approximately a $\chi^2$ distribution when n is large. \\
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 12
+% %----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+\chapter{Two Special Cases of GLM}
+
+\section{Logistic Regression}\index{Logistic Regression}
+
+		$$Y_i \sim b(m_i, p_i) $$
+
+\textit{Likelihood}\\
+
+		$$\begin{pmatrix}
+			m_i\\
+			y_i
+		\end{pmatrix} e^{y_i \log(\frac{p_i}{1- p_i}) + m_i \log(1 - p_i)} $$
+
+Canonical Parameter: $\theta_i = \log(\frac{p_i}{1- p_i}) \rightarrow  p_i = \frac{e^\theta}{1 + \theta_i}$\\
+
+So we have our Logit and Expit links, respectively, above. \\
+
+\begin{align*}
+	\log(1 - p_i) &= \log(1 - \frac{e^\theta}{1 + \theta_i})\\
+		&= \log(\frac{1}{1 + e^{\theta_i}})\\
+		&= - \log(1 + e^{\theta_i})
+\end{align*}
+
+In terms of canonical parameterization, 
+
+		$$ \begin{pmatrix}
+			m_i\\
+			y_i
+		\end{pmatrix} e^{\theta_i y_i - m_i \log(1 + e^{\theta_i})} $$
+
+So $b(\theta_i) = m_i \log(1 + e^{\theta_i})$.\\
+
+		$$b'(\theta_i) = \mu_i = m_i \frac{e^{\theta_i}}{1+ e^{\theta_i}} $$
+
+Inverting this we get that
+
+		$$\theta_i = \log\frac{\mu_i/m_i}{1 - \mu_i/m_i} $$
+
+So your natural link function is to make $\theta_i = \eta_i$, 
+
+		$$link_{nat}(\mu_i) = \log\frac{\mu_i/m_i}{1 - \mu_i/m_i} = \log\frac{p_i}{1 - p_i} $$
+
+
+For natural link, regression is logistic regression. 
+
+		$$\log \frac{p_i}{1 - p_i} = X_i^T\beta  $$
+
+Where $X_i$ may be categorical (ANODEV), numerical (regression), or mixed (ANCODEV). \\
+
+\textbf{Estimation}\\
+
+\textit{Log Likelihood}
+
+		$$\sum_i (x_i^T \beta) y_i - m_i \log(1 + e^{\beta^T x_i}) $$
+
+\textit{Score}
+
+		$$S(\beta, y) = \sum_i x_i (y_i - m_i(\frac{e^{x_i^T \beta}}{1 + e^{x_i^T \beta}})) $$
+
+Solve by Newton Raphson or Fisher Scoring for the Fisher information. 
+
+		$$n^{-1} \sum_i m_i X_i X_i^T (\frac{e^{x_i^T \beta}}{(1 + e^{x_i^T \beta})^2}) $$
+
+
+Two other types of link functions for binary response:\\
+
+
+\textbf{1. Probit Link (probability)}
+
+		$$link_{probit}: \mu_i \mapsto \Phi^{-1} (\mu_i/m_i) $$
+
+where $\Phi$ is the c.d.f. of N(0, 1). \\
+
+
+		$$link_{probit}^{-1}: \mu(\eta_i) = m_i \Phi(\eta) $$
+
+The idea of link function is for us to be able to go from $\eta_i \leftarrow \mathbb{R}, \mu_i \leftarrow $ special range. \\
+
+GLM using probit as link is call Probit Regression. \\
+
+\textbf{2. Complementary Log-Log Link}\\
+
+		$$link_{cloglog} (\mu_i) = \log( -\log(1 - \frac{\mu_i}{m_i})) $$
+
+		$$link_{cloglog}^{-1}(\eta_i) =  \mu(\eta_i) = m_i (1 - e^{-e^{\eta_i}}) $$
+
+For these 2 links and all (?) link, estimation goes as followes
+
+		$$S(\beta, y_i) = x_i \frac{\mu(\eta_i)}{V(\eta_i)}(y_i + \mu(\eta_i)) $$
+
+where $\eta_i = X_i^T \beta$.\\
+
+By some algebra, 
+
+		$$V(\mu_i) = b \circ b(\mu_i) = m_i (\frac{\mu_i}{m_i})(1 - \frac{\mu_i}{m_i}) $$
+
+So, the score function for observation of $(X_i, Y_i)$ is
+
+		$$ X_i \frac{\mu^\cdot(\eta_i)}{m_i \frac{\mu(\eta_i)}{m_i} (1 - \frac{\mu(\eta_i)}{m_i})} (y_i - \mu(\eta_i)) $$
+
+Want to solve $\sum_i (above) = 0$ using Newton-Raphson or Fisher Scoring. 
+
+For the two link functions we discussed, 
+
+		$$ $$
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 4
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Residuals}
+
+% \section{Overview}\index{Overview}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 5
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Cetegorical Prediction}
+
+% \section{Overview}\index{Overview}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 6
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Some Important GLM}
+
+% \section{Overview}\index{Overview}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 7
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Multivariate GLM}
+
+% \section{Overview}\index{Overview}
+
+
+% %----------------------------------------------------------------------------------------
+% %	PART
+% %----------------------------------------------------------------------------------------
+
+%  \part{Part Three}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 1
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Principle Componant Analysis}
+
+% \section{Overview}\index{Overview}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 2
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Canonical Correlation Analysis}
+
+% \section{Overview}\index{Overview}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 3
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Independent Componant Analysis}
+
+% \section{Overview}\index{Overview}
+
+
+% % %----------------------------------------------------------------------------------------
+% % %	BIBLIOGRAPHY
+% % %----------------------------------------------------------------------------------------
+
+% % \chapter*{Bibliography}
+% % \addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+% % \section*{Books}
+% % \addcontentsline{toc}{section}{Books}
+% % \printbibliography[heading=bibempty,type=book]
+% % \section*{Articles}
+% % \addcontentsline{toc}{section}{Articles}
+% % \printbibliography[heading=bibempty,type=article]
+
+% %----------------------------------------------------------------------------------------
+% %	INDEX
+% %----------------------------------------------------------------------------------------
 
 \cleardoublepage
 \phantomsection
 \setlength{\columnsep}{0.75cm}
 \addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
-\printindex
+% \printindex
 
 %----------------------------------------------------------------------------------------
 

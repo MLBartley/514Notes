@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  14 OCT 2016 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.28)  6 DEC 2016 12:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1572,21 +1572,21 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./517notes.aux)
 \openout1 = `517notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
+LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 59.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -1655,7 +1655,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-LaTeX Info: Redefining \microtypecontext on input line 58.
+LaTeX Info: Redefining \microtypecontext on input line 59.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1678,10 +1678,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '517notes.bbl' found.
 
 (./517notes.bbl)
-Package biblatex Info: Reference section=0 on input line 58.
-Package biblatex Info: Reference segment=0 on input line 58.
+Package biblatex Info: Reference section=0 on input line 59.
+Package biblatex Info: Reference segment=0 on input line 59.
 \AtBeginShipoutBox=\box62
-Package hyperref Info: Link coloring OFF on input line 58.
+Package hyperref Info: Link coloring OFF on input line 59.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1691,40 +1691,40 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count383
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 59.
+LaTeX Info: Redefining \pageref on input line 59.
+LaTeX Info: Redefining \nameref on input line 59.
 
 <Pictures/background.pdf, id=7, 584.1825pt x 835.12pt>
 File: Pictures/background.pdf Graphic file (type pdf)
 
 <use Pictures/background.pdf>
-Package pdftex.def Info: Pictures/background.pdf used on input line 70.
+Package pdftex.def Info: Pictures/background.pdf used on input line 71.
 (pdftex.def)             Requested size: 597.50787pt x 854.24503pt.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 71.
-LaTeX Font Info:    Try loading font information for T1+pag on input line 71.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 72.
+LaTeX Font Info:    Try loading font information for T1+pag on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1pag.fd
 File: t1pag.fd 2001/06/04 font definitions for T1/pag.
 )
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 71.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 72.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <24.88> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 71.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 72.
 Package microtype Info: Loading generic settings for font family
 (microtype)             `pag' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 73.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <14.4> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 73.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 73.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 73.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 73
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 74.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 74
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
@@ -1734,40 +1734,40 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 73
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 74
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 73
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 74
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 73
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 74
 .
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 73.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 74.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 73.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 74.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 73.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 74.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -1778,28 +1778,28 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Pictu
 res/background.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 87.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 88.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 93.
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 94.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -1808,13 +1808,13 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
@@ -1822,7 +1822,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 105.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 106.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
  (./517notes.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
@@ -1854,9 +1854,9 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10.95> not available
 ]
 \c@ttl@toc@default=\count384
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <220> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 115.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 116.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <220> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 115.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 116.
  (./517notes.ptc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
@@ -1864,190 +1864,197 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
 )
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <30> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 115.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 116.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <30> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 115.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 116.
  [5
 
 ] [6]
 Chapter 1.
-<Pictures/chapter_head_2.pdf, id=113, 3581.38pt x 1790.69pt>
+<Pictures/chapter_head_2.pdf, id=142, 3581.38pt x 1790.69pt>
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 123.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 124.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
-Package mdframed Info: mdframed works in twoside mode on input line 140.
+Package mdframed Info: mdframed works in twoside mode on input line 141.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 140.
+(mdframed)              on input line 141.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 140.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 140.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 141.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 140.
-Package mdframed Info: mdframed works in twoside mode on input line 144.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 141.
+Package mdframed Info: mdframed works in twoside mode on input line 145.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 144.
-Package mdframed Info: mdframed works in twoside mode on input line 148.
+(mdframed)              on input line 145.
+Package mdframed Info: mdframed works in twoside mode on input line 149.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 148.
+(mdframed)              on input line 149.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 148.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 151.
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--177
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
 
  []
 
 [7
 
  <./Pictures/chapter_head_2.pdf>]
-Package mdframed Info: mdframed works in twoside mode on input line 189.
+Package mdframed Info: mdframed works in twoside mode on input line 202.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 189.
+(mdframed)              on input line 202.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <6> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 218.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 227.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <6> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 218.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 227.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 218.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 227.
+ [8]
+Package mdframed Info: mdframed works in twoside mode on input line 253.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 253.
+Package mdframed Info: mdframed works in twoside mode on input line 267.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 267.
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
 
  []
 
-<Pictures/notes1.jpg, id=135, 1027.84pt x 1027.84pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--277
+
+ []
+
+<Pictures/notes1.jpg, id=180, 1027.84pt x 1027.84pt>
 File: Pictures/notes1.jpg Graphic file (type jpg)
  <use Pictures/notes1.jpg>
-Package pdftex.def Info: Pictures/notes1.jpg used on input line 227.
+Package pdftex.def Info: Pictures/notes1.jpg used on input line 284.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
-<Pictures/notes2.jpg, id=136, 1027.84pt x 1027.84pt>
+<Pictures/notes2.jpg, id=181, 1027.84pt x 1027.84pt>
 File: Pictures/notes2.jpg Graphic file (type jpg)
  <use Pictures/notes2.jpg>
-Package pdftex.def Info: Pictures/notes2.jpg used on input line 237.
+Package pdftex.def Info: Pictures/notes2.jpg used on input line 294.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures/notes3.jpg, id=137, 1027.84pt x 1027.84pt>
+[9 <./Pictures/notes1.jpg>]
+<Pictures/notes3.jpg, id=192, 1027.84pt x 1027.84pt>
 File: Pictures/notes3.jpg Graphic file (type jpg)
  <use Pictures/notes3.jpg>
-Package pdftex.def Info: Pictures/notes3.jpg used on input line 244.
+Package pdftex.def Info: Pictures/notes3.jpg used on input line 301.
 (pdftex.def)             Requested size: 154.16934pt x 154.16934pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+Underfull \hbox (badness 10000) in paragraph at lines 313--315
 
  []
 
-[8 <./Pictures/notes1.jpg>]
-Package mdframed Info: mdframed works in twoside mode on input line 259.
+Package mdframed Info: mdframed works in twoside mode on input line 316.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 259.
-
-Underfull \hbox (badness 10000) in paragraph at lines 283--286
-
- []
-
-[9 <./Pictures/notes2.jpg> <./Pictures/notes3.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 288--291
+(mdframed)              on input line 316.
+[10 <./Pictures/notes2.jpg> <./Pictures/notes3.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 340--343
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 345--348
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--335
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
 
  []
 
-[10]
-Package mdframed Info: mdframed works in twoside mode on input line 369.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 369.
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--412
+Underfull \hbox (badness 10000) in paragraph at lines 389--392
 
  []
 
 [11]
-Package mdframed Info: mdframed works in twoside mode on input line 469.
+Package mdframed Info: mdframed works in twoside mode on input line 426.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 469.
- [12] [13]
+(mdframed)              on input line 426.
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 550.
+Underfull \hbox (badness 10000) in paragraph at lines 467--469
 
+ []
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 550.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 550.
-
-Package mdframed Info: mdframed works in twoside mode on input line 575.
+[12]
+Package mdframed Info: mdframed works in twoside mode on input line 526.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 575.
+(mdframed)              on input line 526.
+ [13] [14]
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 607--608
-
- []
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 607.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--610
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
-
- []
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\sigma' on input line 607.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--655
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 607.
+
+Package mdframed Info: mdframed works in twoside mode on input line 632.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 632.
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 651--652
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 656--657
+Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
  []
 
 
-Overfull \hbox (1.98473pt too wide) in paragraph at lines 660--661
+Underfull \hbox (badness 10000) in paragraph at lines 666--667
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 713--714
+
+ []
+
+
+Overfull \hbox (1.98473pt too wide) in paragraph at lines 717--718
 []$\OML/ztmcm/m/it/10.95 P[]\OT1/ztmcm/m/n/10.95 (\OML/ztmcm/m/it/10.95 A\OT1/z
 tmcm/m/n/10.95 ) = []\OMS/ztmcm/m/n/10.95 f[] \OML/ztmcm/m/it/10.95 P\OT1/ztmcm
 /m/n/10.95 (\OML/ztmcm/m/it/10.95 A[]\OT1/ztmcm/m/n/10.95 )\OML/ztmcm/m/it/10.9
@@ -2058,536 +2065,475 @@ tmcm/m/n/10.95 )\OML/ztmcm/m/it/10.95 ; A[] \OMS/ztmcm/m/n/10.95 2 []g \OT1/ztm
 cm/m/n/10.95 =
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
+Underfull \hbox (badness 10000) in paragraph at lines 735--736
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 697--698
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 716--717
-
- []
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 724--725
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 732--733
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 740--741
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 770--772
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 770--772
+Underfull \hbox (badness 10000) in paragraph at lines 752--753
 
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 793--796
+Underfull \hbox (badness 10000) in paragraph at lines 754--755
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 773--774
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 789--790
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 830--832
+Underfull \hbox (badness 10000) in paragraph at lines 827--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--832
+Underfull \hbox (badness 10000) in paragraph at lines 827--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 841--842
+Underfull \hbox (badness 10000) in paragraph at lines 850--853
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 887--889
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--876
+Underfull \hbox (badness 10000) in paragraph at lines 887--889
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--876
+Underfull \hbox (badness 10000) in paragraph at lines 898--899
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--876
+Underfull \hbox (badness 10000) in paragraph at lines 922--933
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--876
+Underfull \hbox (badness 10000) in paragraph at lines 922--933
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--876
+Underfull \hbox (badness 10000) in paragraph at lines 922--933
 
  []
 
 
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
- [19]
-Underfull \hbox (badness 10000) in paragraph at lines 891--893
+Underfull \hbox (badness 10000) in paragraph at lines 922--933
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 891--893
+Underfull \hbox (badness 10000) in paragraph at lines 922--933
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--910
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--910
-
- []
-
-[20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 994--999
+Underfull \hbox (badness 10000) in paragraph at lines 965--967
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--999
+Underfull \hbox (badness 10000) in paragraph at lines 965--967
+
+ []
+
+[21] [22]
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 994--999
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1018--1019
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1058
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
+Underfull \hbox (badness 10000) in paragraph at lines 1075--1076
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
-
- []
-
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 1027--1028
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1029.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1029.
-Package mdframed Info: mdframed works in twoside mode on input line 1033.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1033.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
+Underfull \hbox (badness 10000) in paragraph at lines 1077--1078
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 1084.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1084.
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1085
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1100--1101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1123--1124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1133--1134
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 1187--1188
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1191--1192
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1205.
+Package mdframed Info: mdframed works in twoside mode on input line 1086.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1205.
+(mdframed)              on input line 1086.
+Package mdframed Info: mdframed works in twoside mode on input line 1090.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1090.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1214--1215
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1141.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1141.
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 1151--1152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1216--1217
+Underfull \hbox (badness 10000) in paragraph at lines 1157--1158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 1244--1245
+Underfull \hbox (badness 10000) in paragraph at lines 1256--1257
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1250
+Underfull \hbox (badness 10000) in paragraph at lines 1258--1259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1253--1254
+Underfull \hbox (badness 10000) in paragraph at lines 1260--1261
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1255--1256
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1258--1261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1268--1269
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1271
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1276--1277
-
- []
-
-[26]
-Package mdframed Info: mdframed works in twoside mode on input line 1280.
+Package mdframed Info: mdframed works in twoside mode on input line 1274.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1280.
+(mdframed)              on input line 1274.
+Package mdframed Info: Not enough space on this page on input line 1276.
+[26]
+Package mdframed Info: Not enough space on this page on input line 1276.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1306--1307
+Underfull \hbox (badness 10000) in paragraph at lines 1281--1282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1283--1284
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1285--1286
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1324--1325
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1330
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 1340--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1343
+Underfull \hbox (badness 10000) in paragraph at lines 1339--1340
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1358--1359
+Underfull \hbox (badness 10000) in paragraph at lines 1345--1346
 
  []
 
+Package mdframed Info: mdframed works in twoside mode on input line 1349.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1349.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1393--1394
+Underfull \hbox (badness 10000) in paragraph at lines 1375--1376
 
  []
 
 [28]
-Package mdframed Info: mdframed works in twoside mode on input line 1418.
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1410
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1411--1412
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1430
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1462--1463
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1487.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1418.
- [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1479
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1481
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1492
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1495
-
- []
-
+(mdframed)              on input line 1487.
+Package mdframed Info: Not enough space on this page on input line 1499.
 [30]
-Package mdframed Info: mdframed works in twoside mode on input line 1502.
+Package mdframed Info: Not enough space on this page on input line 1499.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1547--1548
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1560--1561
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1563--1564
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1571.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1502.
- [31]
-Underfull \hbox (badness 10000) in paragraph at lines 1601--1602
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1603--1604
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1605--1606
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1607--1608
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1613--1614
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1617.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1617.
+(mdframed)              on input line 1571.
 [32]
-Package mdframed Info: mdframed works in twoside mode on input line 1633.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 1633.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1643--1644
+Underfull \hbox (badness 10000) in paragraph at lines 1670--1671
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1645--1646
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1655--1656
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1663--1664
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1673
 
  []
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 1674--1675
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1676--1677
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1682--1683
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1686.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1686.
 Package mdframed Info: mdframed works in twoside mode on input line 1702.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 1702.
-Package mdframed Info: mdframed works in twoside mode on input line 1722.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1712--1713
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1714--1715
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1724--1725
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1732--1733
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 1771.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1722.
- [34]
-Underfull \hbox (badness 10000) in paragraph at lines 1779--1780
+(mdframed)              on input line 1771.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1781--1782
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1783--1784
-
- []
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 1779.
 
 [35]
-Package mdframed Info: mdframed works in twoside mode on input line 1820.
+Package mdframed Info: mdframed works in twoside mode on input line 1796.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1820.
+(mdframed)              on input line 1796.
  [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1842--1843
+Underfull \hbox (badness 10000) in paragraph at lines 1853--1854
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1844--1845
+Underfull \hbox (badness 10000) in paragraph at lines 1855--1856
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1870--1871
+Underfull \hbox (badness 10000) in paragraph at lines 1857--1858
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1893--1894
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1895--1896
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1897.
+[37]
+Package mdframed Info: mdframed works in twoside mode on input line 1894.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1897.
-Package mdframed Info: Not enough space on this page on input line 1899.
-[37]
-Package mdframed Info: Not enough space on this page on input line 1899.
+(mdframed)              on input line 1894.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1913--1914
+Underfull \hbox (badness 10000) in paragraph at lines 1916--1917
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1915--1916
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1917--1918
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1920--1921
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1926--1927
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1928--1929
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1930--1931
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1939--1940
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1951--1952
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1953--1954
+Underfull \hbox (badness 10000) in paragraph at lines 1918--1919
 
  []
 
 [38]
+Underfull \hbox (badness 10000) in paragraph at lines 1954--1955
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1975--1976
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1977--1978
 
  []
@@ -2597,111 +2543,176 @@ Underfull \hbox (badness 10000) in paragraph at lines 1979--1980
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1984--1985
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 1986.
+Package mdframed Info: mdframed works in twoside mode on input line 1981.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1986.
+(mdframed)              on input line 1981.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2000--2004
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2000--2004
+Underfull \hbox (badness 10000) in paragraph at lines 1997--1998
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2000--2004
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2005--2006
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2016--2017
+Underfull \hbox (badness 10000) in paragraph at lines 1999--2000
 
  []
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 2018--2019
+Underfull \hbox (badness 10000) in paragraph at lines 2001--2002
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2022--2023
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2029.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2029.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2038--2039
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2040--2041
+Underfull \hbox (badness 10000) in paragraph at lines 2010--2011
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2045--2046
+Underfull \hbox (badness 10000) in paragraph at lines 2012--2013
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2056--2066
+Underfull \hbox (badness 10000) in paragraph at lines 2014--2015
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2056--2066
+Underfull \hbox (badness 10000) in paragraph at lines 2023--2024
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2035--2036
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2037--2038
 
  []
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 2088--2089
+Underfull \hbox (badness 10000) in paragraph at lines 2061--2062
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2090--2091
+Underfull \hbox (badness 10000) in paragraph at lines 2063--2064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2108--2110
+Underfull \hbox (badness 10000) in paragraph at lines 2068--2069
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2070.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2070.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2088
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2108--2110
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2088
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2123--2125
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2088
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2123--2125
+Underfull \hbox (badness 10000) in paragraph at lines 2089--2090
 
  []
 
 
-Overfull \hbox (33.57657pt too wide) in paragraph at lines 2129--2131
+Underfull \hbox (badness 10000) in paragraph at lines 2100--2101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2102--2103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2106--2107
+
+ []
+
+[41]
+Package mdframed Info: mdframed works in twoside mode on input line 2113.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2113.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2122--2123
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2124--2125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2129--2130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2140--2150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2140--2150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2172--2173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2174--2175
+
+ []
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 2192--2194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2192--2194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2207--2209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2207--2209
+
+ []
+
+
+Overfull \hbox (33.57657pt too wide) in paragraph at lines 2213--2215
 \T1/ptm/m/n/10.95 (-20) Generally, if $\OT1/ztmcm/m/n/10.95 
 $ \T1/ptm/m/n/10.95 (-20) is a set $\OMS/ztmcm/m/n/10.95 B$ \T1/ptm/m/n/10.95 (
 -20) is a pvaing on $\OT1/ztmcm/m/n/10.95 
@@ -2712,156 +2723,111 @@ tmcm/m/n/10.95 B[][]\OML/ztmcm/m/it/10.95 ^^[[]\OT1/ztmcm/m/n/10.95
 \OMS/ztmcm/m/n/10.95 g\OML/ztmcm/m/it/10.95 :$
  []
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 2137--2138
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2165--2166
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2167--2168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2169--2170
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2181--2182
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2183--2184
-
- []
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 2200--2201
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2202--2203
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2214.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2214.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2233--2234
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2246--2247
+Underfull \hbox (badness 10000) in paragraph at lines 2221--2222
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 2274--2275
+Underfull \hbox (badness 10000) in paragraph at lines 2249--2250
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2280--2281
+Underfull \hbox (badness 10000) in paragraph at lines 2251--2252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2297--2298
+Underfull \hbox (badness 10000) in paragraph at lines 2253--2254
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2302.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2265--2266
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2267--2268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2284--2285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2286--2287
+
+ []
+
+[44]
+Package mdframed Info: mdframed works in twoside mode on input line 2298.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2302.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2315--2316
-
- []
-
+(mdframed)              on input line 2298.
 
 Underfull \hbox (badness 10000) in paragraph at lines 2317--2318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2323--2324
-
- []
-
-[44]
-Package mdframed Info: mdframed works in twoside mode on input line 2327.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2327.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2331--2332
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2350.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2350.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2370--2371
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2372--2373
+Underfull \hbox (badness 10000) in paragraph at lines 2330--2331
 
  []
 
 [45]
+Underfull \hbox (badness 10000) in paragraph at lines 2358--2359
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2364--2365
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2381--2382
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2386.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2386.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2399--2400
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 2401--2402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2403--2404
+Underfull \hbox (badness 10000) in paragraph at lines 2407--2408
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2405--2406
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2424--2425
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2426--2427
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2428--2429
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2431.
+Package mdframed Info: mdframed works in twoside mode on input line 2411.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2431.
-[46]
-Package mdframed Info: Not enough space on this page on input line 2434.
+(mdframed)              on input line 2411.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2436--2437
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2416
+
+ []
+
+[46]
+Package mdframed Info: mdframed works in twoside mode on input line 2434.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2434.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2454--2455
 
  []
 
@@ -2870,348 +2836,363 @@ Underfull \hbox (badness 10000) in paragraph at lines 2456--2457
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 2464--2465
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2475--2476
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2498--2500
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2498--2500
-
- []
-
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 2501--2502
+Underfull \hbox (badness 10000) in paragraph at lines 2485--2486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2503--2504
+Underfull \hbox (badness 10000) in paragraph at lines 2487--2488
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2529--2530
+Underfull \hbox (badness 10000) in paragraph at lines 2489--2490
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2531.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2508--2509
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2510--2511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2512--2513
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2515.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2531.
+(mdframed)              on input line 2515.
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2540.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\sigma' on input line 2540.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 2540.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2542--2543
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2544.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2544.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2545--2546
+Underfull \hbox (badness 10000) in paragraph at lines 2520--2521
 
  []
 
 [48]
-Underfull \hbox (badness 10000) in paragraph at lines 2557--2561
+Underfull \hbox (badness 10000) in paragraph at lines 2540--2541
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2557--2561
+Underfull \hbox (badness 10000) in paragraph at lines 2548--2549
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2557--2561
+Underfull \hbox (badness 10000) in paragraph at lines 2559--2560
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2562--2564
+Underfull \hbox (badness 10000) in paragraph at lines 2582--2584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2562--2564
+Underfull \hbox (badness 10000) in paragraph at lines 2582--2584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2571--2572
+Underfull \hbox (badness 10000) in paragraph at lines 2585--2586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2576--2577
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2582--2583
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2594--2595
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2596--2597
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2598--2599
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2604--2605
+Underfull \hbox (badness 10000) in paragraph at lines 2587--2588
 
  []
 
 [49]
-Package mdframed Info: mdframed works in twoside mode on input line 2623.
+Underfull \hbox (badness 10000) in paragraph at lines 2613--2614
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2615.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2623.
+(mdframed)              on input line 2615.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2624.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\sigma' on input line 2624.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2624.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2626--2627
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2628.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2628.
 
 Underfull \hbox (badness 10000) in paragraph at lines 2629--2630
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2634--2635
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2636.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2636.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2637--2638
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 2644.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 2644.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2671--2673
+Underfull \hbox (badness 10000) in paragraph at lines 2641--2645
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2674--2675
+Underfull \hbox (badness 10000) in paragraph at lines 2641--2645
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2641--2645
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2646--2648
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2646--2648
 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 2707--2708
+Underfull \hbox (badness 10000) in paragraph at lines 2655--2656
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2709--2710
+Underfull \hbox (badness 10000) in paragraph at lines 2660--2661
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2746--2747
+Underfull \hbox (badness 10000) in paragraph at lines 2666--2667
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2748.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2678--2679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2680--2681
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2682--2683
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2688--2689
+
+ []
+
+[51]
+Package mdframed Info: mdframed works in twoside mode on input line 2707.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2748.
-[51]
-Underfull \hbox (badness 10000) in paragraph at lines 2767--2768
+(mdframed)              on input line 2707.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2713--2714
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2776--2777
+Underfull \hbox (badness 10000) in paragraph at lines 2718--2719
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2720.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2720.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2721--2722
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2728.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2728.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2755--2757
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2778--2779
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2792--2793
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2795--2796
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2797--2798
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2799--2800
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2804--2805
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2806--2807
+Underfull \hbox (badness 10000) in paragraph at lines 2758--2759
 
  []
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 2808--2809
+Underfull \hbox (badness 10000) in paragraph at lines 2791--2792
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2823--2824
+Underfull \hbox (badness 10000) in paragraph at lines 2793--2794
 
  []
 
-Package mdframed Info: mdframed works in twoside mode on input line 2831.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2830--2831
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2832.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 2831.
+(mdframed)              on input line 2832.
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 2851--2852
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 2860--2861
 
  []
 
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 2895--2896
+
+Underfull \hbox (badness 10000) in paragraph at lines 2862--2863
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2876--2877
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2879--2880
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2881--2882
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2883--2884
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2888--2889
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2890--2891
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2892--2893
 
  []
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 2956--2957
+Underfull \hbox (badness 10000) in paragraph at lines 2907--2908
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 2915.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 2915.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2944--2945
 
  []
 
 [55]
-Underfull \hbox (badness 10000) in paragraph at lines 2958--2959
+Underfull \hbox (badness 10000) in paragraph at lines 2979--2980
 
  []
 
 [56]
-Underfull \hbox (badness 10000) in paragraph at lines 3019--3020
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3022--3033
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3022--3033
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3034--3035
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3044--3045
+Underfull \hbox (badness 10000) in paragraph at lines 3040--3041
 
  []
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 3082--3083
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3084--3085
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3089--3090
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3096--3097
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3100--3101
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3102--3103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3116--3117
+Underfull \hbox (badness 10000) in paragraph at lines 3042--3043
 
  []
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 3142--3143
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3145.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 3145.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3159--3160
+Underfull \hbox (badness 10000) in paragraph at lines 3103--3104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3161--3162
+Underfull \hbox (badness 10000) in paragraph at lines 3106--3117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3175--3176
+Underfull \hbox (badness 10000) in paragraph at lines 3106--3117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3118--3119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3128--3129
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 3166--3167
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3168--3169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3173--3174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3176--3177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3178--3179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3181
 
  []
 
@@ -3221,27 +3202,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 3184--3185
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3190--3191
+Underfull \hbox (badness 10000) in paragraph at lines 3189--3190
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3198--3199
+Underfull \hbox (badness 10000) in paragraph at lines 3197--3198
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3209--3210
+Underfull \hbox (badness 10000) in paragraph at lines 3205--3206
 
  []
 
-[59]
-Underfull \hbox (badness 10000) in paragraph at lines 3211--3212
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 3207--3208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3217--3218
+Underfull \hbox (badness 10000) in paragraph at lines 3215--3216
 
  []
 
@@ -3251,61 +3232,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 3219--3220
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3222--3223
-
- []
-
-[60]
-Underfull \hbox (badness 10000) in paragraph at lines 3266--3267
+Underfull \hbox (badness 10000) in paragraph at lines 3221--3222
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3277--3278
+Underfull \hbox (badness 10000) in paragraph at lines 3235--3236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3279--3280
+Underfull \hbox (badness 10000) in paragraph at lines 3261--3262
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 3288--3289
-
- []
-
-Package mdframed Info: mdframed works in twoside mode on input line 3293.
+Package mdframed Info: mdframed works in twoside mode on input line 3264.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 3293.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3319--3320
-
- []
-
+(mdframed)              on input line 3264.
 [61]
-Underfull \hbox (badness 10000) in paragraph at lines 3322--3323
+Package mdframed Info: Not enough space on this page on input line 3275.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3278--3279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3327--3328
+Underfull \hbox (badness 10000) in paragraph at lines 3280--3281
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3329--3330
+Underfull \hbox (badness 10000) in paragraph at lines 3294--3295
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3337--3338
+Underfull \hbox (badness 10000) in paragraph at lines 3303--3304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3339--3340
+Underfull \hbox (badness 10000) in paragraph at lines 3309--3310
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3317--3318
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3328--3329
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3330--3331
+
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 3336--3337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3338--3339
 
  []
 
@@ -3315,82 +3308,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 3341--3342
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3343--3344
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3345--3346
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3348--3349
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3350--3351
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3352--3353
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3354--3355
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3360--3361
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3366--3367
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3369--3370
-
- []
-
-[62]
-Underfull \hbox (badness 10000) in paragraph at lines 3383--3384
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 3385--3386
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 3388--3389
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3400--3401
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3410--3411
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3418--3419
-
- []
-
 [63]
-Underfull \hbox (badness 10000) in paragraph at lines 3436--3437
+Underfull \hbox (badness 10000) in paragraph at lines 3396--3397
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3398--3399
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3407--3408
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3412.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3412.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3438--3439
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3441--3442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3446--3447
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3448--3449
+
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 3456--3457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3458--3459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3460--3461
 
  []
 
@@ -3400,134 +3372,1352 @@ Underfull \hbox (badness 10000) in paragraph at lines 3462--3463
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 3464--3465
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3467--3468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3469--3470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3471--3472
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3473--3474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3479--3480
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 3485--3486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3487--3488
+Underfull \hbox (badness 10000) in paragraph at lines 3488--3489
+
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 3502--3503
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3489--3490
-
- []
-
-[64]
-Underfull \hbox (badness 10000) in paragraph at lines 3495--3496
+Underfull \hbox (badness 10000) in paragraph at lines 3504--3505
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3497--3498
+Underfull \hbox (badness 10000) in paragraph at lines 3507--3508
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3503--3504
+Underfull \hbox (badness 10000) in paragraph at lines 3519--3520
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3517--3518
+Underfull \hbox (badness 10000) in paragraph at lines 3529--3530
 
  []
 
-[65] [66
 
-] (./517notes.ptc) [67] [68]
+Underfull \hbox (badness 10000) in paragraph at lines 3537--3538
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3555--3556
+
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 3581--3582
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3604--3605
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3606--3607
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3608--3609
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3614--3615
+
+ []
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 3616--3617
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3622--3623
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3636--3637
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3660--3661
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3662--3663
+
+ []
+
+[68] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 3740--3741
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3743--3744
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3749--3750
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 3755.
+
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 3755.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 3755.
+
+[70]
+Underfull \hbox (badness 10000) in paragraph at lines 3776--3777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3824--3825
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3826--3827
+
+ []
+
+[71]
+Package mdframed Info: mdframed works in twoside mode on input line 3850.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3850.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3857--3858
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3882--3883
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3887--3888
+
+ []
+
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 3918--3919
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3920--3921
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3932--3933
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3935--3936
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3950--3951
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3958--3959
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3960--3961
+
+ []
+
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 3962--3963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3965--3966
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3983--3984
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3986--3987
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 3989.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 3989.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3999--4000
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4001--4002
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4003--4004
+
+ []
+
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 4024--4025
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4030.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4030.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4043--4044
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4049--4050
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4051--4052
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4061.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4061.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4092.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4092.
+
+[75]
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4117.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4117.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4130--4131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4133--4134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4135--4136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4143--4144
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4146.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4146.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4147--4148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4149--4150
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4158.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4158.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4159.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4159.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4159--4160
+
+ []
+
+[76]
+Package mdframed Info: Not enough space on this page on input line 4168.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4171--4172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4173--4174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4175--4176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4186--4187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4192--4193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4194--4195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4196--4197
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4200.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4200.
+
+[77]
+Underfull \hbox (badness 10000) in paragraph at lines 4256--4257
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4259.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4259.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4260.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4260.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4265.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4265.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4270--4271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4272--4273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4274--4275
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4276--4277
+
+ []
+
+[78]
+Underfull \hbox (badness 10000) in paragraph at lines 4293--4294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4296--4297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4340--4341
+
+ []
+
+[79]
+Underfull \hbox (badness 10000) in paragraph at lines 4347--4348
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4353--4354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4355--4356
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4360--4361
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4362.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4362.
+[80]
 Chapter 2.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3565.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 4411.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [69
 
-] [70
+Underfull \hbox (badness 10000) in paragraph at lines 4415--4416
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4417.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4417.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4417--4418
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4426--4427
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4444--4445
+
+ []
+
+[81
 
 ]
-Chapter 3.
-File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
-<use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3576.
-(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [71] [72
+Underfull \hbox (badness 10000) in paragraph at lines 4486--4487
 
-]
-Chapter 4.
-File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
-<use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3585.
-(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [73] [74
-
-]
-Chapter 5.
-File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
-<use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3594.
-(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [75] [76
-
-]
-Chapter 6.
-File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
-<use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 3602.
-(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [77] [78
-
-] (./517notes.ind
-File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
-
-<use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 1.
-(pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
- [79
+ []
 
 
-])
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4490.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4490.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4491.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4491.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4494.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4494.
+[82]
+Underfull \hbox (badness 10000) in paragraph at lines 4512--4513
+
+ []
+
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 4579--4580
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4581--4582
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4583--4584
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4589--4590
+
+ []
+
+[84]
+Underfull \hbox (badness 10000) in paragraph at lines 4629--4630
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4631--4632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4637--4638
+
+ []
+
+[85]
+Underfull \hbox (badness 10000) in paragraph at lines 4651--4652
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4676--4677
+
+ []
+
+[86]
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4709.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4709.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4711.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4711.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4729.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4729.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4730--4731
+
+ []
+
+[87]
+Underfull \hbox (badness 10000) in paragraph at lines 4769--4770
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4771--4772
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4773.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4773.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4775.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4775.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4776--4777
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4794--4795
+
+ []
+
+[88]
+Underfull \hbox (badness 10000) in paragraph at lines 4796--4797
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4798--4799
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 4800.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4800.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4828--4829
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4843--4844
+
+ []
+
+[89]
+Underfull \hbox (badness 10000) in paragraph at lines 4861--4862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4863--4864
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4865--4866
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4867--4868
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4871--4872
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4873--4874
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4889--4890
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4901--4902
+
+ []
+
+[90]
+Underfull \hbox (badness 10000) in paragraph at lines 4924--4925
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4926--4927
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4928.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4928.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4930.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4930.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4936.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4936.
+
+Package mdframed Info: mdframed works in twoside mode on input line 4940.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 4940.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4942--4943
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4944.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4944.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4950.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4950.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4950.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4950.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4956--4957
+
+ []
+
+[91]
+Underfull \hbox (badness 10000) in paragraph at lines 4985--4986
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4987.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 4987.
+
+[92] [93]
+Underfull \hbox (badness 10000) in paragraph at lines 5079--5080
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5102.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5102.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5123--5124
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5125.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5125.
+[94]
+Package mdframed Info: Not enough space on this page on input line 5129.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5133--5134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5160--5161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5167--5168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5169--5170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5182--5183
+
+ []
+
+[95]
+Package mdframed Info: mdframed works in twoside mode on input line 5185.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5185.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5211.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5231--5232
+
+ []
+
+[96]
+Underfull \hbox (badness 10000) in paragraph at lines 5286--5287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5288--5289
+
+ []
+
+[97]
+Underfull \hbox (badness 10000) in paragraph at lines 5294--5295
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5309--5310
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5341.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5341.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5343--5344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5346--5347
+
+ []
+
+[98]
+Underfull \hbox (badness 10000) in paragraph at lines 5386--5387
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5388.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5388.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5389--5390
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5391.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5391.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5391--5392
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5401--5402
+
+ []
+
+[99]
+Package mdframed Info: mdframed works in twoside mode on input line 5409.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5409.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5410.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5410.
+
+Package mdframed Info: mdframed works in twoside mode on input line 5436.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5436.
+Package mdframed Info: mdframed works in twoside mode on input line 5447.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5447.
+[100]
+Underfull \hbox (badness 10000) in paragraph at lines 5460--5461
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5483--5485
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5497--5498
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5514.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5514.
+
+[101]
+Underfull \hbox (badness 10000) in paragraph at lines 5520--5521
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5529--5530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5535--5536
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5544.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5544.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5547.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5547.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5549--5550
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5554--5555
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5558.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5558.
+
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 5566.
+[102]
+Underfull \hbox (badness 10000) in paragraph at lines 5569--5571
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5576--5577
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5594--5595
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5596--5597
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5624--5625
+
+ []
+
+[103]
+Underfull \hbox (badness 10000) in paragraph at lines 5631--5632
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5644--5645
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5652--5653
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5678--5679
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5681--5682
+
+ []
+
+[104]
+Underfull \hbox (badness 10000) in paragraph at lines 5684--5685
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5686--5688
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5690--5691
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5695--5696
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5705--5706
+
+ []
+
+[105]
+Underfull \hbox (badness 10000) in paragraph at lines 5736--5737
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5738--5739
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5748--5749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5755--5756
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5765.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5765.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5775.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5775.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5775.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5775.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5784--5785
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5787--5788
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5789--5790
+
+ []
+
+[106]
+Underfull \hbox (badness 10000) in paragraph at lines 5806--5809
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5837--5838
+
+ []
+
+[107]
+Underfull \hbox (badness 10000) in paragraph at lines 5851--5852
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 5867.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5867.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5878--5879
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5884--5885
+
+ []
+
+[108]
+Underfull \hbox (badness 10000) in paragraph at lines 5907--5908
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5919--5920
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5922--5923
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5924.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5924.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5928.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 5928.
+
+Package mdframed Info: mdframed works in twoside mode on input line 5930.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 5930.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5932--5933
+
+ []
+
+Package mdframed Info: Not enough space on this page on input line 5942.
+[109]
+Package mdframed Info: Not enough space on this page on input line 5942.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5947--5948
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5949--5950
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5955--5956
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5972--5973
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5985--5986
+
+ []
+
+[110]
+Underfull \hbox (badness 10000) in paragraph at lines 5987--5988
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5989--5990
+
+ []
+
+[111]
+Underfull \hbox (badness 10000) in paragraph at lines 6043--6044
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6058--6059
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6060--6061
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6066--6067
+
+ []
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6070.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6070.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6072.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6072.
+
+[112]
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6102.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6102.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6108.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6108.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6115--6116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6129--6130
+
+ []
+
+[113]
+Underfull \hbox (badness 10000) in paragraph at lines 6154--6155
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 6156.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 6156.
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6167.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 6167.
+
+[114]
 \tf@ptc=\write8
 \openout8 = `517notes.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3630.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3630.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 6256.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 6256.
  (./517notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3630.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3630.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 6256.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 6256.
 Package logreq Info: Writing requests to '517notes.run.xml'.
 \openout1 = `517notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34473 strings out of 493013
- 637699 string characters out of 6133343
- 1165696 words of memory out of 5000000
- 37001 multiletter control sequences out of 15000+600000
- 146597 words of font info for 300 fonts, out of 8000000 for 9000
+ 34704 strings out of 493013
+ 639971 string characters out of 6133343
+ 1167277 words of memory out of 5000000
+ 37029 multiletter control sequences out of 15000+600000
+ 153796 words of font info for 328 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,14n,57p,10511b,2569s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
-exlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2016/texmf-dist/
-fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
-/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/
-utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 517notes.pdf (79 pages, 1201930 bytes).
+pdfTeX warning (dest): name{section*.2} has been referenced but does not exis
+t, replaced by a fixed one
+
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/tex
+live/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/urw/avantgar/uagd8a.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/urw/avantgar/uagk8a.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
+rw/symbol/usyr.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/ut
+mb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on 517notes.pdf (114 pages, 1324389 bytes).
 PDF statistics:
- 804 PDF objects out of 1000 (max. 8388607)
- 661 compressed objects within 7 object streams
- 282 named destinations out of 1000 (max. 500000)
- 66219 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1147 PDF objects out of 1200 (max. 8388607)
+ 959 compressed objects within 10 object streams
+ 452 named destinations out of 1000 (max. 500000)
+ 71371 words of extra memory for PDF output out of 74296 (max. 10000000)
 

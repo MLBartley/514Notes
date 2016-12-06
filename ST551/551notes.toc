@@ -68,59 +68,73 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.6}Scheffe SCI for 2-Way ANOVA with Interactions}{73}{section.4.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}Latin Squares}{73}{section.4.7}
+\contentsline {section}{\numberline {4.7}Latin Squares}{74}{section.4.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Nonorthogonal Design}{79}{chapter.5}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Overview}{79}{section.5.1}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Random Effects Model}{81}{chapter.6}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Overview}{81}{section.6.1}
+\contentsline {section}{\numberline {4.8}Orthogonal Nested Model}{79}{section.4.8}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{\@mypartnumtocformat {II}{Part Two}}{83}{part.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Basic Concepts}{85}{chapter.7}
+\contentsline {chapter}{\numberline {5}Random Effects Model}{85}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Overview}{85}{section.7.1}
+\contentsline {section}{\numberline {5.1}Introduction to Random Effects}{85}{section.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Estimation}{87}{chapter.8}
+\contentsline {section}{\numberline {5.2}Sampling Distributions}{86}{section.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.1}Overview}{87}{section.8.1}
+\contentsline {section}{\numberline {5.3}Restricted MLE - REMLE}{89}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Inference}{89}{chapter.9}
+\contentsline {section}{\numberline {5.4}Unbalanced Case of One Way Random Effect ANOVA}{92}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {9.1}Overview}{89}{section.9.1}
+\contentsline {section}{\numberline {5.5}Balance, Nested Random Effect Model}{94}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Residuals}{91}{chapter.10}
+\contentsline {section}{\numberline {5.6}Nested Mixed Effect Model}{98}{section.5.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {10.1}Overview}{91}{section.10.1}
+\contentsline {section}{\numberline {5.7}Mean Parameterization of Link Function}{100}{section.5.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Cetegorical Prediction}{93}{chapter.11}
+\contentsline {section}{\numberline {5.8}Bringing in the Predictors}{101}{section.5.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Overview}{93}{section.11.1}
+\contentsline {section}{\numberline {5.9}Dispersion Parameters}{102}{section.5.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Some Important GLM}{95}{chapter.12}
+\contentsline {chapter}{\numberline {6}Estimation in GLM}{105}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.1}Overview}{95}{section.12.1}
+\contentsline {section}{\numberline {6.1}Overview}{105}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Multivariate GLM}{97}{chapter.13}
+\contentsline {section}{\numberline {6.2}Estimation of $\phi $}{108}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.1}Overview}{97}{section.13.1}
+\contentsline {section}{\numberline {6.3}Statistical Inference for Generalized Linear Model}{109}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{\@mypartnumtocformat {III}{Part Three}}{99}{part.3}
+\contentsline {chapter}{\numberline {7}Omitted}{113}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}Principle Componant Analysis}{101}{chapter.14}
+\contentsline {chapter}{\numberline {8}Omitted}{115}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.1}Overview}{101}{section.14.1}
+\contentsline {chapter}{\numberline {9}Statistically Inference for GLM}{117}{chapter.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {15}Canonical Correlation Analysis}{103}{chapter.15}
+\contentsline {section}{\numberline {9.1}Asymptotic Distribution}{117}{section.9.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.1}Overview}{103}{section.15.1}
+\contentsline {section}{\numberline {9.2}Estimation of Asymptotic Varariance of ($\mathaccentV {hat}05E{\beta }$) and its Confidence Interval}{117}{section.9.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {16}Independent Componant Analysis}{105}{chapter.16}
+\contentsline {section}{\numberline {9.3}Deviance Function}{117}{section.9.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {16.1}Overview}{105}{section.16.1}
+\contentsline {section}{\numberline {9.4}Residuals}{119}{section.9.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\leavevmode {\color {ocre}Index}}{107}{section*.2}
+\contentsline {subsection}{\numberline {9.4.1}Pearson's Residual}{119}{subsection.9.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {9.4.2}Anscombe Residual}{120}{subsection.9.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9.5}Deviance Residual}{120}{section.9.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {10}Omitted - adding to make next chapter 11}{123}{chapter.10}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {11}Nature of Predictors}{125}{chapter.11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.1}Link to ANOVA}{125}{section.11.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.2}Analysis of Deviance (ANODev)}{127}{section.11.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.3}Numerical Prediction}{128}{section.11.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.4}Testing Hypothesis}{129}{section.11.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {12}Two Special Cases of GLM}{131}{chapter.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {12.1}Logistic Regression}{131}{section.12.1}
 \contentsfinish 
