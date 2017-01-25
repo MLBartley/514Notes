@@ -4860,12 +4860,90 @@ $\mathcal{T}_1, \dots, \mathcal{T}_4, \mathcal{S}_1, \dots, \mathcal{S}_4$ are d
 
 			\item $P_{\mathcal{S}_4}Y \sim N (0, (\sigma_e^2 )P_{\mathcal{S}_4}) $
 			\item MAKE SURE HE REWRITES 6.
+			\item $||P_{\mathcal{S}_2}Y||^2 \sim (\sigma^2_e + n \sigma^2_d) \chi^2_{p-1}(\frac{||P_{\mathcal{S}_2}\mu||^2}{\sigma^2_e + e \sigma^2_d})$ where $||P_{\mathcal{S}_2}\mu||^2 = C_n \sum^p_{i=1} \alpha_i^2$
+			\item$||P_{\mathcal{S}_3}Y||^2 \sim (\sigma^2_e + n \sigma^2_d) \chi^2_{pc-p}$
+			\item $||P_{\mathcal{S}_4}Y||^2 \sim \sigma^2_e \chi^2_{pcn - pc}$
 
 		\end{enumerate}
 \end{theorem}
+
+
+
  
 
 \textbf{Wednesday November 9}\\
+
+\begin{proof}
+	
+\end{proof}
+
+\textbf{Hypothesis Testing}
+
+$H_0: \sigma_d^2 = 0, H_a: \sigma_d > 0$
+		
+
+		$$T(d) = \frac{||P_{\mathcal{S}_3}Y||^2/(pc-p)}{||P_{\mathcal{S}_4}Y||^2/(pcn-pc)} \sim F_{pc- p, pcn - pc}$$
+
+Alternative distribution
+
+		$$T(d) \sim \frac{(\sigma_e^2 + n \sigma^2_d)}{\sigma^2_e} F_{pc- p, pcn - pc} $$
+
+$H_0: \alpha_1 = \dots = \alpha p = 0$
+		
+
+		$$T(a) = \frac{||P_{\mathcal{S}_2}Y||^2/(p-1)}{||P_{\mathcal{S}_3}Y||^2/(pc-p)} \sim F_{p- 1, pc - p}$$
+
+Alternative distribution
+
+		$$T(a) \sim F_{pc- 1, pc - p} \left(\frac{||P_{\mathcal{S}_2} \mu||^2}{\sigma_e^2 + n \sigma_d^2}\right)$$
+
+\textbf{Estimation REML for $\sigma_d^2, \sigma^2_e$}\\
+
+$\ell_R \leftarrow P_{\mathcal{S}_3}Y, P_{\mathcal{S}_4}Y$\\
+
+$\ell_R(\sigma^2_e, \sigma^2_e) = N(0, (\sigma^2_e+ n \sigma^2_d) P_{\mathcal{S}_3}) * N(0, \sigma_e^2 P_{\mathcal{S}_4}) = \ell(\nu_2, \nu_3)$
+
+It can be shown that the unconstrained maximizers of $\ell_R$ are
+
+		$$\tilde{\nu_2} = \frac{||P_{\mathcal{S}_3}Y||^2}{pc-p} $$
+
+		$$\tilde{\nu_3} = \frac{||P_{\mathcal{S}_4}Y||^2}{pcn-pc} $$
+
+For unconstrained maximizers we need a space, $A= \{(\nu_2, \nu_3) | \nu_2 \geq \nu_3 > 0\}$. If $(\tilde{\nu_2}, \tilde{\nu_3}) \in A$, then REML = $(\tilde{\nu_2}, \tilde{\nu_3})$. If not in A, then REML = $(\hat{\nu_2}, \hat{\nu_3})$.
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 6
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+ \chapter{Omitted?}
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 7
+% %----------------------------------------------------------------------------------------
+
+ \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+ \chapter{Generalized Linear Model}
+
+\section{Exponential Family}\index{Exponential Family}
+
+Let Y be a random variable. Let $\Omega \subset \mathbb{R}^P$. \\
+
+Let $t_0: \mathbb{R} \rightarrow \mathbb{R}^p$. \\
+
+We can say that Y has exponential family distribution if 
+
+		$$f_\theta(y) \propto exp\{\theta^T t_o (y)\} $$
+
+with repsect to some measure $\mu_0$.
+
+Because $f_\theta(y)$ is a density with repsect to $\mu_0$ then it will integrate to 1. 
+
 
 \textbf{Friday November 11}\\
 
@@ -5237,14 +5315,14 @@ Commonly used two methods to estimate $phi$. \\
 
 Assume we have estimated $\beta$ as $\hat{\beta}$. Then the likelihood is
 
-		$$\prod^n_{i=1} C(\phi, Y_i) e^{(\hat{\theta}_i Y_i - b(\hat{theta}_i))/a(\phi)} $$
+		$$\prod^n_{i=1} C(\phi, Y_i) e^{(\hat{\theta}_i Y_i - b(\hat{\theta}_i))/a(\phi)} $$
 
 where $\hat{\theta}_i = b'^{-1}(\mu(\hat{\eta}_i)$ and $\hat{\eta}_i = \hat{\beta}^T X_i$.
 
 
 We want to maximize the log likelihood with respect to $\phi$  (and then set equal to zero). 
 
-		$$\frac{\partial \log L}{\partial \phi} = \sum \frac{C'(\phi, Y_i)}{C(\phi, Y_i)} - \sum (\hat{\theta}_i Y_i - b(\hat{theta}_i))(-1)a^{-2}(\phi) = 0$$
+		$$\frac{\partial \log L}{\partial \phi} = \sum \frac{C'(\phi, Y_i)}{C(\phi, Y_i)} - \sum (\hat{\theta}_i Y_i - b(\hat{\theta}_i))(-1)a^{-2}(\phi) = 0$$
 
 
 With Newton Raphson we get that the derivative of the above result gives us
@@ -5279,7 +5357,7 @@ In the meantime
 Now want to take $E(\dots)$ of both sides and equate them. 
 
 		\begin{align*}
-			n a(\phi) - E(sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}) &= p a(\phi)\\
+			n a(\phi) - E(\sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}) &= p a(\phi)\\
 			 E(sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}) &= (n-p) a(\phi)
 		\end{align*}
 
@@ -5288,13 +5366,13 @@ So by Method of Moments we have
 		$$ 	sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})} = (n-p) a(\phi)$$
 
 and thus 
-		$$\hat{a(\phi)} = \frac{1}{(n-p)} sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})} $$
+		$$\hat{a(\phi)} = \frac{1}{(n-p)} \sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})} $$
 
 which has the same form as the MSE for linear regression. \\
 
 So if $a(\phi) = \phi$ then 
 
-		$$\hat{\phi} =   \frac{1}{(n-p)} sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}$$
+		$$\hat{\phi} =   \frac{1}{(n-p)} \sum^n_{i=1} \frac{(Y_i - \hat{\mu})^2}{V(\hat{\mu})}$$
 
 
 \section{Statistical Inference for Generalized Linear Model}\index{Statistical Inference for GLM}
@@ -5448,8 +5526,8 @@ Which gives us the same results as above (convergence in distribution and asympo
 Note that $X_1, \dots, X_n$ represent a generic sequence, so it's actually ($Y_1, \dots, Y_n$). This leads naturally to something call deviance which is the generalization of sum of squares. 
 
 
-\chapter{Omitted}
-\chapter{Omitted}
+% \chapter{Omitted}
+% \chapter{Omitted}
 
 \chapter{Statistically Inference for GLM}
 
@@ -5668,13 +5746,13 @@ This is a generalization of
 This also is less skewed than Pearson (as seen in  ?).
 
 
-% %----------------------------------------------------------------------------------------
-% %	CHAPTER 10????
-% %----------------------------------------------------------------------------------------
+% % %----------------------------------------------------------------------------------------
+% % %	CHAPTER 10????
+% % %----------------------------------------------------------------------------------------
 
-\chapterimage{chapter_head_1.pdf} % Chapter heading image
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-\chapter{Omitted - adding to make next chapter 11}
+% \chapter{Omitted - adding to make next chapter 11}
 
 
 % %----------------------------------------------------------------------------------------
@@ -6077,15 +6155,458 @@ Want to solve $\sum_i (above) = 0$ using Newton-Raphson or Fisher Scoring.
 For the two link functions we discussed, 
 
 		$$ $$
+
+\textbf{Wednesday December 7 - Morning}\\
+
+
+\section{Poisson-Response GLM}\index{Poisson-Response GLM}
+
+(Log Linear Regression - recall that log(positive number) maps to the real number line, now can use linear regression)\\
+
+
+
+		$$Y_i \sim Poisson(\lambda_i) $$
+
+For a Poisson distribution the natural link is $\log(\lambda)$. (You may check this on you're own.)\\
+
+The mean-variance relation is $V(\lambda) = \lambda$.\\
+
+So the model specification is 
+
+		$$\log(\lambda_i) = \eta_i = x_i^T \beta $$
+
+The score function here is 
+		
+		$$n^{-1} \sum_{i=1}^n x_i(y_i - \mu_i) = 0 $$
+
+Where $\mu_i = \ell^{-1}(\eta_i) = e^{\eta_i}$ and $\eta_i = x_i^T \beta$. So we may rewrite above as 
+
+		$$ n^{-1} \sum_{i=1}^n x_i(y_i - e^{x_i^T \beta}) = 0$$
+
+Solve this equation for $\beta$ iteratively using Newton Raphson method or Fisher scoring method. \\
+
+Observed Fisher Information
+
+	$$n^{-1} \sum_{i=1}^n \mu_i x_i x_i^T $$
+
+
+\section{Initial Values}\index{Initial Values}
+
+Both the Newton Raphson and Fisher Scoring methods need initial values to start the iteration. Since the objective function is concave it's stable with respect to the initial value(s). It's better to start with a smart initial value.\\
+
+
+We can discretly transform y by the link function and do linear regression. \\
+
+		$$\sum_{i=1}^n (\ell(Y_i) - x_i^T \beta)^2 $$
+
+We have 
+
+		$$\mathbb{Z} = \begin{pmatrix}
+			\ell(Y_1)\\
+			\vdots\\
+			\ell(Y_n)\\
+		\end{pmatrix} $$
+
+		$$\mathbb{X} = \begin{pmatrix}
+			X_1^T\\
+			\vdots\\
+			X_n^T\\
+		\end{pmatrix} $$
+
+By OLS function in Chapter 1, 
+
+		$$\hat{\beta}_0 = (\mathbb{X}^T \mathbb{X})^{-1} \mathbb{X}^T \mathbb{X} $$	
+
+We may use this $\hat{\beta}_0$ as the initial value of NR or Fisher Scoring iterations. Usually, quite close to the MLE.  Here, for some link such as $\ell = \log$ we can see that $\ell(0)$ is not defined. So if $Y_i =0$ (which often happens in Poisson case) then $\ell(Y_i)$ is not defined. Simply givit a small value increase (0.01). The result will usually quite stable if you use small values. 	
+
+	
+
+
+
+
 % %----------------------------------------------------------------------------------------
-% %	CHAPTER 4
+% %	CHAPTER 13
 % %----------------------------------------------------------------------------------------
 
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-% \chapter{Residuals}
+\chapter{Multivariate Generalized Linear Model}
 
-% \section{Overview}\index{Overview}
+\section{The Model}\index{The Model}
+
+
+Recall, what is multivariate linear regression? Here, Y is a vector and X is a vector. 
+
+		$$(X_1, Y_1), \dots (X_n, Y_n) $$
+
+where $X_i \in \mathbb{R}^p, Y_i \in \mathbb{R}^q$
+
+Linear Model:
+
+		$$Y_i = B X_i + \epsilon_i $$
+
+
+So, $B \in \mathbb{R}^{q x p}, \epsilon \sim N(0, \Sigma)$. 
+
+
+% photo
+
+Likewise, for multivariate GLM, 
+
+		$$ Y_i \in \mathbb{R}^q , X_i = \mathbb{R}^p$$
+
+
+		$$\eta_i = B X_i $$
+		$$ \ell(\mu_i) = BX_i $$
+
+Here we use a q-dimensional Exponential Family
+
+		$$f_\theta (y) = exp\{\theta^T y - b(\theta)\} $$
+
+with respect to a measure $\nu(y)$. So we have that $\theta \in \mathbb{R}^q, y \in \mathbb{R}^q, b:\mathbb{R}^q \rightarrow \mathbb{R}$. 
+
+\begin{theorem}
+
+For multivariate exponential family (above) we know that 
+
+		$$E_\theta (y) = \frac{\partial b}{\partial \theta} \in \mathbb{R}^q $$
+
+		$$Var_\theta (y) =  \frac{\partial^2 b}{\partial \theta \partial \theta^T} \in \mathbb{R}^q $$	
+
+		Where the double diferrentiation is the Hessian of b. 
+
+		Consequently, if $Var_\theta(y)$ positive definite for all $\theta$ then $\frac{\partial b}{\partial \theta} \in \mathbb{R}^q \rightarrow \mathbb{R}^q$ is one - to - one. 
+	
+\end{theorem}
+
+
+The proof for this theorem is similar to the one dimensional case and is omitted.\\
+
+The multivariate link function is any one - to -one mapping, $\ell$, that mapps from the space of $\mu$ to $\mathbb{R}^q$. Sometimes we take it to be 
+
+		$$\mu_i = \begin{pmatrix}
+			\mu_i^{(1)}\\
+			\vdots\\
+			\mu_i^{(q)}\\
+		\end{pmatrix} $$
+
+
+		$$\ell(\mu_i) = \begin{pmatrix}
+			\ell(\mu_i^{(1)})\\
+			\vdots\\
+			\ell(\mu_i^{(q)})\\
+		\end{pmatrix} $$
+
+That is, we pile up marginal lnik to get joint link. But it is not always the case, sometimes also use genuinely multivariate link. \\
+
+\textbf{Estimation}\\
+
+For estimation, it is beneficial to write the matrix B as a vector. Use $\otimes$ product and vector notation. 
+
+\begin{definition}
+	$A \in \mathbb{R}^{mxn}, B \in \mathbb{R}^{r x s}$. 
+
+			$$A \otimes B = \begin{pmatrix}
+				a_{11}B & \dots & a_{1n} B\\
+				\vdots & & \vdots\\
+				a_{m1}B & \dots & a_{mn} B
+			\end{pmatrix} $$
+\end{definition}
+
+\begin{definition}
+	If A is matrix with columns 
+
+		$$A = (a_1, \dots, a_n)$$
+
+	then
+
+		$$vec(A) = \begin{pmatrix}
+			a_1\\
+			\vdots\\
+			a_n
+		\end{pmatrix} $$
+\end{definition}
+
+\textbf{Proposition 13.1}\\
+
+Let A, B, C be matrices such that 
+
+	$$dim(A)[2] = dim(B)[1]  $$
+	$$dim(B)[2] = dim(C)[1]  $$
+
+Then
+	
+	$$vec(ABC) = (C^T \otimes A) vec(B) $$
+
+Also very useful:
+
+		\begin{align*}
+			vec(AB) &= var(IAB)\\
+				&= (B^T \otimes I) vec(A)\\
+				&= var(ABI)\\
+				&= (I^T \otimes A) vec(B)
+		\end{align*}
+
+Recall that 
+
+		$$\eta_i = B X_i $$
+
+
+
+		\begin{align*}
+			\eta_i &= vec(\eta_i)\\
+				&=	vec(B X_i)\\
+				&= (X^T \otimes I_q) vec(B)\\
+				&= (X_i^T \otimes I_q) \beta
+		\end{align*}
+
+		The log likelihood for $\beta$ is 
+
+			$$\ell(\beta, y_i) = \ominus^T y_i - b(\theta_i) $$
+
+where $\theta_i = b^{'-1}(\mu_i), \mu_i = \mu(\eta_i), \eta_i = (X_i^T \otimes I_q) \beta$. \\
+
+
+
+\textbf{Wednesday December 7 - Evening Make Up Course}\\
+
+
+		$$\frac{\partial \ell}{ \partial \beta^T} = \frac{\partial \ell}{\partial \theta^T} \frac{\partial \theta}{\partial \mu^T} \frac{\partial \mu}{\partial \eta^T} \frac{\partial \eta}{\partial\beta^T}$$
+
+		$$\frac{\partial \ell}{ \partial \beta} = (\dots)^T$$
+
+		$$\frac{\partial \eta}{ \partial \beta} = X \otimes I_q $$
+
+		$$\frac{\partial \mu}{ \partial \mu^T} = I^q = \frac{\partial^2 b}{ \partial \theta \partial \theta^T} (\theta) \frac{\partial \theta}{ \partial \mu^T}   $$
+
+		$$\frac{\partial \theta}{ \partial \mu^T} = \left[\frac{\partial^2 b}{ \partial \theta \partial \theta^T} (\theta) \right]^{-1} = \left[\frac{\partial^2 b}{ \partial \theta \partial \theta^T} (\frac{\partial b}{\partial \theta})^{-1} (\mu) \right]^{-1} = V^{-1}(\mu) $$
+
+		$$ \ell = \theta^T y - b(\theta)$$
+
+		$$\frac{\partial \ell}{ \partial \theta} = y - \frac{\partial b}{ \partial \theta}(\theta) = y - \mu$$
+
+Solving for a single observation we get 
+
+		$$(X \otimes I_q) \frac{\partial \mu^T}{ \partial \eta} V^{-1}(\mu) (y-\mu) = \frac{X\mu^\cdot}{V(\mu)} (y - \mu) $$
+
+So the score or all observations is 
+
+		$$\frac{1}{n} \sum^n_{i=1} (X_i \otimes I_q) \frac{\partial \mu^T(\eta_i)}{ \partial \eta_i} V^{-1}(\mu_i)(y_i - \mu_i) = 0 $$
+
+Every quantity can be written as a function of $\beta$. \\
+
+Fisher Information 
+
+		$$\frac{\partial \ell}{ \partial \beta \partial \beta^T } = \frac{1}{n} \sum^n_{i=1} \frac{\partial}{\partial \beta}[(X_i \otimes I_q) \frac{\partial \mu^T(\eta_i)}{ \partial \eta_i} V^{-1}(\mu_i)](y_i - \mu_i) - \frac{1}{n} \sum^n_{i=1} (X_i \otimes I_q) \frac{\partial \mu^T(\eta_i)}{ \partial \eta_i} V^{-1}(\mu_i) \frac{\partial \mu(\eta_i)}{ \partial \eta_i^T} (X_i \otimes I_q)^T$$
+
+
+Fisher scoring Method
+
+		$$\hat{\beta}^{(k+1)} = \hat{\beta}^{(k)} + I_n(\hat{\beta}^{(k)}) S(\hat{\beta}^{(k)}, Y) $$
+
+Initial value(s). Again, linear regression 
+
+		$$\sum^n_{i=1} ||\ell(Y_i) - B X_i||^2 $$
+
+		$$\mathbb{Y} = \begin{pmatrix}
+			\ell^T(Y_1)\\
+			\vdots\\
+			\ell^T (Y_n)
+		\end{pmatrix} $$
+
+		$$\mathbb{X} = \begin{pmatrix}
+			X^T_1\\
+			\vdots\\
+			X_n^T
+		\end{pmatrix} $$
+
+OLS for B
+
+		$$\hat{\beta} = (\mathbb{X}^T \mathbb{X})^{-1} \mathbb{X}^T \mathbb{X} $$
+
+Then
+
+		$$\hat{\beta}^{(0)} = vec(\hat{\beta}) $$
+
+Again sometimes, the link function is undefined (i.e. log(0)). Repace with small number. 
+
+\section{Case Study Regression with Multinomial Response}\index{Case Study}
+
+		$$Y \sim Mult(m, (p_1, \dots, p_k)) $$
+
+This probabily mass function would be 
+
+		$$f(y_1, \dots, y_k) = \begin{pmatrix}
+			m\\
+			y_1, \dots, y_k
+		\end{pmatrix} p_1^{y_1} \dots p_k^{y_k}$$
+
+$y_1, \dots, y_k$ are not free: $y_1 + \dots + y_k = m$.\\
+$p_1, \dots p_i$ alson ot free, sum up to 1. \\
+
+
+Loglike
+
+		$$\log f(\eta) \approx y_i \log p_1 + \dots + y_i \log p_k (m - y_1 - \dots - y_{k-1}) \log p_k $$
+
+		\begin{align*}
+			p_1^{y_1} \dots, p_k^{y_k} &= p_1^{y_1} \dots, p_{k-1}^{y_{k-1}} p_k^{m - y_1 - \dots - y_{k-1}}\\
+					&= p_k^m (\frac{p_1}{p_k})^{y_1} \dots (\frac{p_{k-1}}{p_k})^{y_{k-1}}
+		\end{align*}
+
+
+% get from photos
+
+Vlogit($\pi$) = $\log (\frac{\pi}{1 - 1_{k-1}^T \pi})$
+
+Vlogit($\mu$) = $\log(\frac{\mu}{1 - 1_{k-1}^T \pi})$
+
+Let  $\eta = Vlogit(\mu) $.\\
+
+% photos
+
+Estimation
+
+		$$(X_1, Y_1), \dots, (X_n, Y_n) $$
+
+			$$Y_i = \begin{pmatrix}
+				Y_{i, 1}\\
+				\vdots\\
+				Y_{i, k-1}
+			\end{pmatrix} $$
+
+			$$Y_i \sim Mult(m_i, (p_{i,1}, \dots, p_{i, k-1})) $$
+
+Let $X_i = \begin{pmatrix}
+	1\\
+	z_i
+\end{pmatrix}$. Under the natural link (derived soon) 
+
+		$$\theta_i = \eta_i = BX_i = (X_i^T \otimes I_{k-1})vec(B)= \mu_i^T\beta $$
+
+		$$f_\theta(y_i) \propto exp\{\theta_{i1} y_{i1} + \dots + \theta_{i, k-1}y_{i, k-1}\}  $$
+
+Canonical Link
+
+		$$\ell(\mu) = vlogit(\mu) $$
+
+under
+
+		$$\ell(B, y) = U(Y- \mu(U^T\beta)) $$
+
+Score equation
+
+		$$n^{-1}\sum^n_{i=1} U_i (Y_i - \mu_i) $$
+
+Fisher Information (for single observation)
+
+		$$E[U(Y-\mu)(Y-\mu)^T U^T] $$
+
+Fisher Information (for all observations)
+
+		$$n^{-1} \sum^n_{i=1} U_i V(\mu_i) U_i^T $$
+
+Deriving $V(\mu_i) \in \mathbb{R}^{(k-1)x(k-1)}$
+
+		$$ V(\mu_i) = diag(\pi) - \pi \pi^T $$
+
+
+\textbf{Friday December 9 - REVIEW}\\
+
+Exam will cover from 2 Way ANOVA with interaction up to ANCODEV. Will not cover the Multivariate topics from this week. 
+
+\textbf{2-way ANOVA with Interaction}
+
+		$$y_{ijk}= \theta + \alpha_i + \beta_j + \gamma_{ij} + \epsilon_{ijk} $$
+
+		$$E_{ij} = \{d^{ij}_{uvw}: w = 1, \dots, n_{uv}; v = 1, \dots, c, u = 1, \dots, f\} $$
+
+$\mathcal{T}_1 =  span(1_n) $\\
+$\mathcal{T}_2 = span(E_{i\cdot}) $ \\
+$\mathcal{T}_3 = span(E_{\cdot j}) $ \\
+$\mathcal{T}_4 = span(E_{ij}) $ \\ 
+$\mathbb{R^N}$ 
+
+Note that the above $\mathcal{T}$-spaces are NOT orthogonal. 
+
+$\mathcal{S}_1 = \mathcal{T}_1$\\ (constant)
+$\mathcal{S}_2 = \mathcal{T}_1 \ominus \mathcal{T}_1$\\ (factor A)
+$\mathcal{S}_3 = \mathcal{T}_3 \ominus \mathcal{T}_1$\\ (factor B)
+$\mathcal{S}_4 = \mathcal{T}_4 \ominus \mathcal{T}_1$\\ (factor AB)
+$\mathcal{S}_5 = \mathbb{R}^N \ominus \mathcal{T}_4$ (trash)
+
+Now all are orthogonal due to design. 
+
+Estimate\\
+
+$P_{\mathcal{S}_i}Y$ for i = 1 - 5\\
+
+Sum of Squares\\
+
+$||P_{\mathcal{S}_i}Y||^2$ for i = 1 - 5\\
+
+Distributions - projections are N, ||.|| are chi squares. 
+
+Inference\\
+
+$H_A: \alpha_i = 0$
+$H_B: \beta_j = 0$
+$H_AB: \gamma_{ij} = 0$
+
+	General Formula for Testing Hypothesis:
+
+	$H_0: P_{\mathcal{S}''}\mu = 0 \Leftrightarrow \mu \in \mathcal{S}'$ where $\mathcal{S}'' \oplus \mathcal{S'} = \mathcal{S}$. 
+
+
+			$$\frac{||P_{\mathcal{S} \ominus \mathcal{S'}}Y||^2/dim(\mathcal{S} \ominus \mathcal{S'})}{||P_{\mathcal{R}^N \ominus \mathcal{S'}}Y||^2/dim(\mathcal{R}^N \ominus \mathcal{S'})} \sim F_{df} $$
+
+	Alternate Distribution
+
+			$$F_{dim(\mathcal{S} \ominus \mathcal{S'}), \mathcal{R}^N \ominus \mathcal{S'}}(\delta) $$
+
+	where $\delta = \frac{||P_\mathcal{S} \ominus \mathcal{S'}||^2}{\sigma^2}$
+
+	SCI
+
+			$$C^T P_{\mathcal{S} \ominus \mathcal{S'}} \pm ||C|| ||P_{\mathcal{R}^N \ominus \mathcal{S'}}Y|| \sqrt{\frac{df_1}{df_2} F_{df}} $$
+
+
+Latin Square
+
+		Each row and column is permutation. 
+
+		Be able to check orthogonality. 
+
+		$$Y_{ij} \sim N(\mu_{ij}, \sigma^2) $$
+
+		$$\mu_{ij} = \theta + \delta_i + \epsilon_j + \eta_{k(i,j)} $$
+
+		$$a_{k\cdot} = \sum_{k(i,j) =k} a_{ij}$$
+
+$\mathcal{T}_1 =  span(1_n) $\\
+$\mathcal{T}_2 = span(E_{i\cdot}) $ \\
+$\mathcal{T}_3 = span(E_{\cdot j}) $ \\
+$\mathcal{T}_4 = span(E_{k\cdot}) $ \\ 
+$\mathbb{R^N}$ 
+
+Note that the above $\mathcal{T}$-spaces are NOT orthogonal. 
+
+$\mathcal{S}_1 = \mathcal{T}_1$\\ (constant)
+$\mathcal{S}_2 = \mathcal{T}_1 \ominus \mathcal{T}_1$\\ 
+$\mathcal{S}_3 = \mathcal{T}_3 \ominus \mathcal{T}_1$\\ 
+$\mathcal{S}_4 = \mathcal{T}_4 \ominus \mathcal{T}_1$\\ 
+$\mathcal{S}_5 = \mathbb{R}^N \ominus (\mathcal{S}_1 \oplus \dots \oplus \mathcal{4})$ 
+
+Here orthogonality due to Latin Square Design, except $\mathcal{S}_5$ which is due to $\ominus$. 
+
+\textbf{Nested Model}
+
+
+
+
+
+
+
 
 % %----------------------------------------------------------------------------------------
 % %	CHAPTER 5

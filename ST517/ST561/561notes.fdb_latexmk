@@ -1,0 +1,19 @@
+# Fdb version 3
+["pdflatex"] 1483990408 "561notes.tex" "561notes.pdf" "561notes" 1483990408
+  "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1456875012 2210 5c54ab129b848a5071554186d0168766 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty" 1456875012 4160 c115536cf8d4ff25aa8c1c9bc4ecb79a ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/bk11.clo" 1459635588 8147 071613f48164a91769d060c59fd275f7 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/book.cls" 1459635588 22945 7df8250bf76418cf651c357d3631fbc3 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/fleqn.clo" 1454284088 4752 e6541bbabe8ceb1dafbe3f372f1cb368 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/mathrsfs.sty" 1137110241 300 12fa6f636b617656f2810ee82cb05015 ""
+  "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
+  "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1469733445 3873629 a818ca6efebb3a3ff6b3d79775dd354e ""
+  "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
+  "561notes.aux" 1483990408 8 a94a2480d3289e625eea47cd1b285758 ""
+  "561notes.tex" 1483990405 7251 e1036fc3172f51ed6d739fa249ac851e ""
+  "structure.tex" 0 -1 0 ""
+  (generated)
+  "561notes.pdf"
+  "561notes.log"

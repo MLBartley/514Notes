@@ -39,4 +39,6 @@
 \contentsline {section}{\numberline {2.1}Integration}{81}{section.2.1}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.2}Properties of Integral in General Case}{91}{section.2.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Radon-Nikodgm Derivative}{116}{section.2.3}
 \contentsfinish 

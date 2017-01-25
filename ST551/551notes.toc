@@ -88,23 +88,25 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.6}Nested Mixed Effect Model}{98}{section.5.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.7}Mean Parameterization of Link Function}{100}{section.5.7}
+\contentsline {chapter}{\numberline {6}Omitted?}{101}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.8}Bringing in the Predictors}{101}{section.5.8}
+\contentsline {chapter}{\numberline {7}Generalized Linear Model}{103}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.9}Dispersion Parameters}{102}{section.5.9}
+\contentsline {section}{\numberline {7.1}Exponential Family}{103}{section.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Estimation in GLM}{105}{chapter.6}
+\contentsline {section}{\numberline {7.2}Mean Parameterization of Link Function}{104}{section.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Overview}{105}{section.6.1}
+\contentsline {section}{\numberline {7.3}Bringing in the Predictors}{105}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Estimation of $\phi $}{108}{section.6.2}
+\contentsline {section}{\numberline {7.4}Dispersion Parameters}{107}{section.7.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Statistical Inference for Generalized Linear Model}{109}{section.6.3}
+\contentsline {chapter}{\numberline {8}Estimation in GLM}{109}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Omitted}{113}{chapter.7}
+\contentsline {section}{\numberline {8.1}Overview}{109}{section.8.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Omitted}{115}{chapter.8}
+\contentsline {section}{\numberline {8.2}Estimation of $\phi $}{112}{section.8.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.3}Statistical Inference for Generalized Linear Model}{113}{section.8.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {9}Statistically Inference for GLM}{117}{chapter.9}
 \defcounter {refsection}{0}\relax 
@@ -122,19 +124,27 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {9.5}Deviance Residual}{120}{section.9.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Omitted - adding to make next chapter 11}{123}{chapter.10}
+\contentsline {chapter}{\numberline {10}Nature of Predictors}{123}{chapter.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Nature of Predictors}{125}{chapter.11}
+\contentsline {section}{\numberline {10.1}Link to ANOVA}{123}{section.10.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Link to ANOVA}{125}{section.11.1}
+\contentsline {section}{\numberline {10.2}Analysis of Deviance (ANODev)}{125}{section.10.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Analysis of Deviance (ANODev)}{127}{section.11.2}
+\contentsline {section}{\numberline {10.3}Numerical Prediction}{126}{section.10.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Numerical Prediction}{128}{section.11.3}
+\contentsline {section}{\numberline {10.4}Testing Hypothesis}{127}{section.10.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.4}Testing Hypothesis}{129}{section.11.4}
+\contentsline {chapter}{\numberline {11}Two Special Cases of GLM}{129}{chapter.11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Two Special Cases of GLM}{131}{chapter.12}
+\contentsline {section}{\numberline {11.1}Logistic Regression}{129}{section.11.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.1}Logistic Regression}{131}{section.12.1}
+\contentsline {section}{\numberline {11.2}Poisson-Response GLM}{131}{section.11.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.3}Initial Values}{132}{section.11.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {12}Multivariate Generalized Linear Model}{133}{chapter.12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {12.1}The Model}{133}{section.12.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {12.2}Case Study Regression with Multinomial Response}{136}{section.12.2}
 \contentsfinish 

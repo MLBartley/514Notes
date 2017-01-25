@@ -6175,12 +6175,205 @@ Can think of this as integrability of a sequence of function. \\
 	\begin{enumerate}
 		% \item photos
 
-		\item  
+		% \begin{align*}
+		% 	|\int f_n d\mu - \int f d\mu \left| \leq |int_{|f_n| \geq \alpha} f_n d\mu - \int_{|f|\geq \alpha} f d\mu \right| + \left|int_ f_n^{(\alpha)} d\mu - \int f^{(\alpha)} d\mu \right|\\
+		% 	&\leq \left| \int_{|f_n| \geq \alpha} f_n d\mu \right| + \left| \int_{|f| \leq \alpha} f d\mu \right|\\
+		% 	&\leq \int_{|f_n| \geq \alpha} \left| f_n \right| d\mu  +  \int_{|f| \leq \alpha} |f| d\mu \\
+		% \end{align*}
+
+		\begin{align*}
+			 \limsup_{n} \left| \int f_n d\mu - \int f \mu \right| \leq \limsup_n \int_{|f_n| \geq \alpha} | f_n | d\mu + \int_{|f| \geq \alpha} |f| d\mu\\
+			 	&\leq \sup_n \int_{|f_n| \geq \alpha} | f_n | d\mu + \int_{|f| \geq \alpha} |f| d\mu\\
+		\end{align*}
+
+		So, this remember, is true under the assumption that $\mu \{|f| = \alpha\} = 0$. Recall we used this to prove $f_n^{(\alpha)} \rightarrow f^{(\alpha)} a.e. \mu$. There can only be countable many opositive measure sets for $\sigma$-finite $\mu$.\\
+
+		so this means that $\{\alpha: \mu \{|f| = \alpha \} > 0\}$ is countable. Thus, there exists sequence $\{\alpha_m\}$ such that 
+
+				$$\lim_m \alpha_m = \infty, \mu\{|f| = \alpha_m\} = 0$$
+
+		Thus, 
+
+				$$\lim_m \limsup_n |\int f_n d\mu - \int f d\mu| \leq \lim_m \sup_n \int_{|f_n| \geq \alpha_m} |f_n| d\mu  + \lim_m \int_{|f| \geq \alpha_m} |f| d\mu$$ 
+
+		And ultimately we get that $f_n$ is uniformly integrable on $\mu$.
+
+		\item  Suppose $\mu(|f| = \alpha) = 0$. Then we have shown that 
+
+				$$\int f_n^{(\alpha)} d\mu \rightarrow \int f^{(\alpha)} d\mu $$
+
+				$$\int_{|f_n| \geq \alpha_m} f_n d\mu - \int_{|f| \geq \alpha_m} f d\mu = \int f_n d\mu - \int f d\mu - (\int f_n^{(\alpha)} d\mu - \int f^{(\alpha)} d\mu) $$
+
+
+So we have that 
+
+		$$ \left| \int_{|f_n| \geq \alpha_m} f_n d\mu - \int_{|f| \geq \alpha_m} f d\mu \right| \leq \left| \int f_n d\mu - \int f d\mu \right| + \left|(\int f_n^{(\alpha)} d\mu - \int f^{(\alpha)} d\mu) \right|$$
+
+Bue we've shown that both terms in the RHS go to zero (by assumption or previous proof). Thus
+
+		$$\int_{|f_n| \geq \alpha_m} f_n d\mu \rightarrow \int_{|f| \geq \alpha_m} f d\mu  $$
+
+
+for all $\alpha$ such that $\mu(|f| = \alpha) = 0$. 
+
+Now, let $\epsilon > 0$. then there exists $\alpha$ such that
+
+		$$\mu(|f| = \alpha) = 0, \int_{|f| ]geq \alpha} f d\mu < \epsilon $$
+
+So then 
+
+		$$\int_{|f_n| \geq \alpha} f_n d\mu < \epsilon $$
+
+Hence, 
+
+		$$\sup_{n \geq n_0} \int_{|f_n| \geq \alpha} f_m d\mu < \epsilon $$ 
+
+But $f_1, \dots, f_{n_0} $ are integrable on $\mu$. 
+
+So there exists some $\alpha' > \alpha$ such that 
+
+		$$ \int_{|f_1| \geq \alpha} f_1 d\mu < \epsilon, \dots, \int_{|f_{n_0}| \geq \alpha} f_{n_0} d\mu < \epsilon$$
+
+So there exists $\alpha'$ such that 
+
+		$$\sup_n \int_{|f_n| \geq \alpha} f_n d\mu < \epsilon $$
+
+But then for all $\alpha'' > \alpha'$ we have that 
+
+		$$\sup_n \int_{|f_n| \geq \alpha''} f_n d\mu < \epsilon $$
+
+That is for all $\epsilon > 0$ there exists $\alpha' > 0$ such that for all $\alpha'' > \alpha'$ we have that
+
+		$$\sup_n \int_{f_n \geq \alpha} f_n d\mu < \epsilon $$
+
+Hense, 
+
+		$$\lim_{\alpha \rightarrow \infty} \sup \int_{|f_n| \geq \alpha} f_n d\mu < \epsilon = 0$$
+
+Therefor $f_n$ is uniformly integrable on $\mu$.
+
+
 	\end{enumerate}
 \end{proof}
 
 
 
+\textbf{Wednesday December 7}\\
+
+Finished proof. 
+
+\textbf{Corollary} Suppose that $\mu(\Omega) < \infty$. If $f, f_n$ are integrable on $\mu$ and $f_n \rightarrow f$ a. e. $\mu$ then the following conditions are equivalent. 
+
+	\begin{enumerate}
+		\item $f_n $ uniformly integrable on $\mu$
+		\item $\int |f- f_n| d\mu \rightarrow 0$
+		\item $\int |f_n| d\mu \rightarrow \int |f| d\mu$ 
+	\end{enumerate}
+
+\begin{proof}
+	Note that (i) $\Rightarrow$ (ii).\\
+
+% finish from photo
+		
+\end{proof}
+
+A sufficient condition for uniformily integrable is 
+
+		$$\sup_{n} \int |f_n|^{1+ \epsilon} d\mu < \infty $$
+
+for some $\epsilon > 0$
+
+\begin{proof}
+	
+\end{proof}
+
+\textbf{Wednesday December 7 - Evening Make Up Course}
+
+\section{Radon-Nikodgm Derivative}\index{Radon-Nikodgm Derivative}
+
+$(\Omega, \mathcal{F})$ is measurable space. 
+
+\textbf{Additive Set Function}\\
+
+Also known as signed measure. 
+
+		$$\Psi: \mathcal{F} \rightarrow \mathbb{R} $$
+
+such that if $A_n \in \mathcal{F}$ is disjoint then 
+
+		$$\Psi (\bigcup_n A_n) = \sum_n \Psi(A_n) $$ 
+
+Two differences between $\Psi$ and measure 
+	
+	1. $\Psi: \mathcal{F} \rightarrow \mathbb{R}$ (not $\bar{\mathbb{R}}$)
+
+	2. $\Psi(A)$ can be negative. 
+
+
+\textbf{Lemma 1. } If $E_n \uparrow E$ or $E_n \downarrow E$ then 
+
+		$$\Psi(E_n) \rightarrow \Psi(E) $$
+
+\begin{proof}
+	Suppose  that $E_n \uparrow E$. 
+
+			$$E = E_1 \cup \bigcup_{n=1}^\infty(E_{n+1} \setminus E_n) $$
+
+			$$\Psi(E) = \Psi(E_1) + \Psi(E_2 \setminus E_1) + \dots = \Psi(E_1) + \Psi(E_2) - \Psi(E_2) + \dots = \lim_{v \rightarrow \infty} \Psi(E_v)$$
+
+	Suppose that $E_n \downarrow E$ then $\E_n^C \uparrow E^C$. Use above proof.
+
+\end{proof}
+
+\textbf{Hahn-decomposition of Additive Set Function (ASF)}\\
+
+\begin{theorem}
+	Let $\Psi$ be ASF then there exists $A^+, A^-$ such that 
+
+			$$A^+ \bigcup A^- = \Omega $$
+	and 
+			$$A^+A^- = \emptyset $$
+
+and also that $\Psi(E)> 0$ for all $E \in A^+$, and similarly $\Psi(E) \leq 0$ for all $E \in A^-$.\\
+
+Here, $A^+$ is called the positive set and $A^-$ is the negative set. \\
+
+$\{A^+, A^-\}$ is called the Hahn decomposition of $\Phi$. 
+\end{theorem}
+
+\begin{proof}
+	In photos. 
+\end{proof}
+
+\textbf{Jordon Decomposition of ASF}\\
+
+Let $\Psi^+(A) = \Psi(A \cap A^+), \forall A \in \mathcal{F}$. \\
+
+Then $\Psi^+$ is greater than zero, additive, and a finite measure on ($\Omega, \mathcal{F}$). 
+
+		$$\Psi^-(A) = - \Psi(A \cap A^-) $$ 
+
+then $\Psi^-$ is a finite measure on $(\Omega, \mathcal{F})$. 
+
+\begin{definition}
+	If $\mu$ is a measure on $(\Omega, \mathcal{F})$ then $S_\mu \in \mathcal{F}$ is a \textbf{support} of $\mu$ if 
+
+			$$\mu(S_{\mu}^C) = 0 $$
+\end{definition}
+
+Now, $\Psi^+(A^+)^C) = \Psi((A^+)^CA^+) = \Psi(\emptyset) = 0$. So $A^+$ supports $\Psi^+$ and similarly $A^- $ supports $\Psi^-$.\\
+
+Since $A^+A^- = \emptyset$ we say that $\Psi^+, \Psi^-$ are mutually singular. \\
+
+In general, if $\mu, v$ are measures on $(\Omega, \mathcal{F})$ then they are mutually singular if they have disjoint support. \\
+
+Now, for all $A \in \mathcal{F}$, 
+
+		\begin{align*}
+			\Psi(A) &= \Psi(A A^+) + \Psi(AA^-)\\
+				&= \Psi(AA^+) - (-\Psi(AA^_))\\
+				&= \Psi^+ (A) - (\Psi^-(A))
+		\end{align*}
 % %----------------------------------------------------------------------------------------
 % %	PART
 % %----------------------------------------------------------------------------------------

@@ -1,0 +1,944 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 2.0 (9/2/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Mathias Legrand (legrand.mathias@gmail.com) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+
+\usepackage{mathrsfs}
+\usepackage{amsbsy}
+\usepackage{graphicx}
+
+
+
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+
+%----------------------------------------------------------------------------------------
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate [below=12cm] (midpoint) at (current page.north);
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{background}}; % Background image
+\draw[anchor=north] (midpoint) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering  Advanced Statistical Inference\\[15pt] % Book title
+{\Large STAT 561 - Advanced Statistical Inference}\\[20pt] % Subtitle
+{\huge Dr. Bing Li}}}; % Author name
+\end{tikzpicture}};
+\end{tikzpicture}
+\vfill
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+~\vfill
+\thispagestyle{empty}
+
+\noindent Copyright \copyright\ 2013 John Smith\\ % Copyright notice
+
+\noindent \textsc{Published by Publisher}\\ % Publisher
+
+\noindent \textsc{book-website.com}\\ % URL
+
+\noindent Licensed under the Creative Commons Attribution-NonCommercial 3.0 Unported License (the ``License''). You may not use this file except in compliance with the License. You may obtain a copy of the License at \url{http://creativecommons.org/licenses/by-nc/3.0}. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \textsc{``as is'' basis, without warranties or conditions of any kind}, either express or implied. See the License for the specific language governing permissions and limitations under the License.\\ % License information
+
+\noindent \textit{First printing, March 2013} % Printing/edition date
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_1.pdf} % Table of contents heading image
+
+\pagestyle{empty} % No headers
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+%----------------------------------------------------------------------------------------
+%	PART
+%----------------------------------------------------------------------------------------
+
+\part{Part One}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Basic Ideas in Bayesian Anaylysis}
+
+
+% %------------------------------------------------
+
+\textbf{Mathematical Preparation}\\
+
+\textbf{Monday January 9}\\
+
+\begin{enumerate}
+	\item Product $\sigma$-Field\\
+
+			$(\Omega_1, \mathcal{F}_1, \mu_1), (\Omega_2, \mathcal{F}_2, \mu_2)$ are two measure spaces. The goal is to construct a $\sigma$-field on $\Omega_1x\Omega_2$. \\
+
+			Let $\mathcal{A} = \{AxB: A \in \mathcal{F}_1, B \in \mathcal{F}_2\}$. \\
+
+			The $\sigma$-field generated $\mathcal{A}$ is called the product $\sigma$-field, written as $\mathcal{F}_1 x \mathcal{F}_2$, that is $\sigma(\mathcal{A})$. This is NOT a cartesian product, which would be $\{(A, B): A\in \mathcal{F}_1, B \in \mathcal{F}_2\}$. 
+
+	\item Proctuct Measure\\
+
+			Let $E \in \mathcal{F}_1 x \mathcal{F}_2$. Let $E_2(\omega_1) = \{\omega_2:(\omega_1, \omega_2) \in E\}$  and similarly, $E_1(\omega_2) = \{\omega_1:(\omega_1, \omega_2) \in E\}$. \\
+
+			It is true (in Billingsly) that 
+
+			\begin{theorem}[Number Unknown]
+				If $E \in \mathcal{F}_1 x \mathcal{F}_2$ then $E_1(\omega_2) \in \mathcal{F}_1$ for all $\omega_2 \in \Omega_2$. Similarly, $E_2(\omega_1) \in \mathcal{F}_2$ for all $\omega_1 \in \Omega_1$. \\
+
+
+				If $f: \Omega_1 x \Omega_2 \rightarrow \mathbb{R}$ measurable $\mathcal{F}_1 x \mathcal{F}_2 \setminus \mathcal{R}$. Then for each $\omega_1 \in \Omega_1$, 
+
+						$$ f(\omega_1, \cdot) \textcircled{m} \mathcal{F}_2 \setminus \mathcal{R} \text{ for each } \omega_2 \in \Omega_2. $$
+
+						$$ f(\cdot, \omega_2) \textcircled{m} \mathcal{F}_1 \setminus \mathcal{R} $$
+
+				Now, for each $E \in \mathcal{F}_1 x \mathcal{F}_2$ consider 
+
+						$$f_{1, E}: \Omega_1 \rightarrow \mathcal{R}, \omega_1 \mapsto \mu_2(E_2,(\omega_2)) $$
+
+				It can be shown that $f_{1, E}$ is uniformly measurable $\mathcal{F}_1 \setminus \mathcal{R}$ for all E. 
+
+
+			\end{theorem}
+
+	\begin{proof}
+		Outline. 
+
+			\begin{itemize}
+				\item Show that if $\mathcal{L} = \{E: f_{1, E} \textcircled{m} \mathcal{F}_1 \setminus \mathcal{R}\}$ then $\mathcal{L}$ is a $\lambda$-system. 
+				\item Let $\mathcal{P} = \{AxB: A \in \mathcal{F}_1, B \in \mathcal{F}_2\}$ then it is a $\pi$-system.
+			
+
+				Furthermore, if $ E = A x B$, 
+				
+						$$E_2(\omega_1) = \left\{ \begin{array}{ll}
+							B & \omega_1 \in A\\
+							\emptyset & \omega_1 \notin A
+						\end{array} \right. $$	
+
+				So, $\mu_2(E_2(\omega_1)) = \left\{ \begin{array}{ll}
+							\mu_2(B) & \omega_1 \in A\\
+							\emptyset & \omega_1 \notin A
+						\end{array} \right. = I_A(\omega_1)\mu(B) = f_{1, E}$
+
+				So, $f_{1, E} \textcircled{m} \mathcal{F}_1$. 
+
+				Thus $\mathcal{P} \subseteq \mathcal{L}$. 	
+				
+				\item By $\pi-\lambda$ Theorem, $\mathcal{F}_1 x \mathcal{F}_2 \subseteq \mathcal{L}$. 
+
+	\end{itemize}
+
+		Similarly, $f_{2, E} \textcircled{m} \mathcal{F}_2 \setminus \mathcal{R}$. 
+
+		We can now define two set functions, 
+
+				$$\pi'(E) = \int f_{1, E} d\mu_1 $$
+				$$\pi''(E) = \int f_{2, E} d\mu_2 $$
+
+		Again using $\pi-\lambda$ Theorem, it can be shown that, $\pi', \pi''$ are both measure and if $\mu_1, \mu_2$ are $\sigma$-finite, then
+
+				$$\pi' = \pi'' \text{ on } \mathcal{F}_1 x \mathcal{F}_2 $$
+
+		Note that here, $\mathcal{P}$ equals $\mathcal{A}$ used at begining	of notes.
+
+
+		We did not have a measure in $\mathcal{F}_1 x \mathcal{F}_2$. Now we have $\pi', \pi''$ both measures on $\mathcal{F}_1 x \mathcal{F}_2$, they are the same. We call this measure the product meaure, written as $\mu_1 x \mu_2$. 
+
+
+		Note that $(\Omega_1 x \Omega_2, \mathcal{F}_1 x \mathcal{F}_2, \mu_1 x \mu_2)$ is called product measure space. 
+	\end{proof}
+
+	\item Tonelli's Theorem\\
+
+			$(\Omega_1, \mathcal{F}_1, \mu_1), (\Omega_2, \mathcal{F}_2, \mu_2)$ are two $\sigma$-finite measure spaces. \\
+
+			$(\Omega_1 x \Omega_2, \mathcal{F}_1 x \mathcal{F}_2, \mu_1 x \mu_2)$ is the product measure space.\\
+
+			Suppose we have $f:\Omega_1 x \Omega_2 \rightarrow \mathbb{R} \textcircled{m} \mathcal{F}_1 x \mathcal{F}_2 \setminus \mathcal{R} $. Where $f \geq 0$ and 
+
+					$$\int f d (\mu_1 x \mu_2) =\int \left[ \int(f(\cdot, \omega_2) d\mu_1) \right] d\mu_2$$
+
+	\item Fubini's Theorem\\
+
+	The conclusion of Tonelli's Theorem still holds if f is NOT nonnegative, but if f is integrable $\mu_2$. (integrable - integral of absolute value of function is finite) \\
+
+\textbf{Wednesday January 11}\\	
+
+	\item Conditional Probability\\
+
+	This is a special application of Radon- Nikodgm Theorem. We know that 
+
+			$$P(A|B) = \frac{P(A, B)}{P(B)} $$
+
+	We may define $P(A|\mathcal{G})$ when $\mathcal{G}\subseteq \mathcal{F}$ as sub-$\sigma$-field. We defined this intuitively in elementary probability course (definition above), but we ar enot going to define it generally. \\
+
+	Now let $A \in \mathcal{F}$ and $\mathcal{G} \subset \mathcal{F}$ be a $\sigma$-field. Consider the set function 
+
+			$$\nu: \mathcal{G} \rightarrow \mathbb{R}, G \mapsto P(AG)$$ 
+
+	It can be easily shown that $\nu$ is a measure on $\mathcal{G}$. Consider another set function, 
+
+			$$\mu: \mathcal{G} \rightarrow \mathbb{R}, G \mapsto P(G) $$
+
+	So $\mu$ is nothting but P restricted on $\mathcal{G}$.\\
+
+	It's easy to show that $\nu << \mu$. 
+
+			$$\mu(G) = 0 \Rightarrow P(G) = 0 \Rightarrow P(AG) = 0 \Rightarrow \nu(G) = 0$$
+
+		By Radon-Nikodgm Theorem, there exists a $\delta$ such that
+
+			$$\nu(G) = \int_G \delta d\mu \quad \forall G \in \mathcal{G} $$
+
+		$\delta$ is called R-N Derivative, written as 
+
+				$$\delta = \frac{d\nu}{d\mu} $$
+
+		and is similar in  to $\frac{P(AG)}{P(G)}$, but it's more general. \\
+
+		$\delta$ is called the conditional probability of A given $\mathcal{G}$. To distinguish it form P(A|B), where B is a set, we use $P(A||\mathcal{G})$, where $\mathcal{G}$ is a $\sigma$-field. By construction, \\
+
+				\begin{enumerate}
+					\item $\delta$ is measurable $\mathcal{G}$
+					\item $\int_G \delta dp = P(AG) \quad \forall G\in\mathcal{G}$ \\
+				\end{enumerate}
+
+
+		Note that, by RNT, $\delta$ is unique with probability 1. Any $\delta'$ satisfying (a) and (b) has $\delta' = \delta a.e. P$. So, we say that $\delta$ is a version of conditional probability. \\
+
+		So, $\delta$ is a version of $P(A||\mathcal{G})$ if and only if (a) and (b) are satisfied. We may define $P(A||\mathcal{G})$ either by RNT or (a) and (b). \\
+
+
+		Properties of Conditional Probability\\
+
+		It behaves like probability, but since it is a function, unique up to a.e. P, these properties have to be qualified by a.s. P.
+
+		\begin{enumerate}	
+			\item $P(\emptyset || \mathcal{G}) = 0, P(\Omega||\mathcal{G}) = 1$ a.s. P
+			\item $0 \leq P(A|| \mathcal{G}) \leq 1$ a.s. P
+			\item If $A_1, A_2, \dots$ are disjoint members of $\mathcal{F}$ then $P(\bigcup_n A_n || \mathcal{G}) = \sum_n P(A_n || \mathcal{G})$ a.s. P
+		\end{enumerate}
+
+		Let's consider the special case where $\mathcal{G}$ is a $\sigma$-field generated by some random element, T (i.e. $\mathcal{G} = \sigma(T)$). More specifically, for some measurable space $(\Omega_T, \mathcal{F}_T)$ where 
+
+
+				$$T: \Omega \rightarrow \Omega_T \textcircled{m} \mathcal{F}\setminus\mathcal{F}_T \quad \mathcal{G} = T^{-1}(\mathcal{F}_T)$$
+
+		Here, we write
+
+		\begin{align*}
+			P(A || \mathcal{G}) &= P(A || \sigma(T))\\
+				&=P(A|| T^{-1}(\mathcal{F}_T))\\
+				&= P(A || T)
+		\end{align*}
+
+		The following theorem makes checking that something is a conditional probability easier. In principle, we have to check $\int_G \delta dp = P(AG) \quad \forall G\in\mathcal{G}$. 
+
+		\begin{theorem}[33.1 in Billingsly]
+			Let $\mathcal{P}$ be a $pi$-system generating $\mathcal{G}$ and suppose that $\Omega$ is a countable union of sets in $\mathcal{P}$. An integrable function, $f$, is a version of $P(A || \mathcal{G})$ if 
+
+				\begin{enumerate}
+					\item f is measurable $\mathcal{G}$
+					\item $\int_G f dp = P(AG) \quad \forall G \in \mathcal{P}$ 
+				\end{enumerate}
+		\end{theorem}
+
+	\item Conditional Distribution\\
+
+	Let there be probability space $(\Omega, \mathcal{F}, P)$, measurable space $(\Omega_X, \mathcal{F}_X)$, and a random element, $X:\Omega \rightarrow \Omega_X \textcircled{m} \mathcal{F}\setminus\mathcal{F}_X$. Also, let $\mathcal{G} \subseteq \mathcal{F}$ be a sub $\sigma$-field. \\
+
+	We are going to define conditional distribution of X given G. Under very mild conditions there is a function
+
+			$$f: \mathcal{F}_X x \Omega \rightarrow \mathbb{R} $$
+
+	such that for each $A \in \mathcal{F}_X$, $f(A, \cdot)$ is a version of 
+
+			$$P(X \in A || \mathcal{G}) = P(X^{-1}(A) || \mathcal{G}) $$
+
+	and, for each $\omega \in \Omega$,  $f(\cdot, \omega)$ is a probability measure on $(\Omega_X, \mathcal{F}_X)$. \\
+
+	The only condition for this existance is $(\Omega_X, \mathcal{F}_X)$ must be a Borel Space, that is $\mathcal{F}_X$ is Borel $\sigma$-field. This should always be the case for our purposes. 
+	
+
+	\item Conditional Expectation\\
+
+	Let us have the same probability space, measurable space, random element, and sub $\sigma$-field as defined before, but here with $\bar{\mathbb{R}}$.  \\
+
+	We want to define conditional expectaiton of X given $\mathcal{G}$. \\
+
+	First, assume $X \geq 0$. Consider a set function, 
+
+			$$\nu: \mathcal{G} \rightarrow \mathbb{R}, G \mapsto \int_G X dP $$ 
+
+	It can be easily shown that $\nu$ is a measure. 
+
+	Let $\mu$ again be $\mathcal{G} \rightarrow \mathbb{R}, G \mapsto  P(G)$. Then $\nu << \mu$. By RNT, $\delta = \frac{d\nu}{d\mu}$ is well defined. This is defined to be conditional expectation of X given $\mathcal{G}$, written as 
+
+			$$E(X|| \mathcal{G}) $$
+
+	Suppose $X \ngeq 0$, but integrable P. Recall that $X = X^+ - X^-$. Since $X^+, X^- \geq 0$, then both $E(X^+|| \mathcal{G}), E(X^-|| \mathcal{G})$ are defined by RNT. We define, 
+
+			$$E(X|| \mathcal{G}) = E(X^+|| \mathcal{G}) - E(X^-|| \mathcal{G}) $$
+
+				 
+
+\textbf{Friday January 13}
+
+	As in the case of $P(A || \mathcal{G})$, the equivalent conditions for $d: \Omega \rightarrow \mathbb{R} $ is a version of $E(X||\mathcal{G})$. 
+
+			\begin{enumerate}
+				\item $\delta$ measurable $\mathcal{G}$
+				\item $\int_G \delta dP = \int X dP \quad \forall G \in \mathcal{G}$ 
+			\end{enumerate}
+
+			INSERT PHOTO FROM BOARD - "Mesh"
+
+
+	The value of $\delta$ in each thick outlined cell is the average (with respect to P measure ) of $X(\omega)$ over the subcells (thin outlined) in thick cells. 
+
+	We see from this definition that if  $ A \in \mathcal{F}$, $X = I_A$ then the second condition becomes 
+
+			$$\int_G \delta dP = \int_G I_A dP = P(A \bigcap G) $$
+
+	So, $E(I_A||\mathcal{G}) = P(A || \mathcal{G})$. 
+
+	\textbf{Properties of Conditional Expectations}\\
+
+	\begin{theorem}{34.2 in Billingsly}
+		Suppose that $X, Y, X_n$ are integrable P. 
+
+			\begin{enumerate}
+				\item If X = a a.e. P, then $E(X || \mathcal{G})$ a.s. P
+				\item $a, b \in \mathbb{R}$ then
+
+						$$E(aX + bY || \mathcal{G}) = a(E(X ||\mathcal{G})) + b(E(X || \mathcal{G})) a.s. P $$
+				\item If $X \leq Y$ a.s. P then 
+
+						$$E(X ||\mathcal{G}) \leq E(Y ||\mathcal{G}) $$
+				\item $|E(X||\mathcal{G})| \leq E(|X| ||\mathcal{G})$ a.s. P (in fact this is true for all convex functions).
+				\item If $X_n \rightarrow X$ a.s. P, $|X_n| \leq Y,$ and Y integrable P, then
+
+						$$E(X_n ||\mathcal{G}) \rightarrow E(X ||\mathcal{G}) a.s. P $$
+			\end{enumerate}
+
+	\end{theorem}
+
+	\begin{proof}
+		Found in Billingsly. 
+	\end{proof}
+
+	\begin{theorem}[34.4 in Billingsly]
+		If $\mathcal{G}_1 \subseteq \mathcal{G}_2 \subset \mathcal{F}$ and X integrable P, then
+
+				$$E(E(X ||\mathcal{G}_2)|| \mathcal{G}_1) = E(X ||\mathcal{G}_1) $$
+
+		This is called the Law of Iterative Conditional Expectation. 
+	\end{theorem}
+
+	\begin{theorem}[34.3 in Billingsly]
+		
+		If $X$ measurable $\mathcal{G}$, $Y \textcircled{m} \mathcal{F}$, then
+
+				$$E(X Y||\mathcal{G}) = XE(Y ||\mathcal{G}) a.s. P $$
+	\end{theorem}
+
+	Other Properties
+
+		\begin{enumerate}
+			\item X, Y are random elements such that XY integrable P.
+			\item If $\mathcal{G} \subseteq \mathcal{F}$ is the sub $\sigma$-field, then
+
+					$$E(X E(Y||\mathcal{G})) = E(E(X ||\mathcal{G})Y) = E(E(X ||\mathcal{G}) E(Y ||\mathcal{G})) $$ 
+
+			Conditional expectation is a self-adjoint operation. 
+
+			\begin{proof}
+
+			"Wire Theorem"\\
+
+				$$\begin{aligned}
+								E(X E(Y ||\mathcal{G}))	& = E( E(X E(Y ||\mathcal{G}) ||\mathcal{G}))\\
+									&= E( E(Y ||\mathcal{G})E(X ||\mathcal{G}))	\\
+									&= E( E(E(X ||\mathcal{G}) Y ||\mathcal{G})) \\
+									&= 	E(E(X ||\mathcal{G}) Y)	
+								\end{aligned}$$
+			\end{proof}
+		\end{enumerate}
+
+	\item Conditional Distribution of a Random Element Given Another Random Element\\
+
+		Here we have the typical probability space, measurable spaces for X and Y. 
+
+		Let there be a function, 
+
+			$h: \mathcal{F}_X x \Omega_Y \rightarrow \mathbb{R}$
+
+		This function is called the conditional distribution of X given Y if 
+
+				$$\tilde{h}(A, \omega) = h(A, Y(\omega)) $$
+
+		We say that $\tilde{h}: \mathcal{F}_X x \Omega \rightarrow \mathbb{R}$ is the condiitional distribution of X given $\mathcal{G} = Y^{-1}(\mathcal{F}_Y$. 
+
+		That is, 
+
+				\begin{enumerate}
+				 	\item For each $A \in \mathcal{F}_X$
+
+				 			$$\tilde{h}(A, Y(\cdot)) = P(X^{-1}(A) || Y^{-1}(\mathcal{F}_Y)) $$
+		 			\item  For each $\omega \in \Omega$
+
+		 					$$\tilde{h}(\cdot, Y(\omega)) = P_{X|Y}(A | y) $$
+				 \end{enumerate} 
+
+
+	\item Conditional Density of One Random Element Given Another Random Element\\
+
+		Suppose probability space and $\sigma$-finite measure spaces for X and Y. 
+
+		Here our relevant function is
+
+				$$g: \Omega_X x \Omega_Y $$
+
+		which is the conditional density of X given Y if for all $A \in \mathcal{F}_X$, 
+
+				$$\int_A g(x, y) d \mu_X(x) = P_{X|Y}(A|y) $$
+
+		In the following special case, g ahs an explicit formula. 
+
+
+		$(\Omega, \mathcal{F}, P)$\\
+		$(\Omega_X, \mathcal{F}_X, \mu_X)$\\
+		$(\Omega_Y, \mathcal{F}_Y, \mu_Y)$\\
+		$(\Omega_X x \Omega_Y, \mathcal{F}_X x \mathcal{F}_Y, \mu_X x \mu_Y)$\\
+		$(X, Y): \Omega \rightarrow \Omega_X x \Omega_Y \textcircled{m} \mathcal{F}\setminus \mathcal{F}_X x \mathcal{F}_Y$\\
+
+		Let $P_X = P X^{-1}, P_Y = P Y^{-1}, P_{XY} = P (XY)^{-1}$. \\
+		Assume $P_X << \mu_X, P_Y << \mu_Y, P_{XY} << \mu_X x \mu_Y$. 
+
+
+
+				$$f_X = \frac{dP_X}{d\mu_X} $$
+				$$f_Y = \frac{dP_Y}{d\mu_Y} $$ 
+				$$f_{XY} = \frac{dP_{XY}}{d(\mu_X x \mu_Y) } $$ 
+
+		Let
+
+				$$f_{X|Y} = \begin{array}{ll}
+				\frac{f_{XY}}{f_Y} & if f_Y \neq 0\\
+				0 & f_Y = 0
+					
+				\end{array} $$
+
+				$$f_{Y|X} = \begin{array}{ll}
+				\frac{f_{XY}}{f_X} & if f_X \neq 0\\
+				0 & f_X = 0
+					
+				\end{array} $$
+
+		Then it is easy to show that each is indeed the conditional density of their respective elements (first given second). 
+ 
+\textbf{Wednesday January 18}\\
+
+Claim: $g(x, y)$ is the conditional density. 
+
+\begin{proof}
+	Want to show that for all $A \in \mathcal{F}_X$, 
+
+			$$ \int_A g(x, y) d\mu_x(x) = P_{X|Y} (A|y) $$
+
+	Which means that
+
+			$$\int_A g(x, y(\omega)) d\mu_x(x) = P_{X|Y} (X^{-1}(A)|\sigma(y)) $$
+
+	This is true if for all $G' \in \sigma(y)$
+
+			$$\int_{G'} \int_A g(x, y(\omega)) d\mu_X (x) dP(\omega) = P(X^{-1}(A) \bigcap G') $$
+
+
+	But note that 
+
+				\begin{align*}
+					G' &\in \sigma(y)\\
+					\Leftrightarrow G' &\in Y^{-1}(\mathcal{F}_Y)\\
+					G' &= Y^{-1}(G)\text{ for some } G\in \mathcal{F}_Y
+				\end{align*}
+
+
+
+	So we want to check that  
+
+			$$\int_{Y^{-1}(G)} \int_A g(x, y(\omega)) d\mu_X (x) dP(\omega) = P(X^{-1}(A) \bigcap Y^{-1}(G)) $$
+
+			\begin{align*}
+				\int_{Y^{-1}(G)} \int_A g(x, y(\omega)) d\mu_X (x) dP(\omega) &= \int_{G} \int_A g(x, y) d\mu_X (x) dP_Y(y) \\
+					&=\int_{G} \int_A \frac{f_{XY}(x, y)}{f_Y(y)} d\mu_X (x) [f_Y(y)] d\mu_Y(y) \\
+					&=\int_{G} \int_A f_{XY}(x, y) d\mu_X (x) d\mu_Y(y)\\
+					&=\int_{GxA} f_{XY}(x, y) d(\mu_X x \mu_Y)(x,y)\\
+					&= P_{XY}(GXA) \\
+					&= P \circ (X, Y)^{-1}(Ax G)\\
+					&= P(X \in A, Y \in G)\\
+					&= P(\omega: \omega \in X^{-1}(A) \& \omega \in Y^{-1}(G))\\
+					&= P(X^{-1}(A) \bigcap Y^{-1}(G)) 
+			\end{align*}
+\end{proof}
+
+\end{enumerate}
+	
+\section{Frequentist \& Bayesian Settings}\index{Frequentist \& Bayesian Settings}
+
+We have our probability space $(\Omega, \mathcal{F}, P)$. We also have some data, 
+
+		$$(\Omega_X, \mathcal{F}_X, \mu_X)$$ 
+		$$ X: \Omega \rightarrow \Omega_X \textcircled{m} \mathcal{F}/ \mathcal{F}_X$$
+
+Here, usually $\Omega_X$ is a $\mathbb{R}^m$.\\
+
+Typically we have 
+
+	$$X = (X_1, \dots, X_n)$$
+
+and possibly, 
+
+	$$ X_i = \begin{pmatrix}
+		X_{i1}\\
+		\vdots\\
+		X_{ip}
+	\end{pmatrix}$$
+
+We could say that these data are independent and identically distributed (iid) random vectors of dimension p. In this case m = np. \\
+
+The goal of statical inference is to estimate.
+
+		$$P_X = PX^{-1} = P_0$$
+
+The ?? distribution of X. \\
+
+There are two schools of thought
+
+	\begin{enumerate}
+		\item Frequentist Approach - assume a family of distributions, $\mathcal{P}$, where $\mathcal{P} << \mu_x$. Usually we assume that $\mathcal{P}$ is a parametric family, $\mathcal{P} = \{P_\theta: \theta \in \Omega_\theta \subseteq \mathbb{R}^p \}$. We assume that $P_0 \in \mathcal{P}$, that is there exisgts $\theta_0 \in \Omega_\theta$ such that $P_\theta = P_0$. The goal is to estimate $P_0$. 
+		\item Bayesian Approach - here we assume the data is generated by the conditional distribtuion $P_{X|\theta}$. We observe X, then determine what is the best estimate of the random $\theta.$
+\end{enumerate}
+
+
+\section{Prior Posterior \& Likelihood}
+
+
+Here let there be probability space $(\Omega, \mathcal{F}, P)$; $\sigma$-finite measurable spaces $(\Omega_X, \mathcal{F}_X, \mu_X)$, $(\Omega_\theta, \mathcal{F}_\theta, \mu_\theta)$. Together, 
+
+		$$(\Omega_X x \Omega_\theta, \mathcal{F}_X x \mathcal{F}_\theta, \mu_X x \mu_\theta)$$ 
+
+
+Also, a random element, 
+
+		$$(X, \theta):\Omega \rightarrow \Omega_X x \Omega_\theta \textcircled{m} \mathcal{F}\setminus\mathcal{F}_X x \mathcal{F}_\theta$$
+
+
+$P_X = P \circ X^{-1} \leftarrow$ marginal distribution of X\\
+$P_\theta = P \circ \theta^{-1} \leftarrow$ prior distribution \\
+$P_{X, \theta} = P \circ (X, \theta)^{-1} \leftarrow$ joint distribution of X and $\theta$\\
+$P_{X|\theta}(A|\theta): \mathcal{F}_X x \Omega_\theta \rightarrow \mathbb{R}$. Likeliehood distribution\\
+$P_{\theta|X}(G|x): \mathcal{F}_\theta x \Omega_X \rightarrow \mathbb{R}$. Posterior distribution\\
+
+
+Note in the following the first inequalities are \textbf{assumed}.\\
+
+$P_X << \mu_X \Rightarrow f_X = \frac{d P_X}{d\mu_X}$ Marginal Density\\
+$P_\theta << \mu_\theta \Rightarrow \pi_\theta = \frac{d P_\theta}{d\mu_\theta}$ Prior Density\\
+$P_(X, \theta) << \mu_X x \mu_\theta \Rightarrow f_{X, \theta} (x, \theta) = \frac{d P_{X, \theta}}{d(\mu_x x \mu_\theta)}$ Joint Density\\
+
+
+FINISH FROM PHOTO
+
+
+One way to estimate $\theta$ is by maximizing $\pi_{\theta|X}(\theta|x)$. Want to do so with value that is most likely to happen (given the data). 
+
+		$$\pi_{\theta|X} (\theta|x) = P_{\theta|X}(\theta = \theta | x) $$
+
+By construction, 
+
+		\begin{align*}
+			\pi_{\theta|X} &= \frac{f_X\theta}{f_X}\\
+				&= \frac{f_{X|\theta}\pi_\theta}{\int_{\Omega_\theta} f_{X|\theta} \pi_\theta d\mu_theta}
+		\end{align*}
+
+
+\section{Conditional Independence and Frquentist/Bayesian Sufficiency}\index{Conditional Independence and Frquentist/Bayesian Sufficiency}
+
+
+\textbf{Independence}\\
+
+Two random elements are said to be independent if for all $A' \in \sigma(X), G' \in \sigma(\theta)$ we have
+
+		$$P(A' \bigcap G') = P(A')P(G') $$
+
+This statement can also be expressed in $(\Omega_X x \Omega_\theta, \mathcal{F}_X x \mathcal{F}_\theta, P_X x P_\theta)$ as follows. \\
+
+Since $A' \in \sigma(X) = X^{-1} (\mathcal{F}_X), A' = X^{-1}(A)$ for some $A \in \mathcal{F}_X$. So $G' = \Theta^{-1}(G). G \in \mathcal{F}_\Theta$. 
+
+		\begin{align*}
+			P(A' \bigcap G') &= P(X^{-1}(A) \bigcap \Theta^{-1}(G) )\\
+				&=P(\{ \omega: \omega \in  X^{-1}(A) \bigcap \Theta^{-1}(G)\} )\\
+				&=P(\{ \omega: \omega \in  X^{-1}(A) \& \omega \in \Theta^{-1}(G)\} )\\
+				&=P(\{ \omega: X(\omega) \in A, \Theta(\omega) \in G\} )\\
+				&=P(\{ \omega:( X(\omega),  \Theta(\omega)) \in A x G\} )\\
+				&=P(\{ \omega:( X, \Theta)(\omega) \in A x G\} )\\
+				&=P(\{ \omega:\omega \in( X, \Theta)^{-1} A x G\} )\\
+				&=[P \circ ( X, \Theta)^{-1} ](A x G)\\
+				&=P_{X, \Theta}(A x G)
+		\end{align*}
+
+Also note that
+
+		$$P(A') = P(X^{-1}(A)) = P_X(A) $$
+		$$P(G') = P_\Theta (G) $$
+
+
+So with independence, (and for $A \in \mathcal{F}_X, G \in \mathcal{F}_\Theta$)
+
+		$$P_{X, \Theta}(A x G) = P_X (A) P_\Theta(G) $$
+
+But we know that this implies that $P_{X, \Theta}$ is the product measure $P_X x P_\Theta$. 
+
+\textbf{Conditional Independence}\\
+
+Now, given sub $\sigma$-field $\mathcal{G} \in \mathcal{F}$ we want to define $X \& \Theta$ conditionally independent given $\mathcal{G}$. 
+
+\begin{definition}
+	We say that $X \& \Theta$ are conditionally independent given $\mathcal{G}$ (i.e. $X \indep \Theta | \mathcal{G}$) if for all $A' \in \sigma(X), G' \in \sigma(\Theta)$ we have 
+
+			$$P[A' \cap G' || \mathcal{G}] = P[A' || \mathcal{G}]P[G' || \mathcal{G}] a.s. P $$
+
+	Equivalently for all $A \in \mathcal{F}_X, G \in \mathcal{F}_\Theta$, 
+
+			$$P[X^{-1}(A) \cap \Theta^{-1}(G) || \mathcal{G}] =P[X^{-1}(A) || \mathcal{G}]P[\Theta^{-1}(G) || \mathcal{G}]  $$
+
+	Equivalently, 
+
+			$$P_{X, \Theta | \mathcal{G}} (A x G | \mathcal{G}) = P_{X|\mathcal{G}}(A | \mathcal{G}) P_{\Theta|\mathcal{G}} (G | \mathcal{G}) $$
+\end{definition}
+
+
+\textbf{Equivalent Condition for Conditional Independence}\\
+
+\begin{theorem}[1.1 in Notes]
+	The following statements are equivalent. 
+
+	\begin{enumerate}
+		\item $X \indep \Theta | \mathcal{G}$
+		\item $P(X^{-1}(A) || \Theta, \mathcal{G}) = P(X^{-1}(A)| \mathcal{G}) a.s. P \quad \forall A \in \sigma(X)$
+		\item $P(\Theta^{-1}(G) || X, \mathcal{G}) = P(\Theta^{-1}(G)|| \mathcal{G}) a.s. P \quad \forall G \in \sigma(\Theta)$
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	It suffies to proof that $1 \Leftrightarrow 2$.\\
+
+	$1 \Rightarrow 2$. We know that for all $A \in \mathcal{F}_X, G \in \mathcal{F}_\Theta$ that
+
+			$$ P[X^{-1}(A) \cap \Theta^{-1}(G) || \mathcal{G}] =P[X^{-1}(A) || \mathcal{G}]P[\Theta^{-1}(G) || \mathcal{G}]$$
+
+	Want that for all $A \in \mathcal{F}_X$ that $P(X^{-1}(A) || \Theta, \mathcal{G}) = P(X^{-1}(A)| \mathcal{G})$. 
+
+	\begin{align*}
+		P(X^{-1}(A) || \Theta, \mathcal{G}) &\equiv P\left(X^{-1}(A)|| \sigma(\sigma(\Theta) \cup \mathcal{G})\right) \\
+			&= P(\dots || \sigma(\Theta^{-1}(\mathcal{F}_\Theta) \cup \mathcal{G}))
+	\end{align*}
+
+	So it suffices to show that 
+
+			$$P(X^{-1}(A) || \sigma(\Theta^{-1}(\mathcal{F}_\Theta) \cup \mathcal{G})) = P(X^{-1}(A) || \mathcal{G})$$
+
+	From the definition given we want to show that the above statement is true. which is so that the for all $B \in \sigma(\Theta^{-1}(\mathcal{F}_\Theta) \cup \mathcal{G} )$, 
+
+			$$\int_B P(X^{-1}(A) || \mathcal{G}) dP = P(X^{-1} (A) \cap B) $$
+
+	But this is very hard because B is hard to characterize. But we have theorem that says you only have to check (*) for all B in a $\pi$-system generating $\sigma(\Theta^{-1}(\mathcal{F}_\Theta)\cup \mathcal{G})$.
+
+			$$\mathcal{P} = \{\Theta^{-1} (G) \cap F: G \in \mathcal{F}_\Theta, F \in \mathcal{G} \} $$
+
+	It is trivial to show that $\mathcal{P}$ is a $\pi$-system. 
+
+	MORE IN PHOTO
+
+	Meanwhile, 
+
+			$$\mathcal{P} \subseteq \sigma(\Theta^{-1} (\mathcal{F}_\Theta) \cup \mathcal{G}) $$
+
+	Therefore, 
+
+			$$\sigma(\Theta^{-1}(\mathcal{F}_\Theta)\cup \mathcal{G}) = \sigma(\mathcal{P}) $$
+
+	So, sufficent to check (*) $\forall B \in \mathcal{P}'$
+
+			$$B \in \mathcal{P} \Rightarrow B = \Theta^{-1}(G) \cap F, G \in \mathcal{F}_\Theta, F \in \mathcal{G} $$
+
+	So, we want
+
+			$$\int_{\Theta^{-1}(G)\cap F} P(X^{-1}(A) || \mathcal{G}) dP = P(\Theta^{-1}(G) \cap F \cap X^{-1}(A)) $$
+
+
+			\begin{align*}
+				\int_{\Theta^{-1}(G)\cap F} P(X^{-1}(A) || \mathcal{G}) dP &= \int_{\Theta^{-1}(G) \cap F} E \left(I_{X^{-1}(A)} || \mathcal{G} \right) dP\\
+						&= E\left(I_{\Theta^{-1}(G)} I_F E(I_{X^{-1}(A)} || \mathcal{G})\right)\\
+						&= E\left( E(I_{\Theta^{-1}(G)} I_F || \mathcal{G}) E(I_{X^{-1}(A)} || \mathcal{G})\right)\\
+						&= E\left( I_F E(I_{\Theta^{-1}(G)}  || \mathcal{G}) E(I_{X^{-1}(A)} || \mathcal{G})\right)\\
+						&= E\left( I_F E(I_{\Theta^{-1}(G)} I_{X^{-1}(A)} || \mathcal{G})\right)\\
+						&= E\left(  E(I_F I_{\Theta^{-1}(G)} I_{X^{-1}(A)} || \mathcal{G})\right)\\
+						&= E\left( I_F I_{\Theta^{-1}(G)} I_{X^{-1}(A)}\right)\\
+						&= P(F \cap \Theta^{-1}(G) \cap X^{-1}(A))
+			\end{align*}
+
+\textbf{Monday January 23}\\
+
+	$2 \Rightarrow 1$. We want to show that 
+
+			$$P(X^{-1}(A)|| \mathcal{G}) P(\Theta^{-1}(G) || \mathcal{G}) $$
+
+		is conditional probability of 
+
+			$$P(X^{-1}(A) \cap \Theta^{-1}(G)|| \mathcal{G}) $$
+
+		for all $F \in \mathcal{G}$. 
+		
+				\begin{align*}
+						\int_F P(X^{-1}(A)|| \mathcal{G})P(\Theta^{-1}(G) || \mathcal{G}) dP &= E\left[I_F E\left(I_{X^{-1}(A)} || \mathcal{G} \right) E\left(I_{\Theta^{-1}(G) }|| \mathcal{G} \right) \right]\\
+								&= E\left[ E\left(I_{X^{-1}(A)} || \mathcal{G} \right) E\left(I_F I_{\Theta^{-1}(G) }|| \mathcal{G} \right) \right]\\
+								&= E\left[ E\left(I_{X^{-1}(A)} || \mathcal{G} \right) I_F I_{\Theta^{-1}(G)} \right]\\
+								&= E\left[ E\left(I_{X^{-1}(A)} I_F I_{\Theta^{-1}(G)}|| \Theta, \mathcal{G} \right)  \right]\\
+								&= E\left[I_{X^{-1}(A)} I_F I_{\Theta^{-1}(G)} \right]\\
+								&= P(X^{-1}(A) \cap \Theta^{-1}(G) \cap F)
+					\end{align*}	
+
+
+\end{proof}
+
+\section{Equivalence of Frequentist \& Bayesian Sufficiency}\index{Equivalence of Frequentist \& Bayesian Sufficiency}
+
+
+Here we have, \\
+
+$(\Omega_\Theta, \mathcal{F}_\Theta, \mu_\Theta), (\Omega_X, \mathcal{F}_X, \mu_X),(\Omega_T, \mathcal{F}_T)$\\
+
+Where 
+
+		$$T: \Omega_X \rightarrow \Omega_T \textcircled{m} \mathcal{F}_X / \mathcal{F}_T $$
+
+is called a statistic. 
+
+		$$T = T(X) \text{ or } T \circ X = T(X(\omega)) $$
+
+In fewquentist setting, we say that T is \textbf{suffienct} if $P_{X|T, \Theta}$ does not depend on $\Theta$. It can be easily verified (see Homework) that $P_{X|T, \Theta}$ doesn't depend on $\Theta$ implies that
+
+		$$P_{X|T, \Theta} = P_{X|T} \text{ a.s. P} $$
+
+This is "nearly" fequentist. Above is exchangeable with "$X \indep \Theta| T$", but can't say this in frequentist setting. 
+
+
+		$$P_{\Theta | T, X}  =  P_{\Theta|T} \Leftrightarrow P_{\Theta|X} = P_{\Theta|T}$$
+
+That is to say that a statistic, T, is sufficient for $\Theta$ if and only iff the posterir distribution of $\Theta|X$ is the same as the posterior distribution of $\Theta|T$. This would be used in a Bayesian setting. 
+
+\begin{definition}[Bayesian Sufficient]
+	We say that $T \circ X$ is \textbf{Bayesian sufficient} if 
+
+			$$P_{\Theta | X}  =  P_{\Theta|T} \text{ a.s. P } $$
+\end{definition}
+
+
+\textbf{Lemma 1.1} (HW 2) Suppose that $f(\theta)$ is a p.d.f such that
+
+		$$f(\theta) \propto exp\{-a\theta^2 + b\theta \}, \quad a > 0 $$
+
+		Then, 
+
+		\begin{enumerate}
+			\item $\theta \sim N( \frac{b}{2a}, \frac{1}{2a})$
+			\item $\int exp\{-a\theta^2 + b\theta \} d\theta =\sqrt{\frac{\pi}{a}} exp\{\frac{b^2}{4a} \} $
+		\end{enumerate}
+
+
+\begin{example}
+	Suppose that
+
+			$$X | \Theta \sim N(\Theta, \sigma^2) $$
+			$$\Theta \sim N(\mu, \tau^2)$$
+
+	Find $\pi_{\Theta|X} (\theta|x), f_X(x)$. 
+
+	\textbf{Solution:}\\
+
+	\begin{align*}
+		\pi(\theta|x) &\propto f(x|\theta) \pi(\theta)\\
+				&= \frac{1}{\sqrt{2 \pi \sigma^2}} exp\{-\frac{1}{2} \frac{(x-\theta)^2}{\sigma^2}\} * \frac{1}{\sqrt{2 \pi \tau^2}} exp\{-\frac{1}{2} \frac{(\theta -\mu)^2}{\tau^2}\}\\
+				&\propto  exp\{-\frac{1}{2} \frac{(x-\theta)^2}{\sigma^2}\} *  exp\{-\frac{1}{2} \frac{(\theta -\mu)^2}{\tau^2}\}\\
+				&= exp\{-(\frac{1}{2\sigma^2} + \frac{1}{2 \tau^2})\theta^2 + (\frac{x}{\sigma^2} + \frac{\theta}{\tau^2})\theta\}
+	\end{align*}
+
+Using  Lemma 1.1, 
+
+		$$\theta|X \sim N\left(\frac{\frac{x}{\sigma^2} + \frac{\mu}{\tau^2}}{1/2(2\sigma^{-2} + 1/2\tau^{-1} )}, \frac{1}{\frac{1}{\sigma^2} + \frac{1}{\tau^2}}\right) $$
+
+How about $f_X(x)$?\\
+
+		\begin{align*}
+			f_X(x) &= \int f(x|\theta) \pi(\theta) d\theta\\
+					&\vdots\\
+					&= \frac{1}{{2 \pi \sigma \tau}} * exp\{-\frac{x^2}{2\sigma^2} -  \frac{\mu^2}{2\tau^2}\} \int exp\{- (\frac{1}{2\sigma^2} + \frac{1}{2 \tau^2})\theta^2 + (\frac{x}{\sigma^2} + \frac{\mu}{\tau^2})\theta \}\\
+					&= \dots * \sqrt{\frac{\pi}{\frac{1}{2\sigma^2} + \frac{1}{2 \tau^2}}} exp\{\frac{(\frac{x}{\sigma^2} + \frac{\mu}{\tau^2})^2}{4 (\frac{1}{2\sigma^2} + \frac{1}{2\tau^2})}\}
+		\end{align*}
+
+		We want to identify this as a p.d.f of x, so we can treat anything that is not x as a constant. Using elementary algebra we get...
+
+		\begin{align*}
+			&\propto exp \{- (\frac{x^2}{2(\tau^2 + \sigma^2)} + \frac{x \mu}{(\sigma^2 + \tau^2)}) \}
+		\end{align*}
+
+		Applying Lemma 1.1 for x and simplifying, 
+
+				$$X \sim N(\mu, \tau^2 + \sigma^2) $$
+
+
+\end{example}
+
+This can be extended to multivariate setting, 2-sample setting, ANOVA setting, regression setting, etc. It is essential to all aspects of linear models. 
+
+
+
+
+	
+
+
+
+
+% %------------------------------------------------
+
+
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 4
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Random Variable}
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 5
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Convergence in Probability/Limit Theorem}
+
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 6
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Radon-Nikodym Derivative Theorem}
+
+% %----------------------------------------------------------------------------------------
+% %	CHAPTER 7
+% %----------------------------------------------------------------------------------------
+
+% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+
+% \chapter{Special Topics}
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% \chapter*{Bibliography}
+% \addcontentsline{toc}{chapter}{\textcolor{ocre}{Bibliography}}
+% \section*{Books}
+% \addcontentsline{toc}{section}{Books}
+% \printbibliography[heading=bibempty,type=book]
+% \section*{Articles}
+% \addcontentsline{toc}{section}{Articles}
+% \printbibliography[heading=bibempty,type=article]
+
+%----------------------------------------------------------------------------------------
+%	INDEX
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}}
+% \printindex
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

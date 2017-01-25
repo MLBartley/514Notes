@@ -34,20 +34,25 @@
 \indexentry{Unbalanced Case of One Way Random Effect ANOVA|hyperpage}{92}
 \indexentry{Balance, Nested Random Effect Model|hyperpage}{94}
 \indexentry{Nested Mixed Effect Model|hyperpage}{98}
-\indexentry{Mean Paramerterization of Link Function|hyperpage}{100}
-\indexentry{Bringing in the Predictors|hyperpage}{101}
-\indexentry{Dispersion Parameters|hyperpage}{102}
-\indexentry{Overview|hyperpage}{105}
-\indexentry{Estimation of $\phi$|hyperpage}{108}
-\indexentry{Statistical Inference for GLM|hyperpage}{109}
+\indexentry{Exponential Family|hyperpage}{103}
+\indexentry{Mean Paramerterization of Link Function|hyperpage}{104}
+\indexentry{Bringing in the Predictors|hyperpage}{105}
+\indexentry{Dispersion Parameters|hyperpage}{107}
+\indexentry{Overview|hyperpage}{109}
+\indexentry{Estimation of $\phi$|hyperpage}{112}
+\indexentry{Statistical Inference for GLM|hyperpage}{113}
 \indexentry{Estimation of AVar($\hat{\beta}$ and its CI)|hyperpage}{117}
 \indexentry{Deviance Function|hyperpage}{117}
 \indexentry{Residuals|hyperpage}{119}
 \indexentry{Pearson's Residual|hyperpage}{119}
 \indexentry{Anscombe Residual|hyperpage}{120}
 \indexentry{Deviance Residual|hyperpage}{120}
-\indexentry{Link to ANOVA|hyperpage}{125}
-\indexentry{Analysis of Deviance (ANODev)|hyperpage}{127}
-\indexentry{Numerical Prediction|hyperpage}{128}
-\indexentry{Testing Hypothesis|hyperpage}{129}
-\indexentry{Logistic Regression|hyperpage}{131}
+\indexentry{Link to ANOVA|hyperpage}{123}
+\indexentry{Analysis of Deviance (ANODev)|hyperpage}{125}
+\indexentry{Numerical Prediction|hyperpage}{126}
+\indexentry{Testing Hypothesis|hyperpage}{127}
+\indexentry{Logistic Regression|hyperpage}{129}
+\indexentry{Poisson-Response GLM|hyperpage}{131}
+\indexentry{Initial Values|hyperpage}{132}
+\indexentry{The Model|hyperpage}{133}
+\indexentry{Case Study|hyperpage}{136}
