@@ -870,13 +870,972 @@ This can be extended to multivariate setting, 2-sample setting, ANOVA setting, r
 
 
 
+\textbf{Wednesday January 25}\\
+
+\begin{example}
+	Suppose
+
+			$$X_1, \dots, X_n | \theta \sim^{iid} N(\theta, \sigma^2) $$
+			$$\theta \sim N(\mu, \tau^2) $$
+
+	$\pi(\theta| X_1, \dots, X_n) =$?\\
+
+
+	By Example 1.1, 
+
+			$$\theta | \bar{X} \sim N\left(\frac{\frac{\bar{X}}{\sigma^2/n} + \frac{\mu}{\tau^2}}{\frac{1}{\sigma^{2}/n} + \frac{1}{\tau^{2}})}, \frac{1}{\frac{1}{\sigma^2/n} + \frac{1}{\tau^2}} \right) $$
+
+
+	Note that the sample size will effect how much weight each of the pervious means is given. As $n \rightarrow \infty$, depending on which coeffecient goes to 1, 
+
+			$$E(\theta | \underline{X}) \rightarrow \bar{X} \text{ or } \mu $$
+
+	Similarly with variance, as $n \rightarrow \infty$, 
+
+			$$Var(\theta| \underline{X}) \rightarrow 0 $$
+
+	We can generalize/approximate this phenomenon as follows, 
+
+			$$\theta|X_1, \dots, X_n \sim N(\hat{\theta_1}, I^{-1}(\hat{\theta})) $$
+
+	where $\hat{\theta}$ is the MLE. \\
+
+	In our special case, 
+
+			$$\theta| X_1, \dots, X_n \sim N(\bar{X}, \frac{\sigma^2}{n}) $$
+
+
+\end{example}
+
+
+	\section{Conjugate Priors}\index{Conjugate Priors}
+
+	\subsection{Introduction}\index{Introduction}
+
+	In general, computing posterior distributions or posterior means is a hard problem involving high-dimentional numerical integration. This was a big hurdle for Bayesian methods before computers. Now we can do methods such as Monte Carlo inegration (MCMC).\\
+
+	In special cases, such as with the Exponential Family and mixture of distributions, posterior can be expressed explicitly through the use of conjugate families. \\
+
+	\begin{definition}[Conjugate Family]
+			A family of distributions, $\mathcal{P}$, on ($\Omega_\theta, \mathcal{F}_\theta$) is a \textbf{conjugate family} if 
+
+					$$P_\Theta \in \mathcal{P} \Rightarrow \mathcal{P}_{\Theta|X} \in \mathcal{P} $$
+
+	
+		\end{definition}
+
+Not unique, for example if you let $\mathcal{P}$ be the colleciton of all distributions on ($\Omega_\theta, \mathcal{F}_\theta$), then then it is always conjugate. Usually there is a suitable conjugate family. 
+
+\subsection{Exponential Family}
+
+\begin{example}
+	$X_1, \dots, X_n |\theta \sim Pois(\theta)$\\
+
+			\begin{align*}
+				f(x_1, \dots, x_n | \theta) &= \prod^n_{i=1} \frac{\theta^{x_i}}{x_i!} e^{-\theta} \\
+						&= \frac{\theta^{\sum x_i} e^{-n\theta}}{\prod(x_i!)}\\
+						&\propto \theta^{c_1} e^{-c_2 \theta}
+			\end{align*}
+
+	Note that we are treating $\theta$ as the variable of interest here, not x. Recall that if $\theta \sim Gamma(\alpha, \beta)$ then we have a distribution approaching the form above, that is, 
+
+			$$\pi(\theta) \propto \theta^{\alpha - 1} e^{-\theta/\beta}$$
+
+	If we use this form, then we may find $pi(\theta|\underline{X})$ using the following:
+
+			$$pi(\theta|\underline{X}) \propto \theta^{c_1 + \alpha -1} e^{-(c_2 + 1/\beta)\theta} $$
+
+	Which gives us that
+
+			$$\theta| X_1, \dots, X_n \sim Gamma(c_1 + \alpha, (c_2 + 1/\beta)^{-1}) $$
+
+	This is generally true for all exponential family distributions. 
+
+
+\end{example}
+
+We say that X has exponential family distrubiton if is has p.d.f in the form of 
+
+		$$\frac{e^{\theta^T t(x)}}{\int e^{\theta^T t(x) d\mu(x)}} $$
+
+where $\mu$ is a $\sigma$-finite measure on $(\Omega_X, \mathcal{F}_X)$. \\
+
+Essentially, p.d.f. with $\mu(x) \propto e^{\theta^T t(x)}$.\\
+
+More generally, suppose that $\phi: \Theta \mapsto \Phi$ bijection (one-to-one onto). Then X has Exponential Family distribution if and only if the p.d.f of X with $\mu$ is 
+
+		$$ \frac{e^{\phi^T t(x)}}{\int e^{\phi^T t(x) d\mu(x)}}$$
+
+In this case, $X \sim Exp(\phi, t, \mu)$, when $\phi$ is identity, this is called the canonical form of exponential family. \\
+
+\begin{theorem}[1.3 from class]
+	If 
+		$$P_\Theta \sim Ep(\xi, \phi, \nu )$$
+		$$P_{X|\Theta} \sim Ex(\phi, t, \mu)$$
+
+	then 
+
+			$$P_{\Theta|X} \in Ep(\xi_X, \phi, \nu_x) $$
+
+	where
+
+			$$\xi_X(\alpha) = \xi(\alpha) + t(x)$$
+
+			$$d\nu_X(\theta) = \frac{d \nu(\theta)}{\int e^{\phi^T(\theta) t(x)} d\mu(x)} $$
+\end{theorem}
+
+\begin{proof}
+	$P_\Theta \in Ep(\xi, \phi, nu) \Rightarrow \pi(\theta) = \frac{e^{\xi^T(\alpha) t(\theta)}}{\int e^{\xi^T(\alpha) t(\theta) d\nu(x)}}$\\
+
+	\begin{align*}
+		f(x|\theta) &= \frac{e^{\phi^T t(x)}}{\int e^{\phi^T t(x) d\mu(x)}}\\
+		\pi(\theta|x) &= \text{PHOTO}\\
+				&=  
+	\end{align*}
+
+GIANT fraciton of fractions = PHOTO
+
+So, with respect to the new measure, 
+	
+	$$d\nu_X(\theta) = \frac{d\nu(\theta)}{\int e^{\phi^T(\theta) t(x)}d\mu(x)} $$
+
+where the pdf is 
+
+		$$\frac{}{} $$
+
+So, $\theta|X \sim Ep(\xi(\alpha) + t(x), \phi(\theta), \frac{d\nu(\theta)}{\int e^{\phi^T (\theta) t(x) d\mu(x)}})$
+
+\end{proof}
+
+\textbf{Friday January 27}\\
+
+\begin{example}[One Parameter Normal]
+			$$X|\theta \sim N(\theta, \sigma^2) $$
+
+	Want to assign conjugate prior for $\theta$. 
+
+			$$f(x|\theta) \propto exp\{(\frac{-1}{2\sigma^2})\theta^2 + (\frac{\mu}{\sigma^2})\theta\} $$
+
+
+	Recall Lemma 1.1. 
+
+			$$ f(\theta) \propto exp\{(\frac{-1}{2\sigma^2})\theta^2 + (\frac{\mu}{\sigma^2})\theta\} $$
+
+			$$\Rightarrow \theta \sim N(\mu, \sigma^2) $$
+
+	So, consider the following family, 
+
+			$$\mathcal{F} = \{f(\theta) \propto exp\left\{\frac{-1}{2\alpha_2^2}\theta^2 + \frac{\alpha_1}{\alpha_2^2}\theta\} \right\} $$
+
+	Suppose that $\pi \in \mathcal{F}$. Then we have that
+
+			\begin{align*}
+				\pi(\theta|X) &\propto f(x|\theta) \pi(\theta)\\
+					&\propto exp\{(\frac{-1}{2\sigma^2})\theta^2 + (\frac{\mu}{\sigma^2})\theta\} *  exp\left\{\frac{-1}{2\alpha_2^2}\theta^2 + \frac{\alpha_1}{\alpha_2^2}\theta\} \right\}\\
+					&= exp\left\{(\frac{-1}{2\alpha_2^2} - \frac{1}{2\alpha_2})\theta^2 + (\frac{x}{\sigma^2} + \frac{\alpha_1}{\alpha_2^2})\theta\} \right\} \\
+					&= - \frac{1}{2}(\frac{1}{\sigma^2} + \frac{1}{\alpha^2})
+			\end{align*}
+
+	So we have that 
+
+		$$\theta|X \sim N(\frac{\frac{\alpha_1}{\alpha_2} + \frac{x}{\sigma_2}}{(\frac{1}{\sigma^2} + \frac{1}{\alpha^2})}, \frac{1}{\frac{1}{\sigma^2} + \frac{1}{\alpha^2}}) $$
+
+\end{example}
+	\subsection{Convex Hull of Conjugate Family}\index{Convex Hull of Conjugate Family}
+
+	\begin{remark}
+
+	Mathematically,  if $A \subseteq \mathbb{R}^k$,
+		
+		$$Conv(A) = \left\{\alpha_1 s_1 + \dots + \alpha_k s_k: \alpha_1 \geq 0, \dots, \alpha_k \geq 0; \alpha_1 + \dots + \alpha_k = 1; s_1 \in A, \dots, s_k \in A \right\} $$
+	\end{remark}
+
+\begin{remark}
+					By the way, a convex combination of a set of probability measures, say $P_1, \dots, P_k$, is called the \textbf{mixture} of $P_1, \dots, P_k$. So $Conv(\mathcal{P})$ is simply the colleciton of all mixture distributions derived from $\mathcal{P}$. 
+				\end{remark}
+
+	\begin{theorem}
+		If $\mathcal{P}$ is conjugate to $P_{X|\theta}$, then $Conv(\mathcal{P})$ is also conjugate. 
+
+
+	\end{theorem}
+
+	\begin{proof}
+		Suppose that $P_\Theta \in Conv(\mathcal{P})$. Want to show that $P_{\Theta|X} \in Conv(\mathcal{P})$. 
+
+		Sicne $P_\Theta \in Conv(\mathcal{P})$ there exists
+
+				$$\alpha_1, \dots, \alpha_k \in \mathbb{R}, \sum^k \alpha_i = 1, \alpha_i \geq 0 $$
+
+				$$P_\Theta^{(1)} \dots  P_\Theta^{(k)} \in \mathcal{P}$$
+
+		such that
+
+				$$P_\Theta = \sum^k \alpha_i P_\Theta^{(i)} $$
+
+				\begin{align*}
+					f_X(x) &= \int f(x|\theta) dP_\Theta\\
+							&= \int f(x|\theta) d(\sum^k \alpha_i P_\Theta^{(i)})\\
+							&= \sum^k \alpha_i \int f(x|\theta) dP_\Theta^{(i)}\\
+							&=\sum^k \alpha_i \int m_i(x) dP_\Theta^{(i)}\\
+						dP_\Theta(\cdot|x)	&= \frac{f(x|\theta)}{f_X(x)} dP_\Theta\\
+						&=\frac{f(x|\theta)}{\sum^k \alpha_i m_i(x)} \sum^k \alpha_k d P_\Theta^{(i)}\\
+						&=\sum^k \frac{\alpha_i m_i(x)}{\sum^k \alpha_j m_j(x)} \frac{f(x|\theta)dP_\Theta^{(i)}}{m_i(x)}
+				\end{align*}
+
+				Note that the first term is great than zero and sums to 1. It's our new $\alpha^*$. In the second term note that $P_\Theta^{(i)} \in \mathcal{P}$ and $P_{\Theta|X}^{(i)}(\cdot|x) \in \mathcal{P}$. 
+
+				Thus this is a convex combination of members of $\mathcal{P}$ in $Conv(\mathcal{P})$.  
+
+				
+	\end{proof}
+
+
+
+
+This is a nice way to construct conjugate families of mixtures of exponential family. 
+
+\section{Two-Parameter,  Normal Family}
+
+\begin{definition}[Inverse $\chi^2$ Disribution]
+	A random variable T is said to have an inverse $\chi^2$ distribution of $\chi^{-2}_{(k)}$ if and only if, 
+
+		$$\frac{1}{T} \sim \chi^2_{(k)} $$
+
+	If, for some $\tau < 0$, $\frac{T}{\tau} \sim \chi^{-2}_{(k)}$ then we write that 
+
+			$$T \sim \tau \chi^{-2}_{(k)} $$
+
+	
+\end{definition}
+
+By Jacobian theorem, 
+
+			$$T = g(X) $$
+
+			$$f_T(t) = f_X(g^{-1}(t)) |det(\frac{\partial g^{-1}(t)}{\partial t})| $$
+
+Above will be shown in HW. 
+
+\begin{theorem}
+	If $T \sim \chi^{-2}_{(\nu)}$ then, 
+
+			$$f(t) = \frac{1}{\Gamma(\frac{\nu}{2}) 2^{\frac{\nu}{2}}} t^{-\frac{\nu}{2}-1} e^{\frac{-1}{t}}, t > 0 $$
+\end{theorem}
+
+\begin{proof}
+	Shown in HW 2. 
+\end{proof}
+
+Now suppose that $X_1, \dots, X_n | \phi, \lambda \sim^{iid} N(\lambda, \phi)$ where both $\lambda$ and $\phi$ are random. How do we assign conjugate prior of ($\lambda, \phi$)?\\
+
+From classical statistics (Stat 514) we know that the sufficience statistic for $\lambda, \phi$  is $(\sum X_i, \sum X_i^2)$ or $(T = \bar{X}, S = \sum^n_{i=1} (X_i -\bar{X})^2$. 
+
+
+So $\pi(\lambda, \phi|X_1, \dots, X_n) = \pi(\lambda,\phi | T, S)$. Moreover, form Normal theory, 
+
+		$$T \indep X | \lambda, \phi $$
+		$$T | \lambda, \phi \sim N(\lambda, \phi/n) $$
+		$$S | \lambda, \phi \sim \phi \chi^2_{(n-1)} $$
+
+
+\textbf{Monday January 30}\\
+
+
+So, we need only to look at [GET NOTES FROM BUDDY]
+
+
+	\begin{align*}
+		f(T, S |\lambda, \phi) &= f(S|\lambda, \phi) f(T|\lambda,\phi)\\
+			&=f(S|\phi) f(T|\lambda, \phi)\\
+			&=[S|\phi] [T|\lambda, \phi]\\
+			&= \left[\phi^{-(\frac{n-1}{2} - 1)} exp\left\{(\frac{-s}{2\phi})(\frac{1}{\phi})\right\}\right] * \left[\frac{1}{\sqrt{2\pi} (\phi/n)^{1/2}} exp\left\{\frac{-1}{2(\phi/n)}\lambda^2 + \frac{t}{\phi/n}t + (\frac{-1}{2(\phi/n)})t^2\right \} \right]
+	\end{align*}
+
+	So we have $N(t, \frac{\phi}{n}) s\chi^{-2}_{(n-3)})$. 
+
+	More generally, the distribution, 
+
+			$$N(a, \frac{\phi}{m}) * \tau \chi^{-2}_{(k)} $$
+
+	is referred to (by Bing Li) as NICH (Normal-Inverse CHi-square). Here, 
+
+			$$NICH(a, m, \tau, k)$$
+
+
+	We may say that $(\lambda, \phi) \mapsto [S|\phi][T|\lambda, \phi]) \sim NICH(t,n,s, n-3)$. The likelihood is NICH. 
+
+
+\textbf{Lemma 1.2} 
+
+		$$NICH(a_1, m_1, \tau_1, k_1) * NICH(a_2, m_2, \tau_2, k_2) = NICH(a_3, m_3, \tau_3, k_3)$$
+
+
+		Where we have that\\
+\\
+		$a_3 = \frac{m_1a_1 + m_2a_2}{m_1 + m_2}$\\
+		$m_3 = m_1 + m_2$\\
+		$\tau_3 = \tau_1 + \tau_2 + m_1a_1^2 + m_2a_2^2 - m_3a_3^2$\\
+		$k_3 = k_1 + k_2 -3$\\
+
+
+Before proof, let's rewrite likelihood as
+
+		$$NICH(a, m, \tau, k) \propto  \phi^{-1/2}exp\{\frac{-1}{2(\phi/m)}\lambda^2 + \frac{a}{\phi/m}\lambda\} \phi^{-(k/2) - 1} exp\{-\frac{\tau + ma^2}{2\phi}\}$$
+
+\begin{proof}
+	By definition 
+
+			\begin{align*}
+				NICH_1 * NICH_2 &\propto \phi^{-1/2}exp\{\frac{-1}{2(\phi/m_1)}\lambda^2 + \frac{a_1}{\phi/m_1}\lambda\} \phi^{-(k_1/2) - 1} exp\{-\frac{\tau_1 + m_1a_1^2}{2\phi}\} * \phi^{-1/2}exp\{\frac{-1}{2(\phi/m_2)}\lambda^2 + \frac{a_2}{\phi/m_2}\lambda\} \phi^{-(k_2/2) - 1} exp\{-\frac{\tau_2 + m_2a_2^2}{2\phi}\}\\
+					&= \phi^{-1/2}exp\{(\frac{-1}{2(\phi/m_1)} - \frac{1}{2(\phi/m_2)})\lambda^2 + (\frac{a_1}{\phi/m_1} + \frac{a_2}{\phi / m_2})\lambda\} \phi^{-(k_1/2) - 1} \phi^{-(k_2/2) - 1} exp\{-\frac{\tau_1 + m_1a_1^2}{2\phi} - \frac{\tau_2 + m_2a_2^2}{2\phi}\}\\
+					&= \phi^{-1/2}exp\{(\frac{-1}{2(\phi/m_3)} )\lambda^2 + (\frac{a_3}{\phi/m_3})\lambda\} \phi^{-(k_3/2) - 1}  exp\{-\frac{\tau_3 + m_3a_3^2}{2\phi} \}
+			\end{align*}
+
+
+
+\end{proof}
+
+
+Recall we have that $(\lambda, \phi) \mapsto [S|\phi][T|\lambda, \phi]) \sim NICH(t,n,s, n-3)$. By Lemma 1.2, we assign prior
+
+		$$[\lambda| \phi][\phi] \sim NICH(a,m,\tau, k) $$
+
+This gives us that 
+
+		$$\pi(\lambda, \phi | T, S) \sim NICH(a^*, m^*, \tau^*, k^*) $$
+
+
+where we have that \\
+\\
+
+$a^* = \frac{m a + n T}{m + n}$\\
+$m^* = m + n$\\
+$\tau^* = \tau + S + m a^2 + nt^2 - (m+n)(\frac{ma + nt}{m+n})^2$\\
+$k^* = k + n -3 + 3$\\
+
+
+So, $[\lambda | \phi, X] \sim N(a^*, \frac{\phi}{m^*})$, and $[\phi|X] \sim \tau^* \chi^{-2}_{k^*}$. 
+
+
+Note that we can make inference about $\lambda, \phi$ using 
+
+		$$\frac{\lambda - a^*}{\sqrt{\phi/m^*}} | \phi, X \sim N(0, 1) $$
+
+since the RHS doesn't depend on $\phi$ we have that it is independence form $\phi|X$. 
+
+		$$\frac{\lambda - a^*}{\sqrt{\phi/m^*}} | X \sim N(0, 1) $$
+
+\textbf{Wednesday February 1}\\
+
+We want to make inference about 
+
+		$$\frac{\frac{\lambda - a^*}{\sqrt{\phi/m^*}}}{\sqrt{\frac{\tau^*}{\phi}/m^*}} | X \sim t_{m^*} $$
+
+We may reorganize this to be 
+
+
+		$$\frac{m^*(\lambda - a^*)}{\sqrt{\tau^*/m^*}}\sim t_{m^*} $$
+
+
+Similarly, for making inference about $\phi$, 
+
+		$$\phi | X \sim \tau^* \chi^{-2}_{m^*} $$
+
+		$$\frac{\tau^*}{\phi}|X \sim \chi^2_{m^*} $$
+
+
+\section{Noninformative Prior}\index{Noninformative Prior}
+
+\subsection{General Concept}
+
+Even when you don't have a prior distribution it's still beneficial to use Bayesian setting. For example, in dealing with nuisance parameters we deal with high dimension prior. \\
+
+So here, try to use Bayesian to solve "no prior information" proglem. We want to use a flat prior, e.g. the Lebesgue measure. But, in what is this flat? Supppose we impose the Lebesgue measure on $\theta$. Then the prior for monotone transformation of $\theta$, say $\theta^3$, is not Lebesgue anymore. 
+
+
+\begin{definition}[Improper Prior]
+	An infinite, but $\sigma$-finite measure on $\Omega_\Theta$ is called an \textbf{improper prior}.
+\end{definition}
+
+\begin{example}
+			$$ X|\theta \sim N(\theta, \phi) $$
+
+	Note that here $\phi$ is known. 
+
+	$$\pi(\theta) \equiv 1 $$
+	$$f(X|\theta) = \sqrt{2\pi}^{-1} e^{-1/2 * (x - \theta)^2} $$
+
+	$$\pi(\theta|X) = \sqrt{2\pi}^{-1} e^{-1/2 * (x - \theta)^2} * 1  = N(X, 1)$$
+
+	$$f_X(x) = \frac{f(x|\theta) \pi(\theta)}{\pi(\theta|X)} = \frac{f(x|\theta)}{\pi(\theta|x)} = 1$$
+
+	The marginal is Lebesgue improper! But, posterior is important
+\end{example}
+
+
+\begin{example}
+	$$X_1, \dots, X_n|\lambda, \phi \sim N(\lambda, \phi) $$
+
+	Here both parameters are random. 
+
+	We have sufficient statistics, $(S = \bar{X}, T= \sum(X_i - \bar{X})^2)$. \\
+
+	\begin{align*}
+		[(\lambda, \phi) \mapsto f(t, s| \lambda, \phi)] &\sim NICH(t, n, s, n-3)\\
+			&\propto \phi^{-1/2} exp\left\{\frac{-1}{2(\phi/n)}\lambda^2 + \frac{t}{\phi/n}\lambda\right\} \phi^{-((n-3)/2) - 1} exp\{-\frac{s+ nt^2}{2\phi}\}
+	\end{align*}\\
+
+	$$[\lambda|\phi] = 1 $$
+	$$[\phi] = \frac{1}{\phi} $$
+
+	When we multiply the p.d.f of our NICH by $\frac{1}{\phi}$ we get NICH(t, n, s, n-1) following the same argument in Seciton 1.5 (?) (proper case).
+
+
+	We can show that 
+
+			$$\frac{\sqrt{n}(\lambda - t(x))}{\sqrt{s(x)/(n-1)}}|X \sim t_{(n-1)} $$
+
+			$$\frac{s(x)}{\phi}|X \sim \chi^2_{(n-1)} $$
+
+	Exactly the same as frequentist sample distribution, except what random has changed. 
+
+\end{example}
+
+\subsection{Invariant Prior} % (fold)
+\label{sub:invariant_prior}
+
+What is flat? What is a natural generalization of Lebesgue Measure? \\
+
+Lebesgue measure is invariant under translation. 
+
+		$$\theta \mapsto \theta + c $$
+
+If $\lambda$ is Lebesgue and T is translation, 
+
+		$$\lambda \cdot T^{-1} = \lambda $$
+
+This is natural generalization of flatness. Change T to be some other transformation that some how resembles translation = group of transformation. \\
+
+\begin{remark}
+Review definition of group of transformations. 
+
+$\Omega$ (set)\\
+
+$\mathcal{G}$ is a set of bijections (one-to-one on to) on $\Omega$ such that 
+
+\begin{enumerate}
+	\item for all $g_1, g_2 \in \mathcal{G}, g_1 \circ g_2 \in \mathcal{G}$
+	\item for all $e \in \mathcal{G}$ such that $e \circ g = g \circ e = g$ for all $g \in \mathcal{G}$
+	\item $g \in \mathcal{G} \Rightarrow g^{-1} \in \mathcal{G}$
+\end{enumerate}	
+\end{remark}
+
+With our own problem, 
+
+$$\Omega_\Theta \subseteq \mathbb{R}^P $$
+
+Consider a parametric group, 
+
+		$$\{g_t : t \in \Omega_\theta \} $$
+
+Consider two types of transformations, 
+
+		$$\theta \mapsto g_t(\theta) = L_t$$
+		$$\theta \mapsto g_\theta(t) = R_t$$
+
+We may refer to these transformations as Left and Right transformations, respectively. 
+
+Two types of invariant priors or two generalizations of Lebesgue measure, 2-generalization of flatness. 
+
+\begin{definition}
+	A measure, $\Pi$, on $\Omega_\Theta$ is the left Haar measure. 
+
+			$$\Pi = \Pi \circ L^{-1}_t \forall t \in \Omega_\Theta $$
+
+	A measure, $\Pi$, is the right Harr measure if 
+
+			$$ \Pi = \Pi \circ R^{-1}_t \forall t \in \Omega_\Theta$$
+\end{definition}
+
+\begin{example}
+	$$ \Omega_\Theta = \mathbb{R}$$
+
+Translation group;
+	$$\mathcal{G} = \{(\theta \mapsto \theta + c = g_c(\theta)): c \in \mathbb{R} \} $$
+
+
+Suppose that the improper prior density of $\theta$ is $\pi(\theta)$. 
+
+		$$L_t(\theta)= g_c(\theta) = \theta + c = \eta $$
+
+then the density of $\eta$ is 
+
+		$$\phi(g_c^{-1}(\eta) |\frac{\partial g_c^{-1}(\eta)}{\partial\eta}| $$
+
+We want to find
+
+		$$\pi(\cdot)  = \pi(\cdot - c) $$
+		$$ \pi(\theta)  = \pi(\theta - c) \quad \forall \theta \in \mathbb{R}$$
+
+If we take $\theta = 0$, 
+
+	$$\pi(0) = \pi(-c) $$
+
+
+If we take $-c = \theta$, 
+
+		$$\pi(\theta) = \pi(0) \propto \text{ Lebesgue} $$
+
+	Left Haat measure IS the Lebesgue measure. 
+
+Right transformation, 
+		
+		\begin{align*}
+			R_c(\theta) &= g_\theta(c)\\
+				&=c + \theta\\
+				&= \theta + c\\
+				&=g_c(\theta)\\
+				&= L_c(\theta)
+		\end{align*}
+
+	The right Haar measure is also proportional to the Lebesgue. 
+\end{example}
+
+\textbf{Friday February 3}\\
+
+\begin{example}
+	Haan measures for this group:
+
+			$$\Omega_\Theta = (0, \infty) $$
+
+			$$\mathcal{G} = \{(\theta \mapsto a\theta): a > 0 \} $$
+
+	We can show that a goup used for distributions like N(0, $\theta$)
+
+	Left tansformation:\\
+
+			$$L_a = a\theta = \eta $$
+
+	if density for $\theta$ is $\pi(\theta)$. 
+
+			\begin{align*}
+				\pi_\eta(\eta) &= \pi(\frac{\eta}{a}) |\frac{d \eta/a}{d \eta}|\\
+						&=\pi\left(\frac{\eta}{a}\right) \frac{1}{a}\\
+				\pi_\eta(1) &= \pi\left(\frac{1}{a}\right)\frac{1}{a}\\
+				\pi(\frac{1}{a}) &\propto a\\
+				\pi(\theta = \frac{1}{a}) &\propto \frac{1}{\theta}\\
+			\end{align*}
+
+	Right transformation:\\
+
+			$$R_a(\theta) = g_\theta(a) = \theta a = L_a(\theta)$$
+
+	Right Haar density is also 
+
+			$$\pi(\theta) = \frac{1}{\theta} $$
+\end{example}
+
+
+\begin{example}
+	$N(\mu, \sigma^2), \Omega_\Theta = \{(\mu, \sigma): \mu \in \mathbb{R}, \sigma > 0\}$
+
+	Consider group, 
+
+			$$\mathcal{G} = \{[(\mu, \sigma) \mapsto (c\mu+ b, c\sigma) = (g_{b,c}(\mu, \sigma))]: b \in \mathbb{R}, c > 0 \} $$
+
+	Left transformation:\\
+
+			$$L_{b, c} (\mu, \sigma) = g_{b, c}(\mu, \sigma) = (c\mu + b, c\sigma) = (\tilde{\mu} , \tilde{\sigma}) $$
+
+			\begin{align*}
+				\pi_\eta(\tilde{\mu} , \tilde{\sigma}) &= \pi(\frac{\tilde{\mu}- b}{c}, \frac{\tilde{\sigma}}{c}) \left|\begin{matrix}
+					\frac{\partial \mu}{\partial \tilde{\mu}} & \frac{\partial \mu}{\partial \tilde{\sigma}}\\
+					\frac{\partial \sigma}{\partial \tilde{\mu}} & \frac{\partial \sigma}{\partial \tilde{\sigma}}\\
+					\end{matrix}\right|\\
+				&=\pi(\frac{\tilde{\mu}- b}{c}, \frac{\tilde{\sigma}}{c}) \left|\	\begin{matrix}
+					\frac{1}{c} & 0\\
+					0 & \frac{1}{c}\\
+					\end{matrix}\right|\\
+				&=\pi(\frac{\tilde{\mu}- b}{c}, \frac{\tilde{\sigma}}{c}) \frac{1}{		c^2}\\
+				\pi_\eta(0,1) &= \pi(\frac{- b}{c}, \frac{1}{c}) \frac{1}{c^2}
+			\end{align*}
+
+		So if we consider $(\frac{- b}{c}, \frac{1}{c})  = (\mu, \sigma)$ we get that
+
+				$$\pi(\mu, \sigma) \propto \frac{1}{\sigma^2} $$
+
+		which is the Left Haan measure. 
+
+
+		Right transformation:\\
+
+				$$ R_{b, c} (\mu, \sigma) = g_{\mu, \sigma}(b, c) = (\mu + \sigma b, c\sigma) = (\tilde{\mu}, \tilde{\sigma}) \neq L_{b,c} $$
+
+
+				\begin{align*}
+					\sigma b + \mu &= \tilde{\mu}\\
+					\sigma c &= \tilde{\sigma}\\
+					\sigma &= \frac{\tilde{\sigma}}{c}\\
+					\mu &= \tilde{\mu} - \sigma b = \tilde{\mu} - \tilde{\sigma}\frac{b}{c}
+				\end{align*}
+				\begin{align*}
+					\pi_\eta(\tilde{\mu}, \tilde{\sigma}) &= \pi(\tilde{\mu} - \	tilde{\sigma}(\frac{b}{c}), \frac{\tilde{\sigma}}{c}) \left|\begin{matrix}
+						\frac{\partial \mu}{\partial \tilde{\mu}} & \frac{\partial \mu}{\partial \tilde{\sigma}}\\
+						\frac{\partial \sigma}{\partial \tilde{\mu}} & \frac{\partial \sigma}{\partial \tilde{\sigma}}\\
+						\end{matrix}\right|\\
+					&= \pi(\tilde{\mu} - \tilde{\sigma}(\frac{b}{c}), \frac{\tilde{\sigma}}{c}) \left|\begin{matrix}
+						1 & \frac{-b}{c}\\
+						0 & \frac{1}{c}\\
+						\end{matrix}\right|\\
+					&= \pi(\tilde{\mu} - \tilde{\sigma}(\frac{b}{c}), \frac{\tilde{\sigma}}{c}) \left|\begin{matrix}
+						1 & \frac{-b}{c}\\
+						0 & \frac{1}{c}\\
+						\end{matrix}\right|\\
+					&= \pi(\tilde{\mu} - \tilde{\sigma}(\frac{b}{c}), \frac{\tilde{\sigma}}{c}) \frac{1}{c}
+				\end{align*}
+
+				If we replace $(\tilde{\mu}, \tilde{\sigma}) = (0, 1)$ we see that 
+
+						$$ \pi(\mu, \sigma) \propto \frac{1}{\sigma} $$
+
+				Thus the Right and Left Harr are not the same. 
+\end{example}
 
 	
 
-
-
-
+% subsection invariant_prior (end)
 % %------------------------------------------------
+
+\subsection{Jeffreys' Prior} % (fold)
+\label{sub:Jeffrey}
+
+Haar requires natural group of transformations which is not always available in particular appliations. An easily available prior, Jeffrey's prior is constructed using the folloiwng principle. \\
+
+If we assign $\theta$ a measure, $\Pi$ and $\eta = T(\theta)$ is one-to-one transformation, then the prior assigned to $\eta$ should satisfy $\Pi \circ T^{-1}$
+
+Jefferys' Prior\\
+
+Let $f(X|\theta)$ be the likelihood. Let $I(\theta)$ be the Fisher Information
+
+		$$I(\theta) = - E\left[\frac{\partial^2}{\partial\theta \partial \theta^T} \log f(X|\theta) |\theta \right] $$ 
+
+The Jeffreys' Prior is defined as 
+
+		$$\Pi(\theta) \propto \sqrt{det I(\theta)} $$
+
+\begin{theorem}[1.16]
+	Let $\pi_\Theta$ be the Jeffreys' prior density of $\theta$. $\Pi_\Phi(\phi)$ is the Jeffreys' prior density for $\phi$ where $\phi = h(\theta)$. Here, $h$ is one-to-one. Then we have that
+
+			$$\pi_\Phi(\phi) = \Phi_\Theta(h^{-1}(\phi)) \left| det\left(\frac{\partial h^{-1} (\phi)}{\partial \phi}\right) \right| $$
+
+	In terms of measure, $\Pi_\Phi = \Pi_\Theta \circ h^{-1}$.
+\end{theorem}
+
+\begin{proof}
+	Let $f_{X|\Phi}(x|\phi)$ represent the likelihood of $\phi$. Because $\Phi$ and $\Theta$ are one-to-one, 
+
+			$$f_{X|\Phi}(x|\phi) = f_{X|\theta}(x| \theta) = f_{X|\Theta}(X |h^{-1}(\phi)) $$
+
+	Conditional distributions only depends on $\sigma$-field and two one-to-one variables generage same $\sigma$-field. \\
+
+	GET MORE FROM PHOTOS
+\end{proof}
+
+\textbf{Monday February 6}\\
+
+\begin{example}
+	$$X_1, \dots, X_n \sim N(\theta, \sigma^2)$$
+
+	where both $\theta \& \sigma$ are unknown. \\
+
+	Find Jeffreys' prior for $\theta, \sigma$. \\
+
+			$$f(x_i|\theta, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\{-\frac{(x_i - \theta)^2}{2 \sigma^2} \} $$
+
+			$$f(x|\theta, \sigma) = \frac{1}{(\sqrt{2 \pi \sigma^2})^n} \exp\{-\frac{\sum_i(x_i - \theta)^2}{2 \sigma^2} \} $$
+
+			$$\log(f(x_i|\theta, \sigma) )= -n \sqrt{2 \pi \sigma^2} -\frac{(x_i - \theta)^2}{2 \sigma^2}  $$
+
+			$$\frac{\partial^2}{\partial \theta^2}\log(f(x_i|\theta, \sigma) )= -\frac{n}{\theta} $$
+
+			$$\frac{\partial^2}{\partial \theta \partial \sigma^2}\log(f(x_i|\theta, \sigma) )= -(\sigma^2)^{-2} \sum(x_i - \theta) $$
+
+			$$\frac{\partial^2}{\partial \sigma^2}\log(f(x_i|\theta, \sigma) )= \frac{n}{2} (\sigma^2)^{-2} - (\sigma^2)^{-3} \sum(x_i - \theta)^2 $$
+
+			Want to take negative expecation of each of theses. 
+
+			$$I(\theta, \sigma^2) = \begin{pmatrix}
+				\frac{n}{\sigma^2} & 0 \\
+				0 & \frac{n}{2} (\sigma^2)^{-2}\\
+			\end{pmatrix} $$
+
+			Want to find the determinent of I. Here it's proportional to $\sigma^{-6}$. 
+
+					$$\sqrt{det(I)} = \sigma^{-3} = \phi^{\frac{3}{2}} $$
+
+			Which gives us our Jeffrey's prior for $(\theta, \sigma^2).$
+
+
+\end{example}
+
+% subsection jeffrey (end)
+
+\section{Statistical Decision Theory}\index{Decision Theory}
+
+	Rock, Paper, Scissor. \\
+
+	Player One Action Space: $\Omega_{A, 1} = \{R, P, S\}$\\
+
+	Player Two Action Space: $\Omega_{A, 2} = \{R, P, S\}$\\
+
+	Loss Function - $L: \Omega_{A, 1} x \Omega_{A, 2} \rightarrow \mathbb{R}$\\
+
+	Without loss of generality, we may assume the lose to be player one's loss. \\
+
+	Winner gains one dollar, loser loses a dollar, and in the case of a tie, no money is exchanged. 
+
+
+					\begin{table}[]
+				\centering
+				\caption{Paper Rock Scissor Loss Table}
+				\label{PRS_Loss}
+				\begin{tabular}{lllll}
+				  & R  & P  & S  &  \\
+				R & 0  & -1 & 1  &  \\
+				P & 1  & 0  & -1 &  \\
+				S & -1 & 1  & 0  & 
+				\end{tabular}
+				\end{table}
+
+
+So we have $(\Omega_{A,1}, \Omega_{A, 2}, L)$. In statistics, we may refer to player one as the "statistician" and player two as "nature".\\
+
+Player one's action is called the action space, $\Omega_A$. Player two's action space is called the parameter space, $\Omega_\Theta$.\\
+
+
+But where does our data come from in this scenario? We are dealing with a statistical decision problem. 
+
+\textbf{Statistical Decision Problem}\\
+
+The statisticain (player one) wants to know nature's action, $\Theta$, but he doesn't. He observes a random variable, whose distribution depends on $\theta$. This is defused information about $\theta$. The random element, X, takes value on 
+
+	$$(\Omega_X, \mathcal{F}_X)  $$
+
+	where $X \sim P_\theta$, $\theta \in \Omega_\Theta$. \\
+
+
+So we have
+
+			$$ (\Omega_X, \mathcal{F}_X, \{P_\theta: \theta \in \Omega_\Theta\}) $$
+
+on top of $(\Omega_A, \Omega_\Theta, L$. 
+
+Decision rule:
+
+		$$d: \Omega_X \rightarrow \Omega_A $$
+
+and the collection of all decision rule is $\mathcal{D}$. This incurs a loss $L(\theta, d(x))$. \\
+
+Before we take an action, our anticipation of loss is 
+
+		$$E(L(\theta, d(x))|\theta) $$
+
+which we may refer to as \textbf{risk}. \\
+
+Game: $(\Omega_A, \Omega_\Theta, L)$\\
+Data: $(\Omega_X, \mathcal{F}_X)$\\
+Model: $\{P_\theta: \theta \in \Omega_\Theta\}$\\
+Decision Rule: $\mathcal{D}$\\
+Risk: $R$
+
+\textbf{Bayesian Statistical Decision Problem}\\
+
+Here, the game, data, model, and decision rule remain the same. The difference is in how we calculate the risk and the use of a prior.
+
+Game: $(\Omega_A, \Omega_\Theta, L)$\\
+Data: $(\Omega_X, \mathcal{F}_X)$\\
+Model: $\{P_\theta: \theta \in \Omega_\Theta\}$\\
+Decision Rule: $\mathcal{D}$\\
+Prior: $P_\Theta$\\
+Risk: $r$\\
+
+		$$r(d) = E_{\Theta, X}[L(\Theta, d(x))] = \int_{\Omega_\Theta x \Omega_X} L(\theta, d(x)) dP_{\Theta, X} $$  
+
+
+
+\textbf{Wednesday February 8}\\
+
+
+Bayes Rule: Optimal estimation, optimal test. This is (mathematically) easier than frequentist optimal procedures becuase we have a metric in $\Theta$. Don't have to make uniform statements about $\theta$, such as UMVUE, UMP, UMPU, $\dots$. \\
+
+
+\begin{definition}[Bayes' Rule]
+	The Bayes rule is 
+
+			$$d_B = \arg\min\{r(d): d \in \mathcal{D} \} $$
+
+If $P_\Theta$ is improper then $d_B$ is called \textbf{generalized Bayes' Rule}. 
+
+		$$r(d) = \int_{\Omega_\Theta x \Omega_X} L(\theta, d(x))  f_{X, \Theta}(x, \theta) d(\mu_x x \mu_\Theta)(x, \theta)$$
+
+
+Note that usually $L(\theta, d(x)) \geq 0$ so we have that
+
+		$$f_{x, \Theta} = \left\{\begin{array}{ll}
+			f(x|\theta) \pi(\theta)\\
+			\pi(\theta|x) f(x)
+		\end{array} \right. $$
+
+First way:
+
+		\begin{align*}
+			r(d) &= \int_{\Omega_\Theta } \left[\int_{\Omega_X} L(\theta, d(x))  f_{X|\Theta}(x| \theta) d(\mu_x )(x)\right] \pi(\theta) d\mu_\Theta\\
+				&= \int_{\Omega_\Theta } R(\theta, d) \pi(\theta) d\mu_\Theta\\
+		\end{align*} 
+
+Other way would swap $\Theta, X$. (??)
+
+		\begin{align*}
+			r(d) &= \int_{\Omega_X } \left[\int_{\Omega_Theta} L(\theta, d(x))  \pi_{\Theta|X}(x| \theta) d(\mu_\Theta )(\theta)\right]  d\mu_X\\
+				&= \int_{\Omega_X } \rho(x, d(x)) d\mu_X(x)\\
+		\end{align*} 
+
+Where we have the posterior expected loss, 
+
+		$$\rho(x, a) = E(L(\theta, a)|X) $$
+
+\end{definition}
+
+INSERT PHOTO
+
+How to calculate Bayes's rule, not by definition. \\
+
+\begin{definition}
+	
+
+		$$\arg\min(r(d): d \in \mathcal{D}) $$
+
+is the minimum over a set of functions,  $\mathcal{D}$. A member of $\mathcal{D}$ is 
+
+		$$d: \Omega_X \rightarrow \Omega_A $$
+
+But this can be converted into minimization over numbers or vectors by the following theorem. 
+\end{definition}
+
+\begin{theorem}[1.7 in Notes]
+	Suppose $L(\theta ,a) \geq C < - \infty$ for all $\theta \in \Omega_\Theta, a \in \Omega_A$. Then the decision rule,  
+
+			$$d_B: \Omega_X \rightarrow \Omega_A, x \mapsto \arg\min \{\rho(x, a): a \in \Omega_A \} $$
+
+	is the Bayes' Rule. 
+\end{theorem}
+
+$\Omega_A$ is usually $\mathbb{R}, \mathbb{R}^P$ or subsets thereof. So we are not minimizing over functional spaces. 
+
+\begin{proof}
+	By Tonelli's theorem, (because we can assume WLoG that $L(\theta, a) \geq 0, \quad \forall \theta, a$) 
+
+			 $$r(d) = \int_{\Omega_X} \rho (x, d(x)) f_X(x) d \mu_X(x)$$
+
+So, for any x, 
+
+		$$\rho (x, d_B(x)) \leq \rho (x, d(x)) $$
+
+Thus, 
+
+		$$  \int_{\Omega_X} \rho (x, d_B(x)) f_X(x) d \mu_X(x) \leq \int_{\Omega_X} \rho (x, d(x)) f_X(x) d \mu_X(x)$$
+
+And we have that $r(d_B) \leq r(d) \forall d \in \mathcal{D}$. 
+\end{proof}
+
+In frequentist theory, optimality have to be stated uniformly. \\
+
+"Commonly used optimal criteria" in frequentist decision theory 
+
+		\begin{enumerate}
+			\item admissibility
+			\item minimax 
+		\end{enumerate}
+
+\begin{definition}
+	A decision rule is \textbf{inadmissible} if there exists $d' \in \mathcal{D}$ such that 
+
+		\begin{enumerate}
+			\item $R(\theta, d') \leq R(\theta, d) \forall \theta \in \Omega_\Theta$
+			\item  $R(\theta, d') < R(\theta, d) \text{ for some } \theta \in \Omega_\Theta$
+		\end{enumerate}
+
+A decision rule that is not inadmissible is admissible. 
+\end{definition}
+
+\begin{definition}
+	A decision rule $d\in \mathcal{D}$ is a \textbf{minimax rule} if for all $d' \in \mathcal{D}$, 
+
+			$$\sup_{\theta \in \Omega_\Theta} R(\theta, d) \leq \sup_{\theta \in \Omega_\Theta} R(\theta, d')$$
+\end{definition}
+
+The relation between Bayes' rule and admissible rule, generally "all Bayes rule are adimissible". 
+
+\begin{theorem}[1.8 in Notes]
+
+Suppose 
+
+	\begin{enumerate}
+		\item for each $d \in \mathcal{D}$, $R(\theta, d)$ is integrable with respect to $P_\Theta$ 
+		\item for any $d_1, d_2 \in \mathcal{D}$, 
+
+				$$R(\theta, d_1) - R(\theta, d_2) < 0 $$
+
+		for some $\theta \in \Omega_\Theta$ which implies that
+
+				$$P(R(\theta, d_1) - R(\theta, d_2) < 0 ) > 0$$
+	\end{enumerate}
+
+Then any Bayes or generalized Bayes rule is admissiable. 
+
+
+\end{theorem}
+
+\begin{proof}
+	Suppose $d_1 \in \mathcal{D}$ is Bayes and inadmissible. Then there exists $d_2 \in \mathcal{D}$ such that
+
+		\begin{enumerate}
+			\item $R(\theta, d_2) \leq R(\theta, d_1) \forall \theta \in \Omega_\Theta$
+			\item  $R(\theta, d_2) < R(\theta, d_1) \text{ for some } \theta \in \Omega_\Theta$
+		\end{enumerate}
+
+But this gives us that 
+
+		$$R(\theta, d_2) - R(\theta, d_1) \geq 0  \forall \theta$$
+
+		and
+			$$P(R(\theta, d_2) - R(\theta, d_1) < 0 ) > 0$$
+Recall from STAT 517 that if $f \geq 0, \mu(f> 0) > 0$ then 
+		
+				$$\int f d\mu > 0 $$
+
+	or that  if $f \leq 0, \mu(f< 0) > 0$ then
+
+			$$\int f d\mu < 0  $$
+
+	This implies that 
+
+		\begin{align*}
+			\Rightarrow \int R(\theta, d_2) - R(\theta, d_1) d P_\Theta < 0\\
+			\Rightarrow \int R(\theta, d_2)d P_\Theta < \int R(\theta, d_1) d P_\Theta\\
+			\Rightarrow r(d_2) < r(d_1)\\
+			\Rightarrow d_1 \text{ not Bayes'}
+			\end{align*}
+
+\end{proof}
+
+
+
+
+
+
+
 
 
 

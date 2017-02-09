@@ -2,6 +2,12 @@
 
   \item Conditional Independence and Frquentist/Bayesian Sufficiency, 
 		\hyperpage{15}
+  \item Conjugate Priors, \hyperpage{21}
+  \item Convex Hull of Conjugate Family, \hyperpage{23}
+
+  \indexspace
+
+  \item Decision Theory, \hyperpage{33}
 
   \indexspace
 
@@ -11,5 +17,13 @@
   \indexspace
 
   \item Frequentist \& Bayesian Settings, \hyperpage{14}
+
+  \indexspace
+
+  \item Introduction, \hyperpage{21}
+
+  \indexspace
+
+  \item Noninformative Prior, \hyperpage{27}
 
 \end{theindex}
