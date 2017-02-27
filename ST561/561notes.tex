@@ -52,6 +52,13 @@
 
 
 \newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand{\E}{\mathrm{E}}
+
+\newcommand{\Var}{\mathrm{Var}}
+
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\newcommand{\MSE}{\mathrm{MSE}}
 
 %----------------------------------------------------------------------------------------
 
@@ -370,11 +377,12 @@
 	\textbf{Properties of Conditional Expectations}\\
 
 	\begin{theorem}{34.2 in Billingsly}
-		Suppose that $X, Y, X_n$ are integrable P. 
+		Suppose that $X, Y, X_n$ are integrable P.\\
 
 			\begin{enumerate}
-				\item If X = a a.e. P, then $E(X || \mathcal{G})$ a.s. P
-				\item $a, b \in \mathbb{R}$ then
+				\item If X = a a.e. P, then $E(X || \mathcal{G})$ a.s. P\\
+
+				\item If $a, b \in \mathbb{R}$ then
 
 						$$E(aX + bY || \mathcal{G}) = a(E(X ||\mathcal{G})) + b(E(X || \mathcal{G})) a.s. P $$
 				\item If $X \leq Y$ a.s. P then 
@@ -875,7 +883,7 @@ This can be extended to multivariate setting, 2-sample setting, ANOVA setting, r
 \begin{example}
 	Suppose
 
-			$$X_1, \dots, X_n | \theta \sim^{iid} N(\theta, \sigma^2) $$
+			$$X_1, \dots, X_n | \theta \stackrel{iid}{\sim} N(\theta, \sigma^2) $$
 			$$\theta \sim N(\mu, \tau^2) $$
 
 	$\pi(\theta| X_1, \dots, X_n) =$?\\
@@ -1127,7 +1135,7 @@ Above will be shown in HW.
 	Shown in HW 2. 
 \end{proof}
 
-Now suppose that $X_1, \dots, X_n | \phi, \lambda \sim^{iid} N(\lambda, \phi)$ where both $\lambda$ and $\phi$ are random. How do we assign conjugate prior of ($\lambda, \phi$)?\\
+Now suppose that $X_1, \dots, X_n | \phi, \lambda \stackrel{iid}{\sim} N(\lambda, \phi)$ where both $\lambda$ and $\phi$ are random. How do we assign conjugate prior of ($\lambda, \phi$)?\\
 
 From classical statistics (Stat 514) we know that the sufficience statistic for $\lambda, \phi$  is $(\sum X_i, \sum X_i^2)$ or $(T = \bar{X}, S = \sum^n_{i=1} (X_i -\bar{X})^2$. 
 
@@ -1831,13 +1839,1031 @@ Recall from STAT 517 that if $f \geq 0, \mu(f> 0) > 0$ then
 \end{proof}
 
 
+\textbf{Friday February 10}\\
+
+Theorem 1.8 condition 2 is a mild condition which is satifried by the two important cases
+
+		\begin{enumerate}
+			\item $R(\theta, d)$ is continuous function for all $d \in \mathcal{D}$, and $P(\Theta \in G) > 0$ for any empty open set. 
+
+
+			For example, if P << $\lambda$, $\lambda$ << P ($P \equiv \lambda$), then $P(\Theta \in G) < 0$ fro all open $G \neq 0$. To see that the above statement is sufficient for the second condition of Theorem 1.8, 
+
+			FINISH FROM PHOTO
+
+			\item $\Omega_\Theta$ is countable ($\sigma$-finite)
+
+					$$\Omega_\Theta = \{\theta_1, \theta_2, \dots\} $$
+
+			and
+					$$ P(\Theta = \theta_i) > 0, \forall i = 1, 2, \dots $$
+
+			If $R(\theta, d_2) - R(\theta, d_1) > 0$ for some $\theta \in \Omega_\Theta$ then this implies that
+
+					$$ R(\theta_i, d_2) - R(\theta_i, d_1) >0 \quad i \in \{1, 2, \dots\}$$
+
+			But we know that $P(\Theta = \theta_i) > 0$ so 
+
+					$$P(R(\theta_i, d_2) - R(\theta_i, d_1) <0)>0 $$
+		\end{enumerate}
+
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapterimage{chapter_head_2.pdf} % Chapter heading image
+
+\chapter{Estimation \& Inference}
+
+Typically for esitmation, 
+
+	$$\Omega_\Theta = \mathbb{R}^P, \Theta \subseteq \mathbb{R}^P, \Omega_A = \Omega_\Theta $$
+
+so for testing problems, 
+
+		$$\Omega_\Theta = \{0, 1\} = \Omega_A $$
+
+but for clarification problesm, 
+
+
+$$\Omega_\Theta = \{a_1, \dots, a_k\} = \Omega_A$$
+
+\section{Estimation}\index{Estimation}
+
+		$$\Omega_\Theta = \Omega_A = \mathbb{R}^P $$
+
+One of the most commonly used loss is the squared loss or $L_2$ loss. 
+
+\begin{definition}
+	The $L_2$ loss is
+
+			$$L(\theta, a ) = (\theta - a)^T w(\theta)(\theta - a) $$
+
+	where $w(\theta > 0), \forall \theta\in \Omega_\Theta$
+\end{definition}
+
+
+In this case, the Bayes' rule is explicit. 
+
+\begin{theorem}
+	Suppose that 
+
+		\begin{enumerate}
+			\item $E[\theta^T w(\theta)\theta | X] < \infty$ a.s.
+			\item  $E[w(\theta)| X] >0$ a.s
+		\end{enumerate}
+
+		Then, 
+
+				$$d_B(x) = \left(E[w(\theta) | X]\right)^{-1} E[w(\theta)\theta|X] $$
+
+		is the Bayes' rule. 
+\end{theorem}
+
+Note that if $w(\theta) = I_P$, then Bayes' rule for loss, $||\theta - a||^2$, is simply $E(\theta|X)$. 
+
+\begin{proof}
+	Because $L(\theta, a) \geq 0$, we need to minimize
+
+			$$\rho(x, a) = E[(\theta - a)^T w(\theta) (\theta - a) | X] $$
+
+	where a can depend on x. 
+
+
+	\begin{align*}
+		E[(\theta - d_B(x) &+ d_B(x) - a)^T w(\theta) (\theta - d_B(x) + d_B(x) - a) | X] \\
+			&= E[( d_B(x) - a)^T w(\theta) (d_B(x) - a) | X] + E[( d_B(x) - a)^T w(\theta) (\theta - d_B(x) ) | X] + E[(\theta - d_B(x))^T w(\theta) ( d_B(x) - a) | X] + E[(\theta - d_B(x) )^T w(\theta) (\theta - d_B(x)| X]\\
+			&= (d_B - a)^T E[w(\theta - d_B) | X]\\
+			&= (d_B - a)^T \left(E[w\theta | X] - E(w d_B|X)\right)\\
+			&= 0
+	\end{align*}
+
+	Overview: 
+
+		$$\rho(x, a) = \text{nonneg } + 0 + 0 + \rho(x, d_B)  \Rightarrow \rho(x, a) \geq \rho(x, d_B)  $$
+
+		So we have that $d_B$ is the Bayes' rule. 
+\end{proof}
+
+Another commonly used loss is the $L_1$ loss. 
+
+\begin{definition}
+	If $p = 1$ then the $L_1$ loss is 
+
+			$$L(\theta, a) = |\theta - a| $$
+
+What is the Bayes rules here?
+\end{definition}
+
+\begin{definition}[Median]
+	Let  U be a random varaible with c.d.f. F. Then any n umber m that satisfies 
+
+			$$F(m-) \leq \frac{1}{2} \leq F(m) $$
+
+	is called the \textbf{median}. Note that this definition does not require F to be monotone. 
+\end{definition}
+
+
+\begin{theorem}
+	If U is integrable and m is a median of U, then 
+
+		$$\int |U- m | dP \leq \int |U - a| dP \quad \forall a \in \Omega_U $$ 
+\end{theorem}
+
+
+
+\begin{proof}
+	Case 1. m < a\\
+
+	\begin{align*}
+		\int_{\Omega_U} |U-m| - |U-a|dP &= \int_{U \leq m} + \int_{m< U \leq a} + \int_{U < a}\\ 
+			&= \int_{U \leq m} m-a dP+ \int_{m< U \leq a} 2U - m - a dP + \int_{U < a} a - m dP\\
+			&= (m-a)P(U \leq m) + (**) + (a- m) P(U > a) 
+	\end{align*}
+
+	For (**), 
+
+		\begin{align}
+			\int_{m< U \leq a} 2U - m - a dP &\leq (2a - m - U) P(m < U \leq a)\\
+			&= (m-a)[P(U \leq m) - P(U > a) - P(m < U \leq a)]\\
+			&= (m-a)[P(U \leq m) - P(U> m)]\\
+			&= (m-a)[P(U\leq m) - (1 - P(U \leq m))]
+			&= (m - a) [2 F(m) - 1]
+		\end{align}
+
+		So when a > m, 
+
+			$$E|U- m| - E|U- a| \leq (2 F(m) - 1)(m-a) $$
+
+	Case 2. $a < m$\\
+
+	By the same argument, 
+
+			$$ E|U- m| - E|U- a| \leq (1 - 2 F(m-))(a- m) $$
+
+	But, because m is a median, 
+
+			$$ F(m-) \leq \frac{1}{2} \leq F(m)$$
+
+			FINISH FROM PHOTO	
+\end{proof}
+
+\textbf{Monday February 13}\\
+
+\textbf{Corollary 2.1}\\
+
+The posterior median $M(\theta|X)$ is a Bayes rule with respect to 
+
+		$$L(\theta, a) = |\theta - a| $$
+
+
+More generally, 
+
+		$$L(\theta, a) = \left\{ \begin{array}{ll}
+			\alpha_1(\theta - a) & \theta \geq a\\
+			\alpha_2(a - \theta) & \theta < a
+		\end{array} \right. $$
+
+Here, Bayes rule is quantile. 
+
+
+Besides Bayes estimations, another populat estimation is the generalized MLE. This is simply, 
+
+		$$\hat{\theta} = \arg\max \{\pi(\theta| X) : \theta \in \Omega_\Theta\} $$
+
+the posterior mode. MLE is a special case where $\pi(\theta)$ is a constant. \\
+
+\begin{example}
+ 	Bayes estimation under 
+
+ 			$$L(\theta, a) = (\theta - a)^2 = |\theta  - a|$$
+
+ 	Also generalized MLE. \\
+
+ 	We have a linear regression, 
+
+ 			$$Y_i = \theta x_i + \epsilon_i \quad i = 1, \dots, n $$
+ 			$$\epsilon_1, \dots, \epsilon_n | \theta \stackrel{iid}{\sim} N(\theta, \sigma^2) $$
+
+ 	We have prior knowledge that $\theta \geq 0$ (e.g. growth rate). how do we incorporate their information for estimation.\\
+
+ 			$$\Pi(\theta) = 1 \quad \theta \geq 0 = I(\theta \geq 0) $$
+
+ 	Here we find the imporoper prior.  
+
+ 			$$f(x|\theta) \propto \exp\{- \frac{x^T x}{2 \sigma^2} \theta^2 + \frac{x^T y}{\sigma^2}\theta\} $$ 
+
+
+where $x = \begin{pmatrix}
+	x_1\\
+	\vdots\\
+	x_n
+\end{pmatrix}, y = \begin{pmatrix}
+	y_1\\
+	\vdots\\
+	y_n
+\end{pmatrix}$\\
+
+By Lemma 1.1, if $f(\theta) \propto \exp\{-a \theta^2 + b \theta\}$ then 
+
+		$$\theta \sim N(\frac{b}{2a}, \frac{1}{2a}) $$
+
+So, as a function of $\theta$, $\theta \mapsto f(x|\theta)$ has the form 
+
+		$$N(\frac{x^T y}{x^T x}, \frac{\sigma^2}{x^T x}) $$
+
+and we can then see that the posterior density would be 
+
+		$$\pi(\theta|x) = \frac{N(\mu(x, y), \tau^2(x, y)) I(\theta \geq 0)}{\int^\infty_0 N(\mu, \tau^2) d\mu} $$
+
+Note that this integral integrated with repsect to $\theta$ becomes 
+
+		$$\int^\infty_0 N(\mu, \tau^2) d\theta = \int ^\infty_{\mu / \tau} N(0,1)d\theta = \Phi(\mu/\tau) $$
+
+Now with the conjugate Bayes rule and $L(\theta, a) = (\theta- a)^2$ we may let $\gamma = \frac{\theta - \mu}{\tau}$ and get that
+
+		$$\pi(\gamma | x) = \frac{N(0,1)}{\Phi(\frac{\mu}{\tau})} I (\gamma \geq - \frac{\mu}{\tau}) $$
+
+		\begin{align*}
+			E(\gamma|X) &= \frac{1}{\Phi(\mu/ \tau)} \int^\infty_{- \mu/\tau} \gamma N(0, 1) d\gamma \\
+				&= \frac{\exp\{- \mu^2 / (2\tau^2)\}}{\sqrt{2 \pi} \Phi(\mu/ \tau)}
+		\end{align*}
+
+		$$E(\theta | X) = \mu + \tau * \frac{\exp\{- \mu^2 / (2\tau^2)\}}{\sqrt{2 \pi} \Phi(\mu/ \tau)} $$
+
+where, as above,  $\mu = \frac{x^Ty}{x^T x}$, and $\tau^2 = \frac{\sigma^2}{x^T x}$. \\
+
+
+
+ \end{example} 
+
+ Bayes rule under $L(\theta, a ) = |\theta - a|$ is the median. So the solution would be 
+
+ 		$$\int^m_0 N(\mu, \tau^2) d\theta = \frac{1}{2} \int^\infty_0 N(\mu, \tau^2) d\theta $$
+
+ So with the change of variables, 
+
+ 		$$\int^{(m-\mu)/ \tau}_{-\mu/ \tau} N(0, 1) d\gamma = \frac{1}{2} \int^\infty_{- \mu/ \tau} N(0, 1) d\gamma $$
+
+ and after some algebra we get that 
+
+ 		$$m = \tau \Phi^{-1}(1 - \frac{1}{2}\Phi(\mu / \tau)) + \mu $$
+
+ and so here the generalized MLE is the MLE. \\
+
+ This is simply maximizing $N(\mu, \tau^2)$ over $\theta \geq 0$. 
+
+So the generalized MLE over $\theta \geq 0$ is 
+
+		$$\max(0, \frac{x^T y}{x^T x}) $$
+
+\section{Bayes Rule and Unbiasedness}\index{Bayes Rule and Unbiasedness}
+
+Another relation between Bayesian and Frequentist criteria. Whereas bayes rule and admissibility are somewhat consistant, unibased is a fundamentally unBayesian idea. 
+
+Recall that d(x) is unbiased for $\theta$ if and only if 
+
+		$$E(d(x) | \theta) = \theta \forall \theta $$
+
+\begin{theorem}[2.3 in notes]
+	Suppose $d_B(x)$ is Bayes rule with respect to 
+
+			$$ L(\theta, a) = (\theta - a)^T W(\theta)(\theta - a) $$
+
+	then $d_B(x)$ is biased unless
+
+			$$d(x) = \theta a. s. P_{\theta, X} $$
+\end{theorem}
+
+
+\begin{proof}
+	Recall that 
+
+			$$d_B(x) = \left[E(W(\theta)|X)\right]^{-1} E(W(\theta)\theta|X) $$
+
+	 In the follwoig, write $W(\theta) = W$, $d_B(x) = d_B$. We want to show that if $d_B$ is unbiased then 
+
+	 		$$r(d_B) = 0 \Leftrightarrow \theta = d_B(x) a.s. P $$
+
+	 		\begin{align*}
+	 			r(d_B) &= E\left[(\theta - E(W|X)^{-1}E(W\theta|X)^T W(\dots)\right]\\
+	 				&= E\left[ E(\theta^T W \theta | X) - E(W\theta|X)^TE(W|X)^{-1} E(W\theta|X)\right]\\
+	 				&=E\left[ E(\theta^T W \theta | X) - d_B^T E(W\theta|X)\right]\\
+	 				&=E\left[ E(\theta^T W \theta  - d_B^T W\theta|X)\right]\\
+	 				&= E(\theta^T W \theta  - d_B^T W\theta)\\
+					&= E(\theta^T W \theta  - E(d_B|\theta)^T W\theta)\\
+					&= 0
+	 		\end{align*}
+\end{proof}
+
+
+\textbf{Wednesday February 15}\\
+
+\section{Error Assessment in Bayesian Setting}
+
+In frequentist setting, X is nothing but one realizeation of a random variable that potentially takes many values. So we may use
+
+		$$\Var_\theta(x) = \Var(x|\theta) $$
+
+or 
+
+		$$\MSE(X|\theta) = \E(X - \E(X|\theta))^2 $$
+
+In the Bayesian context, X is fixed (i.e. it's being conditional on). Once you condition on something it's out of the probability picture. 
+
+		$$\Var(\theta|X) = \E[(\theta - \E(\theta|X))(\theta- \E(\theta|X))^T]$$
+		$$\MSE_d(\theta|X) = \E(\theta - d(x)|x)^2 = \E [(\theta - d(x))(\theta - d(x))^T] $$
+
+Note that $\Var(\theta|X)$ is a special case of $\MSE_d(\theta|X)$ when $d = d_B$ under squared loss. It's easy to show the identity 
+
+		$$\MSE_d(\theta|X) = \Var(\theta|X) + [\E(\theta|X) - d(x)][\E(\theta|X) - d(x)]^T $$
+
+\begin{example}
+	Suppose that
+
+			$$X_1, \dots, X)n|\phi \stackrel{iid}{\sim} N(0, \phi), \phi\sim \tau \chi^{-2}_{(\nu)}$$
+
+	Then as in your HW \#2, you can show that 
+
+			$$\phi | X_1, \dots, X_n \sim (s + \tau) \chi^{-2}_{(\nu + n)} $$
+
+
+
+	where $s = \sum^n_{i=1} X_i^2$. 
+
+	Also, as shown in the homework, 
+
+			$$\E(\phi|X_1, \dots, X_n) = \frac{s+ \tau}{\nu + n - 2} $$
+
+			$$\Var(\phi|X_1, \dots, X_n) = \frac{2(s+ \tau)^2}{(\nu + n - 2 )^2 (\nu + n - 4)} $$
+
+	Suppose that $d_1(x) = \frac{1}{n} S$, unbiased estimator ($\mu$ = 0). Also that $d_2(x) = \frac{s + \tau}{\nu + n +2}$ is the GMLE (HW 2). 
+
+			$$\MSE_{d_1}(\phi|X_1, \dots, X_n) = \frac{2(s + \tau)^2}{(\nu + n - 2)^2 (\nu + n - 4)} + \left(\frac{s + \tau}{\nu + n - 2} - \frac{1}{n}S\right)^2 $$
+
+			$$\MSE_{d_2}(\phi|X_1, \dots, X_n) = \frac{2(s + \tau)^2}{(\nu + n - 2)^2 (\nu + n - 4)} + \left(\frac{s + \tau}{\nu + n - 2} - \frac{s + \tau}{\nu + n + 2}S\right)^2 $$
+
+	So you can present $d \pm \sqrt{\MSE_d (\theta | X_1, \dots, X_n)}$. 
+\end{example}
+
+\section{Credible Set (or Interval)}
+
+In the frequentist setting, CI is a random interval. C(X):
+
+		$$P_\Theta(\theta \in C(X)) = 1 - \alpha $$
+
+In the Bayesian setting, C(X) is fixed, we want: 
+
+		$$P(\theta \in C(X)| X) = 1 - \alpha $$
+
+\begin{definition}
+	A $(1 - \alpha)$-credible set is any $C \in \mathcal{F}_\theta$ such that 
+
+			$$P(\Theta^{-1}(C) || X) \geq 1 - \alpha\quad a.s.$$
+\end{definition}
+
+Shortest interval is preferred. HPD: Highest Posterior Density Credible Set. 
+
+\begin{definition}
+	The $(1 - \alpha)$-highest posterior density for $\theta$is a $C \in \mathcal{F}_\theta$ such that
+
+			$$C = \{\theta \in \Omega_\theta | \pi(\theta|X) \geq k_\alpha \} $$
+
+	where
+
+			$$k_\alpha = \sup \{k| P(\pi(\theta|X) \geq k) \geq 1 - \alpha \} $$
+\end{definition}
+
+Intuitively, 
+
+PHOTO
+
+Continuous $\pi(\theta|X)$ then in this case (PHOTO) 
+
+		$$P(\pi(\theta|X) \geq k_\alpha) = 1 - \alpha $$
+		$$P(\{\theta| pi(\theta|X) \geq K_\alpha \}|| X) $$
+
+As we move K up, $P(\pi(\theta|x) \geq K)$ takes only three values. What if $1-\alpha$ is not one of the three?
+
+PHOTO
+
+HPD is the shortest credible set as proved in next theorem.
+
+\begin{theorem}[2.4]
+	Suppose that $\pi(0) > 0 $, for all $\theta \in \Omega_\Theta$. Let $C_\alpha^*$ be a $(1 - \alpha)$ HPD credible set and $C_\alpha$ be any $(1-\alpha)$ credible set. 
+
+	Furthermore, assume that $P_{\Theta|X}(C_\alpha^*|X) = 1 - \alpha$. Then, 
+
+			$$\mu_\Theta(C^*_\alpha) \leq \mu_\Theta(C_\alpha) $$
+\end{theorem}
+
+\begin{proof}
+
+Want to show: 
+
+	$\mu_\Theta (c) < \mu_\Theta(C_\alpha^*) \Rightarrow P_{\Theta|X}(C|X) < P_{\Theta|X}(C^*_\alpha| X) = 1 - \alpha $
+
+Let $C \subseteq \Omega_\Theta, \mu_\Theta(C) < \mu_\Theta(C^*_\alpha) \Rightarrow \mu(C\setminus C_\alpha^*) < \mu(C_\alpha^* \setminus C)$
+
+	
+\textbf{Friday February 17}\\
+
+FINSIH PROOF
+
+We know that 
+
+$\pi(\theta|X) \geq K_\alpha$ on $C^*_\alpha \Rightarrow$ on $C^*_\alpha \setminus C$.\\
+
+$\pi(\theta|X) \leq K_\alpha$ on $C(^*_\alpha)^C \Rightarrow$ on $C \setminus C^*_\alpha$.\\
+
+\begin{align*}
+	P_{\Theta|X} (C_\alpha^* \setminus C |X) &= \int_{C_\alpha^* \setminus C} \pi(\theta | x) d\mu_\Theta(\theta)\\
+		&\geq K_\alpha \mu_\Theta(C_\alpha^* \setminus C)\\
+		&> K_\alpha \mu_\Theta(C \setminus C_\alpha^*)\\
+		&\geq \int_{C \setminus C_\alpha^*} \pi(\theta|X) d\mu_\Theta\\
+		&= P_{\Theta | X) }(C\setminus C_\alpha^*) 
+\end{align*}
+
+\end{proof}
+
+INCLUDE PICTURE
+
+\begin{example}
+	$$X_1, \dots, X_n |\lambda, \phi \stackrel{iid}{\sim} N(\lambda, \phi)$$
+	$$\lambda | \phi \sim N(a, \frac{\phi}{m}) $$
+	$$\phi \sim \tau \chi^2_{(k)} $$
+
+	So we know that 
+
+			$$\frac{\sqrt{n +  m} (\lambda - a(x))}{\sqrt{\tau(x) \setminus (n + k)}} \left| \right. X \sim t_{(n_k)}$$
+
+	where, 
+
+	$a(x) = (n \bar{x} + ma) \setminus (n + m)$\\
+	$\tau(x) = \sum(X_i - \bar{X})^2 + \tau + (\bar{X} - a)^2(m^{-1} + n^{-1})$\\
+
+	INSERT PHOTO
+
+	So the $(1 - \alpha)*100\%$ credible set for $\lambda$ is
+
+			$$\{\lambda: -t_{(n+k)}(\frac{\alpha}{2}) < \frac{\sqrt{n +  m} (\lambda - a(x))}{\sqrt{\tau(x) \setminus (n + k)}} < t_{(n+k)} (\frac{\alpha}{2})\} $$
+
+	Here we get, 
+
+			$$a(x) \pm t_{(n+k)}(\frac{\alpha}{2} \sqrt{\tau(x) [(n+k)(n+m)]}) $$
+
+
+	Recall that we also know that
+
+			$$\frac{\phi}{\tau(x)}|x \sim \chi^{-2}_{(n+k)} $$
+
+	PHOTO
+
+	$C_1, C_2$ are solution to 
+
+			$$h(C_1) = h(C_2)$$
+			$$\int^{C_2}_{C_1} h(t) d t = 1 - \alpha $$
+
+	where h is pdf of $\chi^{-2}_{k+m}$
+
+	HDD set of $\{\phi: C_1 < \frac{\phi}{\tau(x)} < C_2 \}$
+
+\end{example}
+
+
+
+\section{Hypothesis Test}\index{Hypothesis Test}
+
+PHOTO 
+
+Common we use the following losses\\
+
+	\begin{itemize}
+		\item 0-1 <- if wrong lose 1
+		\item 0 - $C_1$ - $C_2$ <- more nuanced. If wrong one way, $C_1$. If wrong the other way, $C_2$. 
+	\end{itemize}
+
+
+	$$L(\theta, a) = \left\{ \begin{array}{ll}	
+		0 & 	(\theta, a) \in (\Omega_\Theta^{(0)} x \{ a_0\}) \cup (\Omega_\Theta^{(1)} x \{a_1\})\\
+		C_1 & (\theta, a) \in (\Omega_\Theta^{(0)} x \{ a_1\}) \\
+		C_2 & (\theta, a) \in (\Omega_\Theta^{(1)} x \{a_0\})\\
+	\end{array}	\right. $$
+
+	\begin{theorem}
+		Suppose that 
+				$$0 < P_{\Theta| X} (\Omega_\Theta^{(0)} | X) < 1 $$
+
+		then the Bayes' rule for 0 - $C_1$ - $C_2$ Loss is 
+
+				$$d_B(x) = \left\{ \begin{array}{ll}
+					a_0 & C_1 P_{\Theta|X} (\Omega_\Theta^{(1)} | X) \leq C_0 P_{\Theta|X} (\Omega_\Theta^{(0)} | X)\\
+					a_1 & C_1 P_{\Theta|X} (\Omega_\Theta^{(1)} | X) > C_0 P_{\Theta|X} (\Omega_\Theta^{(0)} | X)\\
+				\end{array} \right. $$
+	\end{theorem}
+
+	\begin{proof}
+		Since the loss is bad, need to minimize 
+
+				$$\rho(x, a)$$
+
+	 over $(a_0, a_1)$. 
+
+	 	\begin{align*}
+	 		\rho(x, a) &= E(L(\theta, a) | X)\\
+	 			&= \int_{\Omega_\Theta^{(0)}} L(\theta, a) dP_{\Theta|X} + \int_{\Omega_\Theta^{(1)}} L(\theta, a) dP_{\Theta|X}\\
+	 		\rho(x, a_0) &= 0 + C_1 P_{\Theta|X} (\Omega_\Theta^{(1)})\\
+	 		\rho(x, a_1) &=  C_2 P_{\Theta|X} (\Omega_\Theta^{(0)}) + 0\\
+	 	\end{align*}
+
+
+	\end{proof}
+
+There is a problem in the frequentist setting (e.g. $H_0: \theta = \theta_0$)
+
+		$$\Omega_\Theta^{(0)} = \{\theta_0 \} $$
+
+So, if we put an absolute continous prior, then there is no mass assigned on $\Omega_\Theta^{(0)}$. So, the above Bayes rule does not work. 
+
+\begin{definition}
+	Let $(\Omega, \mathcal{F})$ be a measureable space. Then the Divas measure for $a \in \Omega$ is the set function 
+
+			$$\delta_a(B) = \left\{\begin{array}{ll}
+				1 & a \in B\\
+				0 & a \notin B
+			\end{array} \right. $$
+
+	This is a measure (proved in 517). 
+\end{definition}
+
+
+Note that is also can be shown that for any function $f: \Omega \rightarrow \mathbb{R}, B \in \mathcal{F}$
+
+		$$\int_B f(\omega) \delta_a (d \omega) = f(a) \delta_a(B) $$
+
+
+\textbf{Monday February 20}\\
+
+\textbf{Lemma 2.1} Suppose that $(\Omega, \mathcal{F})$ is a measureable space. We have that $a \in \Omega, B \in \mathcal{F}, \delta_a(B)$ is the Dirac measure about a. Suppose that for any a, $\{a\}\in \mathcal{F}$, (true for Borel). Suppose that
+
+		$$f:\Omega \rightarrow \mathbb{R}, \textcircled{m} \mathcal{F}\setminus\mathbb{R} $$
+
+then we have that
+
+		$$\int_B f(\omega) d\delta_a(\omega) = f(a) \delta_a(B)$$
+
+\begin{proof}
+			
+		$$\int_B f d\delta_a = \sup_{\{A_i\} \in \mathcal{P}} \sum^k_{i=1}[\inf_{\omega < A_i} f(\omega)] \delta_a(A_i) $$
+
+If $a \notin B$, then the above summation part of the equality is 0 for all $\{A_i\} \in \mathcal{P}$.\\
+
+Now suppose that $a \in B$, then there exists a unique $A_i \in \{A_i\}$ such that$a \in A_i$.\\
+
+So for any $\{A_i\} \in \mathcal{P}$ 
+
+		$$ \sum^k_{j=1}[\inf_{\omega < A_j} f(\omega)] \delta_a(A_j) = [\inf_{\omega < A_i} f(\omega)] \delta_a(A_i), \quad a \in A_i$$
+
+We know that this term is less than f(a), so this implies that
+
+		$$\int_B f d\delta_a \leq f(a) $$
+
+From here we want to take the special partition
+
+		$$(\{a\}, B\setminus \{a\}) \in \mathcal{P} $$
+
+		\begin{align*}
+			\int f d \delta_a \geq [\inf_{\omega \in \{a\}} f(\omega)] \delta_a(\{a\}) + [\inf_{\omega \in B \setminus \{a\}} f(\omega)] \delta_a(B\setminus \{a\})\\
+				&= f(a)*1 + 0\\
+				&=f(a)
+		\end{align*}
+
+So we have that $\int f d \delta_a = f(a)$ and thus we may conclude that 
+
+		$$\int f d \delta_a = \left\{\begin{array}{ll}
+			0 & a \notin B\\
+			f(a) & a \in B
+		\end{array} \right. \Rightarrow \int f d \delta_a = f(a) \delta_a(B)  $$
+\end{proof}
+
+Suppose that $Q_\Theta$ is a measure on $(\Omega_\Theta, \mathcal{F}_\Theta)$ such that 
+
+		$$Q_\Theta << \nu_\Theta << \lambda $$
+
+	Let $P_\Theta = (1 - \epsilon)Q_\Theta + \epsilon \delta_{\Theta_0}$ and $\Pi_\Theta(\theta) = \frac{d Q_\Theta}{d \nu_\Theta}$. 
+
+\begin{theorem}[2.6]
+	Suppose that $P_\Theta$ is defined as above. Then, for $a \in A_i$, 
+
+		$$P_{\Theta|X}(\{\theta_0\}|x) = \frac{\epsilon f(x|\theta_0)}{(1 - \epsilon)\int_{\Omega_\Theta} f(x|\theta) \pi_\Theta(\theta) d \nu_\Theta(\theta) + \epsilon f(x|\theta_0)} $$
+
+\end{theorem}
+
+\begin{proof}
+	Let $\mu_\Theta = (1 - \epsilon) \nu_\Theta + \epsilon \delta_{\Theta_0}$. We want to show that $P_\Theta << \mu_\Theta$ and find $\frac{d P_\Theta}{d \mu_\Theta}$. But in order to find this derivative we'll have to guess and check!
+
+
+			$$\tau_\Theta(\theta) = \left\{ \begin{array}{ll}
+				\pi_\Theta(\theta) & \theta \neq \theta_0\\
+				1 & \theta = \theta_0
+			\end{array} \right.$$
+
+	We want to check  $\tau_\Theta = \frac{d P_\Theta}{d \mu_\Theta}$. 
+
+	Let $B \in \mathcal{F}_\Theta$, 
+
+	\begin{align*}
+		\int_B \tau_\Theta(\theta) d\mu_\Theta(\theta) &= \int_B \tau_\Theta(\theta) d((1 - \epsilon) \nu_\Theta + \epsilon \delta_{\theta_0})\\
+			&=(1 - \epsilon)\int_B \tau_\Theta d \nu_\Theta + \epsilon\int \tau_\Theta d \delta_{\theta_0}\\
+			&=\dots\int_{B \setminus \{\theta_0\}} \tau_\Theta d \nu_\Theta + \dots\\
+			&=\dots \int_{B \setminus \{\theta_0\}} \Pi_\Theta d \nu_\Theta + \dots\\
+			&=\dots \int_{B} \Pi_\Theta d \nu_\Theta + \dots\\
+			&=(1 - \epsilon)\int_{B} \Pi_\Theta d \nu_\Theta + \epsilon\int \tau_\Theta d \delta_{\theta_0}\\
+			&= (1 - \epsilon)\int_{B} \Pi_\Theta d \nu_\Theta + \epsilon \delta_{\theta_0} (B)\\
+			&= (1 - \epsilon) Q_\Theta(B) + \epsilon \delta_{\theta_0}(B)\\
+			&= P_\Theta(B)
+	\end{align*}
+
+	Therefore by RN Theorem 
+
+			$$P_\Theta << \mu_\Theta, \frac{d P_\Theta}{d \mu_\Theta}$$
+
+
+	the posterior density from $\tau_\Theta(\theta)$ (the prior density) and the likelihood gives us, 
+
+			$$\tau_{\Theta|X}(\theta|x) = \frac{f_{X|\Theta}(x|\theta) \tau_\Theta(\theta)}{\int_{\Omega_\Theta} f_{X|\Theta}(x|\theta) \tau_\Theta d \mu_\Theta(\theta)} $$
+
+	So we have that 
+
+		\begin{align*}
+			P_{\Theta|X}(\{\theta_0\}|x) = \int_{\{\theta_0\}} \tau_{\Theta|x}(\theta|x) d\mu_\Theta(\theta) \\
+				&=  \frac{\int_{\{\theta_0\}} f(x|\theta) \tau_{\Theta}(\theta) d\mu_\Theta(\theta)}{\int_{\Omega_\Theta} f_{X|\Theta}(x|\theta) \tau_\Theta d \mu_\Theta(\theta)} \\
+		\end{align*}
+
+By Lemma 2.1, 
+
+		\begin{align*}
+			\int_{\{\theta_0\}} f(x|\theta) \tau_{\Theta}(\theta) d\mu_\Theta(\theta) &= (1 - \epsilon) \int_{\{\theta_0\}} \dots d\nu_\Theta(\theta) + \epsilon \int_{\{\theta_0\}} \dots d \delta_{\theta_0}\\
+			&= 0 + \epsilon f(x|\theta_0)\\
+		\end{align*}
+
+		\begin{align*}
+			\int_{\Omega_\Theta} f_{X|\Theta}(x|\theta) \tau_\Theta d \mu_\Theta(\theta) &= (1 - \epsilon) \int f(x|\theta) \pi(\theta) d\mu(\theta) + \epsilon \int f(x|\theta) \pi(\theta) d \delta_{\theta_0}(\theta)
+		\end{align*}
+
+	Therefore, 
+
+			$$P_{\Theta|X}(\{\theta_0\}|x)  =\frac{\epsilon f(x|\theta_0)}{(1-\epsilon) \int f(x| \theta) \pi(\theta) d \nu(\theta) + \epsilon f(x|\theta_0) }$$
+\end{proof}
+
+\textbf{Corollary 2.2} Consider setting
+
+		$$H_0: \theta = \theta_0, H_1: \theta \neq \theta_0 $$
+
+and action $\mathcal{A} = \{a_0, a_1 \}$ where we accept and fail to reject $H_0$, respectively. 
+
+Suppose the loss function is 
+
+		$$L(\theta, a) = \left\{ \begin{array}{ll}
+			0 & (\theta, a) \in (\{\theta_0\} x \{a_0 \}) \bigcup (\{\theta_0\}^C x \{a_1\})\\
+			C_0 & (\theta, a) \in (\{\theta_0\} x \{a_1 \}) \\
+			C_1 & (\theta, a) \in (\{\theta_0\}^C x \{a_0\})\\
+		\end{array}\right. $$
+
+and the prior is 
+
+		$$P_\Theta = (1 - \epsilon) Q_\Theta + \epsilon \delta_{\theta_0} $$
+
+the Bayes' rule is 
+
+		$$\frac{\epsilon f(x|\theta_0)}{(1-\epsilon) \int f(x| \theta) \pi(\theta) d \nu(\theta) + \epsilon f(x|\theta_0) } < \frac{C_1}{C_0 + C_1} $$
+
+
+\begin{example}
+	Suppose that 
+
+			$$X_1, \dots, X_n | \theta \stackrel{iid}{\sim} Exp(\theta) $$
+
+	Then the likelihood 
+
+			$$f(x|\theta) = \theta^{-n} e^{- t(x)/ \theta}, \quad \theta > 0 $$
+			$$t(x) = \sum^n_{i=1} X_i $$
+
+	Suppose that $\theta \sim \tau \chi^{-2}_{(m)}$. Then (you may check) 
+
+			$$\theta| \underline{X} \sim (2 t(x) + \tau) \chi^{-2}_{(m+2n)} $$
+
+
+	Suppose we want to test 
+
+			$$H_0: \theta \leq a, H_1: \theta > a $$
+
+	The Bayes' rule: reject if
+
+			$$P(\Omega_\Theta^{(1)}|x) > \frac{C_0}{C_0 + C_1} $$
+
+
+	Note that 
+
+			\begin{align*}
+			 	P(\Omega_\Theta^{(1)}|x) = P(\theta > a| x)\\
+			 		&=1 - P(\theta \leq a| x)\\
+			 		&= 1 - P\left(\frac{\theta}{2 t(x) + \tau} \leq \frac{a}{2 t(x) + \tau} |x\right)\\
+			 		&= 1 - F(\frac{a}{2 t(x) +\tau})
+			 \end{align*} 
+
+where F is the c.d.f. of $\chi^{-2}_{(2n+m)}$. 
+
+We want to solve
+
+		$$a = (2t(x) + \tau) F^{-1}(\frac{C_1}{C_0 + C_1}) $$
+
+
+\end{example}
+
+
+
+\textbf{Wednesday February 22}\\
+
+
+Suppose we want to test 
+
+			$$H_0: \theta =\theta_0, H_1: \theta \neq \theta_0 $$
+
+Under the $0-C_0-C_1$ loss and the slab \& spike prior. 
+
+	The Bayes' rule: reject if
+
+			$$\frac{\epsilon f(x|\theta_0)}{(1-\epsilon) \int_{\Omega_\Theta} f(x| \theta) \pi(\theta) d \nu(\theta) + \epsilon f(x|\theta_0) } < \frac{C_1}{C_0 + C_1} $$
+
+			$$f(x|\theta_0) = \theta_0^{-1}e^{-t(x)/\theta_0} $$
+
+			$$\pi(\theta) = \tau \chi^{-2}_{(\nu)} \quad \text{ slab}$$
+
+			$$\pi(\theta) = \frac{1}{\Gamma(\frac{\nu}{2}) 2^{\frac{\nu}{2}}} (\frac{\theta}{\tau})^{-\frac{\nu}{2} - 1} e^{- \frac{\tau}{2 \theta}} \tau^{-1} $$
+
+	Take the integral from the rejection denominator, and using the information above
+
+			\begin{align*}
+				\int^\infty_{-\infty} \theta^{-n} e^{-t(x)/\theta}  \frac{1}{\Gamma(\frac{\nu}{2}) 2^{\frac{\nu}{2}}} (\frac{\theta}{\tau})^{-\frac{\nu}{2} - 1} e^{- \frac{\tau}{2 \theta}} \tau^{-1} d\theta &= \text{Algebra to isolate new pdf (integrates to 1)}\\
+					&=\frac{\Gamma(\frac{2n + 2}{2})}{\Gamma(\frac{\nu}{2})} \tau^{\frac{\nu}{2}}(2 t(x) + \tau) \frac{2n + \nu}{2} 2^n
+			\end{align*}
+
+\section{Classificaiton}\index{Classification}
+
+$\Omega_\Theta$ is a finite set true lables of classes. 
+
+		$$\Omega_\Theta = \{1, \dots, k\} $$
+		$$\Omega_A = =\{1, \dots, k\} $$
+
+PHOTO
+	
+The loss function, 
+
+	$L:\{1, \dots, k\} x \{1, \dots, k\}$
+
+PHOTO
+
+The $0 - C_0 - C_1$ is a sepcial case in this. 
+
+PHOTO
+
+The 0-1 loss is also a further special case where $C_{01} = C_{10} = 1 $
+
+
+\begin{theorem}
+	The Bayes' Rule for ($\Omega_\Theta, \Omega_A, L$) is 
+
+			$$d_B(x) - \arg\min\left\{\sum^k_{\theta=1}C_{\theta a} f_{x|\theta}(x|\theta) \pi_\Theta(\theta): a = 1, \dots, k \right\} $$
+\end{theorem}
+
+\begin{proof}
+	Because the los if inte we need to minimize, 
+
+			$$\rho(x, a): a = 1, \dots, k $$
+
+	Recall that, 
+
+			\begin{align*}
+				\rho(x, a) &= \E(L(\theta, a)|X)\\
+					&= \sum^k_{\theta=1} L(\theta, a) \pi(\theta|x)\\
+					&= \sum^k_{\theta = 1} C_{\theta a} \pi(\theta|x)\\
+					&= \sum^k_{\theta = 1} C_{\theta a} f(x|\theta)\pi(\theta)
+			\end{align*}
+
+	Above, note that 
+
+			$$\pi(\theta|x) \propto f(x|\theta) \pi(\theta) $$ 
+\end{proof}
+
+usually, there is a training set and a testing test. In the training set, we know the 'labels', whereas in the testing set we do not. 
+
+We have for label $\theta$, 
+
+		$$X_{\theta 1}, \dots, X_{\theta n_{\theta}} \stackrel{iid}{\sim} P_{X|\theta}$$
+
+where $\theta = 1, \dots, k$. An example would be handwritting for letters/numbers. 
+
+Generally, there are extra parameters $\Psi_\theta$ that determines the shape of clan $\theta$. 
+
+		$$X_{\theta 1}, \dots, X_{\theta n_\theta} \sim P_{X|\theta, \Psi_\theta} $$
+
+Most commonly used models for $P_{X|\theta, \Psi_\theta}$ is 
+
+		\begin{enumerate}
+			\item LDA - $N(\mu_\theta, \Sigma)$
+			\item QDA - $N(\mu_\theta, \Sigma_\theta)$
+		\end{enumerate}
+
+The parameter, $\Phi_\theta$ is estimated from training sets, whereas $\pi(\theta)$ is estimated by 
+
+		$$\frac{n_\theta}{\sum^k_{\theta = 1} n_\theta} $$
+
+Plug these into the Bayes then you have LDA, QDA. So, under first model if we use UMVUE to estimate $\mu_\theta, \Sigma$, then 
+
+		$$\hat{\mu_\theta} = \frac{1}{n_\theta} \sum^{n_\theta}_{i = 1} X_{\theta i} $$
+
+		$$\hat{\Sigma} = \frac{1}{\sum^k_{\theta = 1} n_\theta - k} \sum^k_{\theta = 1} \sum^{n_\theta}_{i = 1} (x_{\theta i} - \hat{\mu}_\theta )(x_{\theta i} - \hat{\mu}_\theta)^T $$
+
+Plug in Bayes rule and we get LDA. 
+
+For the second model, 
+
+		$$\hat{\mu_\theta} = \frac{1}{n_\theta} \sum^{n_\theta}_{i = 1} X_{\theta i} $$
+
+		$$\hat{\Sigma} = \frac{1}{n_\theta - 1} \sum^k_{\theta = 1} \sum^{n_\theta}_{i = 1} (x_{\theta i} - \hat{\mu}_\theta )(x_{\theta i} - \hat{\mu}_\theta)^T $$
+
+Plug this into Bayes rule and get QDA. 
+
+
+Suppose we make a plot using QDA, 
+
+		PHOTO
+
+
+\section{Stein's Estimate}{Stein's Estimate}
+
+Stein (1956) shows that if the dimension is greater than 3 and sample size is 1, then MLE is not admissible. 
+
+\textbf{Friday February 24}\\
+
+\textbf{Lemma 2.2} Suppose that 
+		
+		$$X \sim N(\mu, \sigma^2), g:\mathbb{R} \rightarrow \mathbb{R} $$
+
+where g is differentiable, 
+
+		$$\E |g(x)| < \infty $$
+
+Then we have that
+
+		$$\Cov (X, g(X)) = \Var (x) \E g^\cdot(x) $$
+
+
+\begin{proof}
+	First we assume that 
+
+			$$X \sim N(0, 1) $$
+
+	Let $\phi$ be the pdf of $N(0, 1)$. Recall that 
+
+			$$\phi(x) = - x \phi(x)$$
+
+			$$\E[g^\cdot(x)] = \int^\infty_{-\infty}g^\cdot(x) \phi(x)  dx $$
+
+
+	Let $a \in \mathbb{R}$, then this integral above becomes 
+
+			\begin{align*}
+				\int^a_{-\infty}g^\cdot(x) \phi(x)  dx + \int^\infty_{a}g^\cdot(x) \phi(x)  dx &= \int^a_{-\infty}g^\cdot(x) (\int_{-\infty}^x  \phi^\cdot(z) dz)  dx + \int^\infty_{a}g^\cdot(x) (\int_{x}^\infty  \phi^\cdot(z) dz)   dx\\
+					&=\int^a_{-\infty} \int_{-\infty}^x  g^\cdot(x)   \phi^\cdot(z) dz  dx + \int^\infty_{a}  \int_{x}^\infty g^\cdot(x)   \phi^\cdot(z) dz   dx\\
+					&= \int^a_{-\infty} \int_{z}^a  g^\cdot(x)   \phi^\cdot(z) dx  dz + \int^\infty_{a}  \int_{z}^a g^\cdot(x)   \phi^\cdot(z) dx   dz\\
+					&=\int^a_{-\infty} \phi^\cdot(z) (g(a) - g(z))dz + \int_a^\infty \phi^\cdot(z)((g(z) - g(z)) dz)\\
+					&=\int^\infty_{-\infty} \phi^\cdot(z)(g(a) - g(z)) dz\\
+					&= g(a) \int^\infty_{-\infty} \phi^\cdot(z) dz - \int^\infty_{-\infty} \phi^\cdot(z)g(z) dz\\
+					&= \int z g^\cdot(z) \phi(z) d z \\
+					&= \E (X g(x))\\
+					&=\Cov(X, g^\cdot(x))\\
+					&= E(g^\cdot(x))
+			\end{align*}
+
+
+	More generally, if $X \sim N(\mu, \sigma^2)$ then $X = \sigma Z + \mu$ where $Z \sim N(0, 1)$.
+
+
+			$$\Cov (X, g(X)) = \sigma \Cov(Z, g_1(z))$$
+
+	Note that
+
+	\begin{align}
+		g_1 (z) &= g(\sigma z + \mu)\\
+		&= \sigma \E(g^\cdot_1(z))\\
+		&= \sigma \E(\sigma g^\cdot_1(\sigma Z + \mu))\\
+		&= \sigma^2 \E (g^\cdot(\sigma Z + \mu))\\
+		&= \sigma^2 \E(g^\cdot(x))\\
+		&= \Var (x) \E g^\cdot(x)
+	\end{align}
 
 
 
 
+\end{proof}
 
 
+\textbf{Lemma 2.3} (HW \#4). If 
 
+		$$X \sim N(\mu, \Sigma), g: \mathbb{R}^P \rightarrow \mathbb{R}^p $$
+
+where g is differentiable such that $\frac{\partial g}{\partial x^T}$ has integrable components. Then 
+
+		$$\Cov(X, g(X)) = \Sigma \E \left(\frac{\partial g^T(X)}{\partial X}\right) $$
+
+
+\begin{theorem}[2.8]
+	Suppose that 
+
+			$$X \sim N(\theta, I_P) $$
+
+	where $P \geq 3$. 
+
+	Let 
+
+			$$ L(\theta, a ) = ||\theta - a ||^2$$
+
+	and d(x) = X. Then we have that d is inadmissable. ("Very weird")
+\end{theorem}
+
+
+\begin{proof}
+	Let $d_1(x) = (1 - g(X)) X$ where $h: \mathbb{R}^P \rightarrow \mathbb{R}$ is to be specified later. 
+
+		\begin{align*}
+			R(\theta, d_1) &= \E ||\theta - d_1(X)||^2 \\
+				&= \E ||X - \theta - h(x) X ||^2\\
+				&= \E||X - \theta||^2 - 2\E [(X- \theta)^T h(X)X] + \E [h^2(X) ||X|]\\
+				&= \E||X - \theta||^2 - 2 tr[\Cov(X, h(X)X)] + \E [h^2(X) ||X|]\\
+				&= \E||X - \theta||^2 - 2 tr [I_P \E \frac{\partial h(X)}{\partial X}] + \E [h^2(X) ||X|]\\
+				&=\E||X - \theta||^2 - 2\E(X^T (\frac{\partial h}{\partial X} + ph(X))) + \E [h^2(X) ||X|]\\
+				&=R(\theta, d) -  2\E(X^T (\frac{\partial h}{\partial X} + ph(X))) + \E [h^2 (x) ||X||^2]
+		\end{align*}
+
+Let $h(x) = \frac{\alpha}{||x||^2}$. Then 
+
+		\begin{align}
+			\frac{\partial h}{\partial X} &= \alpha \frac{\partial}{\partial X} (||X||^2)^{-1} \\
+				&=\alpha(-1)(||X||^2)^{-2} \frac{d X^T X}{d X}
+				&= -\alpha ||X||^{-4} 2x\\
+				&= -\alpha 2X ||X||^{-2}
+		\end{align}
+
+
+So if we plug this into equations above we get 
+
+		$$||X||^{-2} \alpha(4 - 2P + \alpha) $$
+
+So we have that
+
+		$$R(\theta, d_1) - R(\theta, d) = \alpha(4 - 2 P + \alpha ) \E ||X||^2 $$
+
+If $4 - 2 P + \alpha < 0$ then d is inadmissible.
+
+Any $0 < \alpha < 2P - 4$ makes this happen. Note we need $P \geq 3$. 
+\end{proof}
+
+\textbf{Monday February 27}\\
+
+We've said that
+
+		$$(1 - \frac{\alpha}{||X||^2})X $$
+
+is better than X for $0 < \alpha < 2p - 4, p \geq 3$. So if we take $\alpha = p - 2$ then we have
+
+		$$(1 - \frac{p - 2}{||X||^2})X $$
+
+which is called the James-Stein estimator. 
+
+\section{Empirical Bayes}\index{Empirical Bayes}
+
+Somestimes we have parameters in $\Pi$ such as 
+
+		$$X|\mu \sim N(\mu, 1) $$
+
+		$$\mu \sim N(a, \phi) $$
+
+Where before we treated a and $\phi$ as known hyperparameters. 
+
+For Empirical Bayes these parameters will also be estimated, $\pi(\theta|b)$.
+
+The likelihood is 
+
+		$$\pi(\theta|x) \propto f(x|\theta) \pi(\theta|b)$$
+
+We can integrate
+
+		$$f(x|b) = \int f(x|\theta)\pi(\theta|b) d\mu_\theta $$
+
+and treat this as our likelihood with b as the parameter. So then you can estimate b by frequentist methods, such as MLE or UMVUE. Once you have $\hat{b}$ you can plug it into the prior, $\pi(\theta|b)$.   
 
 
 % %----------------------------------------------------------------------------------------

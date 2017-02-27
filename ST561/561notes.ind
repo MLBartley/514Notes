@@ -1,5 +1,10 @@
 \begin{theindex}
 
+  \item Bayes Rule and Unbiasedness, \hyperpage{43}
+
+  \indexspace
+
+  \item Classification, \hyperpage{52}
   \item Conditional Independence and Frquentist/Bayesian Sufficiency, 
 		\hyperpage{15}
   \item Conjugate Priors, \hyperpage{21}
@@ -13,10 +18,15 @@
 
   \item Equivalence of Frequentist \& Bayesian Sufficiency, 
 		\hyperpage{18}
+  \item Estimation, \hyperpage{39}
 
   \indexspace
 
   \item Frequentist \& Bayesian Settings, \hyperpage{14}
+
+  \indexspace
+
+  \item Hypothesis Test, \hyperpage{47}
 
   \indexspace
 
