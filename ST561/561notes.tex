@@ -51,6 +51,7 @@
 
 
 
+
 \newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
 \newcommand{\E}{\mathrm{E}}
 
@@ -2863,42 +2864,1701 @@ We can integrate
 
 		$$f(x|b) = \int f(x|\theta)\pi(\theta|b) d\mu_\theta $$
 
-and treat this as our likelihood with b as the parameter. So then you can estimate b by frequentist methods, such as MLE or UMVUE. Once you have $\hat{b}$ you can plug it into the prior, $\pi(\theta|b)$.   
+and treat this as our likelihood with b as the parameter. So then you can estimate b by frequentist methods, such as MLE or UMVUE. Once you have $\hat{b}$ you can plug it into the prior, $\pi(\theta|b)$. With the 'pretend' prior we may carry out Bayesian analysis, such as Bayes rule, generalized MLE, etc. This precess is called Empirical Bayes. 
+
+
+ \begin{example}
+ 	Let $\theta = \theta_1, \dots, \theta_P$.  And that $X_1, \dots, X_P|\theta $. Assume that
+
+ 			\begin{enumerate}
+ 				\item $\theta_1 \indep \dots \indep \theta_P$
+ 				\item $X_i|\theta_1, \dots, \theta_P \sim N(\theta_i, 1) $
+
+ 			This condition also implies that
+
+ 			$$X_i \indep \theta^{-i} | \theta^i $$
+ 			
+ 				\item $\theta_i \sim N(0, b)$ 
+ 			\end{enumerate}
+
+ 	Here the likelihood is, 
+
+ 				$$f(\underline{X}|\underline{\theta}) = f(X_1|\underline{\theta}) \cdots f(X_P|\underline{\theta}) = f(X_1|\theta_1) \cdots f(X_P|\theta_P) $$
+
+ 	And our prior becomes
+
+ 			
+ 			$$\pi(\underline{\theta}|b) = \pi(\theta_1|b) \cdots \pi(\theta_P|b)$$
+
+ 	We may integrate to get $f(x|\theta)$
+
+ 			\begin{align}
+ 				\int f(x|\theta)\pi(\theta|b) d\theta &= \int \dots \int f(x_1|\theta_1) \cdots f(X_P|\theta_P) \pi(\theta_1|b) \cdots \pi(\theta_P|b) d\theta\\
+ 					&=\int f(X_1|\theta_1) \pi(\theta_1|b) d\theta_1 \cdots \int f(X_P|\theta_P) \pi(\theta_P|b) d\theta_P\\
+ 					&= f(X_1|b)\cdots f(X_P|b)
+ 			\end{align}
+
+ 	We weill derive UMVUE for b. Before that, we first will do Bayes rule for $\theta$ under $||\theta - a||^2$. 
+
+ 			$$d_B(\theta) = E(\theta|X) = \begin{pmatrix}
+ 				E(\theta_1|X_1, \dots, X_P)\\
+ 				\vdots\\
+ 				E(\theta_1|X_1, \dots, X_P)
+ 			\end{pmatrix} $$
+
+ 	Where
+
+ 			$$E(\theta_i|X_1, \dots, X_P) = \int \theta_i \pi(\theta_i|X_1, \dots, X_P) d\theta_i $$
+
+ 			\begin{align*}
+ 				\pi(\theta_i|\underline{X}) &= \frac{f(\underline{X}|\theta_i) \pi(\theta_i)}{f(\underline{X})} \\
+ 					&=\frac{f(X_1|\theta_i) \cdots f(X_P|\theta_i) \pi(\theta_i)}{f(\underline{X})}
+ 			\end{align*}
+
+ 	Note that conditional indepedence satisfies 4 axioms (see below). 
+ 			
+ \end{example}
+
+
+\textbf{Axioms of Conditional Independence}\\
+
+		$$X \indep Y | Z $$
+
+	Visualized as:
+
+		$$\textcircled{X} - \textcircled{Z} - \textcircled{Y}$$
+
+ Where X only can "communicate" with Y through Z. 
+
+ \begin{enumerate}
+ 	\item $X \indep Y | Z \Rightarrow Y \indep X | Z$
+ 	\item $X \indep (Y, Z) |W \Rightarrow X\indep Y | W$ 
+ 	\item $X \indep (Y, Z) |W \Rightarrow X \indep Z | (W, Y)$
+ 	\item $X \indep W | (Y, Z) \& X \indep Y|Z \Rightarrow X \indep (Y, W) |Z$
+ \end{enumerate}
+
+\textbf{Wednesday March 1}\\
+
+MIDTERM EXAM - Content up to (and including) Section 2.2. Note: 2016 Midterm covered more content. 
+
+ \textbf{Friday March 3}\\
+
+\begin{example}
+	
+	$$X_1, \dots, X_P |\theta_1, \dots, \theta_P \sim N(\theta_i, 1)$$
+	$$\theta_i \sim N(0, b) $$
+
+where, 
+
+		$$\theta_1 \indep \dots \indep \theta_P $$
+
+and b is known. 
+
+Bayes rule: $\E (\theta_i| \underline{X})$\\
+
+So we know that 
+
+		\begin{align*}
+		\pi(\underline{\theta}|\underline{X}) &= \frac{f(\underline{X}|\underline{\theta}) \pi(\underline{\theta})}{f(\underline{X})}	\\
+			&= \frac{f(X_1|\theta_1) \pi(\theta_1)}{f(X_1)} \cdots \frac{f(X_P|\theta_P) \pi(\theta_P)}{f(X_P)}
+		\end{align*}		
+\end{example}
+
+Now we can find, 
+
+		\begin{align*}
+			\E (\theta_i|\underline{X}) &= \int \cdots \int \theta_i \pi(\underline{\theta}|\underline{X}) d\underline{\theta}\\
+				&=\int \cdots \int \theta_i \pi(\theta_1|X_1) \cdots \pi(\theta_P|X_P) d\underline{\theta}\\
+				&= \int \theta_i \pi(\theta_i|X_i) d\theta_i\\
+				&= \E (\theta_i|X_i)
+		\end{align*}
+
+But, 
+
+		$$X_i |\theta_i \sim N(\theta_i, 1) $$
+		$$\theta_i \sim N(0, b) $$
+		$$\theta_i |X_i \sim N\left(\frac{X_i}{\frac{1}{b} + 1}, \frac{1}{\frac{1}{b} + 1} \right) $$
+
+Using Bayes' Rule, 
+
+		$$\E (\theta_i | X_i) = \frac{X_i}{\frac{1}{b}+ 1} = (1 - {\frac{1}{1 + b}}) X_i $$
+
+and if we know b, 
+		$$d_B(x) = \begin{pmatrix}
+			\frac{X_1}{b^{-1} + 1}\\
+			\vdots\\
+			\frac{X_P}{b^{-1} + 1}\\
+		\end{pmatrix} $$
+
+
+We want to estimate b using UMVUE of $\frac{1}{b + 1}$. 
+
+Note that $X_i \sim N(0, b + 1)$. So, a complete, sufficient statistic would be
+
+		$$S = \sum^n_{i = 1} X_i^2 $$
+
+We know that
+
+		$$\frac{S}{b+1} \sim \chi^{2}_P $$
+
+and the inverse, 
+
+		$$\frac{b + 1}{S} \sim \chi^{-2_P} $$
+
+where we know the expectation is $\frac{1}{P- 2}$, rearranging we get 
+
+		$$\E (\frac{p - 2}{S}) = \frac{1}{b+1}$$
+
+giving us the UMVUE of $\frac{1}{b+ 1}$. Plugging this into Bayes' rule, 
+
+		$$d_B(x) = (1 - \frac{p - 2}{||X||^2})X $$
+
+Note that this is the James Stein estimate. 
+
 
 
 % %----------------------------------------------------------------------------------------
-% %	CHAPTER 4
+% %	CHAPTER 3
 % %----------------------------------------------------------------------------------------
 
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+\chapterimage{chapter_head_1.pdf} % Chapter heading image
 
-% \chapter{Random Variable}
+\chapter{Testing Hypothesis for Simple-VS-Simple}
+
+\section{Basic Concepts}\index{Basic Concepts}
+
+$(\Omega, \mathcal{F})$ is measurable space. \\
+$(\Omega, \mathcal{F}_X)$ is measurable space. \\
+$X: \Omega \rightarrow \Omega_X \textcircled{m} \mathcal{F} \setminus \mathcal{F}_X$\\
 
 
-% %----------------------------------------------------------------------------------------
+Let $\mathcal{P}_0, \mathcal{P}_1$ be two disjoint families of probability measure on $(\Omega, \mathcal{F})$. 
+
+P is the true distrubiton. Assume that $P \in \mathcal{P}_0 \cup \mathcal{P}_1 = \mathcal{P}$
+
+\textbf{Hypothesis Test}\\
+
+		$$H_0: P \in \mathcal{P}_0, H_1: P \in \mathcal{P}_1 $$
+
+We want to decide whether to reject $H_0$. \\
+
+
+If everything is deterministic, 
+
+		$$A:Theory \Rightarrow B_{Obs} $$
+
+So if B doesn't happen, then A is false. 
+
+But in non-deterministic world, 
+
+		$$A:\text{True} \Rightarrow P(\text{B occurs}) = \text{large} $$
+		$$A:\text{Prob not True} \Leftarrow \text{B doesn't happen} $$
+
+Stasticial Inference!
+
+We reject $H_0$ if X falls in a certain region, $C \subseteq \Omega_X$. This region of rejection is called the...rejeciton region. 
+
+\begin{definition}
+	Let 
+
+			$$ \alpha = \sup_{P \in \mathcal{P}_0} P(X \in C) $$
+
+	be the Type I error. 
+
+			$$\beta(P) = P(X \in C), P \in \mathcal{P}_1 $$
+
+	is the Power at P. Note that
+
+			$$1 - \beta(P) $$
+
+	is the Type II error.
+\end{definition}
+
+
+If we introduce, 
+
+		$$\phi: \Omega_X \rightarrow \{0,1\} $$
+		$$ \phi(x) = \mathbb{I}_{\{C\}}(X) $$
+
+then $P(X \in C) = \E (\phi(x))$. 
+
+So, more generally, we don't have to restrict range of $\phi$ to {0, 1}. 
+
+		$$\phi: \Omega_X \rightarrow [0, 1] $$
+
+So, $\phi(x)$ is the probability of rejection given X. 
+
+In this general setting the function 
+
+\textbf{Monday March 13}\\
+
+\section{Neyman-Pearson Lemma}\index{Neyman-Pearson Lemma}
+
+Scenario: You are in a boat arriving at Treasure Island. Your boat can carry 100 pounds of bounty, but no more. On the island there are 1 lb units of gold, diamonds, watermelon, and bananas. Clearly, with each unit being equal in weight you want to take the most valuable goods. Likely diamonds, then gold, then the food. If they are not equal weight you still want to determine which is the most valuable per unit weight. 
+
+This is the essence of the Neyman-Pearson Lemma with analogies to likelihood and rejection regions. 
+
+Weight is analogus to null probability. \\
+Value is to power. \\
+Weight limit is to alpha.\\
+
+
+When we test simple versus simple hypothesis, 
+
+		$$H_0: P = P_0 \quad H_1: P = P_1 $$
+
+where $\mathcal{P}_0  = \{P_0\}, \mathcal{P}_1 = \{P_1\}$. 
+
+
+\begin{definition}
+	A test $\phi$ for the simple versus simple hypothesis is Most Powerful size $\alpha$ test (MP-$\alpha$) if
+
+	\begin{enumerate}
+		\item $\E _{P_0} \phi(x) = \alpha$
+		\item If $\phi'$ is level $\alpha$. (i.e $\E _{P_0} \phi' \leq \alpha$)
+	\end{enumerate}
+
+	then $\E _{P_1} \phi \geq \E _{P_1} \phi'$
+\end{definition}
+
+We can assume that $P_0, P_1$ are dominated by a measure $\mu$. For example, let 
+
+	$$\mu = P_1 + P_2 $$
+
+	then, $P_1 << \mu, P_2 << \mu$.
+
+\textbf{Lemma 3.1} (Neyman-Pearson: Optimality) Let $f_0, f$ be $\frac{d P_0}{d \mu}, \frac{d P_1}{d \mu}$. Then for any test of the form: 
+
+		$$ \phi(x) = \left\{ \begin{array}{ll}
+			1 & f_1(x) > k f_0(x)\\
+			0 & f_1(x) < k f_0(x)\\
+		\end{array} \right.$$
+
+where $K \geq 0$ is MP-$\alpha$ where $\alpha = \E_{P_0} \phi$.
+
+
+\begin{proof}
+	Let $\phi'$ be any test of level $\E_{P_0} \phi$. We want to show that
+
+			$$\E_{P_1} \phi \geq \E_{P_1} \phi' $$
+
+	Consider the formula, 
+
+			$$(\phi - \phi')(f_1 - k f_0) $$
+
+	and look at which term is postive or negative and note that together the terms are always positive. 
+
+	So, 
+
+			\begin{align*}
+				\int (\phi - \phi')(f_1 - k f_0) d\mu &> 0\\
+				\int (\phi - \phi')f_1 d\mu &\geq k \int (\phi - \phi')f_0 d\mu\\
+				\int (\phi - \phi') f_1 d\mu &\geq k \E_{P_0} \phi - \E_{P_0} \phi'\\
+				\E_{P_0} \phi &\geq \E_{P_0} \phi
+			\end{align*}
+
+\end{proof}
+
+\textbf{Existence \& Uniqueness Part of N-P Lemma}\\
+
+\textbf{Proposition 3.1} Suppose that $\rho:\mathbb{R} \rightarrow \mathbb{R}$ is right continuous, nonincreasing such that
+
+		\begin{enumerate}
+			 \item $\rho(0-) = 1$
+			 \item  $\lim_{x \rightarrow \infty} \rho(x) = 0$
+		\end{enumerate}
+
+Then for any $0 < \alpha < 1$ there exists $k \in [0, \infty]$ such that $\alpha \in [\rho(k), \rho(k-)]$. 
+
+We may think of this as a discontinuous version of intermediate value theorem. 
+
+\begin{proof}
+	If $\alpha \equiv 1$ then we may take $k = 0$ and then 
+
+			$$\rho(0-) = 1 \geq \rho(0) $$
+
+	Now we may assume that $0 < \alpha < 1$. Let $S_\alpha = \{x : \rho(x) \leq \alpha \}$. Let $k = \inf S_\alpha$. Now, because $\alpha > 0, \rho(x) \rightarrow 0, S_\alpha \neq 0$ for any $ 1> \alpha > 0, 0 < \inf S_\alpha < \infty$. Let $\{x_n \} \subset S_\alpha$ such that $x_n \downarrow k$ by right continuity, $\rho(x_n) \rightarrow \rho(k)$. Since we have that $\rho(k) \geq \alpha$ for all n, this implies that $\rho(k) \leq \alpha$. 
+
+	Since $\rho(x) < \alpha$ for all $x < k$, then $\rho(k-) \geq \alpha$. 
+\end{proof}
+ 
+
+ \begin{theorem}
+ 	For any $0 < \alpha \leq 1$ there exists a test $\phi$ of size $\alpha$ for the NPL form, i.e., 
+
+ 			$$\phi(x) = \left\{\begin{array}{ll}
+ 				1 & f_1 > k f_0\\
+ 				0 & f_1 < k f_0\\
+ 			\end{array} \right. $$
+
+ 	such that $\phi(x) \equiv \gamma$ for $f_1 = k f_0$. For some $\gamma \in [0, 1], 0 \leq k < \infty$ (the existance part of NPL).
+ 	
+ 	Further more, if $\phi'$ is MP-$\alpha$ then it has to have the form above (almost surely $P_0, P_1$). 		
+ \end{theorem}
+
+ \textbf{Wednesday March 15}\\
+
+ \begin{proof}
+ 	Existance. For a test of the form: 
+
+ 			$$\phi(x) = \left\{\begin{array}{ll}
+ 				1 & f_1 > k f_0\\
+ 				\gamma & f_1 = k f_0\\
+ 				0 & f_1 < k f_0\\
+ 			\end{array} \right. $$
+
+ 			\begin{align*}
+ 				\E_{P_0} \phi(x) &= \int_{f_1 > k f_0} \phi f_0 d\mu + \int_{f_1 = k f_0} \phi f_0 d\mu + \int_{f_1 < k f_0} \phi f_0 d\mu\\
+ 					&=P_0(f_1 > k f_0) + \gamma P_0(f_1 = k f_0) + 0\\
+ 			\end{align*}
+
+ 	Let 
+
+ 			\begin{align*}
+ 				\rho(k) &= P_0(f_1 > k f_0)\\
+ 					&= P_0(f_1 > k f_0, f_0 > 0)\\
+ 					&= P_0 (\frac{f_1}{f_0} > k, f_0> 0)
+ 			\end{align*}
+
+ 	We claim that $\rho(k)$ satisfies the four conditions in Proposition 3.1
+
+ 			\begin{itemize}
+ 				\item Right Continuous\\
+
+						Let $k_n \downarrow k$, 
+
+								$$\bigcup^\infty_{n = 1} \{f_1 > k_n f_0\} = \{f_1 > k f_0\} $$ 
+								
+						And by continuity of probability, 
+
+								$$P_0( f_1 > k_n f_0) \rightarrow P_0(f_1 > k f_0) $$
+
+				\item Nonincreasing
+				\item $\rho(0-) = 1$
+
+						Let $k_n \uparrow 0$. Then
+
+								$$\bigcap^\infty_{n = 1} \{f_1 > k_n f_0\} = \{f_1 > 0\} $$ 
+								
+						And by continuity of probability, 
+
+								$$P_0( f_1 > k_n f_0) \rightarrow P_0(f_1 > 0) $$
+						So,
+								$$\rho(0-) = 1 $$ 				
+
+				\item $\lim_{k \rightarrow \infty} \rho(k) = 0$
+
+						Let $k_n \rightarrow \infty$. Then
+
+						$$\bigcap^\infty_{n = 1} \{f_1 > k_n f_0\} = \emptyset$$ 
+								
+						And by continuity of probability, 
+
+								$$P_0( f_1 > k_n f_0) \rightarrow P_0(\emptyset) $$ 	
+						So,
+								$$\rho(k_n) \rightarrow 0 $$ 	
+ 			\end{itemize}
+
+So by Proposition 3.1, there exists $0 \leq k_0 < \infty$ such that
+
+		$$\rho(k_0) \leq \alpha \leq \rho(k_0-) $$
+
+which is to say, 
+
+		$$P_0(f_1 > k f_0) \leq \alpha \leq P_0(f_1 \geq k_0 f_0) $$
+
+Let 
+
+		$$\gamma = \left\{\begin{array}{ll}
+			\frac{\alpha - P_0(f_1 > k_0 f_0)}{P_0(f_1 = k_0 f_0)} & P(f_1 = k_0 f_0) = 0\\
+			0 & o.w.\\
+		\end{array} \right. $$
+
+Now let 
+
+		$$\phi(x) = \left\{\begin{array}{ll}
+ 				1 & f_1 > k f_0\\
+ 				\gamma & f_1 = k f_0\\
+ 				0 & f_1 < k f_0\\
+ 			\end{array} \right. $$
+
+ 	If $P_0(f_1 = k f_0) > 0$ then, 
+
+ 			\begin{align*}
+ 				\int \phi f_0 d\mu &= P_0(f_1 > k f_0) + \frac{\alpha - P_0(f_1 > k_0 f_0)}{P_0(f_1 = k_0 f_0)}\\
+ 					&=\alpha
+ 			\end{align*}
+
+ 	And if $P_0(f_1 = k f_0) = 0$ then, $\gamma = 0$ and thus,
+
+ 			\begin{align*}
+ 				\int \phi f_0 d\mu = P_0(f_1 > k f_0) \\
+ 				 	&= P_0(f_1 \geq k f_0)	\\
+ 					&=\alpha
+ 			\end{align*}
+
+ And now for the uniqueness part. 
+
+ First let us understand what is the meaning of $\phi'$ with the form, 
+
+ 			$$\phi'(x) = \left\{\begin{array}{ll}
+ 				1 & f_1 > k f_0\\
+ 				0 & f_1 < k f_0\\
+ 			\end{array} \right. $$
+ almost surely $P_0, P_1$. 
+
+ This means that $\phi' = \phi$ on $f_1 \neq k f_0$ almost surely. Then 
+
+ 		$$P_{0,1}(\{\omega: f_1(\omega) \neq k f_0(\omega) \rightarrow \phi'(\omega) = \phi(\omega) \}) = 1 $$
+
+ 		$$P_{0,1}(\{\omega: f_1(\omega) \neq k f_0(\omega) \rightarrow \phi'(\omega) \neq \phi(\omega) \}) = 0 $$
+
+So we want to show that 
+
+		$$P_{0, 1}( f_1 \neq k f_0, \phi' \neq \phi) = 0 $$
+
+Since $\phi'$ is another MP-$\alpha$ tst
+
+		$$\int \phi' f_0 d\mu = \int \phi f_0 d\mu = \alpha $$
+
+Because both are MP, 
+
+		PHOTO
+
+
+ \end{proof}
+
+
+ \section{Uniformly Most Powerful Test for One-Sided Hypothesis}\index{UMP Test - One Sided}
+
+ \subsection{General Definition}
+
+ $(\Omega, \mathcal{F}, \mathcal{P})$ is our probability measure where
+
+ 		$$\mathcal{P} = \mathcal{P}_0 \cup \mathcal{P}_1,  \mathcal{P}_0 \cap \mathcal{P}_1 = \emptyset$$
+
+ We hypothesis that
+
+ 		$$H_0: P \in \mathcal{P}_0 \quad H_1: P \in \mathcal{P}_1 $$
+
+ \begin{definition}
+ 	A test $\phi$ for 
+
+ 	 		$$H_0: P \in \mathcal{P}_0 \quad H_1: P \in \mathcal{P}_1 $$
+
+is UMP of size $\alpha$ (UMP-$\alpha$) if 
+
+		\begin{enumerate}
+			\item it is of size $\alpha$ 
+
+					$$\sup_{P \in \mathcal{P}_0} \int \phi dP = \alpha $$
+
+			\item if $\phi'$ is ove level $\alpha$, 
+
+					$$\sup_{P \in \mathcal{P}_0} \int \phi' dP \leq \alpha $$
+
+		then we have that
+
+				$$\int \phi dP \geq \int \phi' dP \quad \forall P \in \mathcal{P} $$
+
+		In the parametric setting, 
+
+				$$\mathcal{P} = \{P_\theta : \theta \in \Theta\} $$
+
+				$$\Theta = \Theta_0 \cup \Theta_1, \Theta_0 \cap \Theta_1 = \emptyset $$
+
+				$$H_0: \theta \in \Theta_0 \quad H_1: \theta \in \Theta_1 $$
+
+			\begin{enumerate}
+				\item $\sup_{\theta \in \Theta_0} \int \phi d P_\theta$
+				\item $$\int \phi dP_\theta \geq \int \phi' dP_\theta \quad \forall \theta \in \Theta $$
+			\end{enumerate}
+		\end{enumerate}
+ \end{definition}
+
+
+ \subsection{Monotone Likelihood Ratio Assumption}
+
+ \begin{definition}
+ 	Let $\mathcal{P} = \{P_\theta: \theta \in \Theta \}$ be a one parameter family of probability measures, dominated by a $\sigma$-definite measure $\mu$. Also let 
+
+ 			$$f_\theta = \frac{d P_\theta}{d \mu} $$
+
+ 	The family of densities, 
+
+ 			$$\{f_\theta: \theta \in \Theta\} $$
+
+ 	has Monotone Likelihood Ratio (MLR) in Y(x) if for any $\theta_1 < \theta_2$. 
+
+ 			$$L(X) = \frac{f_{\theta_2}(x)}{f_{\theta_1}(x)} $$
+
+ 	is monotone (nondecreasing or nonincreasing) funciton of Y(x) on the set on which Y(x) is defined. 
+ \end{definition}
+
+ \textbf{Friday March 17}\\
+
+ GET NOTES FROM DHANUSHI
+
+ \textbf{Monday March 20}\\
+
+ \subsection{General Form of UMP-Test for One-Sided Hypothesis}
+
+ 		$$H_0: \theta \leq \theta_0 \quad H_1: \theta \geq \theta_0 $$
+
+ 		$$ H_0: \theta \geq \theta_0 \quad H_1: \theta \leq \theta_0$$
+
+ \begin{theorem}[3.2 in class]
+ 	Suppose that $\{f_\theta: \theta \in \Theta \subseteq \mathbb{R}\}$ has MLR (without loss of generality, nondecreasing in Y(x)). 
+
+ 	\begin{enumerate}
+ 		\item For $\alpha < 0$ the test of the form
+
+ 				$$\phi(x) = \left\{ \begin{array}{ll}
+ 					1 & Y(x) > k\\
+ 					\gamma & Y(x) = k\\
+ 					0 & Y(x) < k
+ 				\end{array}\right.$$
+
+ 		combined with,  $\int \phi f_{\theta_0} d\mu = \alpha$ is UMP-$\alpha$ for testing (I).
+
+ 		\item If $\alpha < 1$ then the test,
+
+				$$\phi'(x) = \left\{ \begin{array}{ll}
+ 					1 & Y(x) > k'\\
+ 					\gamma' & Y(x) = k'\\
+ 					0 & Y(x) < k'
+ 				\end{array}\right.$$ 	
+
+ 		combined with $\int \phi' f_{\theta_0} d\mu = \alpha$ is UMP-$\alpha$ for testing (II).			
+ 	\end{enumerate}
+ \end{theorem}
+
+ The idea is that you want the smoothed $\E_\theta \phi$ to be extreme. So you want $\phi$ to be as extreme as possible. 
+
+ \begin{proof}
+ 	Step 1. Show test (I) is UMP for testing
+
+ 			$$H_0: \theta = \theta_0 \quad H_1: \theta > \theta_0 $$
+
+ 	It suffices to show this test is of N-P form for any $\theta > \theta_0$. 
+
+ 	So we wnat to show that test I is of the form, 
+
+
+ 		$$\phi_1(x) = \left\{ \begin{array}{ll}
+ 					1 & f_\theta(x) > k_1 f_{\theta_0} (x)\\
+ 					0 & f_\theta(x) < k_1 f_{\theta_0} (x)
+ 				\end{array}\right.$$
+
+ for any $\theta < \theta_0$. 
+
+ Because $\{f_\theta: \theta \in \Theta\}$ has MLR, $\{x: Y(x) \leq k\} \subseteq \{x: L_0(Y(x)) \leq L_0(k)\}$. Thus, $L_0(Y(x)) = L(x)$. 
+
+ PHOTO
+
+ For the same reason, $\phi$ is 0 on $\{x: Y(x) < k\}$. So $\phi$ has form $\phi_1$. 
+
+ Step 2. Want to show that $\phi$ has size $\alpha$ because $\phi$ is of form I, nondecreasing in $Y(x)$. 
+
+ So $\beta_\phi(\theta)$ is nondecreasing in $\theta$. 
+
+ 		$$\sup_{\theta \leq \theta_0} \beta_\phi (\theta) = \beta_\phi(\theta_0) = \alpha $$
+
+
+ Step 3. Show that $\phi$ is UMP-$\alpha$ for 
+
+ 		$$H_0: \theta \leq \theta_0 \quad H_1: \theta > \theta_0 $$
+
+ We know that $\phi $ is UMP among all tests such that $\E_{\theta_0} \phi' \in \alpha$ (**) by Step 1. 
+
+ Now we want $\phi$ to be UMP among all $\phi'$ such that 
+
+ 		$$\sup_{\theta \leq \theta_0} \E_\theta \phi'(x) \leq \alpha $$
+
+ But (**) is true because statement above implies (**). 
+
+ The second part of the proof follows by considering 
+
+ 			$$\phi = 1 - \psi $$
+
+ where $\psi$ is the first test form with size $1 - \alpha$. 
+
+ \end{proof}
+
+ \subsection{Properites of UMP-$\alpha$ Test for One Sided Hypotheses}
+
+ Intuitively, UMP property tells us that the test's (I) power most extreme on higher side.
+
+ PHOTO
+
+ But it also has to be most extreme on other side.
+
+ \textbf{Corollary 3.1} Suppose that $0 < \beta_\phi (\theta_0) <1$. If $\phi$ is of the I form, then for any $\psi$ satisfying
+
+ 		$$\beta_\psi (\theta_0) \geq \beta_\phi(\theta_0) $$
+
+ we have 
+
+ 		$$ \beta_\phi (\theta) \leq \beta_\psi(\theta) $$
+
+ \begin{proof}
+ 	From the proof of Theorem 3.2, $1 - \phi$ is UMP for testing form (II) and has size 
+
+ 			$$\beta_{1 - \phi}(\theta_0) = \E_{\theta_0} (1 - \phi) = 1 - \beta_\phi(\theta_0) $$
+
+ 	Thus, for $\theta< \theta_0$,
+
+ 			\begin{align*}
+ 				\beta_{1 - \phi}(\theta) &\geq \beta_{1 - \psi}(\theta)\\
+ 				1 - \beta_{\phi}(\theta) &\geq 1 - \beta_{\psi}(\theta)\\
+ 				\beta_{\phi}(\theta) &\leq \beta_{\psi}(\theta)\\
+ 			\end{align*}
+ \end{proof}
+
+ Next property says that if we have test of form (I) then under MLR and indentifiability, then $\beta_\phi(\theta)$ is strictly increasing. 
+
+ \begin{theorem}[3.4]
+ 	Suppose that $\{f_\theta:\theta \in \Theta \subseteq \mathbb{R}\}$ has MLR (nondecreasing in Y(x)) and is identifiable. Let us use $\phi$ of form I such that
+
+ 			$$\E_{\theta_0} \phi(x) = \alpha $$
+
+ 	then $\beta_\phi (\theta)$ is strictly increasing on the set $\{\theta: 0 < \beta_\phi(\theta) < 1\}$. 
+ \end{theorem}
+
+ \begin{remark}
+ 	Review of identifiability. Consider a family of probability measures, 
+
+ 			$$\{P_\theta: \theta \in \Theta\} $$
+
+ 	This family is identifiable if whenever $\theta_1 \neq \theta_2$, then $\P_{\theta_1} \neq P_{\theta_2}$. 
+
+
+ \end{remark}
+
+
+ Suppose GET NOTES
+
+
+\textbf{Wednesday March 22}\\
+
+Let $\theta_1 < \theta_2$. As proved in Theorem 3.2, $\phi$ is of form (\_.-):
+
+		$$\phi(x) = \left\{ \begin{array}{ll}
+			1 & f_{\theta_2} < k' f_{\theta_1}\\
+			0 & f_{\theta_2} > k' f_{\theta_1}\\
+		\end{array}\right. $$
+
+for some $0 \leq k' \leq \infty$. 
+
+So by NPL, $\phi$ is MP test for 
+
+		$$H_0: \theta_1 \quad H_1: \theta_2 $$
+
+and has size $\beta_\phi(\theta_1)$. We know that
+
+		$$\beta_\phi(\theta_2) \geq \beta_\phi (\theta_1) $$
+
+So we need to show 
+
+		$$\beta_\phi(\theta_2) \neq \beta_\phi(\theta_1) $$
+
+
+Suppose that $\beta_\phi(\theta_2) = \beta_\phi(\theta_1) $ then let $\phi^*(x) \equiv \beta_\phi(\theta_1)$. Then
+
+		$$(\phi - \phi^*)(f_{\theta_2} - k' f_{\theta_1)}) \geq 0 $$
+
+		$$\int (\phi - \phi^*)(f_{\theta_2} - k' f_{\theta_1)}) d\mu $$
+
+But since we know that the integral is zero, so much the integrand (inside part) be zero. This, combined with $0 < \beta_\phi(\theta_1) < 1$ gives us that
+
+		$$\phi \neq \phi^* \quad f_{\theta_2} \neq k' f_{\theta_1} $$
+
+
+So $\{f_{\theta_2} \neq k' f_{\theta_1} \} \subseteq \{(\phi - \phi^*) (f_{\theta_2} - k; f_{\theta_1}) \neq 0 \}$. Note that
+
+		$$\mu(f_{\theta_2} \neq k' f_{\theta_1}) = 0 $$
+
+GET NOTES
+
+
+\section{Uniformly Most Powerful Unbiased Test - 2 Sided Hypothesis}\index{UMPU Test - 2 sided Hypothesis}
+
+Suppose we want to test
+
+
+		$$H_0: \theta_1 \leq \theta \leq \theta_2 \quad H_1: \theta > \theta_2, \theta < \theta_1  $$
+
+PHOTO
+
+Bing Li's Notation: -.\_.-\\
+
+
+2nd Case
+
+    	$$ H_0: \theta \geq \theta_2, \theta \leq \theta_1 \quad H_1: \theta_1 < \theta < \theta_1$$
+
+Notation: \_.-.\_ \\
+
+
+
+We are going to study three types of 2 sided hypotheses
+
+		\begin{enumerate}[label = \Roman*]
+			\item $H_0: \theta = \theta_0 \quad H_1: \theta \neq \theta_0$
+			\item $H_0: \theta_1 \leq \theta \leq \theta_2 \quad H_1: \theta > \theta_2, \theta < \theta_1 $
+			\item $ H_0: \theta \geq \theta_2, \theta \leq \theta_1 \quad H_1: \theta_1 < \theta < \theta_1$
+		\end{enumerate}
+
+The most commonly used is I (then II then III). But the most fundamental proof is III so we'll work backwards to I. 
+
+First we show, in the case of I and II that UMP does not exist. 
+
+\begin{example}
+	(No UMP for 2-sided Hyp I)
+
+		$$X \sim Bin(n, \theta) $$
+
+$0 < \theta < 1$\\
+$0< \alpha< 1$\\
+
+		$$H_0: \theta = .5 \quad H_1: \theta \neq .5 $$
+
+	First consider, $H_1^+: \theta > .5$. By Theorem 3.2, 
+
+			$$\phi_+ = \left\{ \begin{array}{ll}
+				1 & x > c_+\\
+				\gamma_+ & x = c_+\\
+				0 & x < c_+
+
+			\end{array}\right. $$
+
+with $\E_{\theta = .5} (\phi_+) = \alpha$ is UMP-$\alpha$. 
+
+
+Can similarly, set up $\phi_-$ for testing $H_1^-: \theta < .5$. 
+
+Suppose that $\phi_0$ is UMP - $\alpha$ for given hypothesis. Then $\phi_0$ is UMP0$\alpha$ for $H_0$ vs $H_1^+$. 
+
+
+Consequently, 
+
+		$$\E_\theta(\phi_0) = \E_\theta(\phi_+) $$
+
+GET NOTES
+
+\end{example}
+
+
+\textbf{Friday March 24}\\
+
+\subsection{Uniformly Most Powerful Unbiased Test (UMPU)}
+
+		$$H_0: \mathcal{P}_0 \quad H_1: \mathcal{P}_1 $$
+
+
+\begin{definition}
+	A test, $\phi$, is unbiased for above hypothesis if $\forall P_0 \in \mathcal{P}_0, P_1 \in \mathcal{P}_1$, 
+
+			$$\E_{P_0} \phi(x) \leq \E_{P_1} \phi(x) $$
+
+	So rejectiong probability is greater if $P \in \mathcal{P}_1$.  That is, the probability of rejeciton is higher when you should reject than when you shouldn't. 
+
+
+\end{definition}
+
+\begin{definition}
+	A test, $\phi$, is called UMPU of size $\alpha$ (UMPU-$\alpha$) if 
+
+			\begin{enumerate}
+				\item It has size $\alpha$
+				\item For any size-$\alpha$ unbiased $\psi$, we have
+
+						$$\beta_\phi (P) \geq \beta_\psi (P) \quad \forall P \in \mathcal{P}_0$$ 
+			\end{enumerate}
+\end{definition}
+
+
+Several simple facts. \\
+
+
+Fact 1.  UMP-$\alpha$ test is always unibased. 
+
+	\begin{proof}
+		Suppose $\phi$ is UMP-$\alpha$. Let $\psi(x) = \alpha$. (Here we are CWIST-ing, comparing with stupid test.)
+
+		Since $\phi$ is UMP-$\alpha$, $\psi$ is a tset of size $\alpha. $
+
+				$$\E_P  \phi(x) \geq \alpha \quad \forall P \in \mathcal{P}_1 $$
+
+		but for $\alpha = \sup_{P \in \mathcal{P}_0} \E_P \phi(x)$, 
+
+				$$\E_{P_1} \phi \geq \E_{P_0} \phi \quad \forall P_i \in \mathcal{P}_i, \quad i = \{0, 1\} $$
+
+	\end{proof}
+
+Fact 2. UMPU-$\alpha$ test is always unbaised, CWIST take $\psi(x) = \alpha$. Then we have that 
+
+		$$\E_P \psi(x) \equiv \alpha \quad \forall P $$
+
+So we have that $\psi $ is unbiased of size $\alpha$. 
+
+So 		
+
+		$$\E_P \phi(x) \geq \E_P \psi(x) = \alpha \quad \forall P \in \mathcal{P}_1 $$ 
+
+But 
+
+		$$\E_P \phi(x) \leq \alpha \quad \forall  P \in \mathcal{P}_0$$
+
+So $\phi$ is unbiased. \\
+
+
+Fact 3. A UMP-$\alpha$ test is always a UMPU-$\alpha$ test. (one is larger class/group)
+
+\textbf{Proposition 3.2} Suppose on $\mathcal{P} = \mathcal{P}_0 \cup \mathcal{P}_1$ is defined a metric, say P, such that
+
+		$$P \mapsto \E_P \phi(x), \mathcal{P} \rightarrow \mathbb{R} $$
+
+is continuous with respect to  P. 
+
+If $\phi$ is size - $\alpha$ unbiased, then
+
+		$$\E_P \phi(x) \equiv \alpha \quad \forall P \in \bar{\mathcal{P}_0} \cap \bar{\mathcal{P}_1} $$
+
+	\begin{proof}
+		Let $P \in \bar{\mathcal{P}_0} \cap \bar{\mathcal{P}_1}$ Because $P \in \bar{\mathcal{P}_0}$, there exists $\{P_k\} \subseteq \mathcal{P}_0$ such that
+
+				$$\rho(P_k, P) \rightarrow 0, \quad k \rightarrow \infty $$
+
+		which implies that
+
+				$$\E_{P_k} \phi(x) \rightarrow \E_p \phi(x) $$
+
+		Note that the LHS is less than $\alpha$ since $\phi$ is unbiased. This implies that
+
+				$$ \E_p \phi(x) \leq \alpha$$
+
+		and similarly
+
+				$$\E_p \phi(x) \geq \alpha $$
+
+		so, 
+
+				$$ \E_p \phi(x) = \alpha$$
+	\end{proof}
+
+	\subsection{Exponential Family}
+
+	Recall that $\{f_\theta (x): \theta \in \Theta \}$ is an exponential family with repsect to $\mu$ if 
+
+			$$f_\theta(x) = \frac{\exp{\eta(\theta) Y(x)}}{\int \exp{\eta(\theta) Y(x) d\mu(x)}} $$
+
+	where $\eta = \Theta \rightarrow \Theta$ is one-to-one. 
+
+	Another review, analytic functions:
+
+	\begin{definition}
+		A function $f: \mathbb{R} \rightarrow \mathbb{R}$ is analytic on an open set G ison any $x \in G$ there exists a neighborhood $0_x$ such that for all $x' in 0_x$, 
+
+				$$f(x') = \sum^\infty_{n = 0} a_n (x' - x)^n $$
+
+		which generalizes a polynomial. 
+	\end{definition}
+
+\begin{theorem}
+	If f is analytic, on G and $\{x: f(x) = 0 \}$ has a limit point in G then $f(x) = 0$ on G. 
+\end{theorem}
+
+\begin{definition}
+	A point x is a limit point of set A, if every neighborhood of x contains a point in A that is not x itself. 
+\end{definition}
+
+Another review, 
+
+\textbf{Lemma 3.3} Suppose $g(x) e^{\theta x}$ is integrable with repsect to $\mu$ for all $\theta \in \Theta$. Then, in the interior of $\theta$, 
+
+		$$\theta \mapsto \int e^{\theta x} d\mu(x) $$
+
+Futhermore, the derivatives of all order can be taken inside in integral. 
+
+
+Fact: For one parameter exponential family, 
+
+		$$\dot{\beta}_\psi (\theta) = \Cov_\theta (Y(X), \psi(X)) $$
+
+\begin{proof}
+ 	
+GET NOTES 
+
+ \end{proof} 
+ 
+\textbf{Monday March 27}\\
+
+\subsection{Generlized Neyman Pearson Lemma}
+
+Recall island example for intuition. 
+
+\textbf{Lemma 3.4} Suppose $f_1, \dots, f_m, f_{m + 1}$ are funcitons measureable and integrable with respect to $\mu$. Let $C_1, \dots, C_m \in \mathbb{R}$, and
+
+		$$\phi^*(x) = \left\{ \begin{array}{ll}
+			1 & f_{m+1} > C_1 f+1 + \cdots + C_m f_m\\
+			0 & f_{m+1} < C_1 f+1 + \cdots + C_m f_m\\
+		\end{array}\right. $$
+
+Then 
+
+	\begin{enumerate}
+		\item For any $\phi$ satisfying
+
+				$$\int \phi f_i d\mu = \int \phi^* f_i d\mu \quad i = 1, \dots, m $$ 
+
+		we have
+
+				$$\int \phi^* f_{m+1} d\mu \geq \int \phi f_{m + 1} d\mu$$
+
+		\item If $C_1 \geq 0, C_m \geq 0$ then for any $\phi$ satisfying
+
+				$$\int \phi f_i d\mu \leq \int \phi^* f_i d\mu \quad i = 1, \dots, m $$
+		we have
+
+				$$\int \phi^* f_{m+1} d\mu \geq \int \phi f_{m+1} d\mu $$
+	\end{enumerate}
+
+\begin{proof}
+Consider 	
+
+		$$(\phi^* - \phi)(f_{m+1} - C_1 f_1 - \cdots - c_m f_m) $$
+
+Not if second term is greater than zero, then the first must be greater than or equal to zero. Similarly, if second term is less than zero, then so must the first be less than or equal to. 
+
+Thefore,
+
+GET NOTES - lots of stupid arrows across the board
+	
+\end{proof}
+
+\subsection{UMP-Test for Test III}
+
+		$$H_0: \theta \leq t_1, \theta \geq t_2 \quad H_1: t_1 < \theta < \theta_2$$
+
+
+We will show that $\phi$ of the form (\_.-.\_) is UMP-$\alpha$ for hyposthesis III above. 
+
+		$$\phi(x) = \left\{ \begin{array}{ll}
+			1 & t_1 < Y(x) < t_2\\
+			\gamma_i & Y(x) = t_i \quad i = 1, 2\\
+			0 & Y(x) < t_1 \text{ or } Y(x) > t_2
+		\end{array} \right. $$
+
+
+\begin{theorem}[3.6]
+	Let X be a random variable with density 
+
+			$$f_\theta (x) = c(\theta)e^{\theta Y(x)} $$
+
+	Then, 
+
+	\begin{enumerate}
+		\item for any $\theta_1 < \theta_2$, $0 < \alpha < 1$, there exists $0 < t_1 < t_2 < \infty, 0 \leq \gamma_1, \gamma_2 \leq 1$ such that this form of $\phi$ (\_.-.\_) satisfies, 
+
+			$$\E_{\theta_1} \phi(x) = \alpha $$
+			$$\E_{\theta_2} \phi(x) = \alpha $$
+
+		\item Also, for any $\psi$ with 
+
+			$$\E_{\theta_1} \psi \leq \E_{\theta_1}\phi, \E_{\theta_2} \psi \leq \E_{\theta_2}\phi $$
+
+	we have that for $\theta_1 < \theta< \theta_2$
+
+			$$\E_\theta \phi(x) \geq \E_{\theta}\psi $$
+
+		\item Also, also, let $\phi$ be (\_.-.\_) in part 1. Then for any $\psi$ such that
+
+			$$\E_{\theta_1} \psi(x) = \E_{\theta_2} \psi(x) = \alpha $$
+
+	we have that for all $\theta < \theta_1$ or $\theta < \theta_2$,
+
+			$$\E_\theta \phi(x) \leq \E_\theta \psi(x) $$
+
+		\item	Also, also, also, This $\phi$ is UMP-$\alpha$ for III.
+
+	\end{enumerate}
+	
+	
+\end{theorem}
+
+
+\begin{proof}
+	\begin{enumerate}
+		\item Proof is similar to existence of \_.- such taht
+
+				$$\E_{\theta_0} (\_.-) = \alpha $$
+
+		using intermediate value theorem for P. This is tedius, so omitted. 
+		\item Idea: for any $\theta \in (\theta_1, \theta_2)$, $\phi = \_.-$ is of the GNP form. 
+
+		GET NOTES
+
+
+		\item \textbf{Wednesday March 29}\\
+
+			GET NOTES
+		\item  
+	\end{enumerate}
+\end{proof}
+ 
+ \subsection{UMPU-$\alpha$ Test for II, III}
+
+ First, we will address hypothesis II. 
+
+ \begin{theorem}[3.7]
+ 	Suppose X has density 
+
+ 			$$\frac{e^{\theta Y(x)}}{\int e^{\theta Y(x)} d\mu(x)} = c(\theta e^{\theta Y(x)}) $$
+
+ 	and we know that $\theta_1 < \theta_1$, and $0 < \alpha < 1$. Then
+
+ 			\begin{enumerate}
+ 				\item there exists test of the form 
+
+ 						$$\phi(x) = \left\{\begin{array}{ll}
+ 							1 & Y(x) < t_1 \text{ or } Y(x) > t_2\\
+ 							\gamma_1 & Y(x) = t_1\\
+ 							\gamma_2 & Y(x) = t_2 \\
+ 							0 & t_1 < Y(x) < t_2
+ 						\end{array} \right. $$
+
+ 			where $-\infty < t_1 < t_2 < \infty$ and $0 \leq \gamma_1, \gamma_2 < 1$ such that
+
+ 					$$\E_{\theta_1} \phi = \E_{\theta_2} \phi = \alpha  $$
+
+
+				\item this test is UMPU-$\alpha$ test for form II
+
+						$$H_0: \theta_1 \leq \theta \leq \theta_2 \quad H_1: \theta< \theta_1 \text{ or } \theta > \theta_2$$
+
+ 			\end{enumerate}
+ \end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		
+		\item Get notes. 
+
+		\item 
+
+	\end{enumerate}
+\end{proof}
+
+Theorems 3.6 and 3.7 (the previous two) are logically equivalent. But how come we get UMP for 3.6, but UMPU for 3.7?
+
+For hypothesis II, we need to exclude the test such as
+
+PHOTO
+
+that is why we consider unbiased test. 
+
+For hypothesis I, these test are automatically excluded. 
+
+Only difference. 
+
+
+
+Now we may consider hyposthesis I. 
+
+\begin{theorem}[3.8]
+	Suppose that X has density,
+
+		$$\frac{e^{\theta Y(x)}}{\int e^{\theta Y(x)} d\mu(x)} = c(\theta) e^{\theta Y(x)} $$
+
+ 	Let $\theta_0 \in \Theta^0$ interior of $\Theta$ and $0 < \alpha < 1$. 
+
+ 	Then, 
+
+ 		\begin{enumerate}
+ 			\item there exists $\phi = -.\_.-$ such that
+
+ 					$$\E_{\theta_0} \phi(x) = \alpha $$  
+ 					$$\E_{\theta_0} [Y(x) \phi(x)] = \alpha \E{\theta_0} (Y(x))$$
+
+ 			\begin{remark}
+ 				Note that unbiasedness for hyp I implies that (SEE PHOTO)
+
+ 						$$\beta_\phi(\theta_0) = \alpha $$
+ 						$$\dot{\beta}_{\phi} (\theta_0) = 0 $$
+
+ 				But recall that 
+
+ 						$$\dot{\beta}_\phi (\theta_0) = \Cov_{\theta_0} (Y(x), \phi(x)) $$
+
+ 				which implies that
+
+ 						$$\E_{\theta_0} (Y\phi) = \alpha \E_{\theta_0} Y $$
+ 			\end{remark}
+ 			\item  $\phi$ is UMPU-$\alpha$ for testing hypothesis  I.
+ 		\end{enumerate}
+
+\end{theorem}
+
+\begin{proof}
+	\begin{enumerate}
+		
+		\item  Part 1 is omitted.
+		\item  GET NOTES
+	\end{enumerate}
+\end{proof}
+
+
+\textbf{Friday March 31}\\
+
+FINISHED PROOF. 
+
+\begin{example}
+	Let $X_1, \dots, X_n$, iid, $N(\theta, 1)$. We want to test hypotheses I, II, and III. 
+
+	by elementary calculation (BEC) 
+
+			$$f_\theta (X_1, \dots, X_n) = c(\theta) \exp\{\theta \sum^n_{i = 1} X_i \} $$
+
+	So, let $Y(X_1, \dots, X_n) = \sum^n_{i=1} X_i$. 
+
+	\textbf{Testing hypothesis III}\\
+
+	By Theorem 3.6, we have that the test, $\phi$, for hypothesis III is (\_.-.\_) such that
+
+			$$\E_{\theta_1} (\_.-.\_) = \E_{\theta_2} (\_.-.\_) = \alpha $$
+
+	But, 
+
+			$$Y \sim N(n\theta, n) $$
+
+	Note that here, (\_.-.\_) is approximately the same as (\_-\_).
+
+	We have that 
+
+			$$P_{\theta_1} (t_1 < Y < t_2) = \alpha $$
+
+			$$P_{\theta_2} (t_1< Y < t_2) = \alpha $$
+
+
+	Again, by elementary calculations, we know that above are equivalent to 
+
+		$$ \left\{ \begin{array}{l}
+			\Phi(\frac{t_2 - n \theta_1}{\sqrt{n}}) - \Phi(\frac{t_1 - n \theta_1}{\sqrt{n}}) = \alpha\\
+			\Phi(\frac{t_2 - n \theta_1}{\sqrt{n}}) - \Phi(\frac{t_1 - n\theta_2}{\sqrt{n}}) = \alpha\\
+
+		\end{array} \right.$$
+
+
+	where $\Phi$ is the CDF of a Standard Normal distribution. 
+
+	In principe, we can always solve these two variables equation numerically (such as Newton Raphson). However, in this, the two equations actually reducing to one equation by symmetry. 
+
+	So, 
+
+			$$t_1 = n \frac{\theta_1 + \theta_2}{2} - t_0 $$
+			$$t_2 = n \frac{\theta_1 + \theta_2}{2} + t_0 $$
+
+	And thus, we only have to solve this equation, 
+
+			$$\Phi (\frac{n \frac{\theta_1 + \theta_2}{2} + t_0 - n\theta_1}{\sqrt{n}}) - \Phi (\frac{n \frac{\theta_1 + \theta_2}{2} - t_0 - n\theta_1}{\sqrt{n}}) $$
+
+	which reduces to,
+
+			$$\Phi \left(\frac{n (\theta_1 + \theta_2) + 2t_0 }{2\sqrt{n}}\right) - \Phi \left(\frac{n (\theta_1 + \theta_2) - 2t_0 }{2\sqrt{n}}\right) $$
+
+\textbf{Testing Hypothesis II}\\
+
+$\phi$ = -.\_.- = -\_-
+
+We have that 
+
+			$$P_{\theta_1} (Y < t_1) + P_{\theta_1} (Y > t_2) = \alpha $$
+
+			$$P_{\theta_2} (Y < t_1) + P_{\theta_2} (Y > t_2) = \alpha $$
+
+
+	Again, by elementary calculations, we know that above are equivalent to 
+
+		$$ \left\{ \begin{array}{l}
+			\Phi(\frac{t_1 - n \theta_1}{\sqrt{n}}) +1 - \Phi(\frac{t_2 - n \theta_1}{\sqrt{n}}) = \alpha\\
+			\Phi(\frac{t_1 - n \theta_1}{\sqrt{n}}) +1 - \Phi(\frac{t_1 - n\theta_2}{\sqrt{n}}) = \alpha\\
+
+		\end{array} \right.$$
+
+	pHOTOS
+
+	So, 
+
+			$$t_1 = n(\frac{\theta_1 + \theta_2}{2}) + t_0 $$
+			$$t_2 = n(\frac{\theta_1 + \theta_2}{2}) - t_0 $$
+
+	And thus we only need to solve, 
+
+
+		$$\Phi \left(\frac{n (\theta_2 - \theta_1) - 2t_0 }{2\sqrt{n}}\right) + 1 - \Phi \left(\frac{n (\theta_2 - \theta_1) + 2t_0 }{2\sqrt{n}}\right) $$
+
+FINISH FOR HYP III
+
+
+\end{example}
+
+
+\textbf{Monday April 3}\\
+
+Need to finish for Hyp III. 
+
+Our test is $\phi$ = -.\_.- which has to stisfy
+
+
+		$$ \Phi (\frac{t_1 - n\theta_0}{\sqrt(n)}) + 1 - \Phi (\frac{t_2 - n \theta_0}{\sqrt(n)}) = \alpha$$
+
+		$$\Cov _{\theta_0} Y, \phi(y)) = 0 $$
+
+
+Now, hope to solve $(t_1, t_2)$ but we may reduce to equation by symettry
+
+		$$\Cov _{\theta_0} (Y, \phi(Y)) = \E _{\theta_0} ((Y - n\theta_0) \phi(Y)) = 0 $$
+
+We want the product of thre functions to integrate to zero which would imply that $\phi(Y)$ is symetric about $n\theta_0$.
+
+So we take 
+
+		$$t_1 = n\theta_0 - t_0 $$
+		$$t_2 = n\theta_0 + t_0 $$
+
+Then we only need to satifsy 
+
+		$$\Phi(\frac{-t_0}{\sqrt(n)}) + 1 - \Phi(\frac{t_0}{\sqrt(n)}) = \alpha $$
+
+We can solve
+
+		$$t_0 = \sqrt(n) \Phi^{-1} (1 - \frac{\alpha}{2}) $$
+
+So our UMPU-$\alpha$ test is 
+
+PHOTO
+
+
+\chapter{Testing Hypotheses in the Presense of Nuisance Pamameters}\index{Testing Hypotheses in the Presense of Nuisance Pamameters}
+
+
+$\Theta \subseteq \mathbb{R}^p$\\
+$\mathscr{P} = \{P_\theta: \theta \in \Theta \}$\\
+$\{\Theta_0, \Theta_1\}$ partition of $\Theta$\\
+
+		$$H_0: \theta \in \Theta_0 \quad H_1: \theta \in \Theta_1 $$
+
+Want the form of the UMPU-test (in this case we don't have a general UMP form). 
+
+More sepecifically	interested in testing one parameter (without loss of generality assume $\theta_1$ but we will treat $\theta_{2:p}$ as unknown).
+
+That is
+
+		$$H_0: \theta_1 \in A \quad H_1: \theta_1 \notin A $$
+
+For example, 
+
+		$$H_0: \theta_1 \in a \quad H_1: \theta \notin a $$
+
+where $\theta = \begin{pmatrix}
+	\theta_1 \\
+	\theta_2
+\end{pmatrix}$\\
+
+We may call $\theta_1$ the parameter of interest, and the others the nuisance parameters. 
+
+\begin{example}
+	$$X_1, \dots, X_n \sim N(\mu, \sigma^2) $$
+
+where $\sigma^2$ is unknown and we want to test
+	
+		$$H_0: \mu = 0 \quad H_1: \mu \neq 0 $$
+
+
+\end{example}
+
+These are the types of problems concerned in this chapter
+
+
+\section{Unbiased and Similar Tests}\index{Unbiased and Similar Tests}
+
+Recall that if $\E_\theta \phi$ is in $\theta$ then compact on $\bar{\mathscr{P}_0} \cap \bar{\mathscr{P}_1}$. Specialized to the current setting this result is: 
+
+\textbf{Proposition 4.1}: If $\theta \mapsto \E_\theta \phi(x)$ is continuous and $\phi$ is unbaised of size $\alpha$ then 
+
+		$$\E_\theta \phi(x) = \alpha \quad \forall \theta \in \bar{\mathscr{\Theta}}_0 \cap \bar{\mathscr{\Theta}}_1 = \Theta_B $$
+
+
+\begin{definition}
+	A test $\phi$ satisfying $\beta_\phi(\theta) = \alpha \quad \forall \theta, \theta \in \Theta_B$ is called an $\alpha$ similar test. 
+
+	A test $\phi$ is called UMP Similar-$\alpha$ test (or UMPS-$\alpha$ test) if
+
+			\begin{enumerate}
+			 	\item $\phi$  is $\alpha$ similar
+			 	\item if $\psi$ is $\alpha$-similar then 
+
+			 			$$\E_\theta \phi \geq \E_\theta \psi \quad \forall \theta \in \Theta $$ 
+			 \end{enumerate} 
+
+	Let $\mathscr{U}_\alpha$ be the collection of all unbiased test of size $\alpha$. Then we may say that $\mathscr{S}$ represent the collection of all $\alpha$-similar tests. 
+\end{definition}
+
+
+By Propsition 4.1, under the condition that $\E_\theta \phi(x)$ continuous in $\theta$, 
+
+		$$\mathscr{U}_\alpha \subseteq \mathscr{S}_\alpha $$
+
+
+\begin{theorem}
+	Suppose that $\beta_\phi (\theta)$ is continuous in $\theta$ for all $\phi(x)$. If $\phi$ is UMPS-$\alpha$ and also $\phi$ has size $\alpha$ then $\phi$ is UMPU-$\alpha$.
+\end{theorem}
+
+We need the notion of sufficiency, completeness, and later ancillary. Recall that T is sufficient if $P_\theta(\cdot| T)$ doesnt depend on $\theta$. Also that T is complete if $\E_\theta g(T) = 0 \quad \forall \theta$. 
+
+
+\textbf{Wednesday April 5}\\
+
+Sufficiency, $\{P_\theta, \theta \in \Theta \}, (\Omega, \mathcal{F})$. A statistic T, measurable on $\mathcal{F}$, is sufficient if for all $A \in \mathcal{F}$, $P_\theta(A||T)$ is the same for all $\theta \in \Theta$. 
+
+We say that T is sufficient on $G \subseteq \Theta$ if $P_\theta (A||T)$ is the same for all $\theta \in G$. 
+
+This is important when we need to talk about sufficiency for nuisance parameters. 
+
+
+Completeness. A statistic T, measurable on $\mathcal{F}$, is complete on $G \subseteq \Theta$ if for any $g \textcircled{m} T$, 
+
+		$$\E_\theta g(T) = 0 \quad \forall \theta \in G $$
+
+which implies that
+
+		$$g(T) = 0 \quad a.s. P_\theta \quad \forall \theta \in G $$
+
+T is bddly (bounded?) complete if the above holds for all bounded g measurable T. 
+
+
+\begin{remark}
+	In the presence of nuisance parameter, UMP may not exist even for one-sided hypothesis. So we'll always talk about UMPU test here. 
+\end{remark}
+
+Intuition about the theory:
+
+Suppose we want to test 
+
+		$$H_0: \theta_1 = a \quad H_1: \theta_1 \neq a $$
+
+Suppose there exists a statistic T that is sufficient for $\theta_{2:p}$ for each fixed $\theta$. Then the distribution of $P_\theta(X|T)$ is only a function of $\theta_1$. 
+
+		$$P_\theta (X \in A |T ) = P_{\theta_1} (X \in A | T) $$ 
+
+Now we turned k-parameter problem for ($\theta$) into one-parameter problem $(\theta_1$). That is, if we condition on statistic sufficient for nuisance parameter, then we get rid of the nuisance parameter. 
+
+Futhermore, suppose that the distribution of X|T ~ Exponential Family. Then we may use results to say that the tests above (the dah dah dah tests) are best for hypotheses I, II, III. 
+
+But the power that we maximized is the conditional probability, $P_{\theta_1} (X | T)$, while what we want is $P_\theta (X)$. 
+
+This is why we need completeness. 
+
+First, the notion of Neyman - Structure
+
+\begin{definition}
+	A test, $\phi(X)$ has $\alpha$-Neyman Structure with respect to a statistic, T, if 
+
+			$$\E_\theta [\phi(X)|T] = \alpha \text{ (a.s. } P_\theta) \quad \forall \theta \in \Theta_B $$
+
+	where $\Theta_B = \bar{\Theta}_0 \cap \bar{\Theta}_1$. 
+
+	We may let $N_\alpha (T)$ denote the collection of all $\phi$ with Neyman Structure with respect to T. 
+
+	Note that $N_\alpha (T) \subseteq \mathscr{S}_\alpha$ because, 
+
+			\begin{align*}
+				\phi \in N_\alpha(T) &\Rightarrow \E_\theta [\phi(X) | T] = \alpha\\
+					&\Rightarrow \E_\theta \phi(X) = \alpha
+			\end{align*}
+
+
+\end{definition}
+
+\begin{theorem}[4.2]
+	If T sufficient and bddly complete for $\theta \in \Theta_B$, then 
+
+			$$\mathscr{S} \subseteq N_\alpha (T)$$
+\end{theorem}
+
+\begin{proof}
+	Suppose $\phi \in \mathscr{S}_\alpha$. Then, 
+
+			$$\E_\theta \phi(X) = \alpha \quad \forall \theta \in \Theta_B$$
+
+			$$\E_\theta [\E_{\theta} (\phi(X) |T) - \alpha]= 0 $$
+
+			FINISH PROOF
+\end{proof}
+
+We can make a sligtly more general structure, 
+
+\textbf{Corollary 4.1} Suppose that
+
+		$$\Theta_B = \bigcup_{r = 1}^s \Theta_B^{(r)} $$
+
+and T is SBC on each $\Theta^{(r)}$. Then 
+
+		$$\mathscr{S}_\alpha \subset \mathscr{N}_\alpha (T) $$
+
+\begin{proof}
+	
+\end{proof}
+
+Recall that, 
+
+		$$\mathscr{U}_\alpha \subseteq \mathscr{S}_\alpha \supseteq \mathscr{N}_\alpha (T) $$
+
+Where first requires continuous power condition. 
+
+If we have that condition that T SCB either on $\Theta_B$ or each $\Theta_B^{(r)}$ then we get, 
+
+		$$\mathscr{U}_\alpha \subseteq \mathscr{S}_\alpha \subseteq \mathscr{N}_\alpha (T) $$
+
+In either case, under SBC, 
+
+		$$\mathscr{U}_\alpha \subseteq \mathscr{N}_\alpha (T) $$
+
+\section{Sufficient and Complete}
+
+For components of $\theta$ under exponential family, suppose that 
+
+		$$X \sim \frac{e^{\theta^T t_0 (x)}}{\int e^{\theta^T t_0 (x)} d\mu_0} $$
+
+and that $X_1, \dots, X_n \sim X$. 
+	
+
+
+\textbf{Friday April 7}\\
+
+
+Let 
+
+		$$X \sim \frac{e^{\theta^T t_0(x)}}{\int e^{\theta^T t_0(x)} d\mu_0 (X)} $$
+
+		$$(X_1, \dots, X_n) \sim \frac{e^{\theta^T t(x_1, \dots, x_n)}}{\int e^{\theta^T t(x_1, \dots, x_n)} d\mu_0 (x_1, \dots, x_n)} $$
+
+
+\begin{theorem}
+	Supppose we have $X_1, \dots, X_n$ from a exponentail family. Then, $t(X_1, \dots, X_n)$ are complete and sufficient for $\theta$. 
+
+			$$t(X_1, \dots, X_n) = \sum^n_{i=1} t_0(X_i) $$
+\end{theorem}
+
+\begin{proof}
+	We get sufficiency form Fisher's factorization theorem. Must show completeness. 
+
+	FINISH PROOF
+\end{proof}
+ 
+\textbf{Exponential Family}\\
+
+Marginal distribution is exponential family, so must conditional distribution be. 
+
+"Closed" under marginalization and conditioning.
+
+Let (U, V) be a pair of random vectors defined on ($\Omega_U x \Omega_V, \mathcal{F}_U x \mathcal{F}_V$) for any distribution, $P_{UV}$. Let $P_{U}$ be the marginal distribution and $P_{V|U}$ be the conditional distribution. 
+
+\textbf{Lemma 4.1} Let Q be a probability measure on ($\Omega_U x \Omega_V, \mathcal{F}_U x \mathcal{F}_V$) and P is another probability measure defined by 
+
+		$$dP = a(U) b(V) dQ $$
+
+where $a(\cdot) \geq 0, b(\cdot) \geq 0$ . 
+
+		$$\int a(U) b(V) dQ(U,V) = 1 $$
+
+Then 
+
+		\begin{enumerate}
+			\item $dP_U(u) = a(U) [\int b(V) dQ_{V|U} (v|u)]dQ_U(u)$ 
+			\item $dP_{V|U}(v|u) = \frac{b(V) dQ_{V|U} (v|u)}{\int b(V') dQ_{V|U} (v'|u) }$
+		\end{enumerate}
+
+
+\begin{proof}
+	\begin{enumerate}
+		\item FINISH PROOF
+		\item  
+	\end{enumerate}
+\end{proof}
+
+
+Now let 
+
+		$$t(\underline{X}) = \begin{pmatrix}
+			U(\underline{X})\\
+			V(\underline{X})
+		\end{pmatrix} $$
+
+and 
+
+		$$\theta = \begin{pmatrix}
+			\eta\\
+			\xi
+		\end{pmatrix} $$
+
+where $\theta^T t(X) = \eta^T U(\underline{X}) + \xi^T V(\underline{X})$
+
+\begin{theorem}
+	Suppose
+
+			$$\underline{X} \sim \frac{e^{\theta^T t(\underline{X})}}{\int e^{\theta^T t(\underline{X})} d\mu(\underline{X})} $$
+
+	Then 
+
+	\begin{enumerate}
+		\item For each fixed $\xi$ there exists a measure $\mu_\xi$ on $(\Omega_U, \mathcal{F}_U)$ such that
+
+				$$\frac{d P_U}{d\mu_\xi} = \frac{e^{\eta^T \eta}}{\int e^{\eta^T \eta} d\mu(U)} $$
+		\item For each u there exists a measure on $(\Omega_\nu, \mathcal{F}_\nu)$ such that
+
+				$$\frac{d P_{V|U}(v|u)}{d \mu_u} = \frac{e^{\xi^TV}}{\int e^{\xi^T V} d\mu_u} $$
+	\end{enumerate}
+
+
+\end{theorem}
+
+\textbf{Monday April 10}\\
+
+\begin{proof}
+	\begin{enumerate}
+		\item
+		\item  
+	\end{enumerate}
+\end{proof}
+
+\textbf{Corollary 4.2} Suppose that
+
+		$$X_1, \dots, X_n) \sim \frac{e^{\theta^T t(X_{1:n})}}{\int e^{\theta^T t(X_{1:n})} d\mu(X_{1:n})} $$
+
+then for each fixed $\theta_1 = a$, $T_{2:p} = t_{2:p}(x_1, \dots, x_n)$ is complete sufficient for 
+
+		$$\Theta_{(a)} = \{\theta: \theta_1 \leq a \} $$
+
+\section{UMPU test in the presence of Nusience Parameter}\index{UMPU with nusience parameter}
+
+\textbf{Lemma 4.2} Suppose that $T = t(X_1, \dots, X_n)$ is sufficient for $\Theta$. Then, for any $\phi(X_1, \dots, X_n)$ there exists a 
+
+		$$\psi(t(x_1, \dots, x_n)) = \psi_0 t(x_1, \dots, x_n) $$
+
+such that
+
+		$$\beta_{\psi_{0t}}(\theta) = \beta_{\phi}(\theta)  \quad \forall \theta $$
+
+
+\begin{proof}
+	
+
+\end{proof}
+
+\begin{theorem}[4.6]
+	Suppose we have $X_1, \dots, X_n$ are iid ~ Exp Family. Then we have
+
+			$$\phi_0(z) = (\_.-|t_{2:p}) $$
+
+	such that 
+
+			$$\E_n (\phi_0(T) | T_{2:p}) = \alpha $$
+
+	is UMPU-$\alpha$ for testing $H_0: \theta_1 \leq a \quad H_1: \theta_1 > a$
+\end{theorem}
+
+\begin{theorem}[4.7]
+	We we have $X_1, \dots, X_n$ is distributed as Exponential Family then for testing:
+
+		\begin{enumerate}
+			\item Hypothesis III: $H_0: \theta_1 \in (a, b)^c \quad H_1: \theta_1 \in (a, b)$
+
+			The test $\phi_0(T) = \_.-.\_|t_{2:p}$ with $\E_a(\phi_0|t_{2:p}) = \E_a (\phi_0|t_{2:p}) = \alpha$ is UMPU-$\alpha$ test. 
+			
+			\item Hypothesis II: $H_0: \theta_1 \in [a,b] \quad H_1: \theta_1 \in [a,b]^c$
+
+			The test $\phi_0(T) = -.\_.-|t_{2:p}$ with $\E_a(\phi|t_{2:p}) = \E_a (\phi|t_{2:p}) = \alpha$ is UMPU-$\alpha$ test.
+
+			\item Hypothesis I: $H_0: \theta_1 =a \quad H_1: \theta_1 \neq a$
+
+			The test $\phi_0(T) = -.\_.-|t_{2:p}$ with $\E_a(\phi|t_{2:p}) = \E_a (\phi|t_{2:p}) = \alpha$ and $\E_a (\phi_0 (T) T_1| t_{2:p}) = \alpha \E_a(T_1 |t_{2:p})$ is UMPU-$\alpha$ test. 
+		\end{enumerate}
+\end{theorem}
+
+
+\section{Using Basu's Theorem to construct UMPU in presence of nuisance parameters}\index{Using Basu's Theorem to construct UMPU in presence of nuisance parameters}
+
+A technique simplifying UMPU construction so we need the thresheholds for the different hypothesis test forms, $t_1, t_2, \gamma_1, \gamma_2$. 
+
+These are determined by conditional probability such as 
+
+		$$\E_a (\phi_0|t_{2:p}) = \alpha $$
+In special cases, these can be reduced to conditional probabilities which leads to all of the famous tests, student -t, Pearsons test, F-test...
+
+\begin{theorem}[Basu's Theorem]
+	Suppose $X \sim P_\theta$, T(x) is sufficient and bddly complete for $\theta$; U(x) is ancillary for $\theta$. (This means that the distrubiton of U(x) doesn't depend on $\theta$. ) Then $T(x) \indep U(x)$.
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+
+But how do we find ancillary statistics?
+
+One -way: by invariance. 
+
+Let $\mathcal{G}$ be a group of transformations $\Omega \rightarrow \Omega$. Let $\mathcal{P}$ be a family of distrubitons on $(\Omega, \mathcal{F})$. For each $g \in \mathcal{G}$
+it induces a transformation, $\tilde{g}: \mathcal{P} \rightarrow \mathcal{P}$, $p \mapsto P_0 g^{-1}$, that is to say $\tilde{g}(P) = P \circ g^{-1}$. It is easy to show that $\tilde{\mathcal{G}} = \{\tilde{g} : g \in \mathcal{G} \}$ is a group of transformations. 
+
+A group is transitive if for any $p \in \mathcal{P}$, $\{\tilde{g}(p):\tilde{g} \in \tilde{\mathcal{G}} \} = \mathcal{P}$. 
+
+A statistic V is ancillary if the distribution of V under P is the same for all $p \in P$. 
+
+
+\textbf{14 April 2017}\\
+
+\begin{theorem}
+	Suppose V is a random element on $(\Omega, \mathcal{F})$. $\mathcal{P}$ is a family of probability measure on $(\Omega, \mathcal{F})$; $\mathcal{G}$ is a group of transformations $\Omega \rightarrow \Omega$. 
+
+	Suppose that 
+
+			\begin{enumerate}
+				\item $\mathcal{P}$ is invarience under $\mathcal{G}$
+				\item V is invarient under $\mathcal{G}$
+				\item $\tilde{\mathcal{G}}$ is transitive 
+			\end{enumerate}
+
+	then V is ancillary. 
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\textbf{Lemma 4.3} Suppose that $(\Omega, \mathcal{F}, P)$ is probability space, $(\Omega_v, \mathcal{F}_v)$ is measure space.
+
+		$$v: \Omega \rightarrow \Omega_v \textcircled{m} \mathcal{F}/\mathcal{F}_v $$
+		$$g: \Omega \rightarrow \Omega $$
+
+then $(p \circ g^{-1} \circ v^{-1}(A) = P_0 (v \circ g) ^{-1} (A)$. 
+
+\textbf{17 April 2017}\\
+
+
+
+
+
+ %----------------------------------------------------------------------------------------
 % %	CHAPTER 5
 % %----------------------------------------------------------------------------------------
 
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
+% \chapterimage{chappter_head_1.pdf} % Chapter heading image
 
 % \chapter{Convergence in Probability/Limit Theorem}
 
-
-% %----------------------------------------------------------------------------------------
-% %	CHAPTER 6
-% %----------------------------------------------------------------------------------------
-
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-% \chapter{Radon-Nikodym Derivative Theorem}
-
-% %----------------------------------------------------------------------------------------
-% %	CHAPTER 7
-% %----------------------------------------------------------------------------------------
-
-% \chapterimage{chapter_head_1.pdf} % Chapter heading image
-
-% \chapter{Special Topics}
 
 
 %----------------------------------------------------------------------------------------

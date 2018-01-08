@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber 561notes"] 1483990495 "561notes.bcf" "561notes.bbl" "561notes" 1488074033
-  "561notes.bcf" 1488074033 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
+["biber 561notes"] 1483990495 "561notes.bcf" "561notes.bbl" "561notes" 1493433091
+  "561notes.bcf" 1493433091 92008 4f4359f3a002f6c29873be0f07b1e0c0 ""
   (generated)
   "561notes.blg"
   "561notes.bbl"
-["makeindex 561notes.idx"] 1487793206 "561notes.idx" "561notes.ind" "561notes" 1488074033
-  "561notes.idx" 1488074033 638 1e0e52fe40da8dcbfa4914ab34d6cfa5 ""
+["makeindex 561notes.idx"] 1493433075 "561notes.idx" "561notes.ind" "561notes" 1493433091
+  "561notes.idx" 1493433091 1173 4054ea9e45ed25fb8ebf7cc2357ae72e ""
   (generated)
-  "561notes.ilg"
   "561notes.ind"
-["pdflatex"] 1488074030 "561notes.tex" "561notes.pdf" "561notes" 1488074033
+  "561notes.ilg"
+["pdflatex"] 1493433087 "561notes.tex" "561notes.pdf" "561notes" 1493433091
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/avantgar/pagd8t.tfm" 1136768653 7216 ce159066bacd323ac1e4527281f7a233 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/avantgar/pagk8t.tfm" 1136768653 7340 62d51a8cc96448508dcbcfef0e69f404 ""
@@ -207,23 +207,23 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1469733451 3543480 da607bcc6e7a6f76665f8a2c4c599711 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "561notes.aux" 1488074033 9864 a014c6d418eb9b261e92967974d6eb0b ""
+  "561notes.aux" 1493433091 16280 6105f4125bbfaf5623e3fea8698dc371 ""
   "561notes.bbl" 1483990498 466 fbca89dc3e3cb765908de4b0f2010489 "biber 561notes"
-  "561notes.ind" 1487793206 754 9b8ac4ece3a5417f29a5c8962d666b8c "makeindex 561notes.idx"
-  "561notes.ptc" 1488074033 3116 9267d1892911a61668d105f57ec696dc ""
-  "561notes.run.xml" 1488074033 2338 9ea0faba5657285425e2231848643935 ""
-  "561notes.tex" 1488074030 98425 0305c48adca68ac20f6622a366167c5c ""
-  "561notes.toc" 1488074033 3090 4b1124be57c3e65494515e678bfc3607 ""
+  "561notes.ind" 1493433075 1300 4b638f047496d019d1ae3e798d405cdb "makeindex 561notes.idx"
+  "561notes.ptc" 1493433091 5828 053543ac407acab43e0e00cddbcfb256 ""
+  "561notes.run.xml" 1493433091 2338 9ea0faba5657285425e2231848643935 ""
+  "561notes.tex" 1493433087 145724 3cdd12e8c44e9ab9f954b5f92ec1db9c ""
+  "561notes.toc" 1493433091 5802 bebf59e25a78a254fa5abbe6849fb9a7 ""
   "background.pdf" 1364162078 15253 d9a03f6e202671124db1172af03625d4 ""
   "chapter_head_1.pdf" 1350855622 92598 02e37cf41c589760ac56129669747481 ""
   "chapter_head_2.pdf" 1363762202 156812 0342733a9ef42f670bc50ccfbd949b75 ""
   "structure.tex" 1423537502 19276 badca763ccfce26b82e4de8719aada43 ""
   (generated)
-  "561notes.run.xml"
+  "561notes.log"
+  "561notes.pdf"
   "561notes.aux"
   "561notes.bcf"
   "561notes.idx"
-  "561notes.log"
   "561notes.toc"
   "561notes.ptc"
-  "561notes.pdf"
+  "561notes.run.xml"

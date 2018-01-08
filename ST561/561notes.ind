@@ -1,5 +1,6 @@
 \begin{theindex}
 
+  \item Basic Concepts, \hyperpage{61}
   \item Bayes Rule and Unbiasedness, \hyperpage{43}
 
   \indexspace
@@ -16,6 +17,7 @@
 
   \indexspace
 
+  \item Empirical Bayes, \hyperpage{56}
   \item Equivalence of Frequentist \& Bayesian Sufficiency, 
 		\hyperpage{18}
   \item Estimation, \hyperpage{39}
@@ -34,6 +36,21 @@
 
   \indexspace
 
+  \item Neyman-Pearson Lemma, \hyperpage{62}
   \item Noninformative Prior, \hyperpage{27}
+
+  \indexspace
+
+  \item Testing Hypotheses in the Presense of Nuisance Pamameters, 
+		\hyperpage{79}
+
+  \indexspace
+
+  \item UMP Test - One Sided, \hyperpage{66}
+  \item UMPU Test - 2 sided Hypothesis, \hyperpage{70}
+  \item UMPU with nusience parameter, \hyperpage{84}
+  \item Unbiased and Similar Tests, \hyperpage{80}
+  \item Using Basu's Theorem to construct UMPU in presence of nuisance parameters, 
+		\hyperpage{84}
 
 \end{theindex}
